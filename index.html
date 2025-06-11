@@ -3,111 +3,168 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Naenae Design Studio</title>
+  <title>NaeNae Design Studio</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --primary: #222;
+      --accent: #c0a062;
+      --bg: #fafafa;
+    }
+    * {
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Montserrat', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #fafafa;
-      color: #333;
+      background-color: var(--bg);
+      color: var(--primary);
     }
     header {
-      background-color: #ffffff;
-      padding: 2rem;
+      background-color: #fff;
+      padding: 3rem 1rem;
       text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
     }
     header img.logo {
-      max-width: 120px;
+      max-width: 100px;
       margin-bottom: 1rem;
     }
     header h1 {
       margin: 0;
-      font-size: 2rem;
-      color: #222;
+      font-size: 2.5rem;
+      font-weight: 600;
     }
     header p {
       margin: 0.5rem 0 0;
-      color: #777;
+      color: #666;
+    }
+    nav {
+      background: #fff;
+      padding: 1rem;
+      text-align: center;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 500;
     }
     main {
-      padding: 2rem;
-      max-width: 800px;
+      padding: 2rem 1rem;
+      max-width: 1000px;
       margin: 0 auto;
     }
     section {
-      margin-bottom: 3rem;
+      margin-bottom: 4rem;
     }
     h2 {
-      font-size: 1.5rem;
-      color: #444;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
     }
     p {
-      line-height: 1.6;
+      line-height: 1.8;
+      font-size: 1.1rem;
     }
     .photo-gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
     }
     .photo-gallery img {
       width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #fff;
-      color: #aaa;
-      font-size: 0.9rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .contact-btn {
       display: inline-block;
-      margin-top: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: #222;
-      color: white;
+      margin-top: 1.5rem;
+      padding: 1rem 2rem;
+      background-color: var(--primary);
+      color: #fff;
       text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+    .coming-soon {
+      background-color: #fff8e7;
+      padding: 3rem 2rem;
+      text-align: center;
+      border: 2px dashed var(--accent);
+      border-radius: 12px;
+      margin: 3rem 0;
+    }
+    .coming-soon h2 {
+      font-size: 2rem;
+      color: var(--accent);
+    }
+    .coming-soon p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+    footer {
+      background-color: #f3f3f3;
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #999;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://via.placeholder.com/120x120.png?text=Logo" alt="Naenae Design Logo" class="logo" />
-    <h1>NaeNae Design Studio</h1>
-    <p>Kitchen & Interior Design |  Australia</p>
+    <img src="https://via.placeholder.com/100x100.png?text=N" alt="Naenae Design Logo" class="logo" />
+    <h1>Naenae Design Studio</h1>
+    <p>Kitchen & Interior Design | Sydney, Australia</p>
   </header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
   <main>
-    <section>
+    <section class="coming-soon">
+      <h2>🚀 AI-Powered Interior Design is Coming Soon!</h2>
+      <p>We’re excited to introduce smart, intuitive design tools powered by AI — helping you plan, visualize, and personalize your dream spaces like never before. Launching soon at Naenae Studio!</p>
+    </section>
+    <section id="about">
       <h2>About Me</h2>
-      <p>Welcome to Naenae Design Studio. I'm passionate about creating beautiful, functional kitchen and home spaces that reflect your style and make everyday living inspiring.</p>
+      <p>At Naenae Design Studio, I combine modern aesthetics with practical functionality to bring your vision to life. With years of experience in Australian home design, I focus on creating interiors that are both timeless and tailored to your lifestyle.</p>
     </section>
-    <section>
+    <section id="services">
       <h2>Services</h2>
-      <p>I offer full-service interior design including kitchen renovations, space planning, and bespoke furniture recommendations to suit Australian homes and lifestyles.</p>
+      <p>I offer complete interior solutions including:</p>
+      <ul>
+        <li>✨ Kitchen Renovation & Layout</li>
+        <li>🛋️ Living Room Makeovers</li>
+        <li>🖼️ Space Planning & Styling</li>
+        <li>🛠️ Project Management</li>
+        <li>📐 Custom Cabinet & Furniture Design</li>
+      </ul>
     </section>
-    <section>
+    <section id="projects">
       <h2>Project Gallery</h2>
       <div class="photo-gallery">
-        <img src="https://via.placeholder.com/400x300.png?text=Kitchen+Design+1" alt="Kitchen Design 1">
-        <img src="https://via.placeholder.com/400x300.png?text=Living+Space" alt="Living Space">
-        <img src="https://via.placeholder.com/400x300.png?text=Modern+Bathroom" alt="Modern Bathroom">
+        <img src="https://via.placeholder.com/600x400.png?text=Modern+Kitchen" alt="Modern Kitchen">
+        <img src="https://via.placeholder.com/600x400.png?text=Elegant+Living+Room" alt="Living Room">
+        <img src="https://via.placeholder.com/600x400.png?text=Luxury+Bathroom" alt="Bathroom Design">
+        <img src="https://via.placeholder.com/600x400.png?text=Custom+Cabinetry" alt="Custom Cabinetry">
       </div>
     </section>
-    <section>
+    <section id="contact">
       <h2>Contact</h2>
-      <p>Ready to start your home transformation? I'd love to hear from you.</p>
-      <a href="mailto:behrouz@naenae.au" class="contact-btn">Email Me</a>
+      <p>Have a project in mind? Let's work together to create something beautiful. Reach out anytime!</p>
+      <a href="behrouz@naenae.au" class="contact-btn">Contact Me</a>
     </section>
   </main>
   <footer>
-    &copy; Naenae Design Studio. All rights reserved.
+    &copy; Naenae Design Studio by Naenae Holding — Australia. All rights reserved.
   </footer>
 </body>
 </html>
