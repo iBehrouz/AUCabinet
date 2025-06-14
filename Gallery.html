@@ -1,0 +1,73 @@
+import React, { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+
+const initialImages = [
+  {
+    id: 1,
+    title: "Modern Workspace",
+    description: "A clean and modern office setup.",
+    url: "https://source.unsplash.com/featured/?workspace",
+  },
+  {
+    id: 2,
+    title: "Creative Team",
+    description: "Designers collaborating on a new project.",
+    url: "https://source.unsplash.com/featured/?teamwork",
+  },
+];
+
+export default function GalleryPage() {
+  const [images, setImages] = useState(initialImages);
+
+  const handleEdit = (id, field, value) => {
+    setImages(images.map(img => img.id === id ? { ...img, [field]: value } : img));
+  };
+
+  const handleDelete = (id) => {
+    setImages(images.filter(img => img.id !== id));
+  };
+
+  const handleAdd = () => {
+    const newId = Date.now();
+    setImages([
+      ...images,
+      {
+        id: newId,
+        title: "New Title",
+        description: "New Description",
+        url: "https://source.unsplash.com/featured/?technology"
+      },
+    ]);
+  };
+
+  return (
+    <div className="p-6 max-w-6xl mx-auto">
+      <h1 className="text-3xl font-bold mb-6">Hithub Pros Gallery</h1>
+      <Button onClick={handleAdd} className="mb-4">Add New Image</Button>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {images.map((img) => (
+          <Card key={img.id} className="relative">
+            <img src={img.url} alt={img.title} className="w-full h-48 object-cover rounded-t-2xl" />
+            <CardContent className="space-y-2 p-4">
+              <Input
+                value={img.title}
+                onChange={(e) => handleEdit(img.id, "title", e.target.value)}
+                className="font-bold text-lg"
+              />
+              <Textarea
+                value={img.description}
+                onChange={(e) => handleEdit(img.id, "description", e.target.value)}
+              />
+              <Button onClick={() => handleDelete(img.id)} variant="destructive">
+                Delete
+              </Button>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}
