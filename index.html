@@ -1,174 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Cabinets</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; }
-        header { background: #333; color: white; padding: 20px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; }
-        nav a:hover { text-decoration: underline; }
-        .container { padding: 20px; }
-        footer { background: #333; color: white; text-align: center; padding: 10px; position: fixed; width: 100%; bottom: 0; }
-        .gallery img { width: 100%; max-width: 300px; margin: 10px; border-radius: 8px; }
-        .gallery { display: flex; flex-wrap: wrap; justify-content: center; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NaeNae Design</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; color: #333; }
+    header { position: sticky; top: 0; background: white; padding: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 999; }
+    nav { display: flex; justify-content: space-between; align-items: center; }
+    nav a { margin: 0 1rem; text-decoration: none; color: #333; font-weight: bold; }
+    .hero { background: url('https://source.unsplash.com/1600x900/?kitchen') center/cover no-repeat; height: 80vh; display: flex; align-items: center; justify-content: center; color: white; text-shadow: 2px 2px 5px rgba(0,0,0,0.7); }
+    .hero h1 { font-size: 3rem; }
+    section { padding: 4rem 2rem; max-width: 1200px; margin: auto; }
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+    .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+    footer { background: #333; color: white; text-align: center; padding: 1rem; }
+    form { display: flex; flex-direction: column; max-width: 600px; margin: auto; gap: 1rem; }
+    input, textarea { padding: 1rem; border: 1px solid #ccc; border-radius: 5px; }
+    button { padding: 1rem; background: #333; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    @media (max-width: 600px) { .hero h1 { font-size: 2rem; } nav { flex-direction: column; } }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Master Cabinets</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-    <div class="container">
-        <h2>Welcome to Master Cabinets</h2>
-        <p>We craft custom cabinetry with precision and care. Whether it's your kitchen, bathroom, or office, we create cabinets that fit your space and style perfectly.</p>
+  <header>
+    <nav>
+      <div><strong>NaeNae Design</strong></div>
+      <div>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>Transform Your Kitchen</h1>
+  </div>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>NaeNae Design is dedicated to creating stunning, functional kitchen spaces. With expert craftsmanship and personalized service, we bring your vision to life.</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Custom Kitchen Cabinets</li>
+      <li>Countertop Design</li>
+      <li>Full Kitchen Renovations</li>
+      <li>3D Design Consultations</li>
+    </ul>
+  </section>
+
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://source.unsplash.com/400x400/?kitchen1" alt="Gallery Image 1">
+      <img src="https://source.unsplash.com/400x400/?kitchen2" alt="Gallery Image 2">
+      <img src="https://source.unsplash.com/400x400/?kitchen3" alt="Gallery Image 3">
+      <img src="https://source.unsplash.com/400x400/?kitchen4" alt="Gallery Image 4">
+      <img src="https://source.unsplash.com/400x400/?kitchen5" alt="Gallery Image 5">
+      <img src="https://source.unsplash.com/400x400/?kitchen6" alt="Gallery Image 6">
     </div>
-    <footer>
-        &copy; 2025 Master Cabinets. All Rights Reserved.
-    </footer>
-</body>
-</html>
+  </section>
 
-<!-- about.html -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form action="mailto:random@email.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Master Cabinets</title>
-    <style>/* Same styles as above */</style>
-</head>
-<body>
-    <header>
-        <h1>Master Cabinets</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-    <div class="container">
-        <h2>About Us</h2>
-        <p>With over 20 years of experience, Master Cabinets specializes in custom-built cabinetry, combining traditional craftsmanship with modern design.</p>
-    </div>
-    <footer>
-        &copy; 2025 Master Cabinets. All Rights Reserved.
-    </footer>
-</body>
-</html>
-
-<!-- services.html -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - Master Cabinets</title>
-    <style>/* Same styles as above */</style>
-</head>
-<body>
-    <header>
-        <h1>Master Cabinets</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-    <div class="container">
-        <h2>Our Services</h2>
-        <ul>
-            <li>Kitchen Cabinets</li>
-            <li>Bathroom Vanities</li>
-            <li>Custom Wardrobes</li>
-            <li>Office Storage Solutions</li>
-            <li>Entertainment Units</li>
-        </ul>
-    </div>
-    <footer>
-        &copy; 2025 Master Cabinets. All Rights Reserved.
-    </footer>
-</body>
-</html>
-
-<!-- gallery.html -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Master Cabinets</title>
-    <style>/* Same styles as above */</style>
-</head>
-<body>
-    <header>
-        <h1>Master Cabinets</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-    <div class="container">
-        <h2>Gallery</h2>
-        <div class="gallery">
-            <img src="images/kitchen1.jpg" alt="Kitchen Cabinet">
-            <img src="images/bathroom1.jpg" alt="Bathroom Vanity">
-            <img src="images/wardrobe1.jpg" alt="Custom Wardrobe">
-            <img src="images/office1.jpg" alt="Office Storage">
-        </div>
-    </div>
-    <footer>
-        &copy; 2025 Master Cabinets. All Rights Reserved.
-    </footer>
-</body>
-</html>
-
-<!-- contact.html -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Master Cabinets</title>
-    <style>/* Same styles as above */</style>
-</head>
-<body>
-    <header>
-        <h1>Master Cabinets</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
-    <div class="container">
-        <h2>Contact Us</h2>
-        <p>Email: info@mastercabinets.com</p>
-        <p>Phone: (123) 456-7890</p>
-        <p>Address: 123 Cabinet Street, Woodtown</p>
-    </div>
-    <footer>
-        &copy; 2025 Master Cabinets. All Rights Reserved.
-    </footer>
+  <footer>
+    <p>&copy; 2025 NaeNae Design. All rights reserved.</p>
+  </footer>
 </body>
 </html>
