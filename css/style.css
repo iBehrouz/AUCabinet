@@ -103,6 +103,7 @@
 }
 
 @media (max-width: 991.98px) {
+    /* existing styles you have */
     .navbar-light .navbar-nav .nav-link  {
         margin-right: 0;
         padding: 10px 0;
@@ -111,16 +112,26 @@
     .navbar-light .navbar-nav {
         border-top: 1px solid #EEEEEE;
     }
-}
 
-.navbar-light .navbar-brand,
-.navbar-light a.btn {
-    height: 75px;
-}
+    /* NEW: make container-fluid flex row to align logo, showroom button, toggler inline */
+    .navbar-light .container-fluid {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 
-.navbar-light .navbar-nav .nav-link {
-    color: var(--dark);
-    font-weight: 500;
+    /* NEW: shrink showroom button so it fits nicely next to logo */
+    .navbar-light a.btn {
+        padding: 0.35rem 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    /* NEW: slightly smaller brand text */
+    .navbar-light .navbar-brand h2 {
+        font-size: 1.25rem;
+    }
 }
 
 /* Desktop sticky with slide-up */
