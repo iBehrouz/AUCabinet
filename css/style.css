@@ -103,18 +103,18 @@
 }
 
 @media (max-width: 991.98px) {
-    /* existing styles you have */
-    .navbar-light .navbar-nav .nav-link  {
+    /* existing styles */
+    .navbar-dark .navbar-nav .nav-link {
         margin-right: 0;
         padding: 10px 0;
     }
 
-    .navbar-light .navbar-nav {
+    .navbar-dark .navbar-nav {
         border-top: 1px solid #EEEEEE;
     }
 
-    /* NEW: make container-fluid flex row to align logo, showroom button, toggler inline */
-    .navbar-light .container-fluid {
+    /* make container-fluid flex row to align logo, showroom button, toggler inline */
+    .navbar-dark .container-fluid {
         display: flex !important;
         align-items: center;
         justify-content: space-between;
@@ -122,14 +122,14 @@
         padding-right: 1rem;
     }
 
-    /* NEW: shrink showroom button so it fits nicely next to logo */
-    .navbar-light a.btn {
+    /* shrink showroom button so it fits nicely next to logo */
+    .navbar-dark a.btn {
         padding: 0.35rem 0.7rem;
         font-size: 0.9rem;
     }
 
-    /* NEW: slightly smaller brand text */
-    .navbar-light .navbar-brand h2 {
+    /* slightly smaller brand text */
+    .navbar-dark .navbar-brand h2 {
         font-size: 1.25rem;
     }
 }
