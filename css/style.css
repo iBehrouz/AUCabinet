@@ -123,9 +123,21 @@
     font-weight: 500;
 }
 
-.navbar-light.sticky-top {
+/* Desktop sticky with slide-up */
+@media (min-width: 992px) {
+  .navbar-light.sticky-top {
     top: -100px;
-    transition: .5s;
+    transition: 0.5s;
+  }
+}
+
+/* Disable sticky & slide-up on mobile */
+@media (max-width: 991.98px) {
+  .sticky-top {
+    position: static !important;
+    top: auto !important;
+    transition: none !important;
+  }
 }
 
 @media (min-width: 992px) {
