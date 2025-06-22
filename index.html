@@ -45,23 +45,32 @@
 
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top p-0">
-        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary">NaeNae Design</h2>
-        </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top p-0">
+  <div class="container-fluid px-4 px-lg-5 d-flex align-items-center justify-content-between">
+    
+    <a href="index.html" class="navbar-brand d-flex align-items-center">
+      <h2 class="m-0 text-primary">NaeNae Design</h2>
+    </a>
 
-                    </div>
-                </div>
-            </div>
-            <a href="gallery.html" class="btn btn-primary py-4 px-lg-5  d-lg-block">Showroom<i class="fa fa-arrow-right ms-3"></i></a>
-        </div>
-    </nav>
+    <a href="gallery.html" class="btn btn-primary py-2 px-3 d-lg-block d-block me-3">
+      Showroom <i class="fa fa-arrow-right ms-2"></i>
+    </a>
+
+    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+  </div>
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <div class="navbar-nav ms-auto p-4 p-lg-0">
+      <a href="index.html" class="nav-item nav-link active">Home</a>
+      <!-- other nav links -->
+      <!-- optionally add a showroom link here with d-lg-none for mobile menu -->
+      <a href="gallery.html" class="nav-item nav-link d-lg-none">Showroom</a>
+    </div>
+  </div>
+</nav>
     <!-- Navbar End -->
 
 
