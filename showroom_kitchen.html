@@ -100,12 +100,12 @@
 </head>
 <body>
 
-<h1>My Dynamic Gallery</h1>
+<h1></h1>
 <div class="gallery" id="gallery"></div>
 
 <script>
 async function loadGallery() {
-  const response = await fetch('https://api.github.com/repos/ibehrouz/ibehrouz.github.io/contents/photos/basic');
+  const response = await fetch('https://api.github.com/repos/ibehrouz/ibehrouz.github.io/contents/photos/kitchen');
   const files = await response.json();
 
   const galleryDiv = document.getElementById('gallery');
