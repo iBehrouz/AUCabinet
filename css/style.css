@@ -1,57 +1,102 @@
-/* --- AU CABINET PROFESSIONAL REFRESH --- */
+/* --- AU CABINET DARK LUXURY THEME --- */
 
-/* 1. Typography: Luxury Serif for Headings */
-h1, h2, h3, .navbar-brand {
-    font-family: 'Playfair Display', serif !important; /* Elegant architectural look */
-    letter-spacing: 1px;
-    font-weight: 700;
-}
-
-/* 2. Modern Color Palette (Charcoal & Soft White) */
 :root {
-    --primary: #1a1a1a; /* Professional Black/Charcoal */
-    --accent: #b89564;  /* Muted Gold/Timber tone (optional) */
+    --primary-gold: #c5a059;
+    --dark-deep: #000000;
+    --dark-card: #1a1a1a;
+    --text-gray: #b0b0b0;
+    --white: #ffffff;
 }
 
-.text-primary { color: var(--primary) !important; }
-.bg-primary { background-color: var(--primary) !important; }
+body {
+    background-color: var(--dark-deep);
+    color: var(--text-gray);
+    font-family: 'Inter', sans-serif;
+}
 
+h1, h2, h3, h4, .navbar-brand {
+    font-family: 'Playfair Display', serif !important;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 1px;
+}
+
+/* Navbar - High End Dark */
+.navbar {
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.nav-link {
+    color: var(--white) !important;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-gold) !important;
+}
+
+/* Buttons */
 .btn-primary {
-    background-color: var(--primary);
-    border-color: var(--primary);
-    border-radius: 0px; /* Square buttons look more custom/high-end */
-    padding: 12px 30px;
-    transition: 0.4s;
+    background-color: var(--primary-gold);
+    border: none;
+    color: #000;
+    font-weight: 600;
+    border-radius: 0px;
+    padding: 12px 25px;
+    transition: 0.3s;
 }
 
 .btn-primary:hover {
-    background-color: #333;
-    border-color: #333;
+    background-color: #e2bd78;
+    transform: translateY(-2px);
 }
 
-/* 3. Clean Navbar */
-.navbar-dark {
-    background-color: #ffffff !important; /* Change to white for a cleaner look */
-}
-
-.navbar-dark .nav-link {
-    color: #1a1a1a !important;
-}
-
-/* 4. Service Card Modernization */
+/* Dark Service Cards */
 .service-item {
-    border: 1px solid #eee !important;
-    background: #fff;
-    transition: all 0.5s ease;
+    background: var(--dark-card);
+    border: 1px solid #222 !important;
+    border-radius: 0px;
+    transition: 0.4s;
+}
+
+.service-item h4 {
+    color: var(--primary-gold);
 }
 
 .service-item:hover {
-    box-shadow: 0 15px 30px rgba(0,0,0,0.08);
     transform: translateY(-10px);
+    border-color: var(--primary-gold) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5) !important;
 }
 
-/* 5. Footer Professionalism */
+/* Hero Section Adjustments */
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Footer */
 .footer {
-    background: #111 !important;
-    border-top: 5px solid #222;
+    background-color: #080808 !important;
+    border-top: 1px solid #222;
+    color: var(--text-gray);
+}
+
+.footer h4 {
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.btn-social {
+    color: var(--primary-gold);
+    border: 1px solid var(--primary-gold);
+    margin-right: 10px;
+}
+
+.btn-social:hover {
+    background: var(--primary-gold);
+    color: #000;
 }
