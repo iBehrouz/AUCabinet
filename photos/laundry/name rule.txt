@@ -1,0 +1,7 @@
+
+For Laundry (showroom_laundry.html):
+Modern: include modern in filename.
+Overhead: include overhead in filename (for wall cabinets).
+Utility: include utility in filename (for broom closets/deep storage).
+Minimal: include minimal in filename (for handleless looks).
+Stone: include stone in filename (if showing premium benchtops).

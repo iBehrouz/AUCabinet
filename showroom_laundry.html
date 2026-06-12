@@ -3,19 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <title>NaeNae Design</title>
+    <title>Laundry Showroom | AU Cabinet</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link rel="icon" href="favicon2.ico" type="image/x-icon" />
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"> 
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -23,180 +18,222 @@
 
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-gold: #c5a059;
+            --dark-bg: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-light: #e0e0e0;
+        }
+
+        body { background-color: var(--dark-bg); color: var(--text-light); font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, h4, .navbar-brand { font-family: 'Playfair Display', serif; color: #fff; }
+        
+        .accent { color: var(--primary-gold); }
+        a { text-decoration: none; transition: 0.3s; }
+        
+        /* Navbar */
+        .navbar-dark { background: #000 !important; border-bottom: 1px solid #222; }
+        .nav-link { text-transform: uppercase; letter-spacing: 1px; font-size: 11px; }
+        
+        /* Compact Style Cards */
+        .style-card { 
+            background: var(--card-bg); 
+            border: 1px solid #222; 
+            padding: 15px; 
+            transition: 0.3s; 
+            cursor: pointer;
+            text-align: center;
+            height: 100%;
+        }
+        .style-card.active { border-color: var(--primary-gold); box-shadow: 0 0 10px rgba(197, 160, 89, 0.2); }
+        .style-card i { color: var(--primary-gold); font-size: 1.2rem; margin-bottom: 10px; display: block; }
+        .style-card h4 { font-size: 0.75rem; letter-spacing: 1px; margin: 0; text-transform: uppercase; }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+        }
+        .gallery-grid a { display: block; overflow: hidden; border: 1px solid #222; animation: fadeIn 0.5s ease; }
+        .gallery-grid img { width: 100%; height: 280px; object-fit: cover; display: block; transition: 0.5s; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-gold { background: var(--primary-gold); color: #000; font-weight: 600; padding: 10px 25px; border: none; text-transform: uppercase; font-size: 0.8rem; }
+        .section-line { width: 40px; height: 1px; background: var(--primary-gold); margin: 15px auto; }
+
+        /* Footer */
+        .footer { background: #000 !important; border-top: 1px solid #222; padding: 80px 0 40px; }
+        .contact-link-tel { color: #fff; font-size: 1.3rem; font-weight: 400; }
+        .contact-link-email { color: #fff; font-size: 0.95rem; font-weight: 400; }
+    </style>
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <!-- Spinner End -->
-
-
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top p-0">
-        <a href="gallery.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary">SHOWROOM</h2>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top p-0 px-4 px-lg-5">
+        <a href="index.html" class="navbar-brand py-2">
+            <img src="img/showroomlogo.png" alt="Showroom Logo" style="height: 40px;">
         </a>
-        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link active">Home</a>
-                <a href="index.html" class="nav-item nav-link active">Kitchen</a>
-                <a href="index.html" class="nav-item nav-link active">Pantry</a>
-                <a href="index.html" class="nav-item nav-link active">Laundry</a>
-                <a href="index.html" class="nav-item nav-link active">TV Unit</a>
-                <a href="index.html" class="nav-item nav-link active">Bathroom</a>
-                <a href="index.html" class="nav-item nav-link active">Wardrobes</a>
-                <a href="index.html" class="nav-item nav-link active">Workspace</a>
-                <a href="index.html" class="nav-item nav-link active">Other</a>
-                <a href="index.html" class="nav-item nav-link active">Colors</a>
-                <a href="index.html" class="nav-item nav-link active">Materials</a>
-
-                    </div>
-                </div>
+            <div class="navbar-nav ms-auto py-4 py-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="gallery.html" class="nav-item nav-link active">Showroom</a>
             </div>
-            <a href="gallery.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">SHOWROOM<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="mailto:Info@AUCabinet.au?subject=Laundry Quote" class="btn btn-gold d-none d-lg-block ms-3">GET A QUOTE</a>
         </div>
     </nav>
-    <!-- Navbar End -->
 
-
- 
-
-<!-- photos Start -->
- 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Kitchen Cabinets</title>
-  <style>
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 10px;
-    }
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-  </style>
-</head>
-<body>
-
-<h1>My Dynamic Gallery</h1>
-<div class="gallery" id="gallery"></div>
-
-<script>
-async function loadGallery() {
-  const response = await fetch('https://api.github.com/repos/ibehrouz/ibehrouz.github.io/contents/photos/basic');
-  const files = await response.json();
-
-  const galleryDiv = document.getElementById('gallery');
-
-  files.forEach(file => {
-    if (file.type === 'file' && file.name.match(/\.(jpg|jpeg|png|gif)$/i)) {
-      const img = document.createElement('img');
-      img.src = file.download_url;
-      galleryDiv.appendChild(img);
-    }
-  });
-}
-
-loadGallery();
-</script>
-
-</body>
-</html>
-
-<!-- Photos End -->
-
-
-
-
- 
- 
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:+61405577154">+61405577154</a></p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="mailto:behrouz@naenae.au">Behrouz@Naenae.au</a></p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/cabinetnet"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Services</h4>
-                    <a class="btn btn-link" href="">Custom Kitchen Cabinets</a>
-                    <a class="btn btn-link" href="">Kitchen Renovations & Facelifts</a>
-                    <a class="btn btn-link" href="">Built-in Wardrobes & Storage Solutions</a>
-                    <a class="btn btn-link" href="">Bathroom Vanities & Cabinets</a>
-                    <a class="btn btn-link" href="">Custom Joinery & Carpentry</a>
-                    <a class="btn btn-link" href="">Commercial Joinery</a>
-                    <a class="btn btn-link" href="">Repair & Maintenance Services</a>
-                    <a class="btn btn-link" href="">Professional Installation</a>
-                    <a class="btn btn-link" href="">Design Consultation & 3D Planning</a>
-                    <a class="btn btn-link" href="">Painting Services - Flooring Installation</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-light mb-4">Quick Links</h4>
-                    <a class="btn btn-link" href="gallery.html">Showroom</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="">Support</a>
-                </div>
-
-                    </div>
-                </div>
-            </div>
+    <!-- Header Section -->
+    <div class="container-fluid py-4 py-lg-5">
+        <div class="container text-center">
+            <h1 class="animated slideInDown" style="font-size: 2rem;">Laundry Collections</h1>
+            <div class="section-line"></div>
+            <p style="color: var(--primary-gold); letter-spacing: 3px; text-uppercase; font-size: 0.6rem; margin: 0;">Functional & Elegant Spaces</p>
         </div>
+    </div>
+
+    <!-- Filter Cards Section -->
+    <div class="container-xxl py-2">
         <div class="container">
-            <div class="copyright">
-                <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom" href="#">NaeNae.au</a>, All Right Reserved. ABN
+            <div class="row g-2 justify-content-center">
+                <div class="col-4 col-lg-2">
+                    <div class="style-card active" onclick="applyFilter('all', this)">
+                        <i class="fa fa-th-large"></i>
+                        <h4>All</h4>
+                    </div>
+                </div>
+                <div class="col-4 col-lg-2">
+                    <div class="style-card" onclick="applyFilter('modern', this)">
+                        <i class="fa fa-tshirt"></i>
+                        <h4>Modern</h4>
+                    </div>
+                </div>
+                <div class="col-4 col-lg-2">
+                    <div class="style-card" onclick="applyFilter('overhead', this)">
+                        <i class="fa fa-align-justify"></i>
+                        <h4>Overhead</h4>
+                    </div>
+                </div>
+                <div class="col-4 col-lg-2">
+                    <div class="style-card" onclick="applyFilter('utility', this)">
+                        <i class="fa fa-box-open"></i>
+                        <h4>Utility</h4>
+                    </div>
+                </div>
+                <div class="col-4 col-lg-2">
+                    <div class="style-card" onclick="applyFilter('minimal', this)">
+                        <i class="fa fa-minus"></i>
+                        <h4>Minimal</h4>
+                    </div>
+                </div>
+                <div class="col-4 col-lg-2">
+                    <div class="style-card" onclick="applyFilter('stone', this)">
+                        <i class="fa fa-layer-group"></i>
+                        <h4>Stone</h4>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Footer End -->
 
+    <!-- Gallery Grid -->
+    <div class="container-xxl py-5">
+        <div class="container text-center">
+            <div class="gallery-grid" id="gallery">
+                <!-- Automated Loader -->
+            </div>
+        </div>
+    </div>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <!-- FIXED LUXURY FOOTER -->
+    <footer class="footer wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center">
+            <div class="mx-auto mb-5">
+                <h1 class="display-6 text-white">Redefine Your Laundry</h1>
+                <div style="width: 40px; height: 1px; background: var(--primary-gold); margin: 20px auto;"></div>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4">
+                    <i class="fa fa-phone-alt accent mb-2 d-block"></i>
+                    <a href="tel:+61412270000" class="contact-link-tel">+61 412 270 000</a>
+                </div>
+                <div class="col-lg-4">
+                    <i class="fa fa-envelope accent mb-2 d-block"></i>
+                    <a href="mailto:Info@AUCabinet.au" class="contact-link-email">Info@AUCabinet.au</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container border-top border-secondary mt-5 pt-4 text-center">
+            <p class="m-0 small text-muted text-uppercase" style="letter-spacing: 1px; font-size: 0.65rem;">
+                &copy; 2024 AU Cabinet. All Rights Reserved. <span class="ms-3">ABN 99 894 945 721</span>
+            </p>
+        </div>
+    </footer>
 
-
-    <!-- JavaScript Libraries -->
+    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-</body>
+    <script>
+        let allPhotos = []; 
 
+        async function initGallery() {
+            try {
+                // FETCHING FROM YOUR LAUNDRY FOLDER
+                const response = await fetch('https://api.github.com/repos/ibehrouz/ibehrouz.github.io/contents/photos/laundry');
+                allPhotos = await response.json();
+                renderGallery('all');
+            } catch (e) { console.error("Gallery failed to load", e); }
+        }
+
+        function renderGallery(filter) {
+            const galleryDiv = document.getElementById('gallery');
+            galleryDiv.innerHTML = '';
+            
+            allPhotos.forEach(file => {
+                const fileName = file.name.toLowerCase();
+                if (filter === 'all' || fileName.includes(filter)) {
+                    if (file.type === 'file' && fileName.match(/\.(jpg|jpeg|png|gif)$/i)) {
+                        const a = document.createElement('a');
+                        a.href = file.download_url;
+                        a.setAttribute('data-lightbox', filter); 
+                        const img = document.createElement('img');
+                        img.src = file.download_url;
+                        img.loading = "lazy";
+                        a.appendChild(img);
+                        galleryDiv.appendChild(a);
+                    }
+                }
+            });
+        }
+
+        function applyFilter(category, element) {
+            document.querySelectorAll('.style-card').forEach(card => card.classList.remove('active'));
+            element.classList.add('active');
+            renderGallery(category);
+        }
+
+        initGallery();
+        new WOW().init();
+    </script>
+</body>
 </html>

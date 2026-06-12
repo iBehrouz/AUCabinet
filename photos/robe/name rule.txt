@@ -1,0 +1,5 @@
+Walk-In: include walkin in filename.
+Sliding: include sliding in filename.
+Built-In: include builtin in filename.
+Mirrored: include mirror in filename.
+Minimal: include minimal in filename.
