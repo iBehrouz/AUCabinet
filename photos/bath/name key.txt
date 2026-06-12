@@ -1,0 +1,5 @@
+Vanities: include vanity in filename.
+Modern: include modern in filename.
+Linen: include linen in filename (for tall storage).
+Mirrored: include mirror in filename (for shaving cabinets).
+Floating: include float in filename (for wall-hung vanities).
