@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <title>AU Cabinet</title>
+    <title>AU Cabinet | Premium Custom Joinery & Renovations</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <meta content="AU Cabinet, Kitchen Renovations, Custom Joinery" name="keywords">
+    <meta content="AU Cabinet specializes in expert kitchen renovations and custom joinery." name="description">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Lexend:wght@400;700&display=swap" rel="stylesheet"> 
 
     <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
@@ -26,94 +21,45 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
-    <!-- Customized Bootstrap Stylesheet -->
+    <!-- Bootstrap & Custom Styles -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/custom-style.css" rel="stylesheet">
 </head>
 
-<body class="home-page">
-    <!-- Spinner Start -->
+<body>
+    <!-- Spinner -->
     <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
+        <div class="spinner-grow text-warning" style="width: 3rem; height: 3rem;" role="status"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top p-3">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="index.html" class="navbar-brand d-flex align-items-center">
+                <span class="text-white">AU</span><span style="color:#c5a059">CABINET</span>
+            </a>
+            <div class="d-flex align-items-center">
+                <a href="gallery.html" class="btn btn-primary d-none d-sm-block me-3">SHOWROOM <i class="fa fa-arrow-right ms-2"></i></a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
         </div>
-    </div>
-    <!-- Spinner End -->
+    </nav>
 
-
-
-
-<!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top p-0">
-  <div class="container-fluid px-4 px-lg-5 d-flex align-items-center justify-content-between">
-    <a href="index.html" class="navbar-brand d-flex align-items-center">
-      <img src="img/naenaelogo.png" alt="SHOWROOM Logo" style="height: 50px;">
-    </a>
-
-    <a href="gallery.html" class="btn btn-primary py-2 px-3 d-lg-block d-block me-3">
-      SHOWROOM <i class="fa fa-arrow-right ms-2"></i>
-    </a>
-
-    <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  </div>
-
-  <div class="collapse navbar-collapse" id="navbarCollapse">
-    <div class="navbar-nav ms-auto p-4 p-lg-0">
-      <!-- other nav links -->
-    </div>
-  </div>
-</nav>
-<!-- Navbar End -->
-
-
-
-   <!-- Carousel Start -->
-    <div class="container-fluid p-0 pb-5">
+    <!-- Hero Section -->
+    <div class="container-fluid p-0 mb-5">
         <div class="owl-carousel header-carousel position-relative">
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-1.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(53, 53, 53, .7);">
+                <img class="img-fluid" src="img/carousel-1.jpg" alt="Modern Kitchen">
+                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center carousel-overlay">
                     <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-12 col-lg-8 text-center">
-                                <h5 class="text-white text-uppercase mb-3 animated slideInDown"></h5>
-                                <h1 class="display-3 text-white animated slideInDown mb-4">Renovations</h1>
-                                <p class="fs-5 fw-medium text-white mb-4 pb-2">Professional Australian fashion and European design </p>
-                                <a href="contact.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Contact us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-2.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(53, 53, 53, .7);">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-12 col-lg-8 text-center">
-                                <h5 class="text-white text-uppercase mb-3 animated slideInDown"></h5>
-                                <h1 class="display-3 text-white animated slideInDown mb-4">Designing</h1>
-                                <p class="fs-5 fw-medium text-white mb-4 pb-2">Professional Australian fashion and European design </p>
-                                <a href="contact.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Contact us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="img/carousel-3.jpg" alt="">
-                <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(53, 53, 53, .7);">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-12 col-lg-8 text-center">
-                                <h5 class="text-white text-uppercase mb-3 animated slideInDown"></h5>
-                                <h1 class="display-3 text-white animated slideInDown mb-4">Manufacturing</h1>
-                                <p class="fs-5 fw-medium text-white mb-4 pb-2">Professional Australian fashion and European design </p>
-                                <a href="contact.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Contact us</a>
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <h5 class="text-uppercase mb-3 animated slideInDown" style="color: #c5a059; letter-spacing: 3px;">Elevating Interiors</h5>
+                                <h1 class="display-2 text-white animated slideInDown mb-4">Masterful Renovations</h1>
+                                <p class="fs-5 fw-light text-white mb-4">Functional Australian design meeting European sophistication.</p>
+                                <a href="contact.html" class="btn btn-primary py-3 px-5 animated slideInLeft">Get A Quote</a>
                             </div>
                         </div>
                     </div>
@@ -121,133 +67,67 @@
             </div>
         </div>
     </div>
-    <!-- Carousel End -->
 
-
-
-
-
-    <!-- Service Start -->
+    <!-- Expertise Section -->
     <div class="container-xxl py-5">
         <div class="container">
-            <div class="section-title text-center">
-                <h1 class="display-5 mb-5">Our Services</h1>
+            <div class="section-title text-center mx-auto mb-5" style="max-width: 600px;">
+                <h1 class="display-5 mb-3">Our Expertise</h1>
+                <p class="text-muted">High-end cabinetry solutions crafted with precision and care.</p>
             </div>
             <div class="row g-4">
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/service-3.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Renovations, Facelifts & Makeovers</h4>
-                            <p>We provide expert kitchen renovations, facelifts, and makeovers tailored to your style, needs, and budget. Whether you’re looking for a full kitchen remodel or a simple update, we offer flexible solutions, from replacing cabinet doors and benchtops to complete redesigns. Our high-quality workmanship ensures your kitchen is not only beautiful but functional and built to last. </p>
-
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-item h-100 p-0 shadow-sm bg-white">
+                        <img class="img-fluid w-100" src="img/service-3.jpg" alt="Kitchen Renovations">
+                        <div class="p-4 text-center">
+                            <h4 class="mb-3">Renovations & Makeovers</h4>
+                            <p>Flexible solutions tailored to your budget and style.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/service-4.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Premium Materials & Quality Fittings</h4>
-                            <p>We use only the best available materials and trusted hardware brands to ensure lasting durability and a flawless finish. From high-quality cabinet boards to premium hinges, handles, and fittings, every detail is carefully selected for superior performance and style.</p>
-
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-item h-100 p-0 shadow-sm bg-white">
+                        <img class="img-fluid w-100" src="img/service-4.jpg" alt="Premium Materials">
+                        <div class="p-4 text-center">
+                            <h4 class="mb-3">Premium Materials</h4>
+                            <p>Durable boards and world-class hardware for lasting quality.</p>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/service-5.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Built with Care and Precision</h4>
-                            <p>Every project is completed with care and precision. From accurate measurements to flawless finishes, we focus on the small details that make a big difference. Our commitment to quality craftsmanship ensures your cabinets not only look beautiful but are built to last.</p>
-
-                        </div>
-                    </div>
-                </div>
-                                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/service-2.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
+                <div class="col-md-6 col-lg-4">
+                    <div class="service-item h-100 p-0 shadow-sm bg-white">
+                        <img class="img-fluid w-100" src="img/service-2.jpg" alt="3D Design">
+                        <div class="p-4 text-center">
                             <h4 class="mb-3">Software Planning</h4>
-                            <p>We use advanced 3D design software to create precise and innovative cabinet layouts, allowing you to visualise your project before any work begins. Every detail is carefully planned to ensure a perfect fit for your space. </p>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/service-6.jpg" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">Professional Installation</h4>
-                            <p>Every installation is handled with care, precision, and attention to detail. From start to finish, each piece is fitted perfectly to ensure a flawless finish that enhances your home's style and functionality.</p>
-
-                        </div>
-                    </div>
-                </div>
-                                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img class="img-fluid" src="img/service-1.png" alt="">
-                        </div>
-                        <div class="p-4 text-center border border-5 border-light border-top-0">
-                            <h4 class="mb-3">General Joinery Services</h4>
-                            <p>We offer a full range of general carpentry and joinery services to enhance every part of your home. From custom-built wardrobes, shelving, and storage solutions to door installations, trims, and repairs, we provide high-quality workmanship tailored to your needs. Whether it’s a small fix or a complete custom piece, our attention to detail ensures lasting results and a perfect fit for your space.</p>
+                            <p>Visualise your project with precise 3D design software.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Service End -->
 
-
-
-
-
-<!-- Footer Start -->
-<div class="container-fluid bg-dark text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
-  <div class="container py-5">
-    <div class="d-flex flex-column align-items-center gap-3 text-center">
-      <p class="mb-0">
-        <i class="fa fa-phone-alt me-2"></i>
-        <a href="tel:+61412270000" class="text-light">+61412270000</a>
-      </p>
-      <p class="mb-0">
-        <i class="fa fa-comment-dots me-2"></i>
-        <a href="sms:+61412270000" class="text-light">Message us</a>
-      </p>
-      <p class="mb-0">
-        <i class="fa fa-envelope me-2"></i>
-        <a href="mailto:Info@AUCabinet.au" class="text-light">Info@AUCabinet.au</a>
-      </p>
-      <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/naenae.au">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <p class="mb-0">
-        ABN 99 894 945 721
-      </p>
-    </div>
-  </div>
-</div>
-<!-- Footer End -->
-
-
-
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
-
+    <!-- Footer -->
+    <footer class="footer container-fluid text-light mt-5 pt-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h3 class="text-white mb-4">AU<span style="color:#c5a059">CABINET</span></h3>
+                    <p>Precision craftsmanship for the modern Australian home. Bespoke designs and expert installation.</p>
+                    <a class="btn btn-outline-light btn-social rounded-circle" href="https://www.instagram.com/aucabinet.au"><i class="fab fa-instagram"></i></a>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="text-white mb-4">Get In Touch</h5>
+                    <p><i class="fa fa-phone-alt me-3"></i>+61 412 270 000</p>
+                    <p><i class="fa fa-envelope me-3"></i>Info@AUCabinet.au</p>
+                    <p class="mt-4 text-white-50">ABN 99 894 945 721</p>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center py-4 border-top border-secondary">
+            <p class="mb-0">&copy; AU Cabinet. All Rights Reserved.</p>
+        </div>
+    </footer>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -255,13 +135,10 @@
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/easing/easing.min.js"></script>
     <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
-
 </html>
