@@ -1,0 +1,68 @@
+:root {
+    --primary-gold: #c5a059;
+    --dark-bg: #1a1a1a;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fcfcfc;
+}
+
+h1, h2, h3, h4, .navbar-brand {
+    font-family: 'Lexend', sans-serif;
+    font-weight: 700;
+}
+
+/* Navbar Style */
+.navbar {
+    background: rgba(26, 26, 26, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: var(--primary-gold);
+    border: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #a38445;
+    transform: translateY(-2px);
+}
+
+/* Hero Overlay */
+.carousel-overlay {
+    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+}
+
+/* Service Card Style */
+.service-item {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+}
+
+/* Footer Style */
+.footer {
+    background-color: var(--dark-bg);
+}
+
+.btn-social {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
