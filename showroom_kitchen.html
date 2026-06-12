@@ -27,235 +27,210 @@
     <style>
         :root {
             --gold: #c5a059;
-            --dark: #0f0f0f;
-            --card-bg: #1a1a1a;
+            --dark: #0a0a0a;
+            --card-bg: #161616;
         }
 
-        body { background-color: var(--dark); color: #e0e0e0; font-family: 'Montserrat', sans-serif; margin: 0; padding: 0; }
-        h1, h2, h3, h4, .navbar-brand { font-family: 'Playfair Display', serif; color: #fff; }
+        body { background-color: var(--dark); color: #e0e0e0; font-family: 'Montserrat', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: #fff; margin-bottom: 0.5rem; }
         
-        /* Navbar */
-        .navbar-dark { background: #000 !important; border-bottom: 1px solid #222; }
-        .nav-link { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #aaa !important; }
-        .nav-link.active { color: var(--gold) !important; }
+        /* Compact Typography */
+        h1 { font-size: 2rem; }
+        h4 { font-size: 1rem; letter-spacing: 1px; }
 
-        /* Style Cards Section */
+        @media (max-width: 768px) {
+            h1 { font-size: 1.5rem; }
+            .container-fluid.py-5 { padding-top: 2rem !important; }
+        }
+
+        /* Interactive Style Cards */
         .style-card { 
             background: var(--card-bg); 
             border: 1px solid #222; 
-            padding: 30px; 
-            transition: 0.4s; 
+            padding: 20px; 
+            transition: 0.3s; 
             cursor: pointer;
             height: 100%;
             text-align: center;
         }
-        .style-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-        .style-card i { color: var(--gold); font-size: 2.5rem; margin-bottom: 20px; display: block; }
-        .style-card h4 { font-size: 1.25rem; margin-bottom: 15px; letter-spacing: 1px; }
-        .style-card p { font-size: 0.85rem; color: #a0a0a0; line-height: 1.6; }
+        .style-card.active { border-color: var(--gold); box-shadow: 0 0 15px rgba(197, 160, 89, 0.3); }
+        .style-card:hover { border-color: var(--gold); }
+        .style-card i { color: var(--gold); font-size: 1.8rem; margin-bottom: 15px; display: block; }
+        .style-card p { font-size: 0.75rem; color: #a0a0a0; line-height: 1.4; margin: 0; }
 
         /* Gallery Grid */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 15px;
-        }
-        .gallery-grid a {
-            display: block;
-            overflow: hidden;
-            border: 1px solid #222;
-            transition: 0.5s;
-            position: relative;
-        }
-        .gallery-grid a:hover { border-color: var(--gold); }
-        .gallery-grid img {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            display: block;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 10px;
             transition: 0.5s;
         }
-        .gallery-grid a:hover img { transform: scale(1.05); opacity: 0.8; }
+        .gallery-grid a { display: block; overflow: hidden; border: 1px solid #222; animation: fadeIn 0.5s ease; }
+        .gallery-grid img { width: 100%; height: 250px; object-fit: cover; display: block; transition: 0.5s; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        /* General UI */
-        .btn-gold { background: var(--gold); color: #000; font-weight: 600; border-radius: 0; padding: 12px 30px; border: none; text-transform: uppercase; letter-spacing: 1px; }
-        .btn-gold:hover { background: #e2bd78; color: #000; }
-        .section-title { position: relative; display: inline-block; padding-bottom: 15px; margin-bottom: 30px; }
-        .section-title::after { content: ""; position: absolute; width: 50px; height: 2px; background: var(--gold); bottom: 0; left: 50%; margin-left: -25px; }
+        .btn-gold { background: var(--gold); color: #000; font-weight: 600; padding: 10px 25px; border: none; text-transform: uppercase; font-size: 0.8rem; }
+        .section-line { width: 40px; height: 1px; background: var(--gold); margin: 15px auto; }
 
-        /* Footer Customization */
-        .footer { background: #000 !important; border-top: 1px solid #222; padding: 80px 0 40px; }
-        .contact-link { color: #fff; text-decoration: none; font-size: 1.1rem; transition: 0.3s; }
-        .contact-link:hover { color: var(--gold); }
+        /* Filter Label */
+        #filter-label { color: var(--gold); font-size: 0.7rem; text-uppercase; letter-spacing: 2px; display: block; margin-bottom: 20px; }
     </style>
 </head>
 
 <body>
-    <!-- Navbar Start -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top p-0 px-4 px-lg-5">
         <a href="gallery.html" class="navbar-brand py-2">
-            <img src="img/showroomlogo.png" alt="Showroom Logo" style="height: 50px;">
+            <img src="img/showroomlogo.png" alt="Showroom Logo" style="height: 40px;">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-4 py-lg-0">
+            <div class="navbar-nav ms-auto py-3 py-lg-0">
                 <a href="index.html" class="nav-item nav-link">Home</a>
                 <a href="gallery.html" class="nav-item nav-link">Showroom</a>
                 <a href="showroom_kitchen.html" class="nav-item nav-link active">Kitchen</a>
             </div>
-            <a href="mailto:Info@AUCabinet.au?subject=Kitchen Quote Inquiry" class="btn btn-gold d-none d-lg-block ms-3">Get A Quote</a>
+            <a href="mailto:Info@AUCabinet.au?subject=Quote" class="btn btn-gold d-none d-lg-block ms-3">Get Quote</a>
         </div>
     </nav>
 
     <!-- Header Section -->
-    <div class="container-fluid py-5">
-        <div class="container text-center py-5">
-            <h1 class="display-3 mb-3 animated slideInDown">Kitchen Collections</h1>
-            <div class="section-title">
-                <p style="color: var(--gold); letter-spacing: 5px; text-uppercase; font-size: 0.75rem; margin: 0;">Bespoke Design Excellence</p>
-            </div>
+    <div class="container-fluid py-4 py-lg-5">
+        <div class="container text-center">
+            <h1>Kitchen Collections</h1>
+            <div class="section-line"></div>
+            <p style="color: var(--gold); letter-spacing: 3px; text-uppercase; font-size: 0.6rem; margin: 0;">Select a style to filter</p>
         </div>
     </div>
 
-    <!-- Explanation & Styles Section -->
-    <div class="container-xxl py-5">
+    <!-- Clickable Styles Section -->
+    <div class="container-xxl py-4">
         <div class="container">
-            <div class="row g-4">
-                <!-- 1. Shaker -->
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="style-card">
+            <div class="row g-2">
+                <div class="col-6 col-lg-2">
+                    <div class="style-card active" onclick="applyFilter('all', this)">
+                        <i class="fa fa-th"></i>
+                        <h4>Show All</h4>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <div class="style-card" onclick="applyFilter('shaker', this)">
                         <i class="fa fa-utensils"></i>
-                        <h4>Shaker Style</h4>
-                        <p>A timeless Australian favorite. Clean, symmetrical lines that provide a sophisticated look for both traditional and modern homes.</p>
+                        <h4>Shaker</h4>
                     </div>
                 </div>
-                <!-- 2. Handleless -->
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="style-card">
+                <div class="col-6 col-lg-2">
+                    <div class="style-card" onclick="applyFilter('modern', this)">
                         <i class="fa fa-minus"></i>
-                        <h4>Handleless Design</h4>
-                        <p>The pinnacle of minimalism. These sleek cabinets use finger-pull profiles to create a seamless, uninterrupted flow in your kitchen.</p>
+                        <h4>Modern</h4>
                     </div>
                 </div>
-                <!-- 3. Two-Tone -->
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="style-card">
-                        <i class="fa fa-fill-drip"></i>
-                        <h4>Two-Tone Aesthetics</h4>
-                        <p>Create visual depth by mixing textures and colors. Dark base cabinets paired with light timber or white overheads.</p>
+                <div class="col-6 col-lg-2">
+                    <div class="style-card" onclick="applyFilter('tone', this)">
+                        <i class="fa fa-palette"></i>
+                        <h4>Two-Tone</h4>
                     </div>
                 </div>
-                <!-- 4. Glass Front -->
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="style-card">
+                <div class="col-6 col-lg-2">
+                    <div class="style-card" onclick="applyFilter('glass', this)">
                         <i class="fa fa-th-large"></i>
-                        <h4>Glass Fronts</h4>
-                        <p>Add an elegant touch of transparency. Perfect for showcasing fine dishware while making the kitchen feel more spacious.</p>
+                        <h4>Glass</h4>
                     </div>
                 </div>
-                <!-- 5. Open Shelving -->
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="style-card">
+                <div class="col-6 col-lg-2">
+                    <div class="style-card" onclick="applyFilter('shelf', this)">
                         <i class="fa fa-columns"></i>
-                        <h4>Open Shelving</h4>
-                        <p>Architectural and airy. Integrating open timber shelves allows for easy access to essentials and beautiful styling opportunities.</p>
-                    </div>
-                </div>
-                <!-- 6. Custom Solutions -->
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="style-card">
-                        <i class="fa fa-cogs"></i>
-                        <h4>Custom Built-Ins</h4>
-                        <p>Precision manufacturing for your unique lifestyle. Pull-out spice racks, hidden bins, and corner storage units tailored for you.</p>
+                        <h4>Open</h4>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Project Gallery Section -->
+    <!-- Gallery Section -->
     <div class="container-xxl py-5">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="display-5 text-white">Project Gallery</h2>
-                <div style="width: 40px; height: 1px; background: var(--gold); margin: 20px auto;"></div>
-            </div>
+        <div class="container text-center">
+            <span id="filter-label">Displaying: All Projects</span>
             <div class="gallery-grid" id="gallery">
-                <!-- JavaScript will populate images here -->
+                <!-- Automated Loader -->
             </div>
         </div>
     </div>
 
-    <!-- Contact Footer -->
-    <footer class="footer mt-5 text-center">
+    <!-- Footer -->
+    <footer class="footer mt-5 py-5 text-center">
         <div class="container">
-            <h1 class="display-6 text-white mb-4">Start Your Transformation</h1>
-            <div style="width: 40px; height: 1px; background: var(--gold); margin: 20px auto 40px;"></div>
             <div class="row g-4 justify-content-center">
                 <div class="col-lg-4">
-                    <i class="fa fa-phone-alt accent mb-3 d-block" style="font-size: 1.5rem;"></i>
-                    <a href="tel:+61412270000" class="contact-link">+61 412 270 000</a>
+                    <a href="tel:+61412270000" class="text-white small">+61 412 270 000</a>
                 </div>
                 <div class="col-lg-4">
-                    <i class="fa fa-envelope accent mb-3 d-block" style="font-size: 1.5rem;"></i>
-                    <a href="mailto:Info@AUCabinet.au" class="contact-link">Info@AUCabinet.au</a>
+                    <a href="mailto:Info@AUCabinet.au" class="text-white small">Info@AUCabinet.au</a>
                 </div>
             </div>
-        </div>
-        <div class="container border-top border-secondary mt-5 pt-4">
-            <p class="m-0 small text-muted text-uppercase" style="letter-spacing: 1px;">
-                &copy; 2024 AU Cabinet. All Rights Reserved. <span class="ms-3">ABN 99 894 945 721</span>
-            </p>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
     <script>
-        // Automatic Gallery Fetcher from GitHub
-        async function loadGallery() {
+        let allPhotos = []; // Store all data once fetched
+
+        async function initGallery() {
             try {
                 const response = await fetch('https://api.github.com/repos/ibehrouz/ibehrouz.github.io/contents/photos/kitchen');
-                const files = await response.json();
-                const galleryDiv = document.getElementById('gallery');
-                
-                galleryDiv.innerHTML = ''; // Clear div
+                allPhotos = await response.json();
+                renderGallery('all');
+            } catch (e) { console.error("Load failed", e); }
+        }
 
-                files.forEach(file => {
-                    if (file.type === 'file' && file.name.match(/\.(jpg|jpeg|png|gif)$/i)) {
-                        // Create link for Lightbox
+        function renderGallery(filter) {
+            const galleryDiv = document.getElementById('gallery');
+            const label = document.getElementById('filter-label');
+            galleryDiv.innerHTML = '';
+            
+            label.innerText = filter === 'all' ? 'Displaying: All Projects' : `Displaying: ${filter.toUpperCase()} Designs`;
+
+            allPhotos.forEach(file => {
+                const fileName = file.name.toLowerCase();
+                // Match filter OR show all
+                if (filter === 'all' || fileName.includes(filter)) {
+                    if (file.type === 'file' && fileName.match(/\.(jpg|jpeg|png|gif)$/i)) {
                         const a = document.createElement('a');
                         a.href = file.download_url;
-                        a.setAttribute('data-lightbox', 'kitchen-set');
-                        a.setAttribute('data-title', 'AU Cabinet - Premium Kitchen Project');
-
-                        // Create Image
+                        a.setAttribute('data-lightbox', filter); // Only swipe through filtered set
                         const img = document.createElement('img');
                         img.src = file.download_url;
                         img.loading = "lazy";
-                        img.alt = "Custom Kitchen Design";
-
                         a.appendChild(img);
                         galleryDiv.appendChild(a);
                     }
-                });
-            } catch (error) {
-                console.error("Gallery failed to load:", error);
-            }
+                }
+            });
         }
 
-        // Initialize WOW animations
-        new WOW().init();
-        
-        // Run Gallery Loader
-        loadGallery();
+        function applyFilter(category, element) {
+            // UI Toggle
+            document.querySelectorAll('.style-card').forEach(card => card.classList.remove('active'));
+            element.classList.add('active');
+            
+            // Logic
+            renderGallery(category);
+            
+            // Smooth Scroll
+            window.scrollTo({ top: document.getElementById('gallery').offsetTop - 100, behavior: 'smooth' });
+        }
+
+        initGallery();
     </script>
 </body>
-
 </html>
