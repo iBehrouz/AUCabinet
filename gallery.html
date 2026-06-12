@@ -3,21 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SHOWROOM | Curated Premium Joinery</title>
+    <title>SHOWROOM | Curated Design & Joinery</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     
-    <!-- Favicon -->
     <link rel="icon" href="favicon2.ico" type="image/x-icon">
-
-    <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet"> 
-
-    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
@@ -27,7 +20,7 @@
             --dark-bg: #0a0a0a;
             --card-bg: #111111;
             --text-light: #f4f4f4;
-            --text-muted: #888888;
+            --text-muted: #777777;
         }
 
         body { 
@@ -43,7 +36,7 @@
             font-weight: 700;
         }
 
-        /* Architectural Navbar */
+        /* Navbar - Minimalist */
         .navbar-showroom { 
             background: rgba(0, 0, 0, 0.98) !important; 
             border-bottom: 1px solid #1a1a1a;
@@ -63,7 +56,7 @@
             color: var(--primary-gold) !important; 
         }
 
-        /* Showroom Category Tiles */
+        /* Gallery Tiles */
         .gallery-item { 
             background: var(--card-bg); 
             border: 1px solid #1a1a1a; 
@@ -74,13 +67,13 @@
         }
         
         .gallery-item:hover { 
-            border-color: var(--primary-gold); 
+            border-color: #333; 
             transform: translateY(-5px); 
         }
         
         .gallery-img { 
             overflow: hidden; 
-            height: 280px; 
+            height: 300px; 
             position: relative;
         }
         
@@ -88,57 +81,67 @@
             object-fit: cover; 
             width: 100%; 
             height: 100%; 
-            transition: 1s ease; 
-            opacity: 0.7; 
+            transition: 1.2s ease; 
+            opacity: 0.65; 
         }
         
         .gallery-item:hover .gallery-img img { 
-            transform: scale(1.08); 
+            transform: scale(1.05); 
             opacity: 1; 
         }
 
-        /* Minimalist Labels */
         .category-title {
-            font-size: 1rem;
-            letter-spacing: 1px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
             margin-bottom: 5px;
             text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+            color: #fff;
         }
         
         .category-subtitle {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: var(--text-muted);
             font-weight: 300;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
-        /* Architectural Section Divider */
         .divider {
             width: 30px;
             height: 1px;
-            background: var(--primary-gold);
+            background: #333;
             margin: 20px auto;
         }
 
-        /* Neutral Footer */
+        /* Natural Architectural Footer */
         .footer-showroom { 
             background: #000 !important; 
-            border-top: 1px solid #1a1a1a; 
-            padding: 80px 0 60px; 
+            border-top: 1px solid #111; 
+            padding: 100px 0 60px; 
         }
 
-        .cta-text {
-            font-size: 0.75rem;
+        .inquiry-link {
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            color: var(--primary-gold);
+            letter-spacing: 4px;
+            color: var(--text-light);
             text-decoration: none;
-            transition: 0.3s;
+            transition: 0.4s;
+            font-weight: 300;
         }
         
-        .cta-text:hover {
-            color: #fff;
+        .inquiry-link:hover {
+            color: var(--primary-gold);
+        }
+
+        .sign-off {
+            font-size: 9px;
+            color: #444;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 60px;
         }
     </style>
 </head>
@@ -155,32 +158,28 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-4 py-lg-0">
-                    <a href="showroom_kitchen.html" class="nav-item nav-link">Kitchen</a>
-                    <a href="showroom_pantry.html" class="nav-item nav-link">Pantry</a>
-                    <a href="showroom_laundry.html" class="nav-item nav-link">Laundry</a>
-                    <a href="showroom_tv.html" class="nav-item nav-link">TV Unit</a>
-                    <a href="showroom_bath.html" class="nav-item nav-link">Bathroom</a>
-                    <a href="showroom_robe.html" class="nav-item nav-link">Wardrobes</a>
-                    <a href="showroom_shop.html" class="nav-item nav-link">Workspace</a>
-                    <a href="showroom_other.html" class="nav-item nav-link">Other</a>
-                    <a href="showroom_colors.html" class="nav-item nav-link">Colors</a>
-                    <a href="showroom_colors.html" class="nav-item nav-link">Materials</a>
+                    <a href="showroom_kitchen.html" class="nav-item nav-link">Kitchen Systems</a>
+                    <a href="showroom_pantry.html" class="nav-item nav-link">Integrated Storage</a>
+                    <a href="showroom_laundry.html" class="nav-item nav-link">Utility Joinery</a>
+                    <a href="showroom_robe.html" class="nav-item nav-link">Wardrobe Suites</a>
+                    <a href="showroom_bath.html" class="nav-item nav-link">Vanities</a>
+                    <a href="showroom_colors.html" class="nav-item nav-link">Material Palette</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Header -->
+    <!-- Natural Header -->
     <div class="container-fluid py-5">
-        <div class="container text-center py-4">
-            <h1 class="display-5 mb-2">CURATED SHOWROOM</h1>
+        <div class="container text-center py-5">
+            <h1 class="display-6 mb-3" style="letter-spacing: 3px;">CURATED COLLECTIONS</h1>
+            <p class="category-subtitle">Precision Manufacturing & Design Excellence</p>
             <div class="divider"></div>
-            <p class="category-subtitle">A collection of precision manufacturing and design excellence</p>
         </div>
     </div>
 
     <!-- Collection Grid -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl pb-5">
         <div class="container">
             <div class="row g-4">
                 <!-- Kitchen -->
@@ -189,77 +188,47 @@
                         <div class="gallery-img"><img src="img/showroom_kitchen.jpg" alt="Kitchen Architecture"></div>
                         <div class="p-4 text-center">
                             <h4 class="category-title">Kitchen Systems</h4>
-                            <p class="category-subtitle">Design Excellence in Culinary Spaces</p>
+                            <p class="category-subtitle">Culinary Architecture</p>
                         </div>
                     </a>
                 </div>
                 <!-- Pantry -->
                 <div class="col-lg-4 col-md-6">
                     <a href="showroom_pantry.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_pantry.jpg" alt="Pantry Storage"></div>
+                        <div class="gallery-img"><img src="img/showroom_pantry.jpg" alt="Pantry Architecture"></div>
                         <div class="p-4 text-center">
-                            <h4 class="category-title">Integrated Pantries</h4>
-                            <p class="category-subtitle">Curated Storage Solutions</p>
+                            <h4 class="category-title">Integrated Pantry</h4>
+                            <p class="category-subtitle">Smart Storage</p>
                         </div>
                     </a>
                 </div>
                 <!-- Laundry -->
                 <div class="col-lg-4 col-md-6">
                     <a href="showroom_laundry.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_laundry.jpg" alt="Laundry Design"></div>
+                        <div class="gallery-img"><img src="img/showroom_laundry.jpg" alt="Laundry Architecture"></div>
                         <div class="p-4 text-center">
                             <h4 class="category-title">Laundry Joinery</h4>
-                            <p class="category-subtitle">Utility through Precision Manufacturing</p>
-                        </div>
-                    </a>
-                </div>
-                <!-- TV Unit -->
-                <div class="col-lg-4 col-md-6">
-                    <a href="showroom_tv.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_tv.jpg" alt="Entertainment Architecture"></div>
-                        <div class="p-4 text-center">
-                            <h4 class="category-title">Entertainment Units</h4>
-                            <p class="category-subtitle">Minimalist Living Concepts</p>
-                        </div>
-                    </a>
-                </div>
-                <!-- Bathroom -->
-                <div class="col-lg-4 col-md-6">
-                    <a href="showroom_bath.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_bath.jpg" alt="Bathroom Vanities"></div>
-                        <div class="p-4 text-center">
-                            <h4 class="category-title">Bathroom Vanities</h4>
-                            <p class="category-subtitle">Bespoke Personal Sanctuaries</p>
+                            <p class="category-subtitle">Utility Solutions</p>
                         </div>
                     </a>
                 </div>
                 <!-- Wardrobes -->
                 <div class="col-lg-4 col-md-6">
                     <a href="showroom_robe.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_robe.jpg" alt="Wardrobe Design"></div>
+                        <div class="gallery-img"><img src="img/showroom_robe.jpg" alt="Wardrobe Architecture"></div>
                         <div class="p-4 text-center">
                             <h4 class="category-title">Bespoke Wardrobes</h4>
                             <p class="category-subtitle">Master Suite Joinery</p>
                         </div>
                     </a>
                 </div>
-                <!-- Workspace -->
+                <!-- Bathroom -->
                 <div class="col-lg-4 col-md-6">
-                    <a href="showroom_shop.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_shop.jpg" alt="Workspace Design"></div>
+                    <a href="showroom_bath.html" class="gallery-item d-block">
+                        <div class="gallery-img"><img src="img/showroom_bath.jpg" alt="Bathroom Architecture"></div>
                         <div class="p-4 text-center">
-                            <h4 class="category-title">Professional Workspaces</h4>
-                            <p class="category-subtitle">Functional Studio Environments</p>
-                        </div>
-                    </a>
-                </div>
-                <!-- Other -->
-                <div class="col-lg-4 col-md-6">
-                    <a href="showroom_other.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_other.jpg" alt="Custom Joinery"></div>
-                        <div class="p-4 text-center">
-                            <h4 class="category-title">Architectural Details</h4>
-                            <p class="category-subtitle">Miscellaneous Custom Selection</p>
+                            <h4 class="category-title">Personal Vanities</h4>
+                            <p class="category-subtitle">Bespoke Sanctuary</p>
                         </div>
                     </a>
                 </div>
@@ -269,7 +238,7 @@
                         <div class="gallery-img"><img src="img/showroom_colors.jpg" alt="Material Palette"></div>
                         <div class="p-4 text-center">
                             <h4 class="category-title">Material Palette</h4>
-                            <p class="category-subtitle">Curated Texture and Tone</p>
+                            <p class="category-subtitle">Texture & Tone</p>
                         </div>
                     </a>
                 </div>
@@ -277,12 +246,17 @@
         </div>
     </div>
 
-    <!-- Neutral Footer -->
+    <!-- Natural Footer -->
     <footer class="footer-showroom text-center">
         <div class="container">
-            <h2 class="mb-4">DESIGN EXCELLENCE</h2>
-            <div class="divider"></div>
-            <p class="category-subtitle mb-5">Inquire about project specifications or request trade details</p>
-            <a href="mailto:info@aucabinet.au?subject=Showroom Project Inquiry" class="cta-text">Request Trade Details</a>
+            <h2 class="mb-4" style="font-size: 1.5rem; letter-spacing: 2px;">PROJECT INQUIRIES</h2>
+            <div class="divider" style="background: var(--primary-gold);"></div>
+            <p class="category-subtitle mb-4" style="color: #fff;">For project specifications and details</p>
+            <a href="mailto:info@aucabinet.au?subject=Showroom Inquiry" class="inquiry-link">info@aucabinet.au</a>
+            
+            <p class="sign-off">Curated Selection &copy; 2024</p>
         </div>
-        <div class="container border-top bo
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bo
