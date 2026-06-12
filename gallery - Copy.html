@@ -18,7 +18,6 @@
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -26,77 +25,69 @@
 
     <style>
         :root {
-            --gold: #c5a059;
-            --dark-bg: #0a0a0a;
-            --card-bg: #161616;
+            --primary-gold: #c5a059;
+            --dark-bg: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --text-light: #e0e0e0;
+            --text-muted: #a0a0a0;
         }
 
-        body { background-color: var(--dark-bg); color: #d1d1d1; font-family: 'Montserrat', sans-serif; }
+        body { background-color: var(--dark-bg); color: var(--text-light); font-family: 'Montserrat', sans-serif; }
         h1, h2, h3, h4, .navbar-brand { font-family: 'Playfair Display', serif; color: #fff; }
-
-        /* Luxury Navbar */
-        .navbar-dark { background: #000 !important; border-bottom: 1px solid #222; }
-        .nav-link { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #aaa !important; }
-        .nav-link:hover, .nav-link.active { color: var(--gold) !important; }
-
-        /* Category Card Styling */
-        .service-item { 
-            background: var(--card-bg); 
-            border: 1px solid #222 !important; 
-            transition: 0.5s; 
-            height: 100%;
-        }
-        .service-item:hover { 
-            border-color: var(--gold) !important; 
-            transform: translateY(-10px); 
-        }
-        .service-item img { 
-            filter: grayscale(20%); 
-            transition: 0.5s; 
-            object-fit: cover; 
-            height: 250px; 
-            width: 100%;
-        }
-        .service-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
-
-        .btn-readmore { color: var(--gold); text-transform: uppercase; font-size: 12px; font-weight: 600; text-decoration: none; }
         
-        .footer { background: #000 !important; border-top: 1px solid #222; }
-        .footer a { color: #fff; text-decoration: none; transition: 0.3s; }
-        .footer a:hover { color: var(--gold); }
+        .accent { color: var(--primary-gold); }
+        a { text-decoration: none; transition: 0.3s; }
+        
+        /* Navbar */
+        .navbar-dark { background: #000 !important; border-bottom: 1px solid #222; }
+        .nav-link { text-transform: uppercase; letter-spacing: 1px; font-size: 13px; }
+        
+        /* Category Cards */
+        .gallery-item { background: var(--card-bg); border: 1px solid #222; transition: 0.5s; overflow: hidden; height: 100%;}
+        .gallery-item:hover { border-color: var(--primary-gold); transform: translateY(-10px); }
+        .gallery-img { overflow: hidden; height: 250px; }
+        .gallery-img img { object-fit: cover; width: 100%; height: 100%; transition: 0.5s; opacity: 0.8; }
+        .gallery-item:hover .gallery-img img { transform: scale(1.1); opacity: 1; }
+
+        .btn-gold { background: var(--primary-gold); color: #000; border-radius: 0; font-weight: 600; padding: 12px 30px; border: none; }
+        .btn-gold:hover { background: #e2bd78; color: #000; }
+
+        .section-title { position: relative; display: inline-block; padding-bottom: 15px; margin-bottom: 30px; }
+        .section-title::after { content: ""; position: absolute; width: 50px; height: 2px; background: var(--primary-gold); bottom: 0; left: 50%; margin-left: -25px; }
+
+        /* Footer */
+        .footer { background: #000 !important; border-top: 1px solid #222; padding: 60px 0 40px; }
+        .contact-link-tel { color: #fff; font-size: 1.3rem; font-weight: 400; }
+        .contact-link-email { color: #fff; font-size: 0.95rem; font-weight: 400; }
+        .contact-link-tel:hover, .contact-link-email:hover { color: var(--primary-gold); }
     </style>
 </head>
 
 <body>
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top p-0 shadow">
-        <div class="container-fluid px-4 px-lg-5">
-            <a href="index.html" class="navbar-brand d-flex align-items-center py-3">
-                <h2 class="m-0">AU <span style="color:var(--gold)">CABINET</span></h2>
-            </a>
-            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="index.html" class="nav-item nav-link">Home</a>
-                    <a href="showroom_kitchen.html" class="nav-item nav-link">Kitchen</a>
-                    <a href="showroom_pantry.html" class="nav-item nav-link">Pantry</a>
-                    <a href="showroom_laundry.html" class="nav-item nav-link">Laundry</a>
-                    <a href="showroom_robe.html" class="nav-item nav-link">Wardrobes</a>
-                    <a href="showroom_bath.html" class="nav-item nav-link">Bathroom</a>
-                    <a href="showroom_colors.html" class="nav-item nav-link">Materials</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
-                </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top p-0 px-4 px-lg-5">
+        <a href="index.html" class="navbar-brand">
+            <h2 class="m-0 text-white">AU <span class="accent">CABINET</span></h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-4 py-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="gallery.html" class="nav-item nav-link active">Showroom</a>
             </div>
+            <a href="mailto:Info@AUCabinet.au?subject=Quote Request" class="btn btn-gold d-none d-lg-block ms-3">GET A QUOTE</a>
         </div>
     </nav>
 
-    <!-- Header Start -->
+    <!-- Page Header -->
     <div class="container-fluid py-5">
         <div class="container text-center py-5">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">The Showroom</h1>
-            <p class="accent-text text-uppercase mb-5" style="color:var(--gold); letter-spacing: 3px;">Explore our premium custom collections</p>
+            <h1 class="display-3 text-white mb-4 animated slideInDown">Showroom</h1>
+            <div class="section-title">
+                <h5 class="accent text-uppercase mb-0" style="letter-spacing: 5px;">Our Collections</h5>
+            </div>
         </div>
     </div>
 
@@ -104,111 +95,127 @@
     <div class="container-xxl py-5">
         <div class="container">
             <div class="row g-4">
-                <!-- Kitchen -->
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <a href="showroom_kitchen.html"><img src="img/showroom_kitchen.jpg" alt="Kitchen"></a>
-                        </div>
+                <!-- 1. Kitchen -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <a href="showroom_kitchen.html" class="gallery-item d-block">
+                        <div class="gallery-img"><img src="img/showroom_kitchen.jpg" alt="Kitchen"></div>
                         <div class="p-4 text-center">
-                            <h4 class="mb-3">Kitchen Cabinets</h4>
-                            <p class="small text-muted">Base cabinets, islands, and bespoke breakfast bars.</p>
-                            <a class="btn-readmore" href="showroom_kitchen.html">View Collection <i class="fa fa-arrow-right ms-2"></i></a>
+                            <h4 class="mb-2">Kitchen Cabinets</h4>
+                            <p class="text-muted small mb-0">Islands, breakfast bars, and base units.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <!-- Pantry -->
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <a href="showroom_pantry.html"><img src="img/showroom_pantry.jpg" alt="Pantry"></a>
-                        </div>
+                <!-- 2. Pantry -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <a href="showroom_pantry.html" class="gallery-item d-block">
+                        <div class="gallery-img"><img src="img/showroom_pantry.jpg" alt="Pantry"></div>
                         <div class="p-4 text-center">
-                            <h4 class="mb-3">Pantry Systems</h4>
-                            <p class="small text-muted">Custom shelving and pull-out storage solutions.</p>
-                            <a class="btn-readmore" href="showroom_pantry.html">View Collection <i class="fa fa-arrow-right ms-2"></i></a>
+                            <h4 class="mb-2">Pantry Cabinets</h4>
+                            <p class="text-muted small mb-0">Custom shelving and pull-out systems.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <!-- Laundry -->
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img src="img/showroom_laundry.jpg" alt="Laundry">
-                        </div>
+                <!-- 3. Laundry -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <a href="showroom_laundry.html" class="gallery-item d-block">
+                        <div class="gallery-img"><img src="img/showroom_laundry.jpg" alt="Laundry"></div>
                         <div class="p-4 text-center">
-                            <h4 class="mb-3">Laundry Cabinets</h4>
-                            <p class="small text-muted">Optimized utility storage and overhead cabinetry.</p>
-                            <a class="btn-readmore" href="showroom_laundry.html">View Collection <i class="fa fa-arrow-right ms-2"></i></a>
+                            <h4 class="mb-2">Laundry Cabinets</h4>
+                            <p class="text-muted small mb-0">Overhead storage and utility units.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <!-- TV Unit -->
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img src="img/showroom_tv.jpg" alt="TV Units">
-                        </div>
+                <!-- 4. TV Unit -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <a href="showroom_tv.html" class="gallery-item d-block">
+                        <div class="gallery-img"><img src="img/showroom_tv.jpg" alt="TV Unit"></div>
                         <div class="p-4 text-center">
-                            <h4 class="mb-3">Entertainment Units</h4>
-                            <p class="small text-muted">Custom media consoles and feature wall units.</p>
-                            <a class="btn-readmore" href="showroom_tv.html">View Collection <i class="fa fa-arrow-right ms-2"></i></a>
+                            <h4 class="mb-2">Entertainment Units</h4>
+                            <p class="text-muted small mb-0">Custom TV units and media consoles.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <!-- Bathroom -->
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <img src="img/showroom_bath.jpg" alt="Bathroom">
-                        </div>
+                <!-- 5. Bathroom -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <a href="showroom_bath.html" class="gallery-item d-block">
+                        <div class="gallery-img"><img src="img/showroom_bath.jpg" alt="Bathroom"></div>
                         <div class="p-4 text-center">
-                            <h4 class="mb-3">Bathroom Vanities</h4>
-                            <p class="small text-muted">Water-resistant luxury linen and medicine cabinets.</p>
-                            <a class="btn-readmore" href="showroom_bath.html">View Collection <i class="fa fa-arrow-right ms-2"></i></a>
+                            <h4 class="mb-2">Bathroom Cabinets</h4>
+                            <p class="text-muted small mb-0">Vanities and linen storage.</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <!-- Wardrobes -->
-                <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item">
-                        <div class="overflow-hidden">
-                            <a href="showroom_robe.html"><img src="img/showroom_robe.jpg" alt="Wardrobes"></a>
-                        </div>
+                <!-- 6. Wardrobes -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <a href="showroom_robe.html" class="gallery-item d-block">
+                        <div class="gallery-img"><img src="img/showroom_robe.jpg" alt="Wardrobes"></div>
                         <div class="p-4 text-center">
-                            <h4 class="mb-3">Custom Wardrobes</h4>
-                            <p class="small text-muted">High-end walk-in robes and bedroom storage.</p>
-                            <a class="btn-readmore" href="showroom_robe.html">View Collection <i class="fa fa-arrow-right ms-2"></i></a>
+                            <h4 class="mb-2">Wardrobes</h4>
+                            <p class="text-muted small mb-0">Built-in robes and bedroom storage.</p>
                         </div>
-                    </div>
+                    </a>
+                </div>
+                <!-- 7. Workspace -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <a href="showroom_shop.html" class="gallery-item d-block">
+                        <div class="gallery-img"><img src="img/showroom_shop.jpg" alt="Workspace"></div>
+                        <div class="p-4 text-center">
+                            <h4 class="mb-2">Workspace</h4>
+                            <p class="text-muted small mb-0">Office storage and shop fit-outs.</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- 8. Other -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <a href="showroom_other.html" class="gallery-item d-block">
+                        <div class="gallery-img"><img src="img/showroom_other.jpg" alt="Other"></div>
+                        <div class="p-4 text-center">
+                            <h4 class="mb-2">Other Joinery</h4>
+                            <p class="text-muted small mb-0">Bar cabinets and bespoke units.</p>
+                        </div>
+                    </a>
+                </div>
+                <!-- 9. Colors & Materials -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <a href="showroom_colors.html" class="gallery-item d-block">
+                        <div class="gallery-img"><img src="img/showroom_colors.jpg" alt="Materials"></div>
+                        <div class="p-4 text-center">
+                            <h4 class="mb-2">Colors & Materials</h4>
+                            <p class="text-muted small mb-0">Explore our range of finishes.</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer Start -->
-    <div class="container-fluid footer mt-5 pt-5 text-center">
-        <div class="container py-5">
-            <h2 class="text-white mb-4">AU <span style="color:var(--gold)">CABINET</span></h2>
-            <div class="d-flex flex-column align-items-center gap-3">
-                <p class="mb-0"><i class="fa fa-phone-alt me-2"></i>+61 412 270 000</p>
-                <p class="mb-0"><i class="fa fa-envelope me-2"></i>Info@AUCabinet.au</p>
-                <div class="d-flex gap-3">
-                    <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/aucabinet.au"><i class="fab fa-instagram"></i></a>
+    <!-- Footer (Same as Homepage) -->
+    <footer class="footer wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center">
+            <h1 class="display-6 text-white mb-4">Let's Design Your Project</h1>
+            <div style="width: 40px; height: 1px; background: var(--primary-gold); margin: 20px auto 40px;"></div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4">
+                    <i class="fa fa-phone-alt accent mb-3 d-block" style="font-size: 1.5rem;"></i>
+                    <a href="tel:+61412270000" class="contact-link-tel">+61 412 270 000</a>
                 </div>
-                <p class="small text-muted mt-3">ABN 99 894 945 721 | Formerly NaeNae Design</p>
+                <div class="col-lg-4">
+                    <i class="fa fa-envelope accent mb-3 d-block" style="font-size: 1.5rem;"></i>
+                    <a href="mailto:Info@AUCabinet.au" class="contact-link-email">Info@AUCabinet.au</a>
+                </div>
             </div>
         </div>
-    </div>
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <div class="container border-top border-secondary mt-5 pt-4 text-center">
+            <p class="m-0 small text-muted text-uppercase" style="letter-spacing: 1px; font-size: 0.65rem;">
+                &copy; 2024 AU Cabinet. All Rights Reserved. <span class="ms-3">ABN 99 894 945 721</span>
+            </p>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
