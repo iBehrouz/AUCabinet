@@ -2,16 +2,17 @@
 
 :root {
     --primary-gold: #c5a059;
-    --dark-deep: #000000;
-    --dark-card: #1a1a1a;
-    --text-gray: #b0b0b0;
+    --dark-deep: #0a0a0a;
+    --dark-card: #161616;
+    --text-gray: #a0a0a0;
     --white: #ffffff;
 }
 
 body {
     background-color: var(--dark-deep);
     color: var(--text-gray);
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Professional clean font */
+    overflow-x: hidden;
 }
 
 h1, h2, h3, h4, .navbar-brand {
@@ -21,7 +22,7 @@ h1, h2, h3, h4, .navbar-brand {
     letter-spacing: 1px;
 }
 
-/* Navbar - High End Dark */
+/* Navbar - High End Dark Glass */
 .navbar {
     background: rgba(0, 0, 0, 0.95) !important;
     backdrop-filter: blur(10px);
@@ -31,72 +32,167 @@ h1, h2, h3, h4, .navbar-brand {
 .nav-link {
     color: var(--white) !important;
     text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 1px;
+    font-size: 11px;
+    letter-spacing: 2px;
 }
 
 .nav-link:hover, .nav-link.active {
     color: var(--primary-gold) !important;
 }
 
-/* Buttons */
-.btn-primary {
+/* Gold Buttons */
+.btn-gold {
     background-color: var(--primary-gold);
     border: none;
     color: #000;
     font-weight: 600;
     border-radius: 0px;
-    padding: 12px 25px;
+    padding: 12px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: 0.3s;
 }
 
-.btn-primary:hover {
+.btn-gold:hover {
     background-color: #e2bd78;
     transform: translateY(-2px);
-}
-
-/* Dark Service Cards */
-.service-item {
-    background: var(--dark-card);
-    border: 1px solid #222 !important;
-    border-radius: 0px;
-    transition: 0.4s;
-}
-
-.service-item h4 {
-    color: var(--primary-gold);
-}
-
-.service-item:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-gold) !important;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5) !important;
-}
-
-/* Hero Section Adjustments */
-.carousel-caption {
-    background: rgba(0, 0, 0, 0.6);
-}
-
-/* Footer */
-.footer {
-    background-color: #080808 !important;
-    border-top: 1px solid #222;
-    color: var(--text-gray);
-}
-
-.footer h4 {
-    color: var(--white);
-    margin-bottom: 20px;
-}
-
-.btn-social {
-    color: var(--primary-gold);
-    border: 1px solid var(--primary-gold);
-    margin-right: 10px;
-}
-
-.btn-social:hover {
-    background: var(--primary-gold);
     color: #000;
 }
+
+/* --- NEW ADDITIONS FOR SHOWROOM PAGES --- */
+
+/* 1. Style Cards (The Explanation Boxes) */
+.style-card { 
+    background: var(--dark-card); 
+    border: 1px solid #222; 
+    padding: 40px 30px; 
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+    cursor: pointer;
+    height: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.style-card:hover { 
+    border-color: var(--primary-gold); 
+    transform: translateY(-10px); 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.style-card i { 
+    color: var(--primary-gold); 
+    font-size: 2.2rem; 
+    margin-bottom: 20px; 
+    display: block; 
+}
+
+.style-card h4 { 
+    font-size: 1.15rem; 
+    margin-bottom: 15px; 
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.style-card p { 
+    font-size: 0.85rem; 
+    color: var(--text-gray); 
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+/* 2. Dynamic Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid a {
+    display: block;
+    overflow: hidden;
+    border: 1px solid #222;
+    transition: 0.5s;
+    background: #000;
+}
+
+.gallery-grid a:hover { 
+    border-color: var(--primary-gold); 
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    display: block;
+    transition: 0.7s cubic-bezier(0.2, 1, 0.3, 1);
+    opacity: 0.85;
+}
+
+.gallery-grid a:hover img { 
+    transform: scale(1.1); 
+    opacity: 1;
+}
+
+/* 3. Lightbox Customization (Making the zoom look high-end) */
+.lb-outerContainer {
+    background-color: #000 !important;
+    border-radius: 0 !important;
+}
+
+.lb-container {
+    padding: 0 !important;
+}
+
+.lb-dataContainer {
+    background-color: #000 !important;
+    padding-top: 15px !important;
+}
+
+.lb-caption {
+    font-family: 'Playfair Display', serif;
+    color: var(--primary-gold) !important;
+    font-size: 1.1rem !important;
+    font-weight: bold;
+}
+
+.lb-number {
+    color: #555 !important;
+}
+
+/* 4. Section Title Decoration */
+.section-title-container {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.section-title-container::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 1px;
+    background: var(--primary-gold);
+    bottom: 0;
+    left: 50%;
+    margin-left: -25px;
+}
+
+/* Footer Refinement */
+.footer {
+    background-color: #050505 !important;
+    border-top: 1px solid #222;
+    padding: 80px 0 40px;
+}
+
+.contact-link {
+    color: #fff;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.contact-link:hover {
+    color: var(--primary-gold);
+}
+
+.accent { color: var(--primary-gold) !important; }
