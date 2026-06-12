@@ -1,219 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <title>Materials & Colors | AU Cabinet</title>
+    <title>MATERIALS | Showroom</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link rel="icon" href="favicon2.ico" type="image/x-icon" />
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"> 
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="icon" href="favicon2.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
     <style>
-        :root {
-            --primary-gold: #c5a059;
-            --dark-bg: #0a0a0a;
-            --card-bg: #161616;
-        }
-
-        body { background-color: var(--dark-bg); color: #d1d1d1; font-family: 'Montserrat', sans-serif; }
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: #fff; }
-
-        /* Compact Navbar */
-        .navbar-dark { background: #000 !important; border-bottom: 1px solid #222; }
-        .nav-link { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* Tidy Filter Chips */
-        .filter-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 30px; }
-        .filter-chip { 
-            background: transparent; 
-            border: 1px solid #333; 
-            color: #aaa; 
-            padding: 6px 18px; 
-            font-size: 0.7rem; 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            cursor: pointer; 
-            transition: 0.3s;
-        }
-        .filter-chip.active, .filter-chip:hover { border-color: var(--primary-gold); color: #fff; }
-
-        /* Compact Color Grid */
-        .color-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-            gap: 15px;
-        }
-        .color-box {
-            background: var(--card-bg);
-            border: 1px solid #222;
-            overflow: hidden;
-            position: relative;
-            aspect-ratio: 1 / 1;
-            transition: 0.3s;
-        }
-        .color-box:hover { border-color: var(--primary-gold); transform: scale(1.05); z-index: 2; }
-        .color-box img { width: 100%; height: 100%; object-fit: cover; }
+        :root { --gold: #c5a059; --dark: #0a0a0a; }
+        body { background-color: var(--dark); color: #f4f4f4; font-family: 'Montserrat', sans-serif; }
+        h1 { font-family: 'Playfair Display', serif; color: #fff; }
+        .navbar-showroom { background: #000 !important; border-bottom: 1px solid #111; padding: 10px 0; }
+        .nav-link { text-transform: uppercase; letter-spacing: 2px; font-size: 10px; color: #777 !important; }
+        .nav-link:hover, .nav-link.active { color: var(--gold) !important; }
         
-        .color-label {
-            position: absolute;
-            bottom: 0; width: 100%;
-            background: rgba(0,0,0,0.8);
-            color: #fff;
-            font-size: 0.6rem;
-            padding: 5px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .source-text { font-size: 0.7rem; color: #666; margin-top: 40px; }
-        .source-text a { color: var(--primary-gold); text-decoration: none; }
-
-        .section-line { width: 30px; height: 1px; background: var(--primary-gold); margin: 15px auto; }
+        /* Smaller Grid for Colors */
+        .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+        .color-box { background: #111; border: 1px solid #1a1a1a; position: relative; aspect-ratio: 1/1; overflow: hidden; }
+        .color-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
+        .color-label { position: absolute; bottom: 0; width: 100%; background: rgba(0,0,0,0.7); color: #fff; font-size: 9px; padding: 5px; text-align: center; text-transform: uppercase; }
         
-        /* Footer */
-        .footer { background: #000 !important; border-top: 1px solid #222; padding: 60px 0 40px; }
+        .footer-showroom { background: #000 !important; border-top: 1px solid #111; padding: 60px 0; }
+        .divider { width: 30px; height: 1px; background: var(--gold); margin: 15px auto; }
     </style>
 </head>
-
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top p-0 px-4 px-lg-5">
-        <a href="gallery.html" class="navbar-brand py-2">
-            <img src="img/showroomlogo.png" alt="Showroom Logo" style="height: 40px;">
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-3 py-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="gallery.html" class="nav-item nav-link active">Showroom</a>
+    <nav class="navbar navbar-expand-lg navbar-showroom sticky-top">
+        <div class="container-fluid px-4">
+            <a href="gallery.html" class="navbar-brand"><img src="img/showroomlogo.png" style="height: 35px;"></a>
+            <div class="navbar-nav ms-auto d-none d-lg-flex">
+                <a href="showroom_kitchen.html" class="nav-link">Kitchen</a>
+                <a href="showroom_pantry.html" class="nav-link">Pantry</a>
+                <a href="showroom_colors.html" class="nav-link active">Materials</a>
             </div>
-            <a href="mailto:Info@AUCabinet.au?subject=Material Inquiry" class="btn btn-gold d-none d-lg-block ms-3" style="font-size:0.7rem; padding: 10px 20px;">Get A Quote</a>
         </div>
     </nav>
 
-    <!-- Compact Header -->
-    <div class="container-fluid py-5">
-        <div class="container text-center">
-            <h1 style="font-size: 1.8rem;">Colors & Materials</h1>
-            <div class="section-line"></div>
-            <p style="color: var(--primary-gold); letter-spacing: 3px; text-uppercase; font-size: 0.6rem; margin-bottom: 30px;">Premium Finishes Selection</p>
-            
-            <!-- Category Filter Chips -->
-            <div class="filter-container">
-                <div class="filter-chip active" onclick="applyFilter('all', this)">All Materials</div>
-                <div class="filter-chip" onclick="applyFilter('solid', this)">Solid Colors</div>
-                <div class="filter-chip" onclick="applyFilter('timber', this)">Wood Grains</div>
-                <div class="filter-chip" onclick="applyFilter('stone', this)">Stone & Marble</div>
-                <div class="filter-chip" onclick="applyFilter('matt', this)">Matt & Textured</div>
-            </div>
-        </div>
+    <div class="container text-center py-5">
+        <h1 class="display-6">MATERIAL PALETTE</h1>
+        <div class="divider"></div>
+        <p class="small text-uppercase text-muted">Texture & Tone Selection</p>
     </div>
 
-    <!-- Color Samples Grid -->
-    <div class="container-xxl pb-5">
-        <div class="container">
-            <div class="color-grid" id="gallery">
-                <!-- JavaScript will populate images here -->
-            </div>
-
-            <div class="text-center source-text">
-                <p>Color samples sourced from <a href="https://www.polytec.com.au/colours/" target="_blank">Polytec’s Official Gallery</a>. Used for showroom reference only.</p>
-            </div>
-        </div>
+    <div class="container pb-5">
+        <div class="color-grid" id="gallery"></div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer text-center">
-        <div class="container">
-            <h2 class="text-white mb-4" style="font-size: 1.5rem;">Start Your Selection</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4">
-                    <a href="tel:+61412270000" class="text-white small">+61 412 270 000</a>
-                </div>
-                <div class="col-lg-4">
-                    <a href="mailto:Info@AUCabinet.au" class="text-white small">Info@AUCabinet.au</a>
-                </div>
-            </div>
-        </div>
-        <div class="container border-top border-secondary mt-5 pt-4">
-            <p class="m-0 small text-muted text-uppercase" style="letter-spacing: 1px; font-size: 0.6rem;">
-                &copy; 2024 AU Cabinet. <span class="ms-2">ABN 99 894 945 721</span>
-            </p>
-        </div>
+    <footer class="footer-showroom text-center">
+        <p style="font-size: 10px; color: #444; letter-spacing: 4px; text-transform: uppercase;">
+            PROJECT GALLERY &copy; <span id="year"></span>
+        </p>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-
     <script>
-        let allColors = []; 
-
-        async function initGallery() {
-            try {
-                // Fetch from the colors folder
-                const response = await fetch('https://api.github.com/repos/ibehrouz/ibehrouz.github.io/contents/photos/colors');
-                allColors = await response.json();
-                renderColors('all');
-            } catch (e) { console.error("Colors failed to load", e); }
-        }
-
-        function renderColors(filter) {
-            const galleryDiv = document.getElementById('gallery');
-            galleryDiv.innerHTML = '';
-            
-            allColors.forEach(file => {
-                const fileName = file.name.toLowerCase();
-                // Match filter keywords or show all
-                if (filter === 'all' || fileName.includes(filter) || (filter === 'timber' && fileName.includes('wood'))) {
-                    if (file.type === 'file' && fileName.match(/\.(jpg|jpeg|png|gif)$/i)) {
-                        
-                        const box = document.createElement('div');
-                        box.className = 'color-box';
-
-                        const img = document.createElement('img');
-                        img.src = file.download_url;
-                        img.loading = "lazy";
-
-                        const label = document.createElement('div');
-                        label.className = 'color-label';
-                        // Clean up filename to show as a nice title (e.g. "Matt Anthracite")
-                        label.textContent = file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
-
-                        box.appendChild(img);
-                        box.appendChild(label);
-                        galleryDiv.appendChild(box);
-                    }
+        document.getElementById('year').textContent = new Date().getFullYear();
+        async function init() {
+            const res = await fetch('https://api.github.com/repos/ibehrouz/ibehrouz.github.io/contents/photos/colors');
+            const data = await res.json();
+            const div = document.getElementById('gallery');
+            data.forEach(p => {
+                if (p.name.match(/\.(jpg|jpeg|png)$/i)) {
+                    const name = p.name.replace(/\.[^/.]+$/, "").replace(/[-_]/g, ' ');
+                    div.innerHTML += `<div class="color-box"><img src="${p.download_url}"><div class="color-label">${name}</div></div>`;
                 }
             });
         }
-
-        function applyFilter(category, element) {
-            document.querySelectorAll('.filter-chip').forEach(chip => chip.classList.remove('active'));
-            element.classList.add('active');
-            renderColors(category);
-        }
-
-        initGallery();
+        init();
     </script>
 </body>
 </html>
