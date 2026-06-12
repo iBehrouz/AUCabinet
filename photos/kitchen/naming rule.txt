@@ -1,3 +1,6 @@
-shaker-1.jpg, shaker-2.jpg
-modern-1.jpg, modern-2.jpg
-glass-1.jpg
+Button	Keyword to use in Filename	Example Filename
+Shaker	shaker	shaker_kitchen_01.jpg
+Modern	modern	modern_black_cabinets.png
+Two-Tone	tone	blue_white_tone.jpg
+Glass	glass	glass_front_pantry.jpeg
+Open	shelf	timber_shelf_design.jpg
