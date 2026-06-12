@@ -6,6 +6,9 @@
     <title>AU Cabinet | Custom Luxury Joinery & Kitchens</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     
+    <!-- Favicon -->
+    <link rel="icon" href="favicon2.ico" type="image/x-icon">
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,7 +58,7 @@
         .btn-gold { background: var(--primary-gold); color: #000; border-radius: 0; font-weight: 600; padding: 12px 30px; border: none; }
         .btn-gold:hover { background: #e2bd78; color: #000; }
 
-        /* REFINED CONTACT FOOTER */
+        /* CONTACT FOOTER */
         .footer { background: #000 !important; border-top: 1px solid #222; padding: 80px 0 40px; }
         .contact-item { padding: 10px; transition: 0.3s; }
         .contact-item i { font-size: 1.5rem; margin-bottom: 10px; display: block; }
@@ -66,8 +69,7 @@
         .contact-link-tel:hover, .contact-link-email:hover { color: var(--primary-gold); }
         
         .section-title { position: relative; display: inline-block; padding-bottom: 15px; margin-bottom: 30px; }
-        .section-title::after { content: ""; position: absolute; width: 50px; height: 2px; background: var(--primary-gold); bottom: 0; left: 0; }
-        .text-center .section-title::after { left: 50%; margin-left: -25px; }
+        .section-title::after { content: ""; position: absolute; width: 50px; height: 2px; background: var(--primary-gold); bottom: 0; left: 50%; margin-left: -25px; }
     </style>
 </head>
 
@@ -83,10 +85,8 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto py-4 py-lg-0">
                 <a href="index.html" class="nav-item nav-link active">Home</a>
-                <!-- Updated "Our Work" to "Showroom" -->
                 <a href="gallery.html" class="nav-item nav-link">Showroom</a>
             </div>
-            <!-- Header Button Quote Email -->
             <a href="mailto:Info@AUCabinet.au?subject=Quote Request" class="btn btn-gold d-none d-lg-block ms-3">GET A QUOTE</a>
         </div>
     </nav>
@@ -102,7 +102,6 @@
                             <div class="col-10 col-lg-8 carousel-text">
                                 <h5 class="accent text-uppercase mb-3 animated slideInDown" style="letter-spacing: 5px;">Premium Joinery</h5>
                                 <h1 class="display-3 text-white animated slideInDown mb-4">Modern Kitchen Renovations</h1>
-                                <!-- Body Button linked to gallery.html -->
                                 <a href="gallery.html" class="btn btn-gold py-md-3 px-md-5 animated slideInLeft">VIEW SHOWROOM</a>
                             </div>
                         </div>
@@ -156,18 +155,16 @@
         <div class="container text-center">
             <div class="mx-auto mb-5">
                 <h1 class="display-6 text-white">Let's Design Your Project</h1>
-                <div style="width: 40px; height: 1px; background: var(--primary-gold); margin: 20px auto;"></div>
+                <div style="width: 40px; height: 1px; background: var(--primary-gold); margin: 20px auto 40px;"></div>
             </div>
             
             <div class="row g-4 justify-content-center">
-                <!-- Phone -->
                 <div class="col-lg-4 contact-item">
                     <i class="fa fa-phone-alt accent"></i>
                     <h5 class="text-uppercase text-muted mb-2" style="font-size: 0.65rem; letter-spacing: 2px;">Direct Line</h5>
                     <a href="tel:+61412270000" class="contact-link-tel">+61 412 270 000</a>
                 </div>
                 
-                <!-- Email -->
                 <div class="col-lg-4 contact-item">
                     <i class="fa fa-envelope accent"></i>
                     <h5 class="text-uppercase text-muted mb-2" style="font-size: 0.65rem; letter-spacing: 2px;">Email Inquiry</h5>
@@ -190,5 +187,4 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 </body>
-
 </html>
