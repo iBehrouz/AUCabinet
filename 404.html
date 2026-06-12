@@ -3,19 +3,16 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <title>NaeNae Design</title>
+    <title>Page Not Found | AU Cabinet</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
+    
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link rel="icon" href="favicon2.ico" type="image/x-icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"> 
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -23,85 +20,97 @@
 
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-gold: #c5a059;
+            --dark-bg: #0f0f0f;
+            --text-light: #e0e0e0;
+        }
+
+        body { background-color: var(--dark-bg); color: var(--text-light); font-family: 'Montserrat', sans-serif; }
+        h1, h2, .navbar-brand { font-family: 'Playfair Display', serif; color: #fff; }
+        
+        .accent { color: var(--primary-gold); }
+        
+        /* Navbar */
+        .navbar-dark { background: #000 !important; border-bottom: 1px solid #222; }
+        .nav-link { text-transform: uppercase; letter-spacing: 1px; font-size: 13px; }
+
+        /* 404 Styling */
+        .display-1 { font-size: 10rem; font-weight: 700; color: var(--primary-gold); }
+        .btn-gold { background: var(--primary-gold); color: #000; border-radius: 0; font-weight: 600; padding: 15px 40px; border: none; }
+        .btn-gold:hover { background: #e2bd78; color: #000; }
+
+        /* Footer */
+        .footer { background: #000 !important; border-top: 1px solid #222; padding: 60px 0 40px; }
+    </style>
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner" class="show bg-dark position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top p-0 px-4 px-lg-5">
+        <a href="index.html" class="navbar-brand">
+            <h2 class="m-0 text-white">AU <span class="accent">CABINET</span></h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-4 py-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="gallery.html" class="nav-item nav-link">Showroom</a>
+            </div>
+            <a href="mailto:Info@AUCabinet.au?subject=Quote Request" class="btn btn-gold d-none d-lg-block ms-3">GET A QUOTE</a>
         </div>
-    </div>
-    <!-- Spinner End -->
-
-
+    </nav>
 
     <!-- 404 Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" style="margin-top: 10vh; margin-bottom: 10vh;">
         <div class="container text-center">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <i class="bi bi-exclamation-triangle display-1 text-primary"></i>
                     <h1 class="display-1">404</h1>
-                    <h1 class="mb-4">Page Not Found</h1>
-                    <p class="mb-4">We’re sorry, the page you have looked for does not exist in our website!</p>
-                    <a class="btn btn-primary py-3 px-5" href="gallery.html">Go Back To Home</a>
+                    <h1 class="mb-4 text-white">Page Not Found</h1>
+                    <p class="mb-5" style="color: #a0a0a0;">We’re sorry, the page you are looking for does not exist or has been moved. Use the button below to return to our homepage.</p>
+                    <a class="btn btn-gold py-3 px-5" href="index.html">GO BACK TO HOME</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- 404 End -->
-        
 
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
-
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-</body>
-
-</html>
-
-
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i class="bi bi-arrow-up"></i></a>
-
+    <!-- Footer -->
+    <footer class="footer wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center">
+            <h2 class="text-white mb-4">Let's Design Your Project</h2>
+            <div style="width: 40px; height: 1px; background: var(--primary-gold); margin: 20px auto 40px;"></div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4">
+                    <i class="fa fa-phone-alt accent mb-3 d-block" style="font-size: 1.5rem;"></i>
+                    <a href="tel:+61412270000" style="color:#fff; font-size: 1.2rem;">+61 412 270 000</a>
+                </div>
+                <div class="col-lg-4">
+                    <i class="fa fa-envelope accent mb-3 d-block" style="font-size: 1.5rem;"></i>
+                    <a href="mailto:Info@AUCabinet.au" style="color:#fff; font-size: 0.95rem;">Info@AUCabinet.au</a>
+                </div>
+            </div>
+        </div>
+        <div class="container border-top border-secondary mt-5 pt-4 text-center">
+            <p class="m-0 small text-muted text-uppercase" style="letter-spacing: 1px; font-size: 0.65rem;">
+                &copy; 2024 AU Cabinet. All Rights Reserved. <span class="ms-3">ABN 99 894 945 721</span>
+            </p>
+        </div>
+    </footer>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-
-    <!-- Template Javascript -->
     <script src="js/main.js"></script>
 </body>
-
 </html>
