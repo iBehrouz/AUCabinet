@@ -3,253 +3,862 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SHOWROOM</title>
+    <title>SHOWROOM & GALLERY | AU Cabinet</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     
+    <!-- Favicon -->
     <link rel="icon" href="favicon2.ico" type="image/x-icon">
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@200;300;400;600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
     <style>
         :root {
             --primary-gold: #c5a059;
-            --dark-bg: #0a0a0a;
-            --card-bg: #111111;
-            --text-light: #f4f4f4;
-            --text-muted: #666666;
+            --gold-hover: #e2bd78;
+            --dark-bg: #0f0f0f;
+            --card-bg: #1a1a1a;
+            --border-color: #222222;
+            --border-gold: rgba(197, 160, 89, 0.4);
+            --text-light: #e0e0e0;
+            --text-muted: #a0a0a0;
         }
 
         body { 
             background-color: var(--dark-bg); 
             color: var(--text-light); 
             font-family: 'Montserrat', sans-serif; 
-            letter-spacing: 0.5px;
+            min-height: 100vh;
         }
 
-        h1, h2, h3, h4 { 
+        h1, h2, h3, h4, .navbar-brand { 
             font-family: 'Playfair Display', serif; 
             color: #fff; 
         }
 
-        /* Navbar */
-        .navbar-showroom { 
+        .accent { color: var(--primary-gold); }
+        a { text-decoration: none; transition: 0.3s; }
+
+        /* Navbar identical to index.html */
+        .navbar-dark { 
             background: #000 !important; 
-            border-bottom: 1px solid #111;
-            padding: 15px 0;
+            border-bottom: 1px solid #222; 
         }
-        
+
         .nav-link { 
             text-transform: uppercase; 
-            letter-spacing: 2px; 
-            font-size: 10px; 
-            font-weight: 300;
-            color: #777 !important;
+            letter-spacing: 1px; 
+            font-size: 13px; 
         }
-        
+
         .nav-link:hover, .nav-link.active { 
             color: var(--primary-gold) !important; 
         }
 
-        /* Gallery Tiles */
-        .gallery-item { 
-            background: var(--card-bg); 
-            border: 1px solid #1a1a1a; 
-            transition: 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); 
-            overflow: hidden; 
-            height: 100%;
-            text-decoration: none;
-        }
-        
-        .gallery-item:hover { 
-            border-color: #333; 
-            transform: translateY(-5px); 
-        }
-        
-        .gallery-img { 
-            overflow: hidden; 
-            height: 280px; 
-        }
-        
-        .gallery-img img { 
-            object-fit: cover; 
-            width: 100%; 
-            height: 100%; 
-            transition: 1.2s; 
-            opacity: 0.6; 
-        }
-        
-        .gallery-item:hover .gallery-img img { 
-            opacity: 1; 
-            transform: scale(1.05);
+        .btn-gold { 
+            background: var(--primary-gold); 
+            color: #000; 
+            border-radius: 0; 
+            font-weight: 600; 
+            padding: 12px 30px; 
+            border: none; 
+            text-transform: uppercase;
         }
 
-        .category-title {
-            font-size: 0.9rem;
+        .btn-gold:hover { 
+            background: var(--gold-hover); 
+            color: #000; 
+        }
+
+        /* Category Selector Bar */
+        .category-nav-wrapper {
+            background: #000;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 61px;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .category-nav {
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #333 transparent;
+            padding: 12px 0;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .category-nav::-webkit-scrollbar {
+            height: 3px;
+        }
+        .category-nav::-webkit-scrollbar-thumb {
+            background: #333;
+        }
+
+        .cat-tab-btn {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid #222;
+            padding: 8px 18px;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .cat-tab-btn i {
+            font-size: 13px;
+            color: var(--primary-gold);
+        }
+
+        .cat-tab-btn:hover {
+            color: #fff;
+            border-color: #444;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .cat-tab-btn.active {
+            color: #000;
+            background: var(--primary-gold);
+            border-color: var(--primary-gold);
+            font-weight: 600;
+        }
+
+        .cat-tab-btn.active i {
+            color: #000;
+        }
+
+        /* Showroom Hero Header */
+        .showroom-header {
+            padding: 50px 0 25px;
+            text-align: center;
+        }
+
+        .showroom-title {
+            font-size: 2.2rem;
             letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .showroom-subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .divider-gold {
+            width: 50px;
+            height: 2px;
+            background: var(--primary-gold);
+            margin: 0 auto 24px;
+        }
+
+        .search-box-wrap {
+            max-width: 380px;
+            position: relative;
+            margin: 0 auto 35px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid #222;
+            color: #fff;
+            padding: 10px 16px 10px 42px;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            border-radius: 0;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-gold);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 20px;
+            min-height: 200px;
+        }
+
+        .gallery-card {
+            background: var(--card-bg);
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+            display: block;
+            aspect-ratio: 4/3;
+            transition: border-color 0.4s, transform 0.4s ease;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: transform 0.6s ease, opacity 0.4s ease;
+        }
+
+        .gallery-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-6px);
+        }
+
+        .gallery-card:hover img {
+            opacity: 1;
+            transform: scale(1.06);
+        }
+
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 70%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .gallery-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card-caption {
+            font-size: 11px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             color: #fff;
             margin: 0;
-            font-weight: 400;
+            font-weight: 500;
         }
 
-        .divider {
-            width: 30px;
-            height: 1px;
-            background: var(--primary-gold);
-            margin: 20px auto;
-        }
-
-        /* Minimalist Neutral Footer */
-        .footer-showroom { 
-            background: #000 !important; 
-            border-top: 1px solid #111; 
-            padding: 100px 0 60px; 
-        }
-
-        .copyright-text {
-            font-size: 10px;
-            color: #444;
-            letter-spacing: 4px;
+        .card-tag {
+            font-size: 9px;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            color: var(--primary-gold);
+            margin: 0;
         }
 
-        .navbar-toggler { border: none; }
+        .zoom-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--primary-gold);
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+        }
+
+        /* Specialized Swatches Grid for Materials / Colors */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 14px;
+        }
+
+        .color-card {
+            background: var(--card-bg);
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1/1;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        .color-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.85;
+            transition: transform 0.5s ease, opacity 0.3s;
+        }
+
+        .color-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-4px);
+        }
+
+        .color-card:hover img {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .color-banner {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.88);
+            padding: 8px 6px;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            backdrop-filter: blur(4px);
+        }
+
+        .color-name {
+            font-size: 10px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: #fff;
+            margin: 0;
+            font-weight: 500;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        /* Empty State */
+        .empty-state {
+            padding: 60px 20px;
+            text-align: center;
+            border: 1px dashed #333;
+            background: var(--card-bg);
+        }
+
+        .count-badge {
+            display: inline-block;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--primary-gold);
+            background: rgba(197, 160, 89, 0.1);
+            border: 1px solid var(--border-gold);
+            padding: 5px 14px;
+            margin-bottom: 20px;
+        }
+
+        /* Footer matching index.html */
+        .footer { 
+            background: #000 !important; 
+            border-top: 1px solid #222; 
+            padding: 80px 0 40px; 
+            margin-top: 80px;
+        }
+        .contact-item { padding: 10px; transition: 0.3s; }
+        .contact-item i { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+        
+        .contact-link-tel { color: #fff; font-size: 1.3rem; font-weight: 400; letter-spacing: 1px; }
+        .contact-link-email { color: #fff; font-size: 0.95rem; font-weight: 400; letter-spacing: 1px; } 
+        
+        .contact-link-tel:hover, .contact-link-email:hover { color: var(--primary-gold); }
+
+        /* Responsive tweaks */
+        @media (max-width: 768px) {
+            .showroom-title { font-size: 1.6rem; }
+            .category-nav-wrapper { top: 57px; }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+            .color-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+        }
     </style>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-showroom sticky-top">
-        <div class="container-fluid px-4 px-lg-5">
-            <a href="gallery.html" class="navbar-brand">
-                <img src="img/showroomlogo.png" alt="Showroom" style="height: 40px;">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars text-white"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <div class="navbar-nav ms-auto py-4 py-lg-0">
-                    <a href="showroom_kitchen.html" class="nav-item nav-link">Kitchen</a>
-                    <a href="showroom_pantry.html" class="nav-item nav-link">Pantry</a>
-                    <a href="showroom_laundry.html" class="nav-item nav-link">Laundry</a>
-                    <a href="showroom_tv.html" class="nav-item nav-link">TV Unit</a>
-                    <a href="showroom_bath.html" class="nav-item nav-link">Bathroom</a>
-                    <a href="showroom_robe.html" class="nav-item nav-link">Wardrobes</a>
-                    <a href="showroom_shop.html" class="nav-item nav-link">Workspace</a>
-                    <a href="showroom_other.html" class="nav-item nav-link">Other</a>
-                    <a href="showroom_colors.html" class="nav-item nav-link">Colors</a>
-                    <a href="showroom_colors.html" class="nav-item nav-link">Materials</a>
-                </div>
+    <!-- Navbar matching index.html -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top p-0 px-4 px-lg-5">
+        <a href="index.html" class="navbar-brand">
+            <h2 class="m-0 text-white">AU <span class="accent">CABINET</span></h2>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-4 py-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <a href="gallery.html" class="nav-item nav-link active">Showroom</a>
             </div>
+            <a href="mailto:Info@AUCabinet.au?subject=Quote Request" class="btn btn-gold d-none d-lg-block ms-3">GET A QUOTE</a>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <div class="container-fluid py-5">
-        <div class="container text-center py-5">
-            <h1 class="display-6 mb-3" style="letter-spacing: 5px;">SHOWROOM</h1>
-            <p class="small text-uppercase text-muted" style="letter-spacing: 3px;">Precision Manufacturing & Design Excellence</p>
-            <div class="divider"></div>
-        </div>
-    </div>
-
-    <!-- 10 Categories Collection Grid -->
-    <div class="container-xxl pb-5">
-        <div class="container">
-            <div class="row g-4">
-                <!-- 1 -->
-                <div class="col-lg-4 col-md-6">
-                    <a href="showroom_kitchen.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_kitchen.jpg" alt="Kitchen"></div>
-                        <div class="p-4 text-center"><h4 class="category-title">Kitchen</h4></div>
-                    </a>
-                </div>
-                <!-- 2 -->
-                <div class="col-lg-4 col-md-6">
-                    <a href="showroom_pantry.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_pantry.jpg" alt="Pantry"></div>
-                        <div class="p-4 text-center"><h4 class="category-title">Pantry</h4></div>
-                    </a>
-                </div>
-                <!-- 3 -->
-                <div class="col-lg-4 col-md-6">
-                    <a href="showroom_laundry.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_laundry.jpg" alt="Laundry"></div>
-                        <div class="p-4 text-center"><h4 class="category-title">Laundry</h4></div>
-                    </a>
-                </div>
-                <!-- 4 -->
-                <div class="col-lg-4 col-md-6">
-                    <a href="showroom_tv.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_tv.jpg" alt="TV Unit"></div>
-                        <div class="p-4 text-center"><h4 class="category-title">TV Unit</h4></div>
-                    </a>
-                </div>
-                <!-- 5 -->
-                <div class="col-lg-4 col-md-6">
-                    <a href="showroom_bath.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_bath.jpg" alt="Bathroom"></div>
-                        <div class="p-4 text-center"><h4 class="category-title">Bathroom</h4></div>
-                    </a>
-                </div>
-                <!-- 6 -->
-                <div class="col-lg-4 col-md-6">
-                    <a href="showroom_robe.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_robe.jpg" alt="Wardrobes"></div>
-                        <div class="p-4 text-center"><h4 class="category-title">Wardrobes</h4></div>
-                    </a>
-                </div>
-                <!-- 7 -->
-                <div class="col-lg-4 col-md-6">
-                    <a href="showroom_shop.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_shop.jpg" alt="Workspace"></div>
-                        <div class="p-4 text-center"><h4 class="category-title">Workspace</h4></div>
-                    </a>
-                </div>
-                <!-- 8 -->
-                <div class="col-lg-4 col-md-6">
-                    <a href="showroom_other.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_other.jpg" alt="Other"></div>
-                        <div class="p-4 text-center"><h4 class="category-title">Other</h4></div>
-                    </a>
-                </div>
-                <!-- 9 -->
-                <div class="col-lg-4 col-md-6">
-                    <a href="showroom_colors.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_colors.jpg" alt="Colors"></div>
-                        <div class="p-4 text-center"><h4 class="category-title">Colors</h4></div>
-                    </a>
-                </div>
-                <!-- 10 -->
-                <div class="col-lg-4 col-md-6">
-                    <a href="showroom_colors.html" class="gallery-item d-block">
-                        <div class="gallery-img"><img src="img/showroom_colors.jpg" alt="Materials"></div>
-                        <div class="p-4 text-center"><h4 class="category-title">Materials</h4></div>
-                    </a>
-                </div>
+    <!-- Sticky Showroom Category Tabs -->
+    <div class="category-nav-wrapper">
+        <div class="container-fluid px-3 px-lg-5">
+            <div class="category-nav" id="categoryTabs">
+                <button type="button" class="cat-tab-btn" data-category="all" onclick="selectCategory('all')">
+                    <i class="fa fa-layer-group"></i> All Collections
+                </button>
+                <button type="button" class="cat-tab-btn active" data-category="kitchen" onclick="selectCategory('kitchen')">
+                    <i class="fa fa-utensils"></i> Kitchen
+                </button>
+                <button type="button" class="cat-tab-btn" data-category="pantry" onclick="selectCategory('pantry')">
+                    <i class="fa fa-wine-glass"></i> Pantry
+                </button>
+                <button type="button" class="cat-tab-btn" data-category="laundry" onclick="selectCategory('laundry')">
+                    <i class="fa fa-tshirt"></i> Laundry
+                </button>
+                <button type="button" class="cat-tab-btn" data-category="tv" onclick="selectCategory('tv')">
+                    <i class="fa fa-tv"></i> TV & Living
+                </button>
+                <button type="button" class="cat-tab-btn" data-category="bath" onclick="selectCategory('bath')">
+                    <i class="fa fa-bath"></i> Bathroom
+                </button>
+                <button type="button" class="cat-tab-btn" data-category="robe" onclick="selectCategory('robe')">
+                    <i class="fa fa-door-closed"></i> Wardrobes
+                </button>
+                <button type="button" class="cat-tab-btn" data-category="shop" onclick="selectCategory('shop')">
+                    <i class="fa fa-laptop"></i> Workspace
+                </button>
+                <button type="button" class="cat-tab-btn" data-category="other" onclick="selectCategory('other')">
+                    <i class="fa fa-gem"></i> Bespoke Other
+                </button>
+                <button type="button" class="cat-tab-btn" data-category="colors" onclick="selectCategory('colors')">
+                    <i class="fa fa-palette"></i> Materials & Colors
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Pure Minimalist Footer -->
-    <footer class="footer-showroom text-center">
+    <!-- Main Content Area -->
+    <main class="container-fluid px-3 px-lg-5">
+        <!-- Hero Header -->
+        <div class="showroom-header">
+            <h1 class="showroom-title" id="categoryTitle">Kitchen Systems</h1>
+            <p class="showroom-subtitle" id="categorySubtitle">Architectural Culinary Spaces & Joinery</p>
+            <div class="divider-gold"></div>
+            <div>
+                <span class="count-badge" id="photoCountBadge">Loading Collection...</span>
+            </div>
+        </div>
+
+        <!-- Search Controls -->
         <div class="container">
-            <p class="copyright-text">
-                PROJECT GALLERY &copy; <span id="year"></span>
+            <div class="search-box-wrap">
+                <i class="fa fa-search search-icon"></i>
+                <input type="text" id="gallerySearch" class="search-input" placeholder="Search gallery collection..." oninput="handleSearch(this.value)">
+            </div>
+        </div>
+
+        <!-- Gallery Grid Container -->
+        <div class="container-fluid px-lg-4 pb-5">
+            <div id="galleryContainer">
+                <div class="gallery-grid" id="gallery"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- REFINED CONTACT FOOTER -->
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="mx-auto mb-5">
+                <h1 class="display-6 text-white">Let's Design Your Project</h1>
+                <div style="width: 40px; height: 1px; background: var(--primary-gold); margin: 20px auto 40px;"></div>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 contact-item">
+                    <i class="fa fa-phone-alt accent"></i>
+                    <h5 class="text-uppercase text-muted mb-2" style="font-size: 0.65rem; letter-spacing: 2px;">Direct Line</h5>
+                    <a href="tel:+61412270000" class="contact-link-tel">+61 412 270 000</a>
+                </div>
+                
+                <div class="col-lg-4 contact-item">
+                    <i class="fa fa-envelope accent"></i>
+                    <h5 class="text-uppercase text-muted mb-2" style="font-size: 0.65rem; letter-spacing: 2px;">Email Inquiry</h5>
+                    <a href="mailto:Info@AUCabinet.au" class="contact-link-email">Info@AUCabinet.au</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container border-top border-secondary mt-5 pt-4 text-center">
+            <p class="m-0 small text-muted text-uppercase" style="letter-spacing: 1px; font-size: 0.65rem;">
+                &copy; <span id="year"></span> AU Cabinet. All Rights Reserved. <span class="ms-3">ABN 99 894 945 721</span>
             </p>
         </div>
     </footer>
 
-    <script>
-        // Keeping copyright alive today
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- Lightbox, JQuery, Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+
+    <!-- Unified Gallery Engine -->
+    <script type="module">
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Configure Lightbox
+        if (typeof lightbox !== 'undefined') {
+            lightbox.option({
+                'resizeDuration': 200,
+                'wrapAround': true,
+                'fadeDuration': 250,
+                'imageFadeDuration': 250,
+                'albumLabel': "Design %1 of %2"
+            });
+        }
+
+        // Category Metadata & Folder Mappings
+        const categoryMeta = {
+            all: {
+                title: "Complete Showroom Portfolio",
+                subtitle: "Curated Architectural Joinery Across All Collections",
+                folder: "all"
+            },
+            kitchen: {
+                title: "Kitchen Systems",
+                subtitle: "Architectural Culinary Spaces & Bespoke Cabinetry",
+                folder: "kitchen"
+            },
+            pantry: {
+                title: "Butler's Pantry Systems",
+                subtitle: "Integrated Storage Solutions & Scullery Joinery",
+                folder: "pantry"
+            },
+            laundry: {
+                title: "Laundry Systems",
+                subtitle: "Utility, Ergonomics & Precision Fitted Joinery",
+                folder: "laundry"
+            },
+            tv: {
+                title: "Entertainment & TV Units",
+                subtitle: "Feature Living Room Joinery & Media Centers",
+                folder: "tv",
+                fallbackFolder: "basic"
+            },
+            bath: {
+                title: "Bathroom Vanities",
+                subtitle: "Luxury Sanctuary Joinery & Custom Shaving Cabinets",
+                folder: "bath"
+            },
+            robe: {
+                title: "Custom Wardrobes",
+                subtitle: "Walk-In Robes, Built-In Storage & Dressing Suites",
+                folder: "robe"
+            },
+            shop: {
+                title: "Workspace & Commercial",
+                subtitle: "Functional Studio Desks & Commercial Shopfront Joinery",
+                folder: "shop",
+                fallbackFolder: "basic"
+            },
+            other: {
+                title: "Bespoke Other Projects",
+                subtitle: "Home Bars, Architectural Shelving & Custom Joinery Details",
+                folder: "other",
+                fallbackFolder: "basic"
+            },
+            colors: {
+                title: "Material & Color Palette",
+                subtitle: "Architectural Textures, Solid Tones, Natural Timber & Stone Finishes",
+                folder: "colors"
+            }
+        };
+
+        // Automatically discover and index all photos across all folders dynamically
+        const photoDatabase = {};
+        try {
+            const imageModules = import.meta.glob('/photos/*/*.{jpg,jpeg,png,webp,svg,JPG,JPEG,PNG,WEBP}', {
+                eager: true,
+                query: '?url',
+                import: 'default'
+            });
+
+            for (const path in imageModules) {
+                const match = path.match(/(?:^|\/)photos\/([^/]+)\/([^/]+)$/i);
+                if (match) {
+                    const folder = match[1].toLowerCase();
+                    const filename = match[2];
+                    const url = imageModules[path];
+                    if (!photoDatabase[folder]) {
+                        photoDatabase[folder] = [];
+                    }
+                    photoDatabase[folder].push({
+                        name: filename,
+                        url: url
+                    });
+                }
+            }
+        } catch (err) {
+            console.warn('Dynamic glob loader error:', err);
+        }
+
+        // State
+        let currentCategory = 'kitchen';
+        let searchQuery = '';
+        let fetchedOnlinePhotos = {};
+
+        // Format nice title from filename
+        function formatPhotoName(filename) {
+            return filename
+                .replace(/\.[^/.]+$/, "")
+                .replace(/[-_]/g, ' ')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        // Initialize from URL hash or default
+        function initFromHash() {
+            const hash = window.location.hash.replace('#', '').toLowerCase();
+            if (hash && categoryMeta[hash]) {
+                selectCategory(hash, false);
+            } else {
+                selectCategory('kitchen', false);
+            }
+        }
+
+        // Switch Main Category
+        function selectCategory(categoryKey, updateHash = true) {
+            if (!categoryMeta[categoryKey]) categoryKey = 'kitchen';
+            currentCategory = categoryKey;
+            searchQuery = '';
+            
+            const searchInput = document.getElementById('gallerySearch');
+            if (searchInput) searchInput.value = '';
+
+            if (updateHash) {
+                try {
+                    history.replaceState(null, '', '#' + categoryKey);
+                } catch(e) {
+                    window.location.hash = categoryKey;
+                }
+            }
+
+            // Update Tab Active States
+            document.querySelectorAll('.cat-tab-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-category') === categoryKey);
+            });
+
+            // Update Category Header
+            const meta = categoryMeta[categoryKey];
+            document.getElementById('categoryTitle').textContent = meta.title;
+            document.getElementById('categorySubtitle').textContent = meta.subtitle;
+
+            // Fetch or load photos
+            loadAndRenderCategory(categoryKey);
+        }
+
+        // Handle Search Input
+        function handleSearch(query) {
+            searchQuery = query.toLowerCase().trim();
+            renderCurrentView();
+        }
+
+        // Load Photos for category
+        async function loadAndRenderCategory(categoryKey) {
+            const badge = document.getElementById('photoCountBadge');
+            badge.textContent = 'Loading collection...';
+
+            // Optional background fetch from GitHub API to discover newly uploaded photos in that folder
+            if (!fetchedOnlinePhotos[categoryKey] && categoryKey !== 'all') {
+                const meta = categoryMeta[categoryKey] || {};
+                const folderName = meta.folder || categoryKey;
+                fetch(`https://api.github.com/repos/ibehrouz/ibehrouz.github.io/contents/photos/${folderName}`)
+                    .then(res => res.ok ? res.json() : null)
+                    .then(data => {
+                        if (Array.isArray(data)) {
+                            const newFiles = data
+                                .filter(item => /\.(jpg|jpeg|png|webp|svg)$/i.test(item.name))
+                                .map(item => ({
+                                    name: item.name,
+                                    url: `photos/${folderName}/${item.name}`
+                                }));
+                            if (newFiles.length > 0) {
+                                fetchedOnlinePhotos[categoryKey] = newFiles;
+                                renderCurrentView();
+                            }
+                        }
+                    })
+                    .catch(() => {});
+            }
+
+            renderCurrentView();
+        }
+
+        // Get Photos for Current State
+        function getPhotosForCategory(catKey) {
+            // "All Collections" includes all joinery project categories, EXCLUDING materials & colors
+            if (catKey === 'all') {
+                const combined = [];
+                const joineryCategories = ['kitchen', 'pantry', 'laundry', 'tv', 'bath', 'robe', 'shop', 'other'];
+                joineryCategories.forEach(cat => {
+                    const meta = categoryMeta[cat] || {};
+                    const primaryFolder = meta.folder || cat;
+                    const fallback = meta.fallbackFolder;
+                    
+                    const list = fetchedOnlinePhotos[cat] || 
+                                 photoDatabase[primaryFolder] || 
+                                 (fallback ? photoDatabase[fallback] : []) || [];
+
+                    list.forEach(item => {
+                        const name = typeof item === 'string' ? item : item.name;
+                        const url = (typeof item === 'object' && item.url) ? item.url : `photos/${primaryFolder}/${name}`;
+                        combined.push({
+                            name: name,
+                            category: cat,
+                            url: url,
+                            lightboxGroup: 'all-portfolio'
+                        });
+                    });
+                });
+                return combined;
+            }
+
+            // Category-specific photos loaded directly from its folder
+            const meta = categoryMeta[catKey] || {};
+            const primaryFolder = meta.folder || catKey;
+            const fallback = meta.fallbackFolder;
+
+            const list = fetchedOnlinePhotos[catKey] || 
+                         photoDatabase[primaryFolder] || 
+                         (fallback ? photoDatabase[fallback] : []) || [];
+            
+            return list.map(item => {
+                const name = typeof item === 'string' ? item : item.name;
+                const url = (typeof item === 'object' && item.url) ? item.url : `photos/${primaryFolder}/${name}`;
+                return {
+                    name: name,
+                    category: catKey,
+                    url: url,
+                    lightboxGroup: catKey
+                };
+            });
+        }
+
+        // Render Current View
+        function renderCurrentView() {
+            const container = document.getElementById('gallery');
+            const badge = document.getElementById('photoCountBadge');
+            
+            const rawPhotos = getPhotosForCategory(currentCategory);
+            const filteredPhotos = rawPhotos.filter(item => {
+                if (!searchQuery) return true;
+                const nameLower = item.name.toLowerCase();
+                const catLower = (item.category || '').toLowerCase();
+                return nameLower.includes(searchQuery) || catLower.includes(searchQuery);
+            });
+
+            // Update Badge Count
+            const countText = filteredPhotos.length === 1 ? '1 Design / Finish' : `${filteredPhotos.length} Designs & Finishes`;
+            badge.textContent = `${countText} Shown`;
+
+            // Clear Grid
+            container.innerHTML = '';
+
+            if (filteredPhotos.length === 0) {
+                container.className = 'w-100';
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fa fa-search fa-2x text-muted mb-3"></i>
+                        <h4 class="text-white mb-2">No Matching Designs Found</h4>
+                        <p class="text-muted small mb-3">Try adjusting your search terms.</p>
+                        <button class="btn btn-gold btn-sm" id="btnResetSearch">Clear Search</button>
+                    </div>
+                `;
+                const resetBtn = document.getElementById('btnResetSearch');
+                if (resetBtn) resetBtn.addEventListener('click', clearSearch);
+                return;
+            }
+
+            // If category is materials/colors, use swatch card layout
+            if (currentCategory === 'colors') {
+                container.className = 'color-grid';
+                filteredPhotos.forEach(p => {
+                    const formatted = formatPhotoName(p.name);
+                    const card = document.createElement('a');
+                    card.className = 'color-card';
+                    card.href = p.url;
+                    card.setAttribute('data-lightbox', 'materials');
+                    card.setAttribute('data-title', formatted + ' &bull; AU Cabinet Luxury Finish');
+                    card.innerHTML = `
+                        <img src="${p.url}" alt="${formatted}" loading="lazy" onerror="this.onerror=null; this.src='photos/colors/${p.name}';">
+                        <div class="color-banner">
+                            <div class="color-name" title="${formatted}">${formatted}</div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            } else {
+                // Standard Luxury Project Grid
+                container.className = 'gallery-grid';
+                filteredPhotos.forEach(p => {
+                    const formatted = formatPhotoName(p.name);
+                    const categoryDisplayName = (categoryMeta[p.category] || {}).title || currentCategory.toUpperCase();
+                    
+                    const card = document.createElement('a');
+                    card.className = 'gallery-card';
+                    card.href = p.url;
+                    card.setAttribute('data-lightbox', p.lightboxGroup || 'showroom');
+                    card.setAttribute('data-title', `${categoryDisplayName} &bull; AU Cabinet Custom Joinery`);
+                    card.innerHTML = `
+                        <img src="${p.url}" alt="${formatted}" loading="lazy" onerror="this.onerror=null; this.src='photos/basic/image1.jpg';">
+                        <div class="card-overlay">
+                            <div>
+                                <p class="card-tag">${(p.category || currentCategory).toUpperCase()}</p>
+                                <h4 class="card-caption">${formatted}</h4>
+                            </div>
+                            <div class="zoom-icon">
+                                <i class="fa fa-search-plus"></i>
+                            </div>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+        }
+
+        function clearSearch() {
+            searchQuery = '';
+            const searchInput = document.getElementById('gallerySearch');
+            if (searchInput) searchInput.value = '';
+            renderCurrentView();
+        }
+
+        // Attach Global Handlers
+        window.selectCategory = selectCategory;
+        window.handleSearch = handleSearch;
+        window.clearSearch = clearSearch;
+
+        // Listen for Hash Changes (Browser Back/Forward navigation)
+        window.addEventListener('popstate', () => {
+            initFromHash();
+        });
+
+        // Initialize on DOM Ready
+        document.addEventListener('DOMContentLoaded', () => {
+            initFromHash();
+        });
+    </script>
 </body>
 </html>
