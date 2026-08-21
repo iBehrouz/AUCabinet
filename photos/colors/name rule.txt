@@ -1,0 +1,4 @@
+Solid Colors: include solid in filename (e.g., solid-white.jpg).
+Timber/Wood: include timber or wood in filename (e.g., timber-oak.jpg).
+Stone/Marble: include stone or marble in filename (e.g., stone-grey.jpg).
+Matt/Textured: include matt or texture in filename.

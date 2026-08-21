@@ -1,0 +1,6 @@
+For Pantry (showroom_pantry.html):
+Butler: include butler in filename.
+Walk-in: include walkin in filename.
+Pull-out: include pullout in filename.
+Shelf: include shelf in filename.
+Spice: include spice in filename.
