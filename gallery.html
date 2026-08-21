@@ -389,8 +389,18 @@
         @media (max-width: 768px) {
             .showroom-title { font-size: 1.6rem; }
             .category-nav-wrapper { top: 57px; }
-            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
-            .color-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 8px; }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+            .color-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; }
+        }
+
+        @media (max-width: 576px) {
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .color-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+            .photo-card-info { padding: 10px 12px; }
+            .photo-title { font-size: 12px; }
+            .cat-tab-btn { padding: 8px 14px; font-size: 11px; }
+            .showroom-header { padding: 25px 0 15px; }
+            .footer { padding: 50px 0 30px; margin-top: 50px; }
         }
     </style>
 </head>
@@ -408,6 +418,9 @@
             <div class="navbar-nav ms-auto py-4 py-lg-0">
                 <a href="index.html" class="nav-item nav-link">Home</a>
                 <a href="gallery.html" class="nav-item nav-link active">Showroom</a>
+                <a href="mailto:Info@AUCabinet.au?subject=Quote Request" class="nav-item nav-link d-lg-none accent fw-bold mt-2">
+                    <i class="fa fa-envelope me-1"></i> GET A QUOTE
+                </a>
             </div>
             <a href="mailto:Info@AUCabinet.au?subject=Quote Request" class="btn btn-gold d-none d-lg-block ms-3">GET A QUOTE</a>
         </div>
@@ -657,7 +670,11 @@
 
             // Update Tab Active States
             document.querySelectorAll('.cat-tab-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.getAttribute('data-category') === categoryKey);
+                const isActive = btn.getAttribute('data-category') === categoryKey;
+                btn.classList.toggle('active', isActive);
+                if (isActive) {
+                    btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }
             });
 
             // Update Category Header

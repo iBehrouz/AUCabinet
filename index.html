@@ -86,6 +86,9 @@
             <div class="navbar-nav ms-auto py-4 py-lg-0">
                 <a href="index.html" class="nav-item nav-link active">Home</a>
                 <a href="gallery.html" class="nav-item nav-link">Showroom</a>
+                <a href="mailto:Info@AUCabinet.au?subject=Quote Request" class="nav-item nav-link d-lg-none accent fw-bold mt-2">
+                    <i class="fa fa-envelope me-1"></i> GET A QUOTE
+                </a>
             </div>
             <a href="mailto:Info@AUCabinet.au?subject=Quote Request" class="btn btn-gold d-none d-lg-block ms-3">GET A QUOTE</a>
         </div>
@@ -175,7 +178,7 @@
         
         <div class="container border-top border-secondary mt-5 pt-4 text-center">
             <p class="m-0 small text-muted text-uppercase" style="letter-spacing: 1px; font-size: 0.65rem;">
-                &copy; 2024 AU Cabinet. All Rights Reserved. <span class="ms-3">ABN 99 894 945 721</span>
+                &copy; <span id="year"></span> AU Cabinet. All Rights Reserved. <span class="ms-3">ABN 99 894 945 721</span>
             </p>
         </div>
     </footer>
@@ -186,5 +189,8 @@
     <script src="lib/wow/wow.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
