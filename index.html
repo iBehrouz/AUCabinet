@@ -1053,7 +1053,7 @@
     <!-- Bootstrap 5 JavaScript Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Pure Responsive Carousel Engine with Touch Swipe Support -->
+    <!-- Pure Responsive Carousel Engine with Touch Swipe & Telegram Quote Handler -->
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
@@ -1143,6 +1143,60 @@
 
         // Start auto rotation
         startAutoSlide();
+
+        // --- TELEGRAM QUOTE FORM SUBMISSION HANDLER ---
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i> SENDING TO TELEGRAM...';
+
+            const name = form.querySelector('[name="name"]').value;
+            const phone = form.querySelector('[name="phone"]').value;
+            const email = form.querySelector('[name="email"]').value;
+            const project = form.querySelector('[name="project_type"]').value;
+            const message = form.querySelector('[name="message"]').value;
+
+            const telegramMessage = `🚨 *New AU Cabinet Quote Request!*\n\n` +
+                                    `👤 *Name:* ${name}\n` +
+                                    `📞 *Phone:* ${phone}\n` +
+                                    `✉️ *Email:* ${email}\n` +
+                                    `🏠 *Project:* ${project}\n` +
+                                    `💬 *Details:* ${message}`;
+
+            const botToken = "8873455228:AAF8EpOclWq9Zk98Bema62oKJ0RulYMGve8"; 
+            const chatId = "-1004303472281";     
+            const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+            fetch(telegramUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: telegramMessage,
+                    parse_mode: 'Markdown'
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Success! Your quote request has been sent to AU Cabinet.');
+                    form.reset();
+                } else {
+                    alert('Error sending message. Please call us directly at +61 412 270 000.');
+                }
+            })
+            .catch(() => {
+                alert('Network error. Please try again or call us directly.');
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            });
+        });
     </script>
 </body>
 </html>
