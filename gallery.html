@@ -14,6 +14,7 @@
     <link rel="apple-touch-icon" href="logo.png">
     <link rel="apple-touch-icon" href="img/logo.png">
 
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"> 
@@ -127,7 +128,7 @@
             margin-bottom: 10px;
         }
 
-        /* Category Card - Pure Photo Logo / Cover */
+        /* Category Card - Pure Photo Cover */
         .category-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -164,7 +165,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease, opacity 0.4s ease;
+            transition: transform 0.5s ease, opacity 0.35s ease;
             opacity: 0;
         }
 
@@ -176,7 +177,6 @@
             transform: scale(1.08);
         }
 
-        /* Shimmer loader placeholder while photo loads */
         .photo-skeleton {
             position: absolute;
             inset: 0;
@@ -303,7 +303,7 @@
             border-radius: 12px;
             object-fit: contain;
             user-select: none;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.15s ease;
             box-shadow: 0 12px 40px rgba(0,0,0,0.9);
         }
 
@@ -680,94 +680,63 @@
     </nav>
 
     <script>
-        // Exact 10 Subfolder IDs
-        const driveFolders = {
-            kitchen: "1w5ZixqdTUeqlAqfX5hQCwfmKQweOqMb-",
-            basic:   "1_3ZWPunXhTYbbpbbbC3Cnq0XRZisyJTN",
-            bath:    "1D5jE9CIiSzJt116CuOcvxWHg6cy5OC6K",
-            colors:  "1_ve26NnN9LnW6_UM9XO9U_zN1IRXecT0",
-            laundry: "1Rn8RFCEq2ZkXYcC0f4mw8Rc6S0ti-mOt",
-            other:   "1vCgQc9gRjXzR9zs9eVUTktX9qPuYehvo",
-            pantry:  "1HpaYMWU97oHagivSb00iTWEjjj-Yleuk",
-            robe:    "1g2T0YgoXOql6CiKreFI-2b6Sw-syfV9d",
-            shop:    "1oTOkpd8cWlxf0qCTs0vQ5jGfJM_vD4xQ",
-            tv:      "1Wryp06tO9ilQOuYaMnoXtm54fTS1gHKu"
-        };
+        const GITHUB_USER = "iBehrouz";
+        const GITHUB_REPO = "AUCabinet";
+        const GITHUB_BRANCH = "main";
 
-        const folderPhotosCache = {};
+        const categories = ["kitchen", "robe", "pantry", "bath", "laundry", "colors", "tv", "shop", "basic", "other"];
+        const galleryData = {};
 
-        function driveImgUrl(fileId, width = 1600) {
-            return `https://drive.google.com/thumbnail?id=${fileId}&sz=w${width}`;
-        }
-
-        // Fast & Direct Google Drive Parser (no proxy delays)
-        async function fetchDriveImages(folderId) {
-            if (folderPhotosCache[folderId]) return folderPhotosCache[folderId];
-
+        // One single super-fast call to GitHub's Git Trees API
+        async function loadRepositoryGallery() {
             try {
-                // Direct Google Drive embedded catalog query
-                const res = await fetch(`https://drive.google.com/embeddedfolderview?id=${folderId}#grid`);
-                const html = await res.text();
+                const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/git/trees/${GITHUB_BRANCH}?recursive=1`;
+                const res = await fetch(apiUrl);
+                if (!res.ok) throw new Error("API call failed");
 
-                const ids = new Set();
-                
-                // Matches all direct item IDs inside that exact folder
-                const regex = /\["([a-zA-Z0-9_-]{28,35})",\["image\//g;
-                let match;
-                while ((match = regex.exec(html)) !== null) {
-                    if (match[1] !== folderId) ids.add(match[1]);
-                }
+                const data = await res.json();
+                categories.forEach(cat => galleryData[cat] = []);
 
-                // Fallback scanner for standard Drive markup
-                if (ids.size === 0) {
-                    const fallbackRegex = /drive\.google\.com\/(?:file\/d\/|open\?id=)([a-zA-Z0-9_-]{28,35})/g;
-                    while ((match = fallbackRegex.exec(html)) !== null) {
-                        if (match[1] !== folderId) ids.add(match[1]);
+                const validExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.avif'];
+
+                // Sort all repository photos into their category buckets
+                data.tree.forEach(item => {
+                    if (item.type === 'blob' && item.path.toLowerCase().startsWith('photos/')) {
+                        const pathLower = item.path.toLowerCase();
+                        if (validExtensions.some(ext => pathLower.endsWith(ext))) {
+                            const parts = item.path.split('/');
+                            if (parts.length >= 3) {
+                                const cat = parts[1].toLowerCase();
+                                if (galleryData[cat]) {
+                                    // Direct fast CDN raw URL
+                                    galleryData[cat].push(`https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${encodeURI(item.path)}`);
+                                }
+                            }
+                        }
                     }
-                }
+                });
 
-                const list = Array.from(ids);
-                folderPhotosCache[folderId] = list;
-                return list;
-            } catch (e) {
-                // If direct fetch is restricted by browser CORS, use lightweight Google API bridge
-                try {
-                    const apiRes = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://drive.google.com/embeddedfolderview?id=${folderId}#grid`)}`);
-                    const data = await apiRes.json();
-                    const ids = new Set();
-                    const fallbackRegex = /([a-zA-Z0-9_-]{28,35})/g;
-                    let m;
-                    while ((m = fallbackRegex.exec(data.contents)) !== null) {
-                        if (m[1].length >= 28 && m[1] !== folderId) ids.add(m[1]);
-                    }
-                    const list = Array.from(ids).slice(0, 40);
-                    folderPhotosCache[folderId] = list;
-                    return list;
-                } catch (err) {
-                    return [];
-                }
+                renderRandomCovers();
+            } catch (err) {
+                console.warn("Could not scan repo tree automatically:", err);
             }
         }
 
-        // Sets a photo from that folder as the category card logo
-        async function loadCategoryCovers() {
-            Object.entries(driveFolders).forEach(async ([key, folderId]) => {
-                const images = await fetchDriveImages(folderId);
-                const imgElem = document.getElementById(`img-${key}`);
-                const skelElem = document.getElementById(`skel-${key}`);
+        // Sets a random photo from the same category as its cover logo
+        function renderRandomCovers() {
+            categories.forEach(cat => {
+                const photos = galleryData[cat] || [];
+                const imgElem = document.getElementById(`img-${cat}`);
+                const skelElem = document.getElementById(`skel-${cat}`);
 
-                if (images && images.length > 0) {
-                    // Pick a random photo from this specific subfolder
-                    const randomIndex = Math.floor(Math.random() * images.length);
-                    const chosenId = images[randomIndex];
-
-                    imgElem.src = driveImgUrl(chosenId, 600);
+                if (photos.length > 0) {
+                    const randomPhoto = photos[Math.floor(Math.random() * photos.length)];
+                    imgElem.src = randomPhoto;
                     imgElem.onload = () => {
                         imgElem.classList.add('loaded');
                         if (skelElem) skelElem.style.display = 'none';
                     };
                 } else {
-                    // If empty folder, show clean fallback without crashing
                     if (skelElem) {
                         skelElem.style.background = '#1a1a22';
                         skelElem.style.animation = 'none';
@@ -786,21 +755,14 @@
         const counter = document.getElementById('sliderCounter');
         const spinner = document.getElementById('sliderSpinner');
 
-        async function openSlideShow(categoryKey, titleText) {
+        function openSlideShow(categoryKey, titleText) {
             modalTitle.textContent = titleText || categoryKey.toUpperCase();
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
 
-            mainImg.style.display = 'none';
-            spinner.style.display = 'block';
-            counter.textContent = 'Loading...';
+            activeImages = galleryData[categoryKey] || [];
 
-            const folderId = driveFolders[categoryKey];
-            activeImages = await fetchDriveImages(folderId);
-
-            spinner.style.display = 'none';
-
-            if (!activeImages || activeImages.length === 0) {
+            if (activeImages.length === 0) {
                 counter.textContent = '0 / 0';
                 mainImg.src = '';
                 mainImg.style.display = 'none';
@@ -814,19 +776,25 @@
         function showSlide(index) {
             if (activeImages.length === 0) return;
 
-            const fileId = activeImages[index];
             spinner.style.display = 'block';
-            mainImg.style.opacity = '0.3';
+            mainImg.style.opacity = '0.4';
 
-            const fullUrl = driveImgUrl(fileId, 1800);
+            const photoUrl = activeImages[index];
             const preload = new Image();
-            preload.src = fullUrl;
+            preload.src = photoUrl;
             preload.onload = () => {
                 spinner.style.display = 'none';
-                mainImg.src = fullUrl;
+                mainImg.src = photoUrl;
                 mainImg.style.display = 'block';
                 mainImg.style.opacity = '1';
                 counter.textContent = `${index + 1} / ${activeImages.length}`;
+
+                // Instant preload for next photo
+                if (activeImages.length > 1) {
+                    const nextIndex = (index + 1) % activeImages.length;
+                    const nextImg = new Image();
+                    nextImg.src = activeImages[nextIndex];
+                }
             };
         }
 
@@ -849,7 +817,7 @@
             activeImages = [];
         }
 
-        // Swipe Controls for Mobile
+        // Swipe gestures
         let touchStartX = 0;
         let touchEndX = 0;
         const touchArea = document.getElementById('sliderTouchArea');
@@ -872,7 +840,15 @@
         });
 
         window.addEventListener('DOMContentLoaded', () => {
-            loadCategoryCovers();
+            loadRepositoryGallery();
+
+            const hash = window.location.hash.replace('#', '').toLowerCase();
+            if (hash && categories.includes(hash)) {
+                setTimeout(() => {
+                    const card = document.querySelector(`[onclick*="'${hash}'"]`);
+                    if (card) card.click();
+                }, 300);
+            }
         });
     </script>
 </body>
