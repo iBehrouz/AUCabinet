@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>AU Cabinet | Showroom & Project Portfolio</title>
+    <title>AU Cabinet | Showroom & Finishes</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" name="viewport">
-    <meta name="description" content="Explore custom kitchens, wardrobes, bathroom vanities, and joinery crafted by AU Cabinet in Melbourne.">
+    <meta name="description" content="Explore custom kitchens, wardrobes, bathroom vanities, and joinery materials crafted by AU Cabinet.">
     <meta name="theme-color" content="#0a0a0c">
     
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -107,8 +107,9 @@
             color: var(--primary-gold) !important;
         }
 
+        /* Clean Header */
         .page-header {
-            padding: 40px 0 24px;
+            padding: 44px 0 28px;
             text-align: center;
             background: linear-gradient(180deg, #131317 0%, var(--dark-bg) 100%);
             border-bottom: 1px solid var(--border-color);
@@ -128,7 +129,7 @@
             margin-bottom: 10px;
         }
 
-        /* Category Card - Pure Photo Cover */
+        /* Standard Category Card */
         .category-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -225,6 +226,70 @@
             font-weight: 700;
         }
 
+        /* SPECIAL FEATURE CARD: Colors & Materials */
+        .category-card.card-special-colors {
+            border: 1.5px solid rgba(197, 160, 89, 0.6);
+            background: linear-gradient(180deg, #16161c 0%, #111115 100%);
+            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.12);
+        }
+
+        .category-card.card-special-colors:hover {
+            border-color: var(--primary-gold);
+            box-shadow: 0 16px 40px rgba(197, 160, 89, 0.28);
+        }
+
+        .colors-mosaic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 90px);
+            gap: 3px;
+            background: #0a0a0c;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .mosaic-cell {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #1a1a20;
+        }
+
+        .mosaic-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+            opacity: 0;
+        }
+
+        .mosaic-img.loaded {
+            opacity: 1;
+        }
+
+        .category-card:hover .mosaic-img {
+            transform: scale(1.1);
+        }
+
+        .colors-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(10, 10, 12, 0.85);
+            border: 1px solid var(--border-gold);
+            color: var(--primary-gold);
+            border-radius: 20px;
+            padding: 3px 10px;
+            font-size: 9.5px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            backdrop-filter: blur(8px);
+            z-index: 2;
+        }
+
         /* Fullscreen Slideshow */
         .slider-modal {
             position: fixed;
@@ -299,7 +364,7 @@
 
         .slider-main-img {
             max-width: 100%;
-            max-height: 82vh;
+            max-height: 72vh;
             border-radius: 12px;
             object-fit: contain;
             user-select: none;
@@ -341,6 +406,35 @@
             z-index: 5;
         }
 
+        /* Swatch Strip Thumbnails at Bottom of Slideshow */
+        .slider-thumbnail-strip {
+            display: flex;
+            gap: 8px;
+            padding: 10px 16px 14px;
+            overflow-x: auto;
+            border-top: 1px solid var(--border-color);
+            background: rgba(14, 14, 18, 0.8);
+            scrollbar-width: thin;
+        }
+
+        .thumb-item {
+            width: 54px;
+            height: 54px;
+            border-radius: 8px;
+            object-fit: cover;
+            opacity: 0.5;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .thumb-item.active, .thumb-item:hover {
+            opacity: 1;
+            border-color: var(--primary-gold);
+            transform: scale(1.05);
+        }
+
         /* Mobile Bottom Nav */
         .mobile-bottom-nav {
             display: none;
@@ -351,6 +445,7 @@
             body { padding-bottom: calc(96px + var(--safe-bottom)); }
 
             .category-photo-wrapper { height: 140px; }
+            .colors-mosaic-grid { height: 140px; grid-template-rows: repeat(2, 70px); }
 
             .slider-nav-btn {
                 width: 40px;
@@ -448,20 +543,42 @@
 
     <div class="page-header">
         <div class="container">
-            <span class="badge-gold">Melbourne Built</span>
+            <span class="badge-gold">Bespoke Joinery</span>
             <h1 class="h2 text-white mb-2">Project Showroom</h1>
             <p class="text-white-50 small mx-auto mb-0" style="max-width: 520px;">
-                Direct from our Keysborough factory. Tap any category to view project photos.
+                Explore custom cabinetry projects, tailored finishes, and design details. Tap any category to view full high-resolution galleries.
             </p>
         </div>
     </div>
 
-    <!-- 10 Categories with Real Photo Headers -->
     <section class="py-4 py-md-5">
         <div class="container">
             <div class="row g-3 g-md-4">
 
-                <!-- 1. Kitchen -->
+                <!-- 1. SPECIAL FEATURED CARD: Colors & Materials (Double Width on Desktop) -->
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="category-card card-special-colors" onclick="openSlideShow('colors', 'Materials, Stones & Finishes')">
+                        <div class="position-relative">
+                            <span class="colors-badge"><i class="fa fa-swatchbook me-1"></i> Finishes Library</span>
+                            <!-- 4-Grid Mosaic Preview pulling 4 different materials from photos/colors -->
+                            <div class="colors-mosaic-grid">
+                                <div class="mosaic-cell"><img class="mosaic-img" id="colors-m-0" alt="Material 1"></div>
+                                <div class="mosaic-cell"><img class="mosaic-img" id="colors-m-1" alt="Material 2"></div>
+                                <div class="mosaic-cell"><img class="mosaic-img" id="colors-m-2" alt="Material 3"></div>
+                                <div class="mosaic-cell"><img class="mosaic-img" id="colors-m-3" alt="Material 4"></div>
+                            </div>
+                        </div>
+                        <div class="category-details">
+                            <div>
+                                <h3 class="text-white">Colors & Materials</h3>
+                                <p>Engineered stones, natural timber veneers, 2-pack lacquer & laminate swatches</p>
+                            </div>
+                            <span class="category-pill">Browse Swatch Library <i class="fa fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Kitchen -->
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="category-card" onclick="openSlideShow('kitchen', 'Custom Kitchens')">
                         <div class="category-photo-wrapper">
@@ -478,7 +595,7 @@
                     </div>
                 </div>
 
-                <!-- 2. Robe -->
+                <!-- 3. Robe -->
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="category-card" onclick="openSlideShow('robe', 'Wardrobes & Robes')">
                         <div class="category-photo-wrapper">
@@ -495,7 +612,7 @@
                     </div>
                 </div>
 
-                <!-- 3. Pantry -->
+                <!-- 4. Pantry -->
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="category-card" onclick="openSlideShow('pantry', 'Pantries & Butler Kitchens')">
                         <div class="category-photo-wrapper">
@@ -512,7 +629,7 @@
                     </div>
                 </div>
 
-                <!-- 4. Bath -->
+                <!-- 5. Bath -->
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="category-card" onclick="openSlideShow('bath', 'Bathroom Vanities')">
                         <div class="category-photo-wrapper">
@@ -529,7 +646,7 @@
                     </div>
                 </div>
 
-                <!-- 5. Laundry -->
+                <!-- 6. Laundry -->
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="category-card" onclick="openSlideShow('laundry', 'Laundry Cupboards')">
                         <div class="category-photo-wrapper">
@@ -540,23 +657,6 @@
                             <div>
                                 <h3>Laundry</h3>
                                 <p>Hamper units & overheads</p>
-                            </div>
-                            <span class="category-pill">Open Gallery <i class="fa fa-arrow-right"></i></span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 6. Colors -->
-                <div class="col-6 col-md-4 col-lg-3">
-                    <div class="category-card" onclick="openSlideShow('colors', 'Colours, Boards & Stones')">
-                        <div class="category-photo-wrapper">
-                            <div class="photo-skeleton" id="skel-colors"></div>
-                            <img class="category-photo-img" id="img-colors" alt="Colors">
-                        </div>
-                        <div class="category-details">
-                            <div>
-                                <h3>Colors</h3>
-                                <p>Stone, laminate & timber swatches</p>
                             </div>
                             <span class="category-pill">Open Gallery <i class="fa fa-arrow-right"></i></span>
                         </div>
@@ -635,7 +735,7 @@
         </div>
     </section>
 
-    <!-- Fullscreen Slider Modal -->
+    <!-- Fullscreen Slider Modal with Swatch Strip -->
     <div class="slider-modal" id="sliderModal">
         <div class="slider-top-bar">
             <div class="slider-title">
@@ -654,6 +754,9 @@
             <img class="slider-main-img" id="sliderMainImg" alt="Showroom Photo" style="display:none;">
             <button class="slider-nav-btn next" onclick="nextSlide()"><i class="fa fa-chevron-right"></i></button>
         </div>
+
+        <!-- Thumbnail Navigation Strip for Fast Material Selection -->
+        <div class="slider-thumbnail-strip" id="sliderThumbnailStrip"></div>
     </div>
 
     <!-- Mobile Nav Dock -->
@@ -684,10 +787,10 @@
         const GITHUB_REPO = "AUCabinet";
         const GITHUB_BRANCH = "main";
 
-        const categories = ["kitchen", "robe", "pantry", "bath", "laundry", "colors", "tv", "shop", "basic", "other"];
+        const categories = ["colors", "kitchen", "robe", "pantry", "bath", "laundry", "tv", "shop", "basic", "other"];
         const galleryData = {};
 
-        // One single super-fast call to GitHub's Git Trees API
+        // One single fast call to GitHub's Git Trees API
         async function loadRepositoryGallery() {
             try {
                 const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/git/trees/${GITHUB_BRANCH}?recursive=1`;
@@ -708,7 +811,6 @@
                             if (parts.length >= 3) {
                                 const cat = parts[1].toLowerCase();
                                 if (galleryData[cat]) {
-                                    // Direct fast CDN raw URL
                                     galleryData[cat].push(`https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${encodeURI(item.path)}`);
                                 }
                             }
@@ -716,15 +818,30 @@
                     }
                 });
 
-                renderRandomCovers();
+                renderCardPreviews();
             } catch (err) {
                 console.warn("Could not scan repo tree automatically:", err);
             }
         }
 
-        // Sets a random photo from the same category as its cover logo
-        function renderRandomCovers() {
-            categories.forEach(cat => {
+        // Render Random Covers for standard cards & Multi-Mosaic for Colors
+        function renderCardPreviews() {
+            // 1. Special Colors Mosaic: Fill up to 4 different material swatches
+            const colorPhotos = galleryData["colors"] || [];
+            if (colorPhotos.length > 0) {
+                // Shuffle array copy to get random materials on each visit
+                const shuffled = [...colorPhotos].sort(() => 0.5 - Math.random());
+                for (let i = 0; i < 4; i++) {
+                    const img = document.getElementById(`colors-m-${i}`);
+                    if (img && shuffled[i % shuffled.length]) {
+                        img.src = shuffled[i % shuffled.length];
+                        img.onload = () => img.classList.add('loaded');
+                    }
+                }
+            }
+
+            // 2. Standard Category Cards
+            categories.filter(c => c !== "colors").forEach(cat => {
                 const photos = galleryData[cat] || [];
                 const imgElem = document.getElementById(`img-${cat}`);
                 const skelElem = document.getElementById(`skel-${cat}`);
@@ -754,6 +871,7 @@
         const mainImg = document.getElementById('sliderMainImg');
         const counter = document.getElementById('sliderCounter');
         const spinner = document.getElementById('sliderSpinner');
+        const thumbStrip = document.getElementById('sliderThumbnailStrip');
 
         function openSlideShow(categoryKey, titleText) {
             modalTitle.textContent = titleText || categoryKey.toUpperCase();
@@ -766,8 +884,22 @@
                 counter.textContent = '0 / 0';
                 mainImg.src = '';
                 mainImg.style.display = 'none';
+                thumbStrip.innerHTML = '';
                 return;
             }
+
+            // Build Swatch Strip Thumbnails
+            thumbStrip.innerHTML = '';
+            activeImages.forEach((url, idx) => {
+                const thumb = document.createElement('img');
+                thumb.className = `thumb-item ${idx === 0 ? 'active' : ''}`;
+                thumb.src = url;
+                thumb.onclick = () => {
+                    currentSlideIndex = idx;
+                    showSlide(currentSlideIndex);
+                };
+                thumbStrip.appendChild(thumb);
+            });
 
             currentSlideIndex = 0;
             showSlide(currentSlideIndex);
@@ -777,7 +909,7 @@
             if (activeImages.length === 0) return;
 
             spinner.style.display = 'block';
-            mainImg.style.opacity = '0.4';
+            mainImg.style.opacity = '0.35';
 
             const photoUrl = activeImages[index];
             const preload = new Image();
@@ -788,6 +920,13 @@
                 mainImg.style.display = 'block';
                 mainImg.style.opacity = '1';
                 counter.textContent = `${index + 1} / ${activeImages.length}`;
+
+                // Update active thumbnail
+                const thumbs = thumbStrip.querySelectorAll('.thumb-item');
+                thumbs.forEach((t, i) => {
+                    t.classList.toggle('active', i === index);
+                    if (i === index) t.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                });
 
                 // Instant preload for next photo
                 if (activeImages.length > 1) {
