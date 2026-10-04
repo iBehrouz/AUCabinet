@@ -8,10 +8,12 @@
     <meta name="description" content="AU Cabinet - Custom kitchens, wardrobes, and cabinets in Melbourne. Fast, direct, and custom made.">
     <meta name="theme-color" content="#0a0a0c">
     
-<!-- Favicons -->
-<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Favicons with direct fallbacks -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="apple-touch-icon" href="img/logo.png">
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,7 +61,6 @@
         .accent { color: var(--primary-gold); }
         a { text-decoration: none; transition: all 0.2s ease; }
 
-        /* Gold Buttons */
         .btn-gold {
             background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
             color: #0a0a0c !important;
@@ -105,7 +106,7 @@
             color: #0a0a0c !important;
         }
 
-        /* Desktop Header Only */
+        /* Desktop Header */
         .desktop-header {
             background: rgba(10, 10, 12, 0.94);
             backdrop-filter: blur(16px);
@@ -114,6 +115,13 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+        }
+
+        .brand-logo-img {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(197, 160, 89, 0.3));
         }
 
         .nav-link {
@@ -432,7 +440,6 @@
 
         /* Mobile Screen Overrides */
         @media (max-width: 991.98px) {
-            .top-micro-bar,
             .desktop-header {
                 display: none !important;
             }
@@ -490,6 +497,14 @@
                 transition: color 0.15s ease;
             }
 
+            .dock-icon-img {
+                width: 24px;
+                height: 24px;
+                object-fit: contain;
+                margin-bottom: 2px;
+                filter: drop-shadow(0 0 6px rgba(197, 160, 89, 0.35));
+            }
+
             .nav-dock-item i {
                 font-size: 1.45rem;
                 margin-bottom: 3px;
@@ -522,25 +537,12 @@
 </head>
 
 <body>
-    <!-- Top Micro Bar (Desktop Only) -->
-    <div class="top-micro-bar">
-        <div class="container d-flex justify-content-between align-items-center">
-            <div><i class="fa fa-map-marker-alt accent me-1"></i> <span>Melbourne, VIC</span></div>
-            <div>
-                <a href="tel:+61412270000" class="me-3">
-                    <i class="fa fa-phone-alt accent me-1"></i> <span class="fw-bold text-white">+61 412 270 000</span>
-                </a>
-                <a href="mailto:email@aucabinet.au">
-                    <i class="fa fa-envelope accent me-1"></i> email@aucabinet.au
-                </a>
-            </div>
-        </div>
-    </div>
 
-    <!-- Desktop Navigation Header (Hidden on Mobile) -->
+    <!-- Desktop Navigation Header with Logo -->
     <header class="desktop-header">
         <div class="container d-flex justify-content-between align-items-center">
-            <a href="index.html" class="d-flex align-items-center">
+            <a href="index.html" class="d-flex align-items-center gap-2">
+                <img class="brand-logo-img" src="logo.png" onerror="this.onerror=null; this.src='img/logo.png';" alt="AU Cabinet Logo">
                 <h2 class="m-0 text-white" style="font-size: 1.35rem; letter-spacing: 2px;">AU <span class="accent">CABINET</span></h2>
             </a>
             <div class="d-flex align-items-center">
@@ -642,22 +644,22 @@
         <div class="container">
             <div class="trust-grid">
                 <div class="trust-card">
-                    <i class="bi bi-eye trust-icon"></i>
+                    <i class="fa fa-cube trust-icon"></i>
                     <h6>3D Plan First</h6>
                     <p>See it before we cut</p>
                 </div>
                 <div class="trust-card">
-                    <i class="bi bi-shield-check trust-icon"></i>
+                    <i class="fa fa-shield-alt trust-icon"></i>
                     <h6>Soft-Close</h6>
                     <p>Smooth Blum hardware</p>
                 </div>
                 <div class="trust-card">
-                    <i class="bi bi-droplet-slash trust-icon"></i>
+                    <i class="fa fa-tint-slash trust-icon"></i>
                     <h6>Water-Resistant</h6>
                     <p>Moisture-proof boards</p>
                 </div>
                 <div class="trust-card">
-                    <i class="bi bi-tools trust-icon"></i>
+                    <i class="fa fa-tools trust-icon"></i>
                     <h6>Full Install</h6>
                     <p>Fitted clean & tidy</p>
                 </div>
@@ -665,7 +667,7 @@
         </div>
     </section>
 
-    <!-- Fast & Compact "What We Make" -->
+    <!-- Fast & Compact Services -->
     <section class="services-section">
         <div class="container" style="max-width: 900px;">
             <div class="text-center mb-3">
@@ -726,7 +728,7 @@
 
                 <!-- 5. Laundries -->
                 <div class="col-md-6 col-12">
-                    <a href="gallery.html" class="quick-work-tile">
+                    <a href="gallery.html#laundry" class="quick-work-tile">
                         <img class="work-thumb" src="./img/service-1.jpg" alt="Laundries" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=250&q=80';">
                         <div class="work-info">
                             <h4>Laundry Cupboards</h4>
@@ -741,8 +743,8 @@
                     <a href="gallery.html#colors" class="quick-work-tile">
                         <img class="work-thumb" src="./img/service-2.jpg" alt="TV Units" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=250&q=80';">
                         <div class="work-info">
-                            <h4>TV Units & Joinery</h4>
-                            <span>Floating entertainment walls & desks.</span>
+                            <h4>Colors & Materials</h4>
+                            <span>View all board, stone & veneer samples.</span>
                         </div>
                         <i class="fa fa-chevron-right work-arrow"></i>
                     </a>
@@ -816,10 +818,10 @@
         </div>
     </footer>
 
-    <!-- Big, Highly Visible Mobile Bottom App Dock -->
+    <!-- Native App Floating Dock with Emblem Home Button -->
     <nav class="mobile-bottom-nav">
         <a href="index.html" class="nav-dock-item active">
-            <i class="fa fa-home"></i>
+            <img class="dock-icon-img" src="favicon.ico" onerror="this.onerror=null; this.src='logo.ico';" alt="AU">
             <span>Home</span>
         </a>
         <a href="gallery.html" class="nav-dock-item">
@@ -833,7 +835,6 @@
             <i class="fa fa-phone"></i>
             <span>Call</span>
         </a>
-        <!-- Updated: Replaced Colours with Email -->
         <a href="mailto:email@aucabinet.au" class="nav-dock-item">
             <i class="fa fa-envelope"></i>
             <span>Email</span>
@@ -846,7 +847,6 @@
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Responsive Carousel State
         const slides = document.querySelectorAll('.hero-slide');
         const dots = document.querySelectorAll('.slider-dot');
         const prevBtn = document.getElementById('prevSlide');
@@ -890,7 +890,6 @@
             });
         });
 
-        // Touch Swipe Gestures
         let touchStartX = 0;
         let touchEndX = 0;
 

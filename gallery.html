@@ -8,10 +8,12 @@
     <meta name="description" content="AU Cabinet Showroom - Custom kitchens, wardrobes, pantries, vanities, and joinery in Melbourne.">
     <meta name="theme-color" content="#0a0a0c">
     
-<!-- Favicons -->
-<link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-<link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <!-- Favicons with direct fallbacks -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="logo.ico">
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="apple-touch-icon" href="logo.png">
+    <link rel="apple-touch-icon" href="img/logo.png">
 
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,6 +85,13 @@
             z-index: 1000;
         }
 
+        .brand-logo-img {
+            height: 42px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(197, 160, 89, 0.3));
+        }
+
         .nav-link {
             text-transform: uppercase;
             letter-spacing: 1.2px;
@@ -96,7 +105,7 @@
             color: var(--primary-gold) !important;
         }
 
-        /* Gallery Hero */
+        /* Gallery Hero Area */
         .gallery-hero {
             padding: 28px 0 14px;
             text-align: center;
@@ -313,7 +322,7 @@
             transform: scale(1.05);
         }
 
-        /* Wall-to-Wall Swatch Grid for Colors */
+        /* Wall-to-Wall Matrix for Colors */
         .colors-full-viewport {
             display: none;
             flex-grow: 1;
@@ -363,7 +372,7 @@
             display: none;
         }
 
-        /* Mobile Layout */
+        /* Mobile Screen Overrides */
         @media (max-width: 991.98px) {
             .desktop-header {
                 display: none !important;
@@ -430,6 +439,14 @@
                 transition: color 0.15s ease;
             }
 
+            .dock-icon-img {
+                width: 24px;
+                height: 24px;
+                object-fit: contain;
+                margin-bottom: 2px;
+                filter: drop-shadow(0 0 6px rgba(197, 160, 89, 0.35));
+            }
+
             .nav-dock-item i {
                 font-size: 1.45rem;
                 margin-bottom: 3px;
@@ -463,10 +480,11 @@
 
 <body>
 
-    <!-- Desktop Navigation Header -->
+    <!-- Desktop Navigation Header with Logo -->
     <header class="desktop-header">
         <div class="container d-flex justify-content-between align-items-center">
-            <a href="index.html" class="d-flex align-items-center">
+            <a href="index.html" class="d-flex align-items-center gap-2">
+                <img class="brand-logo-img" src="logo.png" onerror="this.onerror=null; this.src='img/logo.png';" alt="AU Cabinet Logo">
                 <h2 class="m-0 text-white" style="font-size: 1.35rem; letter-spacing: 2px;">AU <span class="accent">CABINET</span></h2>
             </a>
             <div class="d-flex align-items-center">
@@ -618,10 +636,10 @@
         </div>
     </div>
 
-    <!-- Mobile Bottom App Dock -->
+    <!-- Mobile Bottom App Dock with Emblem Home Button -->
     <nav class="mobile-bottom-nav">
         <a href="index.html" class="nav-dock-item">
-            <i class="fa fa-home"></i>
+            <img class="dock-icon-img" src="favicon.ico" onerror="this.onerror=null; this.src='logo.ico';" alt="AU">
             <span>Home</span>
         </a>
         <a href="gallery.html" class="nav-dock-item active">
