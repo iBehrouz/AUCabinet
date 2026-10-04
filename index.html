@@ -138,7 +138,7 @@
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23c5a059' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
-        /* Modern Gold Buttons with Soft Glow & Haptic Press */
+        /* Modern Gold Buttons */
         .btn-gold {
             background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
             color: #0a0a0c !important;
@@ -549,29 +549,6 @@
             gap: 10px;
         }
 
-        /* Consultation CTA Banner */
-        .quote-banner {
-            background: linear-gradient(135deg, #16151b 0%, #0e0e12 100%);
-            border: 1px solid var(--border-gold);
-            border-radius: 30px;
-            padding: 50px 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-        }
-
-        .quote-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
-            box-shadow: 0 0 15px var(--primary-gold);
-        }
-
         /* Footer */
         .footer {
             background: #060608 !important;
@@ -582,15 +559,14 @@
 
         /* --- MODERN MOBILE APP BOTTOM DOCK & RESPONSIVE RULES --- */
         .mobile-bottom-nav {
-            display: none; /* Hidden by default on PC */
+            display: none;
         }
 
         @media (max-width: 991.98px) {
             body {
-                padding-bottom: 90px; /* Safe space for floating dock */
+                padding-bottom: 90px;
             }
 
-            /* Floating Island Frosted Dock */
             .mobile-bottom-nav {
                 position: fixed;
                 bottom: 16px;
@@ -630,7 +606,6 @@
                 color: var(--primary-gold);
             }
 
-            /* Center Floating Gold Action Button */
             .nav-dock-center .plus-btn {
                 width: 50px;
                 height: 50px;
@@ -733,10 +708,6 @@
             .service-content {
                 padding: 18px 16px;
             }
-            .quote-banner {
-                padding: 35px 20px;
-                border-radius: 22px;
-            }
         }
     </style>
 </head>
@@ -778,10 +749,10 @@
                     <a href="gallery.html#colors" class="nav-item nav-link d-lg-none">Materials & Finishes</a>
                 </div>
                 <div class="d-flex align-items-center">
-                    <a href="mailto:email@aucabinet.au?subject=Quote Request" class="btn btn-gold d-none d-lg-inline-flex ms-3">
+                    <a href="#quoteSection" class="btn btn-gold d-none d-lg-inline-flex ms-3">
                         <i class="fa fa-paper-plane"></i> GET A QUOTE
                     </a>
-                    <a href="mailto:email@aucabinet.au?subject=Quote Request" class="btn btn-gold btn-mobile-quote d-lg-none">
+                    <a href="#quoteSection" class="btn btn-gold btn-mobile-quote d-lg-none">
                         <i class="fa fa-paper-plane"></i> REQUEST A FREE QUOTE
                     </a>
                 </div>
@@ -806,7 +777,7 @@
                             <a href="gallery.html#kitchen" class="btn btn-gold">
                                 <i class="fa fa-utensils me-1"></i> EXPLORE KITCHENS
                             </a>
-                            <a href="mailto:email@aucabinet.au?subject=Kitchen Quote Inquiry" class="btn btn-gold-outline">
+                            <a href="#quoteSection" class="btn btn-gold-outline">
                                 <i class="fa fa-envelope me-1"></i> REQUEST A QUOTE
                             </a>
                         </div>
@@ -828,7 +799,7 @@
                             <a href="gallery.html#robe" class="btn btn-gold">
                                 <i class="fa fa-door-closed me-1"></i> VIEW ROBES & STORAGE
                             </a>
-                            <a href="mailto:email@aucabinet.au?subject=Wardrobe Quote Inquiry" class="btn btn-gold-outline">
+                            <a href="#quoteSection" class="btn btn-gold-outline">
                                 <i class="fa fa-calendar-check me-1"></i> BOOK CONSULTATION
                             </a>
                         </div>
@@ -850,7 +821,7 @@
                             <a href="gallery.html#pantry" class="btn btn-gold">
                                 <i class="fa fa-wine-glass me-1"></i> VIEW PANTRY DESIGNS
                             </a>
-                            <a href="mailto:email@aucabinet.au?subject=Pantry Quote Inquiry" class="btn btn-gold-outline">
+                            <a href="#quoteSection" class="btn btn-gold-outline">
                                 <i class="fa fa-comments me-1"></i> TALK TO A DESIGNER
                             </a>
                         </div>
@@ -872,7 +843,7 @@
                             <a href="gallery.html#bath" class="btn btn-gold">
                                 <i class="fa fa-bath me-1"></i> VIEW BATHROOM DESIGNS
                             </a>
-                            <a href="mailto:email@aucabinet.au?subject=Bathroom Quote Inquiry" class="btn btn-gold-outline">
+                            <a href="#quoteSection" class="btn btn-gold-outline">
                                 <i class="fa fa-envelope me-1"></i> REQUEST A QUOTE
                             </a>
                         </div>
@@ -977,7 +948,7 @@
                         <div class="service-content">
                             <h4>3D Architectural Planning</h4>
                             <p>Precision CAD modeling and photorealistic 3D renders so you see your dream joinery before manufacturing starts.</p>
-                            <a href="mailto:email@aucabinet.au?subject=3D Planning Inquiry" class="service-link">
+                            <a href="#quoteSection" class="service-link">
                                 Request 3D Design <i class="fa fa-arrow-right"></i>
                             </a>
                         </div>
@@ -987,89 +958,59 @@
         </div>
     </section>
 
-
-<!-- Interactive Quote Section -->
-<section class="py-5" id="quoteSection">
-    <div class="container py-lg-4" style="max-width: 700px;">
-        <div class="service-card p-4 p-md-5" style="border-radius: 28px;">
-            <div class="section-header mb-4">
-                <span class="section-eyebrow">Instant Estimation</span>
-                <h2 class="section-title">Request a Custom Quote</h2>
-                <div class="gold-divider"></div>
-            </div>
-
-            <!-- Form connected to your handler script -->
-            <form id="quoteForm" action="submit_quote.php" method="POST">
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <label class="form-label text-muted small text-uppercase">Your Name</label>
-                        <input type="text" name="name" class="form-control bg-dark text-white border-secondary rounded-3 p-3" placeholder="John Doe" required>
-                    </div>
-                    <div class="col-md-6">
-                        <label class="form-label text-muted small text-uppercase">Phone Number</label>
-                        <input type="tel" name="phone" class="form-control bg-dark text-white border-secondary rounded-3 p-3" placeholder="+61 400 000 000" required>
-                    </div>
-                    <div class="col-12">
-                        <label class="form-label text-muted small text-uppercase">Email Address</label>
-                        <input type="email" name="email" class="form-control bg-dark text-white border-secondary rounded-3 p-3" placeholder="john@example.com" required>
-                    </div>
-                    <div class="col-12">
-                        <label class="form-label text-muted small text-uppercase">Project Type</label>
-                        <select name="project_type" class="form-select bg-dark text-white border-secondary rounded-3 p-3">
-                            <option value="Kitchen Renovation">Kitchen Renovation</option>
-                            <option value="Walk-In Robe / Wardrobe">Walk-In Robe / Wardrobe</option>
-                            <option value="Butler's Pantry">Butler's Pantry</option>
-                            <option value="Bathroom Vanity">Bathroom Vanity</option>
-                            <option value="Other Architectural Joinery">Other Architectural Joinery</option>
-                        </select>
-                    </div>
-                    <div class="col-12">
-                        <label class="form-label text-muted small text-uppercase">Project Details / Measurements</label>
-                        <textarea name="message" rows="4" class="form-control bg-dark text-white border-secondary rounded-3 p-3" placeholder="Tell us about your space, materials preferred, or timeframe..."></textarea>
-                    </div>
-                    <div class="col-12 text-center mt-4">
-                        <button type="submit" class="btn btn-gold w-100 py-3 rounded-pill">
-                            <i class="fa fa-paper-plane me-2"></i> SUBMIT QUOTE REQUEST
-                        </button>
-                    </div>
+    <!-- Integrated Custom Quote Form Section -->
+    <section class="py-5" id="quoteSection">
+        <div class="container py-lg-3" style="max-width: 750px;">
+            <div class="service-card p-4 p-md-5" style="border-radius: 28px;">
+                <div class="section-header mb-4">
+                    <span class="section-eyebrow">Instant Estimation</span>
+                    <h2 class="section-title">Request a Custom Quote</h2>
+                    <div class="gold-divider"></div>
                 </div>
-            </form>
-        </div>
-    </div>
-</section>
 
-
-
-
-
-
-
-
-
-
-    <!-- Consultation & Quote CTA Banner -->
-    <div class="container my-5 py-2">
-        <div class="quote-banner">
-            <span class="badge-gold mb-3">Complimentary Design Quote</span>
-            <h2 class="text-white mb-3" style="font-size: clamp(1.6rem, 3.5vw, 2.4rem);">Ready to Bring Your Vision to Life?</h2>
-            <p class="text-light mx-auto mb-4" style="max-width: 650px; font-size: 0.95rem; line-height: 1.6; color: #cfcfcf;">
-                Contact our design team today for a free consultation, site measurement, and detailed 3D project estimation.
-            </p>
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <a href="tel:+61412270000" class="btn btn-gold">
-                    <i class="fa fa-phone-alt me-1"></i> CALL +61 412 270 000
-                </a>
-                <a href="mailto:email@aucabinet.au?subject=Free Quote Request" class="btn btn-gold-outline">
-                    <i class="fa fa-envelope me-1"></i> email@aucabinet.au
-                </a>
+                <form id="quoteForm">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small text-uppercase">Your Name</label>
+                            <input type="text" name="name" class="form-control bg-dark text-white border-secondary rounded-3 p-3" placeholder="John Doe" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label text-muted small text-uppercase">Phone Number</label>
+                            <input type="tel" name="phone" class="form-control bg-dark text-white border-secondary rounded-3 p-3" placeholder="+61 400 000 000" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label text-muted small text-uppercase">Email Address</label>
+                            <input type="email" name="email" class="form-control bg-dark text-white border-secondary rounded-3 p-3" placeholder="john@example.com" required>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label text-muted small text-uppercase">Project Type</label>
+                            <select name="project_type" class="form-select bg-dark text-white border-secondary rounded-3 p-3">
+                                <option value="Kitchen Renovation">Kitchen Renovation</option>
+                                <option value="Walk-In Robe / Wardrobe">Walk-In Robe / Wardrobe</option>
+                                <option value="Butler's Pantry">Butler's Pantry</option>
+                                <option value="Bathroom Vanity">Bathroom Vanity</option>
+                                <option value="Other Architectural Joinery">Other Architectural Joinery</option>
+                            </select>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label text-muted small text-uppercase">Project Details / Measurements</label>
+                            <textarea name="message" rows="4" class="form-control bg-dark text-white border-secondary rounded-3 p-3" placeholder="Tell us about your space, materials preferred, or timeframe..."></textarea>
+                        </div>
+                        <div class="col-12 text-center mt-4">
+                            <button type="submit" class="btn btn-gold w-100 py-3 rounded-3">
+                                <i class="fa fa-paper-plane me-2"></i> SUBMIT QUOTE REQUEST
+                            </button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
-    </div>
+    </section>
 
     <!-- Refined Contact Footer -->
     <footer class="footer">
         <div class="container text-center">
-            <div class="mx-auto mb-5">
+            <div class="mx-auto mb-4">
                 <h2 class="display-6 text-white mb-2">Let's Design Your Project</h2>
                 <p class="small text-uppercase text-white" style="letter-spacing: 2px; opacity: 0.95;">
                     Melbourne &bull; Victoria &bull; Australia
@@ -1078,7 +1019,7 @@
             </div>
         </div>
         
-        <div class="container border-top border-secondary mt-5 pt-4 text-center">
+        <div class="container border-top border-secondary mt-4 pt-4 text-center">
             <p class="m-0 small text-uppercase text-white" style="letter-spacing: 1px; font-size: 0.75rem;">
                 &copy; <span id="currentYear"></span> AU Cabinet. All Rights Reserved. 
                 <span class="ms-3 d-inline-block text-white" style="opacity: 0.9;">ABN 99 894 945 721</span>
@@ -1096,12 +1037,12 @@
             <i class="fa fa-images"></i>
             <span>Gallery</span>
         </a>
-        <a href="tel:+61412270000" class="nav-dock-item nav-dock-center">
-            <span class="plus-btn"><i class="fa fa-phone text-dark" style="font-size: 19px;"></i></span>
+        <a href="#quoteSection" class="nav-dock-item nav-dock-center">
+            <span class="plus-btn"><i class="fa fa-paper-plane text-dark" style="font-size: 17px;"></i></span>
         </a>
-        <a href="mailto:email@aucabinet.au?subject=Quote Inquiry" class="nav-dock-item">
-            <i class="fa fa-envelope"></i>
-            <span>Quote</span>
+        <a href="tel:+61412270000" class="nav-dock-item">
+            <i class="fa fa-phone"></i>
+            <span>Call</span>
         </a>
         <a href="gallery.html#colors" class="nav-dock-item">
             <i class="fa fa-palette"></i>
