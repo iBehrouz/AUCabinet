@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <title>AU Cabinet | Custom Kitchens & Cabinets Melbourne</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" name="viewport">
-    <meta name="description" content="AU Cabinet - Custom kitchens, wardrobes, and cabinets made to measure in Melbourne.">
+    <meta name="description" content="AU Cabinet - Custom kitchens, wardrobes, laundries, and cabinets made to measure in Melbourne.">
     <meta name="theme-color" content="#0a0a0c">
     
     <!-- Favicon -->
@@ -34,7 +34,7 @@
             --dark-bg: #0a0a0c;
             --card-bg: #131317;
             --card-hover: #1a1a20;
-            --border-color: #24242e;
+            --border-color: rgba(255, 255, 255, 0.07);
             --border-gold: rgba(197, 160, 89, 0.45);
             --text-light: #f3f3f6;
             --text-muted: #94949e;
@@ -148,7 +148,7 @@
             letter-spacing: 1.2px;
             text-transform: uppercase;
             font-size: 11.5px;
-            padding: 13px 28px;
+            padding: 13px 26px;
             border: none;
             display: inline-flex;
             align-items: center;
@@ -177,7 +177,7 @@
             letter-spacing: 1.2px;
             text-transform: uppercase;
             font-size: 11.5px;
-            padding: 13px 28px;
+            padding: 13px 26px;
             border: 1px solid var(--border-gold);
             display: inline-flex;
             align-items: center;
@@ -207,9 +207,9 @@
         .hero-slider-container {
             position: relative;
             width: 100%;
-            height: 76vh;
+            height: 74vh;
             min-height: 480px;
-            max-height: 800px;
+            max-height: 780px;
         }
 
         .hero-slide {
@@ -293,15 +293,15 @@
             border: 1px solid var(--border-gold);
             border-radius: 20px;
             padding: 5px 14px;
-            font-size: 10.5px;
+            font-size: 10px;
             font-weight: 600;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .hero-title {
-            font-size: clamp(1.65rem, 4.2vw, 2.9rem);
+            font-size: clamp(1.65rem, 4.2vw, 2.8rem);
             font-weight: 700;
             line-height: 1.2;
             color: #ffffff;
@@ -309,7 +309,7 @@
         }
 
         .hero-subtitle {
-            font-size: clamp(0.85rem, 2vw, 1rem);
+            font-size: clamp(0.85rem, 2vw, 0.98rem);
             color: #d0d0dc;
             line-height: 1.55;
             max-width: 580px;
@@ -317,14 +317,14 @@
             font-weight: 300;
         }
 
-        /* Carousel Arrows */
+        /* Carousel Controls */
         .slider-arrow {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
-            width: 46px;
-            height: 46px;
+            width: 44px;
+            height: 44px;
             background: rgba(10, 10, 12, 0.7);
             border: 1px solid var(--border-gold);
             border-radius: 50%;
@@ -352,12 +352,12 @@
             right: 0;
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
             z-index: 10;
         }
 
         .slider-dot {
-            width: 30px;
+            width: 28px;
             height: 3px;
             background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
@@ -367,35 +367,31 @@
 
         .slider-dot.active {
             background: var(--primary-gold);
-            width: 44px;
+            width: 42px;
             box-shadow: 0 0 10px var(--primary-gold);
         }
 
-        /* Trust Bar */
+        /* 4 Simple Guarantees Bar */
         .trust-bar {
             background: #0d0d10;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 28px 0;
+            padding: 26px 0;
         }
 
         .trust-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 14px;
+            gap: 12px;
         }
 
         .trust-card {
             background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 18px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 16px 12px;
             text-align: center;
             transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
         .trust-card:hover {
@@ -405,135 +401,154 @@
         }
 
         .trust-icon {
-            font-size: 1.6rem;
+            font-size: 1.45rem;
             color: var(--primary-gold);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .trust-card h6 {
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
             text-transform: uppercase;
-            letter-spacing: 0.6px;
+            letter-spacing: 0.5px;
         }
 
         .trust-card p {
-            font-size: 0.76rem;
+            font-size: 0.74rem;
             color: var(--text-muted);
             margin: 0;
-            line-height: 1.4;
+            line-height: 1.35;
         }
 
         /* Section Headings */
         .section-header {
             text-align: center;
-            margin-bottom: 38px;
+            margin-bottom: 34px;
         }
 
         .section-eyebrow {
-            font-size: 11px;
+            font-size: 10.5px;
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--primary-gold);
             font-weight: 600;
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .section-title {
-            font-size: clamp(1.6rem, 3.2vw, 2.3rem);
+            font-size: clamp(1.5rem, 3vw, 2.1rem);
             color: #fff;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+        }
+
+        .section-sub {
+            color: var(--text-muted);
+            font-size: 0.86rem;
+            margin: 0 auto;
+            max-width: 520px;
         }
 
         .gold-divider {
-            width: 40px;
+            width: 36px;
             height: 2px;
             background: var(--primary-gold);
-            margin: 0 auto;
+            margin: 12px auto 0;
             box-shadow: 0 0 10px var(--primary-gold);
         }
 
-        /* Service Cards */
-        .service-card {
+        /* --- COMPACT, BALANCED 6-OPTION "WHAT WE DO" GRID --- */
+        .services-section {
+            padding: 45px 0 20px;
+        }
+
+        .compact-service-card {
             background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
             height: 100%;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.28s ease;
         }
 
-        .service-card:hover {
+        .compact-service-card:hover {
             border-color: var(--primary-gold);
-            transform: translateY(-5px);
-            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
             background: var(--card-hover);
         }
 
-        .service-img-wrapper {
+        /* Smaller, Eye-Friendly Image Frame */
+        .compact-img-wrapper {
             position: relative;
             width: 100%;
-            height: 230px;
+            height: 170px;
             overflow: hidden;
             background: #111;
         }
 
-        .service-img-wrapper img {
+        .compact-img-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
             opacity: 0.92;
         }
 
-        .service-card:hover .service-img-wrapper img {
-            transform: scale(1.06);
+        .compact-service-card:hover .compact-img-wrapper img {
+            transform: scale(1.05);
             opacity: 1;
         }
 
-        .service-content {
-            padding: 22px 18px;
-            text-align: center;
+        .compact-card-body {
+            padding: 16px 16px 18px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+            text-align: left;
         }
 
-        .service-content h4 {
-            font-size: 1.2rem;
-            margin-bottom: 8px;
+        .compact-card-body h4 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
             color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .service-content p {
+        .compact-card-body h4 i {
+            font-size: 0.9rem;
+            color: var(--primary-gold);
+        }
+
+        .compact-card-body p {
             color: var(--text-muted);
-            font-size: 0.84rem;
-            line-height: 1.55;
-            margin-bottom: 16px;
+            font-size: 0.8rem;
+            line-height: 1.45;
+            margin-bottom: 12px;
             flex-grow: 1;
         }
 
-        .service-link {
+        .compact-card-link {
             color: var(--primary-gold);
-            font-size: 11.5px;
-            font-weight: 600;
+            font-size: 11px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.5px;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
-            gap: 6px;
+            gap: 5px;
             margin-top: auto;
         }
 
-        .service-link:hover {
+        .compact-card-link:hover {
             color: var(--gold-hover);
-            gap: 9px;
+            gap: 8px;
         }
 
         /* Form Inputs */
@@ -541,6 +556,7 @@
             background-color: #0c0c10 !important;
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
             color: #ffffff !important;
+            font-size: 0.9rem;
         }
 
         .form-control:focus, .form-select:focus {
@@ -575,7 +591,7 @@
             background: #060608 !important;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding: 55px 0 30px;
-            margin-top: 50px;
+            margin-top: 45px;
         }
 
         /* Mobile Bottom Floating Nav */
@@ -696,11 +712,6 @@
                 line-height: 1.45;
                 margin-bottom: 16px;
             }
-            .badge-gold {
-                font-size: 9px;
-                padding: 4px 10px;
-                margin-bottom: 10px;
-            }
             .btn-gold, .btn-gold-outline {
                 width: 100%;
                 padding: 12px 18px;
@@ -711,26 +722,25 @@
                 padding: 14px 10px;
                 border-radius: 16px;
             }
-            .trust-icon {
-                font-size: 1.35rem;
-                margin-bottom: 5px;
+            .compact-img-wrapper {
+                height: 155px;
             }
-            .service-img-wrapper {
-                height: 190px;
+            .compact-card-body {
+                padding: 14px 12px 16px;
             }
-            .service-content {
-                padding: 18px 14px;
+            .compact-card-body h4 {
+                font-size: 0.98rem;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Top Micro Bar (Hidden on Mobile) -->
+    <!-- Top Micro Bar (Desktop Only) -->
     <div class="top-micro-bar">
         <div class="container d-flex justify-content-between align-items-center">
             <div>
-                <i class="fa fa-map-marker-alt accent me-1"></i> <span>Melbourne, VIC</span>
+                <i class="fa fa-map-marker-alt accent me-1"></i> <span>Melbourne, Victoria</span>
             </div>
             <div>
                 <a href="tel:+61412270000" class="me-3">
@@ -864,15 +874,10 @@
                 </div>
             </div>
 
-            <!-- Carousel Arrows -->
-            <button class="slider-arrow prev" id="prevSlide" aria-label="Previous Slide">
-                <i class="fa fa-chevron-left"></i>
-            </button>
-            <button class="slider-arrow next" id="nextSlide" aria-label="Next Slide">
-                <i class="fa fa-chevron-right"></i>
-            </button>
+            <!-- Carousel Controls -->
+            <button class="slider-arrow prev" id="prevSlide" aria-label="Previous Slide"><i class="fa fa-chevron-left"></i></button>
+            <button class="slider-arrow next" id="nextSlide" aria-label="Next Slide"><i class="fa fa-chevron-right"></i></button>
 
-            <!-- Carousel Dots -->
             <div class="slider-dots" id="sliderDots">
                 <div class="slider-dot active" data-index="0"></div>
                 <div class="slider-dot" data-index="1"></div>
@@ -882,14 +887,14 @@
         </div>
     </section>
 
-    <!-- Trust Features Bar -->
+    <!-- 4 Direct Guarantees -->
     <section class="trust-bar">
         <div class="container">
             <div class="trust-grid">
                 <div class="trust-card">
                     <i class="bi bi-eye trust-icon"></i>
                     <h6>3D Plan First</h6>
-                    <p>See your design before we cut</p>
+                    <p>See your layout before we cut</p>
                 </div>
                 <div class="trust-card">
                     <i class="bi bi-shield-check trust-icon"></i>
@@ -899,86 +904,125 @@
                 <div class="trust-card">
                     <i class="bi bi-droplet-slash trust-icon"></i>
                     <h6>Water-Resistant</h6>
-                    <p>Built with moisture-proof boards</p>
+                    <p>Moisture-proof HMR cabinet boards</p>
                 </div>
                 <div class="trust-card">
                     <i class="bi bi-tools trust-icon"></i>
-                    <h6>Cut & Installed</h6>
-                    <p>Full job handled from start to finish</p>
+                    <h6>Full Install</h6>
+                    <p>Fitted neatly by real tradesmen</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Services Section -->
-    <section class="py-5">
-        <div class="container py-lg-3">
+    <!-- --- BALANCED & SIMPLE "WHAT WE DO" GRID (6 Clean Options) --- -->
+    <section class="services-section">
+        <div class="container">
             <div class="section-header">
-                <span class="section-eyebrow">What We Do</span>
-                <h2 class="section-title">Our Cabinet Making Work</h2>
+                <span class="section-eyebrow">Our Work</span>
+                <h2 class="section-title">What We Can Build For You</h2>
+                <p class="section-sub">Simple, custom-made cabinetry for every room in your home.</p>
                 <div class="gold-divider"></div>
             </div>
             
-            <div class="row g-4">
-                <!-- Service 1: Kitchens -->
+            <div class="row g-3 g-lg-4">
+
+                <!-- 1. Custom Kitchens -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-img-wrapper">
-                            <img src="./img/service-3.jpg" alt="Kitchen Renovations" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80';">
+                    <div class="compact-service-card">
+                        <div class="compact-img-wrapper">
+                            <img src="./img/service-3.jpg" alt="Custom Kitchens" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80';">
                         </div>
-                        <div class="service-content">
-                            <h4>Kitchens & Bench Tops</h4>
-                            <p>Brand new kitchens, island benches, or just replacement cabinet doors and new stone tops to refresh your room.</p>
-                            <a href="gallery.html#kitchen" class="service-link">
-                                View Kitchen Photos <i class="fa fa-arrow-right"></i>
-                            </a>
+                        <div class="compact-card-body">
+                            <h4>Kitchens & Islands <i class="fa fa-utensils"></i></h4>
+                            <p>Full new kitchens, replacement cupboard doors, and stone benchtops made to fit your appliances.</p>
+                            <a href="gallery.html#kitchen" class="compact-card-link">View Kitchens <i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Service 2: Materials -->
+                <!-- 2. Wardrobes & Robes -->
                 <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-img-wrapper">
-                            <img src="./img/service-2.jpg" alt="Colours and Materials" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80';">
+                    <div class="compact-service-card">
+                        <div class="compact-img-wrapper">
+                            <img src="./img/showroom_robe.jpg" alt="Custom Wardrobes" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=80';">
                         </div>
-                        <div class="service-content">
-                            <h4>Colours & Door Finishes</h4>
-                            <p>Big range of modern colours, timber looks, stone tops, and matte finishes from trusted brands like Polytec and Laminex.</p>
-                            <a href="gallery.html#colors" class="service-link">
-                                See Colours & Samples <i class="fa fa-arrow-right"></i>
-                            </a>
+                        <div class="compact-card-body">
+                            <h4>Wardrobes & Closets <i class="fa fa-door-closed"></i></h4>
+                            <p>Walk-in robes or neat built-in cupboards with smooth soft-close drawers and shoe shelving.</p>
+                            <a href="gallery.html#robe" class="compact-card-link">View Wardrobes <i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Service 3: 3D Planning -->
-                <div class="col-lg-4 col-md-6 mx-auto">
-                    <div class="service-card">
-                        <div class="service-img-wrapper">
-                            <img src="./img/service-1.jpg" alt="3D Drawings" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80';">
+                <!-- 3. Pantries & Sculleries -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="compact-service-card">
+                        <div class="compact-img-wrapper">
+                            <img src="./img/showroom_pantry.jpg" alt="Walk-In Pantries" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80';">
                         </div>
-                        <div class="service-content">
-                            <h4>3D Computer Drawing</h4>
-                            <p>We draw your exact kitchen or wardrobe on the computer first so you see exactly how it looks before anything is made.</p>
-                            <a href="#quoteSection" class="service-link">
-                                Ask For a 3D Plan <i class="fa fa-arrow-right"></i>
-                            </a>
+                        <div class="compact-card-body">
+                            <h4>Pantries & Storage <i class="fa fa-wine-glass"></i></h4>
+                            <p>Hidden walk-in pantries with sturdy shelves and extra bench space for toasters and air fryers.</p>
+                            <a href="gallery.html#pantry" class="compact-card-link">View Pantries <i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
+
+                <!-- 4. Bathroom Vanities -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="compact-service-card">
+                        <div class="compact-img-wrapper">
+                            <img src="./img/showroom_bath.jpg" alt="Bathroom Vanities" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80';">
+                        </div>
+                        <div class="compact-card-body">
+                            <h4>Bathroom Vanities <i class="fa fa-bath"></i></h4>
+                            <p>Water-resistant floating cabinets with stone tops that match your plumbing and never swell.</p>
+                            <a href="gallery.html#bath" class="compact-card-link">View Vanities <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Laundries & Linen Closets -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="compact-service-card">
+                        <div class="compact-img-wrapper">
+                            <img src="./img/service-1.jpg" alt="Laundry Cabinets" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584622781564-1d987f7333c1?auto=format&fit=crop&w=600&q=80';">
+                        </div>
+                        <div class="compact-card-body">
+                            <h4>Laundry Cupboards <i class="fa fa-shirt"></i></h4>
+                            <p>Tidy overhead cabinets, hidden laundry hamper drawers, and bench space over your washing machine.</p>
+                            <a href="gallery.html" class="compact-card-link">View Laundries <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. TV Units & Wall Cabinets -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="compact-service-card">
+                        <div class="compact-img-wrapper">
+                            <img src="./img/service-2.jpg" alt="TV and Wall Units" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=600&q=80';">
+                        </div>
+                        <div class="compact-card-body">
+                            <h4>TV Units & Wall Storage <i class="fa fa-tv"></i></h4>
+                            <p>Custom floating TV units, living room feature walls, and study desks with clean cable hiding.</p>
+                            <a href="gallery.html#colors" class="compact-card-link">See Materials <i class="fa fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Custom Quote Form Section -->
     <section class="py-5" id="quoteSection">
-        <div class="container py-lg-3" style="max-width: 750px;">
-            <div class="service-card p-4 p-md-5" style="border-radius: 28px;">
+        <div class="container py-lg-3" style="max-width: 720px;">
+            <div class="service-card p-4 p-md-5" style="border-radius: 26px;">
                 <div class="section-header mb-4">
                     <span class="section-eyebrow">Easy Quote</span>
                     <h2 class="section-title">Get a Free Price Estimate</h2>
-                    <p class="text-muted small mt-2 mb-0">Tell us what you want to make and we will get back to you with sizes and prices.</p>
+                    <p class="text-muted small mt-2 mb-0">Tell us what you need and we will contact you with quick advice and prices.</p>
                     <div class="gold-divider mt-3"></div>
                 </div>
 
@@ -999,18 +1043,19 @@
                             <input type="email" name="email" class="form-control rounded-3 p-3" placeholder="name@email.com" required>
                         </div>
                         <div class="col-12">
-                            <label class="form-label text-muted small text-uppercase">What are you making?</label>
+                            <label class="form-label text-muted small text-uppercase">What are you planning?</label>
                             <select name="project_type" class="form-select rounded-3 p-3">
                                 <option value="Kitchen Renovation">Kitchen (New or renovation)</option>
                                 <option value="Walk-In Robe / Wardrobe">Wardrobe (Built-in or walk-in)</option>
                                 <option value="Butler's Pantry">Walk-in Pantry</option>
                                 <option value="Bathroom Vanity">Bathroom Vanity</option>
-                                <option value="Other Architectural Joinery">Other Custom Cabinets</option>
+                                <option value="Laundry Cupboards">Laundry Cabinets</option>
+                                <option value="Other Custom Cabinets">TV Unit / Other Custom Cabinets</option>
                             </select>
                         </div>
                         <div class="col-12">
-                            <label class="form-label text-muted small text-uppercase">Tell us about your room</label>
-                            <textarea name="message" rows="4" class="form-control rounded-3 p-3" placeholder="Approx room sizes, colour ideas, or what you need done..."></textarea>
+                            <label class="form-label text-muted small text-uppercase">Tell us about your space</label>
+                            <textarea name="message" rows="3" class="form-control rounded-3 p-3" placeholder="Rough room sizes, preferred colours, or whatever you need made..."></textarea>
                         </div>
                         <div class="col-12 text-center mt-4">
                             <button type="submit" class="btn btn-gold w-100 py-3 rounded-3" id="submitBtn">
