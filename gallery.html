@@ -8,6 +8,14 @@
     <meta name="description" content="Explore custom cabinetry projects, joinery, and material finishes crafted by AU Cabinet.">
     <meta name="theme-color" content="#0a0a0c">
     
+    <!-- PWA & Mobile Web App Meta -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="AU Cabinet">
+
+    <!-- Favicon Links -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/x-icon" href="logo.ico">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
@@ -76,7 +84,7 @@
             box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25);
         }
 
-        /* Desktop Header */
+        /* Desktop Navigation Header */
         .desktop-header {
             background: rgba(10, 10, 12, 0.94);
             backdrop-filter: blur(16px);
@@ -408,7 +416,7 @@
             text-transform: capitalize;
         }
 
-        /* Mobile Bottom Nav */
+        /* Mobile Bottom Nav Dock */
         .mobile-bottom-nav {
             display: none;
         }
@@ -512,12 +520,12 @@
         </div>
     </header>
 
-    <!-- Clean Grid (Header texts removed) -->
+    <!-- Clean Grid (Header banner text removed) -->
     <section class="py-4 py-md-5">
         <div class="container">
             <div class="row g-3 g-md-4">
 
-                <!-- 1. Colors & Materials (Exact same size card as all others) -->
+                <!-- 1. Colors & Materials -->
                 <div class="col-6 col-md-4 col-lg-3">
                     <div class="category-card" onclick="openColorsCatalog()">
                         <div class="category-photo-wrapper">
@@ -753,16 +761,14 @@
         const GITHUB_BRANCH = "main";
 
         const categories = ["colors", "kitchen", "robe", "pantry", "bath", "laundry", "tv", "shop", "basic", "other"];
-        const galleryData = {}; // Contains URLs
-        const colorFilesMeta = []; // Contains { url, name } for colors
+        const galleryData = {};
+        const colorFilesMeta = [];
 
-        // Formats raw filename into clean readable title (e.g. "calacatta_gold.jpg" -> "Calacatta Gold")
         function formatFileName(path) {
             const fileName = path.split('/').pop().replace(/\.[^/.]+$/, "");
             return decodeURIComponent(fileName).replace(/[-_]/g, ' ');
         }
 
-        // Fast GitHub repo scan
         async function loadRepositoryGallery() {
             try {
                 const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/git/trees/${GITHUB_BRANCH}?recursive=1`;
@@ -804,7 +810,6 @@
             }
         }
 
-        // Uniform Random Covers for all 10 cards
         function renderUniformCovers() {
             categories.forEach(cat => {
                 const photos = galleryData[cat] || [];
@@ -827,7 +832,6 @@
             });
         }
 
-        // Dedicated Multi-Swatch Grid for Colors
         const swatchModal = document.getElementById('swatchGridModal');
         const swatchContainer = document.getElementById('swatchGridContainer');
         const swatchCountText = document.getElementById('swatchCountText');
@@ -862,7 +866,6 @@
             document.body.style.overflow = '';
         }
 
-        // Fullscreen Slideshow Controls
         let activeImages = [];
         let currentSlideIndex = 0;
 
@@ -933,7 +936,7 @@
             activeImages = [];
         }
 
-        // Swipe gestures
+        // Touch swipe handling
         let touchStartX = 0;
         let touchEndX = 0;
         const touchArea = document.getElementById('sliderTouchArea');
@@ -948,6 +951,7 @@
             if (touchEndX > touchStartX + 40) prevSlide();
         }, { passive: true });
 
+        // Physical Keyboard Controls
         window.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 if (modal.classList.contains('active')) closeSlideShow();
@@ -958,6 +962,23 @@
             if (e.key === 'ArrowLeft') prevSlide();
         });
 
+        // Register Service Worker for PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then((reg) => {
+                    reg.onupdatefound = () => {
+                        const installingWorker = reg.installing;
+                        installingWorker.onstatechange = () => {
+                            if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                console.log('New content available, please refresh.');
+                            }
+                        };
+                    };
+                });
+            });
+        }
+
+        // Initialize Repository Gallery
         window.addEventListener('DOMContentLoaded', () => {
             loadRepositoryGallery();
 
