@@ -60,25 +60,6 @@
         .accent { color: var(--primary-gold); }
         a { text-decoration: none; transition: all 0.2s ease; }
 
-        /* Gold Buttons */
-        .btn-gold {
-            background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
-            color: #0a0a0c !important;
-            border-radius: 14px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            font-size: 11.5px;
-            padding: 13px 26px;
-            border: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25);
-            min-height: 44px;
-        }
-
         .badge-gold {
             display: inline-block;
             background: rgba(197, 160, 89, 0.12);
@@ -127,7 +108,7 @@
             margin: 6px 0 4px;
         }
 
-        /* Big Clickable Blocks */
+        /* Category Blocks */
         .category-block {
             background: var(--card-bg);
             border: 1.5px solid var(--border-color);
@@ -209,7 +190,7 @@
             margin-right: 4px;
         }
 
-        /* Folder Viewer Modal */
+        /* --- VIEWER POPUP MODAL --- */
         .folder-modal {
             display: none;
             position: fixed;
@@ -220,7 +201,7 @@
             z-index: 3000;
             flex-direction: column;
             justify-content: space-between;
-            padding: calc(16px + var(--safe-top)) 16px calc(24px + var(--safe-bottom));
+            padding: calc(12px + var(--safe-top)) 12px calc(16px + var(--safe-bottom));
         }
 
         .folder-modal.active {
@@ -231,21 +212,16 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 12px;
+            padding-bottom: 8px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 6px;
+            flex-shrink: 0;
         }
 
         .folder-title-box h2 {
-            font-size: 1.15rem;
+            font-size: 1.25rem;
             margin: 0;
             color: #fff;
-        }
-
-        .folder-title-box span {
-            font-size: 0.76rem;
-            color: var(--primary-gold);
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
         }
 
         .folder-close-btn {
@@ -262,15 +238,15 @@
             cursor: pointer;
         }
 
-        /* Large Image Preview */
+        /* Standard Slider Mode (Kitchens, Robes, etc.) */
         .photo-stage-wrap {
             position: relative;
             flex-grow: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px 0;
-            max-height: 64vh;
+            padding: 8px 0;
+            max-height: 74vh;
         }
 
         .stage-photo {
@@ -303,17 +279,17 @@
         .stage-nav-btn.prev { left: 8px; }
         .stage-nav-btn.next { right: 8px; }
 
-        /* Thumbnails Strip */
         .thumbnails-scroller {
             display: flex;
             gap: 10px;
             overflow-x: auto;
             scrollbar-width: none;
             -webkit-overflow-scrolling: touch;
-            padding: 8px 4px;
+            padding: 6px 2px;
             max-width: 700px;
             margin: 0 auto;
             width: 100%;
+            flex-shrink: 0;
         }
 
         .thumbnails-scroller::-webkit-scrollbar {
@@ -338,11 +314,50 @@
             transform: scale(1.05);
         }
 
-        .modal-bottom-actions {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 6px;
+        /* --- WALL-TO-WALL SWATCH MATRIX (MAX SCREEN FOR COLORS) --- */
+        .colors-full-viewport {
+            display: none;
+            flex-grow: 1;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            padding: 4px;
+            margin: 4px 0;
+            scrollbar-width: thin;
+        }
+
+        .colors-full-viewport.active {
+            display: block;
+        }
+
+        .colors-matrix-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+            gap: 6px;
+            align-content: start;
+        }
+
+        .swatch-card {
+            aspect-ratio: 1 / 1;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            background: #111;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+
+        .swatch-card:hover, .swatch-card:active {
+            border-color: var(--primary-gold);
+            transform: scale(0.96);
+            z-index: 2;
+        }
+
+        .swatch-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .mobile-bottom-nav {
@@ -371,6 +386,16 @@
             .block-icon-wrap {
                 width: 68px;
                 height: 68px;
+            }
+
+            /* Ultra-dense phone matrix: 4 columns across edge to edge */
+            .colors-matrix-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 5px;
+            }
+
+            .swatch-card {
+                border-radius: 8px;
             }
 
             /* Big Tactile Bottom Dock */
@@ -457,9 +482,6 @@
                 <a href="javascript:void(0)" onclick="openFolder('laundry')" class="nav-link">Laundries</a>
                 <a href="javascript:void(0)" onclick="openFolder('colors')" class="nav-link">Colors & Materials</a>
                 <a href="mailto:email@aucabinet.au" class="nav-link">Email Us</a>
-                <a href="index.html#quoteSection" class="btn btn-gold ms-3">
-                    <i class="fa fa-paper-plane"></i> Get A Quote
-                </a>
             </div>
         </div>
     </header>
@@ -469,11 +491,11 @@
         <div class="container">
             <span class="badge-gold">Showroom</span>
             <h1>Explore Our Work</h1>
-            <p class="text-white-50 small mb-0">Tap any block below to open all photos in that folder.</p>
+            <p class="text-white-50 small mb-0">Tap any block below to open photos.</p>
         </div>
     </section>
 
-    <!-- Big Easy Clickable Blocks -->
+    <!-- Category Blocks -->
     <main class="py-3">
         <div class="container" style="max-width: 900px;">
             <div class="row g-3">
@@ -487,7 +509,7 @@
                         <div class="block-meta">
                             <h3>Kitchens</h3>
                             <p>Islands, cabinets, and stone bench tops.</p>
-                            <span class="block-badge-pill">Open Folder <i class="fa fa-folder-open ms-1"></i></span>
+                            <span class="block-badge-pill">Open Collection <i class="fa fa-arrow-right ms-1"></i></span>
                         </div>
                         <i class="fa fa-chevron-right block-arrow"></i>
                     </div>
@@ -502,7 +524,7 @@
                         <div class="block-meta">
                             <h3>Wardrobes</h3>
                             <p>Walk-ins, built-ins, and drawers.</p>
-                            <span class="block-badge-pill">Open Folder <i class="fa fa-folder-open ms-1"></i></span>
+                            <span class="block-badge-pill">Open Collection <i class="fa fa-arrow-right ms-1"></i></span>
                         </div>
                         <i class="fa fa-chevron-right block-arrow"></i>
                     </div>
@@ -517,7 +539,7 @@
                         <div class="block-meta">
                             <h3>Butler's Pantry</h3>
                             <p>Extra storage & prep bench spaces.</p>
-                            <span class="block-badge-pill">Open Folder <i class="fa fa-folder-open ms-1"></i></span>
+                            <span class="block-badge-pill">Open Collection <i class="fa fa-arrow-right ms-1"></i></span>
                         </div>
                         <i class="fa fa-chevron-right block-arrow"></i>
                     </div>
@@ -532,7 +554,7 @@
                         <div class="block-meta">
                             <h3>Bathroom Vanities</h3>
                             <p>Water-resistant floating cabinets.</p>
-                            <span class="block-badge-pill">Open Folder <i class="fa fa-folder-open ms-1"></i></span>
+                            <span class="block-badge-pill">Open Collection <i class="fa fa-arrow-right ms-1"></i></span>
                         </div>
                         <i class="fa fa-chevron-right block-arrow"></i>
                     </div>
@@ -547,7 +569,7 @@
                         <div class="block-meta">
                             <h3>Laundry Cabinets</h3>
                             <p>Overheads, sink units & hampers.</p>
-                            <span class="block-badge-pill">Open Folder <i class="fa fa-folder-open ms-1"></i></span>
+                            <span class="block-badge-pill">Open Collection <i class="fa fa-arrow-right ms-1"></i></span>
                         </div>
                         <i class="fa fa-chevron-right block-arrow"></i>
                     </div>
@@ -562,7 +584,7 @@
                         <div class="block-meta">
                             <h3>Colors & Materials</h3>
                             <p>Polytec, Laminex, stone & veneers.</p>
-                            <span class="block-badge-pill">Open Folder <i class="fa fa-folder-open ms-1"></i></span>
+                            <span class="block-badge-pill">View All Swatches <i class="fa fa-th ms-1"></i></span>
                         </div>
                         <i class="fa fa-chevron-right block-arrow"></i>
                     </div>
@@ -572,29 +594,30 @@
         </div>
     </main>
 
-    <!-- Full Folder Photo Viewer Modal -->
+    <!-- --- CLEAN VIEWER MODAL (NO FOLDER LABELS, NO QUOTE BUTTONS) --- -->
     <div class="folder-modal" id="folderModal">
         <div class="folder-modal-top">
             <div class="folder-title-box">
-                <span id="folderPathText">Folder: photos/kitchen</span>
-                <h2 id="folderTitleText">Kitchens Collection</h2>
+                <h2 id="folderTitleText">Kitchens</h2>
             </div>
             <div class="folder-close-btn" onclick="closeFolder()">&times;</div>
         </div>
 
-        <div class="photo-stage-wrap">
+        <!-- 1. Standard Slider Stage (Kitchens, Robes, etc.) -->
+        <div class="photo-stage-wrap" id="standardStageWrap">
             <button class="stage-nav-btn prev" onclick="changeFolderPhoto(-1)"><i class="fa fa-chevron-left"></i></button>
-            <img class="stage-photo" id="activeFolderImage" src="" alt="Folder Photo">
+            <img class="stage-photo" id="activeFolderImage" src="" alt="Photo">
             <button class="stage-nav-btn next" onclick="changeFolderPhoto(1)"><i class="fa fa-chevron-right"></i></button>
         </div>
 
-        <div>
+        <!-- 2. Wall-to-Wall High-Density Swatch Matrix (Colors & Materials) -->
+        <div class="colors-full-viewport" id="colorsFullViewport">
+            <div class="colors-matrix-grid" id="colorsMatrixGrid"></div>
+        </div>
+
+        <!-- Slider Thumbnails Strip -->
+        <div id="thumbsContainer">
             <div class="thumbnails-scroller" id="folderThumbsStrip"></div>
-            <div class="modal-bottom-actions">
-                <a href="index.html#quoteSection" class="btn btn-gold py-2 px-4" style="font-size: 11px;">
-                    <i class="fa fa-paper-plane me-1"></i> Request Quote on this Style
-                </a>
-            </div>
         </div>
     </div>
 
@@ -621,15 +644,14 @@
         </a>
     </nav>
 
-    <!-- GitHub Live Repository Auto-Loader Script -->
-<!-- Live GitHub Repository Auto-Loader Script with Swipe & Multi-Fallback -->
+    <!-- GitHub Live Repo Auto-Loader Script -->
     <script>
         const GITHUB_USERNAME = "iBehrouz"; 
         const GITHUB_REPO = "AUCabinet";
 
         const folderDatabase = {
             kitchen: { 
-                title: "Kitchens Collection", 
+                title: "Kitchens", 
                 path: "photos/kitchen", 
                 fallback: [
                     "photos/kitchen/1.jpg",
@@ -637,25 +659,25 @@
                     "photos/kitchen/3.jpg",
                     "./img/showroom_colors.jpg",
                     "./img/service-3.jpg"
-                ]
+                ] 
             },
             robe: { 
-                title: "Wardrobes & Dressing Suites", 
+                title: "Wardrobes & Robes", 
                 path: "photos/robe", 
                 fallback: [
                     "photos/robe/1.jpg",
                     "photos/robe/2.jpg",
                     "./img/showroom_robe.jpg"
-                ]
+                ] 
             },
             pantry: { 
-                title: "Butler's Pantry & Sculleries", 
+                title: "Butler's Pantry", 
                 path: "photos/pantry", 
                 fallback: [
                     "photos/pantry/1.jpg",
                     "photos/pantry/2.jpg",
                     "./img/showroom_pantry.jpg"
-                ]
+                ] 
             },
             bath: { 
                 title: "Bathroom Vanities", 
@@ -664,7 +686,7 @@
                     "photos/bath/1.jpg",
                     "photos/bath/2.jpg",
                     "./img/showroom_bath.jpg"
-                ]
+                ] 
             },
             laundry: { 
                 title: "Laundry Cupboards", 
@@ -673,66 +695,112 @@
                     "photos/laundry/1.jpg",
                     "photos/laundry/2.jpg",
                     "./img/service-1.jpg"
-                ]
+                ] 
             },
             colors: { 
                 title: "Colors & Materials Swatches", 
                 path: "photos/colors", 
+                isMaxGrid: true, 
                 fallback: [
                     "photos/colors/1.jpg",
                     "photos/colors/2.jpg",
-                    "./img/service-2.jpg"
-                ]
+                    "photos/colors/3.jpg",
+                    "photos/colors/4.jpg",
+                    "photos/colors/5.jpg",
+                    "photos/colors/6.jpg",
+                    "./img/service-2.jpg",
+                    "./img/showroom_colors.jpg"
+                ] 
             }
         };
 
         let currentFolderPhotos = [];
         let currentPhotoIndex = 0;
+        let isColorGridMode = false;
 
         async function openFolder(folderKey) {
             const folder = folderDatabase[folderKey];
             if (!folder) return;
 
-            document.getElementById('folderPathText').textContent = `Folder: ${folder.path}`;
             document.getElementById('folderTitleText').textContent = folder.title;
+            isColorGridMode = !!folder.isMaxGrid;
 
-            const strip = document.getElementById('folderThumbsStrip');
-            strip.innerHTML = '<span class="text-white-50 small p-2"><i class="fa fa-spinner fa-spin me-1"></i> Checking folder photos...</span>';
+            const standardWrap = document.getElementById('standardStageWrap');
+            const colorsViewport = document.getElementById('colorsFullViewport');
+            const thumbsCont = document.getElementById('thumbsContainer');
+
+            if (isColorGridMode) {
+                standardWrap.style.display = 'none';
+                thumbsCont.style.display = 'none';
+                colorsViewport.classList.add('active');
+                document.getElementById('colorsMatrixGrid').innerHTML = '<span class="text-white-50 small p-3"><i class="fa fa-spinner fa-spin me-2"></i>Loading swatches...</span>';
+            } else {
+                standardWrap.style.display = 'flex';
+                thumbsCont.style.display = 'block';
+                colorsViewport.classList.remove('active');
+                document.getElementById('folderThumbsStrip').innerHTML = '<span class="text-white-50 small p-2"><i class="fa fa-spinner fa-spin me-1"></i>Loading...</span>';
+            }
+
             document.getElementById('folderModal').classList.add('active');
 
             const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${folder.path}`;
 
             try {
                 const response = await fetch(apiUrl, { cache: "no-store" });
-                if (!response.ok) throw new Error("API rate limit or folder path mismatch");
+                if (!response.ok) throw new Error();
 
                 const files = await response.json();
                 const validExts = ['.jpg', '.jpeg', '.png', '.webp', '.svg'];
-
-                // Get all matching images from GitHub
                 const loaded = files
                     .filter(f => f.type === "file" && validExts.some(ext => f.name.toLowerCase().endsWith(ext)))
                     .map(f => f.download_url);
 
-                if (loaded.length > 0) {
-                    currentFolderPhotos = loaded;
-                } else {
-                    currentFolderPhotos = folder.fallback;
-                }
-            } catch (err) {
-                // If API fails or is rate-limited, load all fallback photos so slider always works
+                currentFolderPhotos = loaded.length > 0 ? loaded : folder.fallback;
+            } catch {
                 currentFolderPhotos = folder.fallback;
             }
 
-            renderGallery();
+            if (isColorGridMode) {
+                renderAllSwatchesMatrix();
+            } else {
+                renderSliderGallery();
+            }
         }
 
-        function renderGallery() {
+        // Fills the screen with as many color swatches as possible
+        function renderAllSwatchesMatrix() {
+            const grid = document.getElementById('colorsMatrixGrid');
+            grid.innerHTML = '';
+
+            currentFolderPhotos.forEach((src, idx) => {
+                const card = document.createElement('div');
+                card.className = 'swatch-card';
+                card.onclick = () => switchToSinglePhoto(idx);
+
+                const img = document.createElement('img');
+                img.src = src;
+                img.loading = 'lazy';
+                img.onerror = function() { this.src = './img/service-2.jpg'; };
+
+                card.appendChild(img);
+                grid.appendChild(card);
+            });
+        }
+
+        function switchToSinglePhoto(index) {
+            isColorGridMode = false;
+            document.getElementById('colorsFullViewport').classList.remove('active');
+            document.getElementById('standardStageWrap').style.display = 'flex';
+            document.getElementById('thumbsContainer').style.display = 'block';
+            renderSliderGallery();
+            setFolderPhoto(index);
+        }
+
+        function renderSliderGallery() {
             currentPhotoIndex = 0;
             const strip = document.getElementById('folderThumbsStrip');
             strip.innerHTML = '';
 
-            // Toggle arrow buttons visibility (hide if only 1 image exists)
             const prevBtn = document.querySelector('.stage-nav-btn.prev');
             const nextBtn = document.querySelector('.stage-nav-btn.next');
             if (currentFolderPhotos.length <= 1) {
@@ -747,10 +815,7 @@
                 const img = document.createElement('img');
                 img.src = src;
                 img.className = `thumb-item ${idx === 0 ? 'active' : ''}`;
-                img.onerror = function() {
-                    // Hide thumbnail if image fails to load
-                    this.style.display = 'none';
-                };
+                img.onerror = function() { this.style.display = 'none'; };
                 img.onclick = () => setFolderPhoto(idx);
                 strip.appendChild(img);
             });
@@ -774,6 +839,7 @@
         function updateStagePhoto() {
             const activeImg = document.getElementById('activeFolderImage');
             activeImg.src = currentFolderPhotos[currentPhotoIndex];
+            activeImg.onerror = function() { this.src = './img/showroom_colors.jpg'; };
 
             const thumbs = document.querySelectorAll('.thumb-item');
             thumbs.forEach((t, i) => t.classList.toggle('active', i === currentPhotoIndex));
@@ -786,20 +852,20 @@
             document.getElementById('folderModal').classList.remove('active');
         }
 
-        // --- MOBILE TOUCH SWIPE SUPPORT FOR MODAL ---
-        let touchModalStartX = 0;
-        let touchModalEndX = 0;
-        const stageWrap = document.querySelector('.photo-stage-wrap');
+        // Swipe Gestures
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const stageWrap = document.getElementById('standardStageWrap');
 
         if (stageWrap) {
             stageWrap.addEventListener('touchstart', (e) => {
-                touchModalStartX = e.changedTouches[0].screenX;
+                touchStartX = e.changedTouches[0].screenX;
             }, { passive: true });
 
             stageWrap.addEventListener('touchend', (e) => {
-                touchModalEndX = e.changedTouches[0].screenX;
-                if (touchModalEndX < touchModalStartX - 40) changeFolderPhoto(1);  // Swipe left -> Next
-                if (touchModalEndX > touchModalStartX + 40) changeFolderPhoto(-1); // Swipe right -> Prev
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchEndX < touchStartX - 40) changeFolderPhoto(1);
+                if (touchEndX > touchStartX + 40) changeFolderPhoto(-1);
             }, { passive: true });
         }
 
@@ -811,15 +877,12 @@
             }
         });
 
-        // Keyboard navigation
+        // Key shortcuts
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeFolder();
-            if (e.key === 'ArrowRight') changeFolderPhoto(1);
-            if (e.key === 'ArrowLeft') changeFolderPhoto(-1);
+            if (e.key === 'ArrowRight' && !isColorGridMode) changeFolderPhoto(1);
+            if (e.key === 'ArrowLeft' && !isColorGridMode) changeFolderPhoto(-1);
         });
     </script>
-
-           
-
 </body>
 </html>
