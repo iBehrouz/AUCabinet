@@ -97,7 +97,7 @@
             color: var(--primary-gold) !important;
         }
 
-        /* Gallery Hero Area */
+        /* Gallery Hero */
         .gallery-hero {
             padding: 28px 0 14px;
             text-align: center;
@@ -190,7 +190,7 @@
             margin-right: 4px;
         }
 
-        /* --- VIEWER POPUP MODAL --- */
+        /* Viewer Popup Modal */
         .folder-modal {
             display: none;
             position: fixed;
@@ -238,7 +238,7 @@
             cursor: pointer;
         }
 
-        /* Standard Slider Mode (Kitchens, Robes, etc.) */
+        /* Standard Slider Mode */
         .photo-stage-wrap {
             position: relative;
             flex-grow: 1;
@@ -314,7 +314,7 @@
             transform: scale(1.05);
         }
 
-        /* --- WALL-TO-WALL SWATCH MATRIX (MAX SCREEN FOR COLORS) --- */
+        /* Wall-to-Wall Swatch Grid for Colors */
         .colors-full-viewport {
             display: none;
             flex-grow: 1;
@@ -331,7 +331,7 @@
 
         .colors-matrix-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(78px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
             gap: 6px;
             align-content: start;
         }
@@ -364,7 +364,7 @@
             display: none;
         }
 
-        /* --- MOBILE PURIST APP UI: ZERO HEADER, ZERO FOOTER --- */
+        /* Mobile Layout */
         @media (max-width: 991.98px) {
             .desktop-header {
                 display: none !important;
@@ -388,7 +388,6 @@
                 height: 68px;
             }
 
-            /* Ultra-dense phone matrix: 4 columns across edge to edge */
             .colors-matrix-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 5px;
@@ -398,7 +397,6 @@
                 border-radius: 8px;
             }
 
-            /* Big Tactile Bottom Dock */
             .mobile-bottom-nav {
                 position: fixed;
                 bottom: calc(10px + var(--safe-bottom));
@@ -466,7 +464,7 @@
 
 <body>
 
-    <!-- Desktop Navigation Header (Hidden on Mobile) -->
+    <!-- Desktop Navigation Header -->
     <header class="desktop-header">
         <div class="container d-flex justify-content-between align-items-center">
             <a href="index.html" class="d-flex align-items-center">
@@ -500,7 +498,7 @@
         <div class="container" style="max-width: 900px;">
             <div class="row g-3">
 
-                <!-- Block 1: Kitchens -->
+                <!-- 1. Kitchens -->
                 <div class="col-md-6 col-12">
                     <div class="category-block" onclick="openFolder('kitchen')">
                         <div class="block-icon-wrap">
@@ -515,7 +513,7 @@
                     </div>
                 </div>
 
-                <!-- Block 2: Wardrobes -->
+                <!-- 2. Wardrobes -->
                 <div class="col-md-6 col-12">
                     <div class="category-block" onclick="openFolder('robe')">
                         <div class="block-icon-wrap">
@@ -530,7 +528,7 @@
                     </div>
                 </div>
 
-                <!-- Block 3: Pantries -->
+                <!-- 3. Pantries -->
                 <div class="col-md-6 col-12">
                     <div class="category-block" onclick="openFolder('pantry')">
                         <div class="block-icon-wrap">
@@ -545,7 +543,7 @@
                     </div>
                 </div>
 
-                <!-- Block 4: Vanities -->
+                <!-- 4. Vanities -->
                 <div class="col-md-6 col-12">
                     <div class="category-block" onclick="openFolder('bath')">
                         <div class="block-icon-wrap">
@@ -560,7 +558,7 @@
                     </div>
                 </div>
 
-                <!-- Block 5: Laundries -->
+                <!-- 5. Laundries -->
                 <div class="col-md-6 col-12">
                     <div class="category-block" onclick="openFolder('laundry')">
                         <div class="block-icon-wrap">
@@ -575,7 +573,7 @@
                     </div>
                 </div>
 
-                <!-- Block 6: Colors & Materials -->
+                <!-- 6. Colors & Materials -->
                 <div class="col-md-6 col-12">
                     <div class="category-block" onclick="openFolder('colors')">
                         <div class="block-icon-wrap">
@@ -594,7 +592,7 @@
         </div>
     </main>
 
-    <!-- --- CLEAN VIEWER MODAL (NO FOLDER LABELS, NO QUOTE BUTTONS) --- -->
+    <!-- Viewer Modal -->
     <div class="folder-modal" id="folderModal">
         <div class="folder-modal-top">
             <div class="folder-title-box">
@@ -603,25 +601,25 @@
             <div class="folder-close-btn" onclick="closeFolder()">&times;</div>
         </div>
 
-        <!-- 1. Standard Slider Stage (Kitchens, Robes, etc.) -->
+        <!-- Standard Slider Stage -->
         <div class="photo-stage-wrap" id="standardStageWrap">
             <button class="stage-nav-btn prev" onclick="changeFolderPhoto(-1)"><i class="fa fa-chevron-left"></i></button>
             <img class="stage-photo" id="activeFolderImage" src="" alt="Photo">
             <button class="stage-nav-btn next" onclick="changeFolderPhoto(1)"><i class="fa fa-chevron-right"></i></button>
         </div>
 
-        <!-- 2. Wall-to-Wall High-Density Swatch Matrix (Colors & Materials) -->
+        <!-- Wall-to-Wall Matrix for Colors -->
         <div class="colors-full-viewport" id="colorsFullViewport">
             <div class="colors-matrix-grid" id="colorsMatrixGrid"></div>
         </div>
 
-        <!-- Slider Thumbnails Strip -->
+        <!-- Slider Thumbnails -->
         <div id="thumbsContainer">
             <div class="thumbnails-scroller" id="folderThumbsStrip"></div>
         </div>
     </div>
 
-    <!-- Big Tactile Mobile Bottom App Dock -->
+    <!-- Mobile Bottom App Dock -->
     <nav class="mobile-bottom-nav">
         <a href="index.html" class="nav-dock-item">
             <i class="fa fa-home"></i>
@@ -644,7 +642,7 @@
         </a>
     </nav>
 
-    <!-- GitHub Live Repo Auto-Loader Script -->
+    <!-- GitHub Trees API Loader (No Pagination Limit) -->
     <script>
         const GITHUB_USERNAME = "iBehrouz"; 
         const GITHUB_REPO = "AUCabinet";
@@ -733,7 +731,7 @@
                 standardWrap.style.display = 'none';
                 thumbsCont.style.display = 'none';
                 colorsViewport.classList.add('active');
-                document.getElementById('colorsMatrixGrid').innerHTML = '<span class="text-white-50 small p-3"><i class="fa fa-spinner fa-spin me-2"></i>Loading swatches...</span>';
+                document.getElementById('colorsMatrixGrid').innerHTML = '<span class="text-white-50 small p-3"><i class="fa fa-spinner fa-spin me-2"></i>Loading all swatches...</span>';
             } else {
                 standardWrap.style.display = 'flex';
                 thumbsCont.style.display = 'block';
@@ -743,21 +741,36 @@
 
             document.getElementById('folderModal').classList.add('active');
 
-            const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${folder.path}`;
+            // Recursive Git Trees API fetches up to 100,000 files in one request
+            const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/git/trees/main?recursive=1`;
 
             try {
                 const response = await fetch(apiUrl, { cache: "no-store" });
                 if (!response.ok) throw new Error();
 
-                const files = await response.json();
+                const data = await response.json();
                 const validExts = ['.jpg', '.jpeg', '.png', '.webp', '.svg'];
-                const loaded = files
-                    .filter(f => f.type === "file" && validExts.some(ext => f.name.toLowerCase().endsWith(ext)))
-                    .map(f => f.download_url);
+                
+                const loaded = data.tree
+                    .filter(item => item.type === "blob" && 
+                                    item.path.toLowerCase().startsWith(folder.path.toLowerCase() + '/') &&
+                                    validExts.some(ext => item.path.toLowerCase().endsWith(ext)))
+                    .map(item => `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${GITHUB_REPO}/main/${item.path}`);
 
                 currentFolderPhotos = loaded.length > 0 ? loaded : folder.fallback;
             } catch {
-                currentFolderPhotos = folder.fallback;
+                try {
+                    const fallbackApi = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${folder.path}`;
+                    const res = await fetch(fallbackApi);
+                    const files = await res.json();
+                    const validExts = ['.jpg', '.jpeg', '.png', '.webp', '.svg'];
+                    const loaded = files
+                        .filter(f => f.type === "file" && validExts.some(ext => f.name.toLowerCase().endsWith(ext)))
+                        .map(f => f.download_url);
+                    currentFolderPhotos = loaded.length > 0 ? loaded : folder.fallback;
+                } catch {
+                    currentFolderPhotos = folder.fallback;
+                }
             }
 
             if (isColorGridMode) {
@@ -767,7 +780,6 @@
             }
         }
 
-        // Fills the screen with as many color swatches as possible
         function renderAllSwatchesMatrix() {
             const grid = document.getElementById('colorsMatrixGrid');
             grid.innerHTML = '';
@@ -852,7 +864,7 @@
             document.getElementById('folderModal').classList.remove('active');
         }
 
-        // Swipe Gestures
+        // Touch Swipe Gestures
         let touchStartX = 0;
         let touchEndX = 0;
         const stageWrap = document.getElementById('standardStageWrap');
@@ -869,7 +881,6 @@
             }, { passive: true });
         }
 
-        // Direct URL hash handler (e.g., gallery.html#kitchen)
         window.addEventListener('DOMContentLoaded', () => {
             const hash = window.location.hash.replace('#', '');
             if (hash && folderDatabase[hash]) {
@@ -877,7 +888,6 @@
             }
         });
 
-        // Key shortcuts
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeFolder();
             if (e.key === 'ArrowRight' && !isColorGridMode) changeFolderPhoto(1);
