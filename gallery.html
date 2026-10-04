@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>AU Cabinet | Showroom & Finishes</title>
+    <title>AU Cabinet | Showroom & Materials</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" name="viewport">
-    <meta name="description" content="Explore custom kitchens, wardrobes, bathroom vanities, and joinery materials crafted by AU Cabinet.">
+    <meta name="description" content="Explore custom cabinetry projects, joinery, and material finishes crafted by AU Cabinet.">
     <meta name="theme-color" content="#0a0a0c">
     
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -107,29 +107,7 @@
             color: var(--primary-gold) !important;
         }
 
-        /* Clean Header */
-        .page-header {
-            padding: 44px 0 28px;
-            text-align: center;
-            background: linear-gradient(180deg, #131317 0%, var(--dark-bg) 100%);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .badge-gold {
-            display: inline-block;
-            background: rgba(197, 160, 89, 0.12);
-            color: var(--primary-gold);
-            border: 1px solid var(--border-gold);
-            border-radius: 20px;
-            padding: 4px 14px;
-            font-size: 10.5px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        /* Standard Category Card */
+        /* Uniform Category Cards */
         .category-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -226,71 +204,7 @@
             font-weight: 700;
         }
 
-        /* SPECIAL FEATURE CARD: Colors & Materials */
-        .category-card.card-special-colors {
-            border: 1.5px solid rgba(197, 160, 89, 0.6);
-            background: linear-gradient(180deg, #16161c 0%, #111115 100%);
-            box-shadow: 0 10px 30px rgba(197, 160, 89, 0.12);
-        }
-
-        .category-card.card-special-colors:hover {
-            border-color: var(--primary-gold);
-            box-shadow: 0 16px 40px rgba(197, 160, 89, 0.28);
-        }
-
-        .colors-mosaic-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 90px);
-            gap: 3px;
-            background: #0a0a0c;
-            width: 100%;
-            height: 180px;
-            overflow: hidden;
-        }
-
-        .mosaic-cell {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            background: #1a1a20;
-        }
-
-        .mosaic-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.4s ease;
-            opacity: 0;
-        }
-
-        .mosaic-img.loaded {
-            opacity: 1;
-        }
-
-        .category-card:hover .mosaic-img {
-            transform: scale(1.1);
-        }
-
-        .colors-badge {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(10, 10, 12, 0.85);
-            border: 1px solid var(--border-gold);
-            color: var(--primary-gold);
-            border-radius: 20px;
-            padding: 3px 10px;
-            font-size: 9.5px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            backdrop-filter: blur(8px);
-            z-index: 2;
-        }
-
-        /* Fullscreen Slideshow */
+        /* Fullscreen Slideshow Modal */
         .slider-modal {
             position: fixed;
             inset: 0;
@@ -364,7 +278,7 @@
 
         .slider-main-img {
             max-width: 100%;
-            max-height: 72vh;
+            max-height: 80vh;
             border-radius: 12px;
             object-fit: contain;
             user-select: none;
@@ -406,33 +320,92 @@
             z-index: 5;
         }
 
-        /* Swatch Strip Thumbnails at Bottom of Slideshow */
-        .slider-thumbnail-strip {
+        /* Dedicated Multi-Swatch Modal for Colors */
+        .swatch-grid-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 12, 0.98);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            z-index: 2900;
+            display: none;
+            flex-direction: column;
+            overflow-y: auto;
+            padding: 16px;
+        }
+
+        .swatch-grid-modal.active {
             display: flex;
-            gap: 8px;
-            padding: 10px 16px 14px;
-            overflow-x: auto;
-            border-top: 1px solid var(--border-color);
-            background: rgba(14, 14, 18, 0.8);
-            scrollbar-width: thin;
         }
 
-        .thumb-item {
-            width: 54px;
-            height: 54px;
-            border-radius: 8px;
-            object-fit: cover;
-            opacity: 0.5;
+        .swatch-grid-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .swatch-items-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 14px;
+            padding-bottom: 40px;
+        }
+
+        @media (min-width: 768px) {
+            .swatch-items-container {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+                gap: 18px;
+            }
+        }
+
+        .swatch-item-card {
+            background: #141418;
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
             cursor: pointer;
-            border: 2px solid transparent;
-            transition: all 0.2s ease;
-            flex-shrink: 0;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
         }
 
-        .thumb-item.active, .thumb-item:hover {
-            opacity: 1;
+        .swatch-item-card:hover {
             border-color: var(--primary-gold);
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(197, 160, 89, 0.2);
+        }
+
+        .swatch-img-box {
+            width: 100%;
+            height: 140px;
+            background: #191920;
+            overflow: hidden;
+        }
+
+        .swatch-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .swatch-item-card:hover .swatch-img-box img {
+            transform: scale(1.08);
+        }
+
+        .swatch-name-label {
+            padding: 10px 8px;
+            text-align: center;
+            font-size: 0.78rem;
+            color: #e2e2ea;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-transform: capitalize;
         }
 
         /* Mobile Bottom Nav */
@@ -443,9 +416,7 @@
         @media (max-width: 991.98px) {
             .desktop-header { display: none !important; }
             body { padding-bottom: calc(96px + var(--safe-bottom)); }
-
             .category-photo-wrapper { height: 140px; }
-            .colors-mosaic-grid { height: 140px; grid-template-rows: repeat(2, 70px); }
 
             .slider-nav-btn {
                 width: 40px;
@@ -541,39 +512,24 @@
         </div>
     </header>
 
-    <div class="page-header">
-        <div class="container">
-            <span class="badge-gold">Bespoke Joinery</span>
-            <h1 class="h2 text-white mb-2">Project Showroom</h1>
-            <p class="text-white-50 small mx-auto mb-0" style="max-width: 520px;">
-                Explore custom cabinetry projects, tailored finishes, and design details. Tap any category to view full high-resolution galleries.
-            </p>
-        </div>
-    </div>
-
+    <!-- Clean Grid (Header texts removed) -->
     <section class="py-4 py-md-5">
         <div class="container">
             <div class="row g-3 g-md-4">
 
-                <!-- 1. SPECIAL FEATURED CARD: Colors & Materials (Double Width on Desktop) -->
-                <div class="col-12 col-md-8 col-lg-6">
-                    <div class="category-card card-special-colors" onclick="openSlideShow('colors', 'Materials, Stones & Finishes')">
-                        <div class="position-relative">
-                            <span class="colors-badge"><i class="fa fa-swatchbook me-1"></i> Finishes Library</span>
-                            <!-- 4-Grid Mosaic Preview pulling 4 different materials from photos/colors -->
-                            <div class="colors-mosaic-grid">
-                                <div class="mosaic-cell"><img class="mosaic-img" id="colors-m-0" alt="Material 1"></div>
-                                <div class="mosaic-cell"><img class="mosaic-img" id="colors-m-1" alt="Material 2"></div>
-                                <div class="mosaic-cell"><img class="mosaic-img" id="colors-m-2" alt="Material 3"></div>
-                                <div class="mosaic-cell"><img class="mosaic-img" id="colors-m-3" alt="Material 4"></div>
-                            </div>
+                <!-- 1. Colors & Materials (Exact same size card as all others) -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card" onclick="openColorsCatalog()">
+                        <div class="category-photo-wrapper">
+                            <div class="photo-skeleton" id="skel-colors"></div>
+                            <img class="category-photo-img" id="img-colors" alt="Colors">
                         </div>
                         <div class="category-details">
                             <div>
-                                <h3 class="text-white">Colors & Materials</h3>
-                                <p>Engineered stones, natural timber veneers, 2-pack lacquer & laminate swatches</p>
+                                <h3>Colors</h3>
+                                <p>Stone, laminate & timber swatches</p>
                             </div>
-                            <span class="category-pill">Browse Swatch Library <i class="fa fa-arrow-right"></i></span>
+                            <span class="category-pill">Browse Swatches <i class="fa fa-arrow-right"></i></span>
                         </div>
                     </div>
                 </div>
@@ -735,7 +691,19 @@
         </div>
     </section>
 
-    <!-- Fullscreen Slider Modal with Swatch Strip -->
+    <!-- Multi-Swatch Catalog Modal for Colors & Finishes -->
+    <div class="swatch-grid-modal" id="swatchGridModal">
+        <div class="swatch-grid-top">
+            <div>
+                <h2 class="h4 text-white m-0">Colors & Materials</h2>
+                <span class="text-white-50 small" id="swatchCountText">0 Swatches</span>
+            </div>
+            <div class="slider-close-btn" onclick="closeColorsCatalog()">&times;</div>
+        </div>
+        <div class="swatch-items-container" id="swatchGridContainer"></div>
+    </div>
+
+    <!-- Fullscreen Slider Modal -->
     <div class="slider-modal" id="sliderModal">
         <div class="slider-top-bar">
             <div class="slider-title">
@@ -754,9 +722,6 @@
             <img class="slider-main-img" id="sliderMainImg" alt="Showroom Photo" style="display:none;">
             <button class="slider-nav-btn next" onclick="nextSlide()"><i class="fa fa-chevron-right"></i></button>
         </div>
-
-        <!-- Thumbnail Navigation Strip for Fast Material Selection -->
-        <div class="slider-thumbnail-strip" id="sliderThumbnailStrip"></div>
     </div>
 
     <!-- Mobile Nav Dock -->
@@ -788,9 +753,16 @@
         const GITHUB_BRANCH = "main";
 
         const categories = ["colors", "kitchen", "robe", "pantry", "bath", "laundry", "tv", "shop", "basic", "other"];
-        const galleryData = {};
+        const galleryData = {}; // Contains URLs
+        const colorFilesMeta = []; // Contains { url, name } for colors
 
-        // One single fast call to GitHub's Git Trees API
+        // Formats raw filename into clean readable title (e.g. "calacatta_gold.jpg" -> "Calacatta Gold")
+        function formatFileName(path) {
+            const fileName = path.split('/').pop().replace(/\.[^/.]+$/, "");
+            return decodeURIComponent(fileName).replace(/[-_]/g, ' ');
+        }
+
+        // Fast GitHub repo scan
         async function loadRepositoryGallery() {
             try {
                 const apiUrl = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/git/trees/${GITHUB_BRANCH}?recursive=1`;
@@ -802,7 +774,6 @@
 
                 const validExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.avif'];
 
-                // Sort all repository photos into their category buckets
                 data.tree.forEach(item => {
                     if (item.type === 'blob' && item.path.toLowerCase().startsWith('photos/')) {
                         const pathLower = item.path.toLowerCase();
@@ -810,38 +781,32 @@
                             const parts = item.path.split('/');
                             if (parts.length >= 3) {
                                 const cat = parts[1].toLowerCase();
+                                const fileUrl = `https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${encodeURI(item.path)}`;
+                                
                                 if (galleryData[cat]) {
-                                    galleryData[cat].push(`https://raw.githubusercontent.com/${GITHUB_USER}/${GITHUB_REPO}/${GITHUB_BRANCH}/${encodeURI(item.path)}`);
+                                    galleryData[cat].push(fileUrl);
+                                }
+
+                                if (cat === "colors") {
+                                    colorFilesMeta.push({
+                                        url: fileUrl,
+                                        name: formatFileName(item.path)
+                                    });
                                 }
                             }
                         }
                     }
                 });
 
-                renderCardPreviews();
+                renderUniformCovers();
             } catch (err) {
                 console.warn("Could not scan repo tree automatically:", err);
             }
         }
 
-        // Render Random Covers for standard cards & Multi-Mosaic for Colors
-        function renderCardPreviews() {
-            // 1. Special Colors Mosaic: Fill up to 4 different material swatches
-            const colorPhotos = galleryData["colors"] || [];
-            if (colorPhotos.length > 0) {
-                // Shuffle array copy to get random materials on each visit
-                const shuffled = [...colorPhotos].sort(() => 0.5 - Math.random());
-                for (let i = 0; i < 4; i++) {
-                    const img = document.getElementById(`colors-m-${i}`);
-                    if (img && shuffled[i % shuffled.length]) {
-                        img.src = shuffled[i % shuffled.length];
-                        img.onload = () => img.classList.add('loaded');
-                    }
-                }
-            }
-
-            // 2. Standard Category Cards
-            categories.filter(c => c !== "colors").forEach(cat => {
+        // Uniform Random Covers for all 10 cards
+        function renderUniformCovers() {
+            categories.forEach(cat => {
                 const photos = galleryData[cat] || [];
                 const imgElem = document.getElementById(`img-${cat}`);
                 const skelElem = document.getElementById(`skel-${cat}`);
@@ -862,6 +827,41 @@
             });
         }
 
+        // Dedicated Multi-Swatch Grid for Colors
+        const swatchModal = document.getElementById('swatchGridModal');
+        const swatchContainer = document.getElementById('swatchGridContainer');
+        const swatchCountText = document.getElementById('swatchCountText');
+
+        function openColorsCatalog() {
+            swatchContainer.innerHTML = '';
+            swatchCountText.textContent = `${colorFilesMeta.length} Swatches Available`;
+
+            colorFilesMeta.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'swatch-item-card';
+                card.onclick = () => {
+                    closeColorsCatalog();
+                    openSlideShow('colors', 'Materials & Finishes', index);
+                };
+
+                card.innerHTML = `
+                    <div class="swatch-img-box">
+                        <img src="${item.url}" loading="lazy" alt="${item.name}">
+                    </div>
+                    <div class="swatch-name-label" title="${item.name}">${item.name}</div>
+                `;
+                swatchContainer.appendChild(card);
+            });
+
+            swatchModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeColorsCatalog() {
+            swatchModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
         // Fullscreen Slideshow Controls
         let activeImages = [];
         let currentSlideIndex = 0;
@@ -871,9 +871,8 @@
         const mainImg = document.getElementById('sliderMainImg');
         const counter = document.getElementById('sliderCounter');
         const spinner = document.getElementById('sliderSpinner');
-        const thumbStrip = document.getElementById('sliderThumbnailStrip');
 
-        function openSlideShow(categoryKey, titleText) {
+        function openSlideShow(categoryKey, titleText, startIndex = 0) {
             modalTitle.textContent = titleText || categoryKey.toUpperCase();
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -884,24 +883,10 @@
                 counter.textContent = '0 / 0';
                 mainImg.src = '';
                 mainImg.style.display = 'none';
-                thumbStrip.innerHTML = '';
                 return;
             }
 
-            // Build Swatch Strip Thumbnails
-            thumbStrip.innerHTML = '';
-            activeImages.forEach((url, idx) => {
-                const thumb = document.createElement('img');
-                thumb.className = `thumb-item ${idx === 0 ? 'active' : ''}`;
-                thumb.src = url;
-                thumb.onclick = () => {
-                    currentSlideIndex = idx;
-                    showSlide(currentSlideIndex);
-                };
-                thumbStrip.appendChild(thumb);
-            });
-
-            currentSlideIndex = 0;
+            currentSlideIndex = startIndex;
             showSlide(currentSlideIndex);
         }
 
@@ -921,14 +906,6 @@
                 mainImg.style.opacity = '1';
                 counter.textContent = `${index + 1} / ${activeImages.length}`;
 
-                // Update active thumbnail
-                const thumbs = thumbStrip.querySelectorAll('.thumb-item');
-                thumbs.forEach((t, i) => {
-                    t.classList.toggle('active', i === index);
-                    if (i === index) t.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-                });
-
-                // Instant preload for next photo
                 if (activeImages.length > 1) {
                     const nextIndex = (index + 1) % activeImages.length;
                     const nextImg = new Image();
@@ -972,17 +949,22 @@
         }, { passive: true });
 
         window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (modal.classList.contains('active')) closeSlideShow();
+                else if (swatchModal.classList.contains('active')) closeColorsCatalog();
+            }
             if (!modal.classList.contains('active')) return;
             if (e.key === 'ArrowRight') nextSlide();
             if (e.key === 'ArrowLeft') prevSlide();
-            if (e.key === 'Escape') closeSlideShow();
         });
 
         window.addEventListener('DOMContentLoaded', () => {
             loadRepositoryGallery();
 
             const hash = window.location.hash.replace('#', '').toLowerCase();
-            if (hash && categories.includes(hash)) {
+            if (hash === 'colors') {
+                setTimeout(openColorsCatalog, 300);
+            } else if (hash && categories.includes(hash)) {
                 setTimeout(() => {
                     const card = document.querySelector(`[onclick*="'${hash}'"]`);
                     if (card) card.click();
