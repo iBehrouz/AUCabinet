@@ -155,8 +155,8 @@
         }
 
         .block-icon-wrap {
-            width: 72px;
-            height: 72px;
+            width: 76px;
+            height: 76px;
             border-radius: 16px;
             background: #111116;
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -349,7 +349,7 @@
             display: none;
         }
 
-        /* --- MOBILE APP UI: NO HEADER, NO FOOTER, EXACT MATCHED DOCK ICONS --- */
+        /* --- MOBILE PURIST APP UI: ZERO HEADER, ZERO FOOTER --- */
         @media (max-width: 991.98px) {
             .desktop-header {
                 display: none !important;
@@ -369,11 +369,11 @@
             }
 
             .block-icon-wrap {
-                width: 64px;
-                height: 64px;
+                width: 68px;
+                height: 68px;
             }
 
-            /* Bottom App Dock */
+            /* Big Tactile Bottom Dock */
             .mobile-bottom-nav {
                 position: fixed;
                 bottom: calc(10px + var(--safe-bottom));
@@ -454,6 +454,7 @@
                 <a href="javascript:void(0)" onclick="openFolder('robe')" class="nav-link">Wardrobes</a>
                 <a href="javascript:void(0)" onclick="openFolder('pantry')" class="nav-link">Pantries</a>
                 <a href="javascript:void(0)" onclick="openFolder('bath')" class="nav-link">Vanities</a>
+                <a href="javascript:void(0)" onclick="openFolder('laundry')" class="nav-link">Laundries</a>
                 <a href="javascript:void(0)" onclick="openFolder('colors')" class="nav-link">Colors & Materials</a>
                 <a href="mailto:email@aucabinet.au" class="nav-link">Email Us</a>
                 <a href="index.html#quoteSection" class="btn btn-gold ms-3">
@@ -481,7 +482,7 @@
                 <div class="col-md-6 col-12">
                     <div class="category-block" onclick="openFolder('kitchen')">
                         <div class="block-icon-wrap">
-                            <img src="photos/kitchen/1.jpg" onerror="this.onerror=null; this.src='./img/showroom_colors.jpg';" alt="Kitchens">
+                            <img src="./img/showroom_colors.jpg" alt="Kitchens">
                         </div>
                         <div class="block-meta">
                             <h3>Kitchens</h3>
@@ -496,7 +497,7 @@
                 <div class="col-md-6 col-12">
                     <div class="category-block" onclick="openFolder('robe')">
                         <div class="block-icon-wrap">
-                            <img src="photos/robe/1.jpg" onerror="this.onerror=null; this.src='./img/showroom_robe.jpg';" alt="Wardrobes">
+                            <img src="./img/showroom_robe.jpg" alt="Wardrobes">
                         </div>
                         <div class="block-meta">
                             <h3>Wardrobes</h3>
@@ -511,7 +512,7 @@
                 <div class="col-md-6 col-12">
                     <div class="category-block" onclick="openFolder('pantry')">
                         <div class="block-icon-wrap">
-                            <img src="photos/pantry/1.jpg" onerror="this.onerror=null; this.src='./img/showroom_pantry.jpg';" alt="Pantries">
+                            <img src="./img/showroom_pantry.jpg" alt="Pantries">
                         </div>
                         <div class="block-meta">
                             <h3>Butler's Pantry</h3>
@@ -526,7 +527,7 @@
                 <div class="col-md-6 col-12">
                     <div class="category-block" onclick="openFolder('bath')">
                         <div class="block-icon-wrap">
-                            <img src="photos/bath/1.jpg" onerror="this.onerror=null; this.src='./img/showroom_bath.jpg';" alt="Vanities">
+                            <img src="./img/showroom_bath.jpg" alt="Vanities">
                         </div>
                         <div class="block-meta">
                             <h3>Bathroom Vanities</h3>
@@ -541,7 +542,7 @@
                 <div class="col-md-6 col-12">
                     <div class="category-block" onclick="openFolder('laundry')">
                         <div class="block-icon-wrap">
-                            <img src="photos/laundry/1.jpg" onerror="this.onerror=null; this.src='./img/service-1.jpg';" alt="Laundries">
+                            <img src="./img/service-1.jpg" alt="Laundries">
                         </div>
                         <div class="block-meta">
                             <h3>Laundry Cabinets</h3>
@@ -556,7 +557,7 @@
                 <div class="col-md-6 col-12">
                     <div class="category-block" onclick="openFolder('colors')">
                         <div class="block-icon-wrap">
-                            <img src="photos/colors/1.jpg" onerror="this.onerror=null; this.src='./img/service-2.jpg';" alt="Colors">
+                            <img src="./img/service-2.jpg" alt="Colors">
                         </div>
                         <div class="block-meta">
                             <h3>Colors & Materials</h3>
@@ -597,7 +598,7 @@
         </div>
     </div>
 
-    <!-- Mobile Bottom App Dock: Preserving the Standard Gallery Icon -->
+    <!-- Big Tactile Mobile Bottom App Dock -->
     <nav class="mobile-bottom-nav">
         <a href="index.html" class="nav-dock-item">
             <i class="fa fa-home"></i>
@@ -620,123 +621,120 @@
         </a>
     </nav>
 
-    <!-- Folder Photos Data & Controller -->
-    
+    <!-- GitHub Live Repository Auto-Loader Script -->
+    <script>
+        // --- GITHUB REPOSITORY CONFIGURATION ---
+        // Change these two to your exact GitHub account and repository:
+        const GITHUB_USERNAME = "YOUR_GITHUB_USERNAME"; 
+        const GITHUB_REPO = "YOUR_REPOSITORY_NAME";
 
-// --- GITHUB LIVE REPO CONFIGURATION ---
-// Replace these two lines with your exact GitHub username and repository name:
-const GITHUB_USERNAME = "YOUR_GITHUB_USERNAME"; 
-const GITHUB_REPO = "YOUR_REPOSITORY_NAME";
+        const folderDatabase = {
+            kitchen: { title: "Kitchens Collection", path: "photos/kitchen", fallback: "./img/showroom_colors.jpg" },
+            robe:    { title: "Wardrobes & Dressing Suites", path: "photos/robe", fallback: "./img/showroom_robe.jpg" },
+            pantry:  { title: "Butler's Pantry & Sculleries", path: "photos/pantry", fallback: "./img/showroom_pantry.jpg" },
+            bath:    { title: "Bathroom Vanities", path: "photos/bath", fallback: "./img/showroom_bath.jpg" },
+            laundry: { title: "Laundry Cupboards", path: "photos/laundry", fallback: "./img/service-1.jpg" },
+            colors:  { title: "Colors & Materials Swatches", path: "photos/colors", fallback: "./img/service-2.jpg" }
+        };
 
-const folderDatabase = {
-    kitchen: { title: "Kitchens Collection", path: "photos/kitchen" },
-    robe:    { title: "Wardrobes & Robes", path: "photos/robe" },
-    pantry:  { title: "Butler's Pantry & Sculleries", path: "photos/pantry" },
-    bath:    { title: "Bathroom Vanities", path: "photos/bath" },
-    laundry: { title: "Laundry Cupboards", path: "photos/laundry" },
-    colors:  { title: "Colors & Materials", path: "photos/colors" }
-};
+        let currentFolderPhotos = [];
+        let currentPhotoIndex = 0;
 
-let currentFolderPhotos = [];
-let currentPhotoIndex = 0;
+        function openFolder(folderKey) {
+            const folder = folderDatabase[folderKey];
+            if (!folder) return;
 
-function openFolder(folderKey) {
-    const folder = folderDatabase[folderKey];
-    if (!folder) return;
+            document.getElementById('folderPathText').textContent = `Folder: ${folder.path}`;
+            document.getElementById('folderTitleText').textContent = folder.title;
 
-    document.getElementById('folderPathText').textContent = `Folder: ${folder.path}`;
-    document.getElementById('folderTitleText').textContent = folder.title;
+            const strip = document.getElementById('folderThumbsStrip');
+            strip.innerHTML = '<span class="text-white-50 small p-2"><i class="fa fa-spinner fa-spin me-1"></i> Loading folder photos...</span>';
+            document.getElementById('folderModal').classList.add('active');
 
-    const strip = document.getElementById('folderThumbsStrip');
-    strip.innerHTML = '<span class="text-white-50 small p-2"><i class="fa fa-spinner fa-spin me-1"></i> Loading folder photos...</span>';
-    document.getElementById('folderModal').classList.add('active');
+            // Query GitHub API to list all images in that directory
+            const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${folder.path}`;
 
-    // Query GitHub's public API to read all files in that folder
-    const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${folder.path}`;
+            fetch(apiUrl)
+                .then(response => {
+                    if (!response.ok) throw new Error("Folder or API unreachable");
+                    return response.json();
+                })
+                .then(files => {
+                    const validExts = ['.jpg', '.jpeg', '.png', '.webp', '.svg'];
+                    currentFolderPhotos = files
+                        .filter(f => f.type === "file" && validExts.some(ext => f.name.toLowerCase().endsWith(ext)))
+                        .map(f => f.download_url);
 
-    fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) throw new Error("Folder not found or API rate limited");
-            return response.json();
-        })
-        .then(files => {
-            // Filter only image formats, regardless of file names
-            const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.svg'];
-            currentFolderPhotos = files
-                .filter(file => file.type === "file" && imageExtensions.some(ext => file.name.toLowerCase().endsWith(ext)))
-                .map(file => file.download_url);
+                    if (currentFolderPhotos.length === 0) {
+                        currentFolderPhotos = [folder.fallback];
+                    }
+                    renderGallery(folder.fallback);
+                })
+                .catch(() => {
+                    // Fallback to stock image if offline / testing locally
+                    currentFolderPhotos = [folder.fallback];
+                    renderGallery(folder.fallback);
+                });
+        }
 
-            if (currentFolderPhotos.length === 0) {
-                currentFolderPhotos = ['./img/showroom_colors.jpg'];
+        function renderGallery(fallbackImg) {
+            currentPhotoIndex = 0;
+            const strip = document.getElementById('folderThumbsStrip');
+            strip.innerHTML = '';
+
+            currentFolderPhotos.forEach((src, idx) => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.className = `thumb-item ${idx === 0 ? 'active' : ''}`;
+                img.onerror = function() { this.src = fallbackImg; };
+                img.onclick = () => setFolderPhoto(idx);
+                strip.appendChild(img);
+            });
+
+            updateStagePhoto();
+        }
+
+        function setFolderPhoto(index) {
+            currentPhotoIndex = index;
+            updateStagePhoto();
+        }
+
+        function changeFolderPhoto(direction) {
+            currentPhotoIndex += direction;
+            if (currentPhotoIndex < 0) currentPhotoIndex = currentFolderPhotos.length - 1;
+            if (currentPhotoIndex >= currentFolderPhotos.length) currentPhotoIndex = 0;
+            updateStagePhoto();
+        }
+
+        function updateStagePhoto() {
+            const activeImg = document.getElementById('activeFolderImage');
+            activeImg.src = currentFolderPhotos[currentPhotoIndex];
+
+            const thumbs = document.querySelectorAll('.thumb-item');
+            thumbs.forEach((t, i) => t.classList.toggle('active', i === currentPhotoIndex));
+            if (thumbs[currentPhotoIndex]) {
+                thumbs[currentPhotoIndex].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
             }
+        }
 
-            renderGallery();
-        })
-        .catch(err => {
-            // Local fallback if testing offline
-            currentFolderPhotos = ['./img/showroom_colors.jpg'];
-            renderGallery();
+        function closeFolder() {
+            document.getElementById('folderModal').classList.remove('active');
+        }
+
+        // Deep linking via URL hash (e.g., gallery.html#kitchen)
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && folderDatabase[hash]) {
+                openFolder(hash);
+            }
         });
-}
 
-function renderGallery() {
-    currentPhotoIndex = 0;
-    const strip = document.getElementById('folderThumbsStrip');
-    strip.innerHTML = '';
-
-    currentFolderPhotos.forEach((src, idx) => {
-        const img = document.createElement('img');
-        img.src = src;
-        img.className = `thumb-item ${idx === 0 ? 'active' : ''}`;
-        img.onclick = () => setFolderPhoto(idx);
-        strip.appendChild(img);
-    });
-
-    updateStagePhoto();
-}
-
-function setFolderPhoto(index) {
-    currentPhotoIndex = index;
-    updateStagePhoto();
-}
-
-function changeFolderPhoto(direction) {
-    currentPhotoIndex += direction;
-    if (currentPhotoIndex < 0) currentPhotoIndex = currentFolderPhotos.length - 1;
-    if (currentPhotoIndex >= currentFolderPhotos.length) currentPhotoIndex = 0;
-    updateStagePhoto();
-}
-
-function updateStagePhoto() {
-    const activeImg = document.getElementById('activeFolderImage');
-    activeImg.src = currentFolderPhotos[currentPhotoIndex];
-
-    const thumbs = document.querySelectorAll('.thumb-item');
-    thumbs.forEach((t, i) => t.classList.toggle('active', i === currentPhotoIndex));
-    if (thumbs[currentPhotoIndex]) {
-        thumbs[currentPhotoIndex].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
-}
-
-function closeFolder() {
-    document.getElementById('folderModal').classList.remove('active');
-}
-
-// Deep link opening (e.g., gallery.html#kitchen)
-window.addEventListener('DOMContentLoaded', () => {
-    const hash = window.location.hash.replace('#', '');
-    if (hash && folderDatabase[hash]) {
-        openFolder(hash);
-    }
-});
-
-// Arrow key / Escape shortcuts
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeFolder();
-    if (e.key === 'ArrowRight') changeFolderPhoto(1);
-    if (e.key === 'ArrowLeft') changeFolderPhoto(-1);
-});
-
-
+        // Key shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeFolder();
+            if (e.key === 'ArrowRight') changeFolderPhoto(1);
+            if (e.key === 'ArrowLeft') changeFolderPhoto(-1);
+        });
+    </script>
 </body>
 </html>
