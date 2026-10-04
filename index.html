@@ -558,7 +558,7 @@
         </div>
     </header>
 
-    <!-- Interactive Hero Slider (Craftsmanship First, No Name Repetition) -->
+    <!-- Interactive Hero Slider (Craftsmanship First) -->
     <section class="hero-slider-section" id="heroSlider">
         <div class="hero-slider-container">
             <!-- Slide 1: Kitchens -->
@@ -754,15 +754,14 @@
         </div>
     </section>
 
-    <!-- Custom Quote Form Section (Tolerant & With File Upload) -->
+    <!-- Custom Quote Form Section (Space-Saving Multi-File Attachment) -->
     <section class="py-4" id="quoteSection">
         <div class="container" style="max-width: 680px;">
             <div class="p-3 p-md-4" style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 22px;">
                 <div class="text-center mb-3">
-                    <span class="badge-gold">Fast Price</span>
+                    <span class="badge-gold">CONTACT</span>
                     <h2 class="h4 text-white mb-1">Get a Quote</h2>
-                    <p class="text-white-50 small mb-0">Fill in below or call <a href="tel:+61412270000" class="accent fw-bold">+61 412 270 000</a></p>
-                </div>
+                    </div>
 
                 <div id="formAlert" class="form-alert text-center"></div>
 
@@ -770,7 +769,7 @@
                     <div class="row g-2">
                         <div class="col-md-6">
                             <label class="form-label text-white-50 small text-uppercase">Your Name</label>
-                            <input type="text" name="name" class="form-control rounded-3 p-2" placeholder="Name ">
+                            <input type="text" name="name" class="form-control rounded-3 p-2" placeholder="Name">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-white-50 small text-uppercase">Phone Number</label>
@@ -778,7 +777,7 @@
                         </div>
                         <div class="col-12">
                             <label class="form-label text-white-50 small text-uppercase">Email</label>
-                            <input type="email" name="email" class="form-control rounded-3 p-2" placeholder="name@email.com ">
+                            <input type="email" name="email" class="form-control rounded-3 p-2" placeholder="name@email.com">
                         </div>
                         <div class="col-12">
                             <label class="form-label text-white-50 small text-uppercase">What are you making?</label>
@@ -797,11 +796,17 @@
                             <textarea name="message" rows="3" class="form-control rounded-3 p-2" placeholder="Room sizes, ideas, or anything you'd like made..."></textarea>
                         </div>
 
-                        <!-- Direct File Attachment (Floor plans, sketches, photos) -->
+                        <!-- Space-Saving Multi-File Attachment -->
                         <div class="col-12">
-                            <label class="form-label text-white-50 small text-uppercase">Attach Floor Plan / Room Photo </label>
-                            <input type="file" name="attachment" id="fileInput" class="form-control rounded-3 p-2" accept="image/*,.pdf,.dwg,.dxf" style="cursor: pointer;">
-                            <small class="text-white-50" style="font-size: 0.72rem;">Accepts photos, floor plans, sketches, or PDFs</small>
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <label class="form-label text-white-50 small text-uppercase m-0">Attach Photos / Plans </label>
+                                <label for="fileInput" class="btn btn-sm btn-gold-outline py-1 px-2" style="font-size: 11px; cursor: pointer;">
+                                    <i class="fa fa-plus me-1"></i> Add Files
+                                </label>
+                            </div>
+                            <input type="file" id="fileInput" multiple accept="image/*,.pdf,.dwg,.dxf" style="display: none;">
+                            <!-- This container uses 0px height when empty -->
+                            <div id="filePreviewList" class="d-flex flex-wrap gap-1 mt-1"></div>
                         </div>
 
                         <div class="col-12 mt-3">
@@ -827,7 +832,7 @@
         </div>
     </footer>
 
-    <!-- Native App Bottom Dock with Emblem Home Button -->
+    <!-- Native App Bottom Dock with Custom Emblem Home Button -->
     <nav class="mobile-bottom-nav">
         <a href="index.html" class="nav-dock-item active">
             <img class="dock-icon-img" src="favicon.ico" onerror="this.onerror=null; this.src='logo.ico';" alt="AU">
@@ -856,6 +861,7 @@
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
+        // Hero Slider Setup
         const slides = document.querySelectorAll('.hero-slide');
         const dots = document.querySelectorAll('.slider-dot');
         const prevBtn = document.getElementById('prevSlide');
@@ -918,14 +924,50 @@
         sliderContainer.addEventListener('mouseleave', startAutoSlide);
         startAutoSlide();
 
-        // Telegram Quote Form Handler with File Attachment Support
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+        // Multi-File Attachment Handler
+        let selectedFiles = [];
+        const fileInput = document.getElementById('fileInput');
+        const previewList = document.getElementById('filePreviewList');
+
+        fileInput.addEventListener('change', function() {
+            const newFiles = Array.from(this.files);
+            selectedFiles = selectedFiles.concat(newFiles);
+            renderFilePreviews();
+            this.value = '';
+        });
+
+        function renderFilePreviews() {
+            previewList.innerHTML = '';
+            selectedFiles.forEach((file, index) => {
+                const chip = document.createElement('span');
+                chip.className = 'badge bg-dark border border-secondary text-light d-inline-flex align-items-center gap-1 py-1 px-2';
+                chip.style.fontSize = '11px';
+                chip.style.borderRadius = '8px';
+
+                const nameSpan = document.createElement('span');
+                nameSpan.textContent = file.name.length > 20 ? file.name.substring(0, 17) + '...' : file.name;
+
+                const removeBtn = document.createElement('i');
+                removeBtn.className = 'fa fa-times text-danger ms-1';
+                removeBtn.style.cursor = 'pointer';
+                removeBtn.onclick = () => {
+                    selectedFiles.splice(index, 1);
+                    renderFilePreviews();
+                };
+
+                chip.appendChild(nameSpan);
+                chip.appendChild(removeBtn);
+                previewList.appendChild(chip);
+            });
+        }
+
+        // Telegram Quote Form Handler
+        document.getElementById('quoteForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const form = this;
             const submitBtn = document.getElementById('submitBtn');
             const alertBox = document.getElementById('formAlert');
-            const fileInput = document.getElementById('fileInput');
             const originalText = submitBtn.innerHTML;
 
             const name = form.querySelector('[name="name"]').value.trim() || "Not provided";
@@ -933,9 +975,8 @@
             const email = form.querySelector('[name="email"]').value.trim();
             const project = form.querySelector('[name="project_type"]').value || "General Inquiry";
             const message = form.querySelector('[name="message"]').value.trim() || "No extra details provided.";
-            const file = fileInput.files[0];
 
-            // Require at least a phone number OR an email
+            // Non-strict requirement: requires phone OR email
             if (!phone && !email) {
                 alertBox.className = 'form-alert danger';
                 alertBox.innerHTML = '<i class="fa fa-exclamation-circle me-1"></i> Please enter either a phone number or email so we can reach you.';
@@ -951,58 +992,65 @@
                                 `📞 *Phone:* ${phone || "Not provided"}\n` +
                                 `✉️ *Email:* ${email || "Not provided"}\n` +
                                 `🏠 *Project:* ${project}\n` +
-                                `💬 *Details:* ${message}`;
+                                `💬 *Details:* ${message}` +
+                                (selectedFiles.length > 0 ? `\n📎 *Attachments:* ${selectedFiles.length} file(s)` : '');
 
             const botToken = "8873455228:AAF8EpOclWq9Zk98Bema62oKJ0RulYMGve8"; 
             const chatId = "-1004303472281";
 
-            let requestPromise;
+            try {
+                if (selectedFiles.length === 0) {
+                    const res = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            chat_id: chatId,
+                            text: captionText,
+                            parse_mode: 'Markdown'
+                        })
+                    });
+                    if (!res.ok) throw new Error();
+                } else {
+                    // Send first file with full caption
+                    const firstData = new FormData();
+                    firstData.append('chat_id', chatId);
+                    firstData.append('document', selectedFiles[0]);
+                    firstData.append('caption', captionText);
+                    firstData.append('parse_mode', 'Markdown');
 
-            if (file) {
-                // Send document/file with customer caption
-                const formData = new FormData();
-                formData.append('chat_id', chatId);
-                formData.append('document', file);
-                formData.append('caption', captionText);
-                formData.append('parse_mode', 'Markdown');
+                    const firstRes = await fetch(`https://api.telegram.org/bot${botToken}/sendDocument`, {
+                        method: 'POST',
+                        body: firstData
+                    });
+                    if (!firstRes.ok) throw new Error();
 
-                requestPromise = fetch(`https://api.telegram.org/bot${botToken}/sendDocument`, {
-                    method: 'POST',
-                    body: formData
-                });
-            } else {
-                // Send plain text if no attachment
-                requestPromise = fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: chatId,
-                        text: captionText,
-                        parse_mode: 'Markdown'
-                    })
-                });
-            }
-
-            requestPromise
-                .then(response => {
-                    if (response.ok) {
-                        alertBox.className = 'form-alert success';
-                        alertBox.innerHTML = '<i class="fa fa-check-circle me-1"></i> Request received! We will be in touch shortly.';
-                        alertBox.style.display = 'block';
-                        form.reset();
-                    } else {
-                        throw new Error();
+                    // Send any remaining files
+                    for (let i = 1; i < selectedFiles.length; i++) {
+                        const extraData = new FormData();
+                        extraData.append('chat_id', chatId);
+                        extraData.append('document', selectedFiles[i]);
+                        extraData.append('caption', `Attachment ${i + 1} from ${name}`);
+                        await fetch(`https://api.telegram.org/bot${botToken}/sendDocument`, {
+                            method: 'POST',
+                            body: extraData
+                        });
                     }
-                })
-                .catch(() => {
-                    alertBox.className = 'form-alert danger';
-                    alertBox.innerHTML = '<i class="fa fa-exclamation-triangle me-1"></i> Could not send. Please call us directly at <a href="tel:+61412270000" class="text-white fw-bold">+61 412 270 000</a>.';
-                    alertBox.style.display = 'block';
-                })
-                .finally(() => {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = originalText;
-                });
+                }
+
+                alertBox.className = 'form-alert success';
+                alertBox.innerHTML = '<i class="fa fa-check-circle me-1"></i> Request received! We will be in touch shortly.';
+                alertBox.style.display = 'block';
+                form.reset();
+                selectedFiles = [];
+                renderFilePreviews();
+            } catch (err) {
+                alertBox.className = 'form-alert danger';
+                alertBox.innerHTML = '<i class="fa fa-exclamation-triangle me-1"></i> Could not send. Please call us directly at <a href="tel:+61412270000" class="text-white fw-bold">+61 412 270 000</a>.';
+                alertBox.style.display = 'block';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
         });
     </script>
 </body>
