@@ -321,7 +321,7 @@
             margin: 0;
         }
 
-        /* --- COMPACT & VISUAL "WHAT WE DO" TILES (Zero long texts, scan in 3 seconds) --- */
+        /* Compact Services */
         .services-section {
             padding: 32px 0 16px;
         }
@@ -431,9 +431,8 @@
             display: none;
         }
 
-        /* --- MOBILE SCREEN OVERRIDES: 100% CLEAN NO TOP BAR + BIG BOTTOM DOCK --- */
+        /* Mobile Screen Overrides */
         @media (max-width: 991.98px) {
-            /* Fully remove header and top menu on mobile */
             .top-micro-bar,
             .desktop-header {
                 display: none !important;
@@ -457,7 +456,7 @@
                 gap: 8px;
             }
 
-            /* Extra-Big Visible Touch Navigation Dock */
+            /* Highly Visible Touch Bottom Navigation */
             .mobile-bottom-nav {
                 position: fixed;
                 bottom: calc(10px + var(--safe-bottom));
@@ -550,7 +549,7 @@
                 <a href="gallery.html" class="nav-link">Showroom</a>
                 <a href="gallery.html#kitchen" class="nav-link">Kitchens</a>
                 <a href="gallery.html#robe" class="nav-link">Wardrobes</a>
-                <a href="gallery.html#bath" class="nav-link">Vanities</a>
+                <a href="mailto:email@aucabinet.au" class="nav-link">Email Us</a>
                 <a href="#quoteSection" class="btn btn-gold ms-3">
                     <i class="fa fa-paper-plane"></i> Get A Quote
                 </a>
@@ -667,7 +666,7 @@
         </div>
     </section>
 
-    <!-- --- FAST & COMPACT "WHAT WE MAKE" (Visual, Small, Easy to Scan) --- -->
+    <!-- Fast & Compact "What We Make" -->
     <section class="services-section">
         <div class="container" style="max-width: 900px;">
             <div class="text-center mb-3">
@@ -835,9 +834,10 @@
             <i class="fa fa-phone"></i>
             <span>Call</span>
         </a>
-        <a href="gallery.html#colors" class="nav-dock-item">
-            <i class="fa fa-palette"></i>
-            <span>Colours</span>
+        <!-- Updated: Replaced Colours with Email -->
+        <a href="mailto:email@aucabinet.au" class="nav-dock-item">
+            <i class="fa fa-envelope"></i>
+            <span>Email</span>
         </a>
     </nav>
 

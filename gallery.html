@@ -3,11 +3,11 @@
 
 <head>
     <meta charset="utf-8">
-    <title>AU Cabinet | Showroom</title>
+    <title>AU Cabinet | Showroom & Gallery</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" name="viewport">
-    <meta name="description" content="AU Cabinet Architectural Showroom - Custom kitchens, walk-in robes, vanities & premium finishes in Melbourne.">
-    <meta name="theme-color" content="#060608">
-
+    <meta name="description" content="AU Cabinet Showroom - Custom kitchens, wardrobes, pantries, vanities, and joinery in Melbourne.">
+    <meta name="theme-color" content="#0a0a0c">
+    
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
@@ -17,319 +17,200 @@
     <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"> 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         :root {
             --primary-gold: #c5a059;
-            --gold-light: #dfb96f;
-            --gold-glow: rgba(197, 160, 89, 0.35);
-            --dark-bg: #060608;
-            --surface-bg: #0f0f14;
-            --card-glass: rgba(18, 18, 24, 0.72);
-            --border-glass: rgba(255, 255, 255, 0.08);
+            --gold-hover: #dfb96f;
+            --dark-bg: #0a0a0c;
+            --card-bg: #131317;
+            --card-hover: #1c1c24;
+            --border-color: rgba(255, 255, 255, 0.08);
             --border-gold: rgba(197, 160, 89, 0.45);
             --text-light: #f3f3f6;
-            --text-dim: #8b8b99;
+            --text-muted: #94949e;
             --safe-bottom: env(safe-area-inset-bottom, 0px);
             --safe-top: env(safe-area-inset-top, 0px);
         }
 
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
             -webkit-tap-highlight-color: transparent;
-            user-select: none;
         }
 
         html, body {
             background-color: var(--dark-bg);
             color: var(--text-light);
-            font-family: 'Montserrat', -apple-system, sans-serif;
-            min-height: 100vh;
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        a { text-decoration: none; color: inherit; }
-
-        /* Minimal Header */
-        .desktop-header {
-            background: rgba(8, 8, 10, 0.94);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-glass);
-            padding: 14px 24px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .brand-monogram-box {
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .brand-logo-sq {
-            width: 38px;
-            height: 38px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #1c1c24 0%, #0d0d12 100%);
-            border: 1px solid var(--border-gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-gold);
-            font-family: 'Cinzel', serif;
-            font-weight: 700;
-            font-size: 14px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
-        }
-
-        .brand-text-col h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.15rem;
-            letter-spacing: 2px;
+        h1, h2, h3, h4, h5, .navbar-brand {
+            font-family: 'Playfair Display', Georgia, serif;
             color: #ffffff;
-            line-height: 1.1;
+            letter-spacing: 0.5px;
         }
+        
+        .accent { color: var(--primary-gold); }
+        a { text-decoration: none; transition: all 0.2s ease; }
 
-        .brand-text-col span {
-            font-size: 9px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--primary-gold);
-            font-weight: 600;
-        }
-
-        .desktop-nav-links {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .desk-link {
-            text-transform: uppercase;
-            letter-spacing: 1.4px;
-            font-size: 11px;
-            font-weight: 600;
-            color: #c4c4cc;
-            padding: 8px 14px;
-            border-radius: 20px;
-            transition: all 0.2s ease;
-        }
-
-        .desk-link:hover, .desk-link.active {
-            color: var(--primary-gold);
-            background: rgba(197, 160, 89, 0.08);
-        }
-
-        .btn-gold-desk {
+        /* Gold Buttons */
+        .btn-gold {
             background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
-            color: #060608 !important;
+            color: #0a0a0c !important;
+            border-radius: 14px;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
-            font-size: 11px;
-            padding: 10px 22px;
-            border-radius: 14px;
+            font-size: 11.5px;
+            padding: 13px 26px;
+            border: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25);
+            min-height: 44px;
         }
 
-        /* Hero Showroom Pill */
-        .stage-intro {
-            padding: 30px 18px 12px;
+        .badge-gold {
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.12);
+            color: var(--primary-gold);
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* Desktop Header */
+        .desktop-header {
+            background: rgba(10, 10, 12, 0.94);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-size: 11.5px;
+            font-weight: 500;
+            color: #c4c4cc !important;
+            padding: 6px 14px !important;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-gold) !important;
+        }
+
+        /* Gallery Hero Area */
+        .gallery-hero {
+            padding: 28px 0 14px;
             text-align: center;
         }
 
-        .brand-sub-badge {
-            display: inline-flex;
+        .gallery-hero h1 {
+            font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+            margin: 6px 0 4px;
+        }
+
+        /* Big Clickable Blocks */
+        .category-block {
+            background: var(--card-bg);
+            border: 1.5px solid var(--border-color);
+            border-radius: 22px;
+            padding: 16px;
+            display: flex;
             align-items: center;
-            gap: 6px;
-            background: rgba(197, 160, 89, 0.1);
-            border: 1px solid var(--border-gold);
-            border-radius: 20px;
-            padding: 5px 14px;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1.6px;
-            text-transform: uppercase;
-            color: var(--primary-gold);
-        }
-
-        /* 3D Curved Architectural Grid */
-        .gallery-viewport {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 16px 14px calc(90px + var(--safe-bottom));
-        }
-
-        .curved-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
             gap: 16px;
-        }
-
-        .grid-span-8 { grid-column: span 8; }
-        .grid-span-4 { grid-column: span 4; }
-        .grid-span-6 { grid-column: span 6; }
-        .grid-span-12 { grid-column: span 12; }
-
-        /* Asymmetric Scalloped/Curved Card Shapes */
-        .arch-tile {
-            position: relative;
-            background: var(--surface-bg);
-            border: 1px solid var(--border-glass);
-            border-radius: 28px;
-            overflow: hidden;
-            height: 380px;
             cursor: pointer;
-            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
-            transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-        }
-
-        /* Organic corner curvature */
-        .arch-tile.shape-top-left-arch {
-            border-top-left-radius: 58px;
-        }
-        .arch-tile.shape-top-right-arch {
-            border-top-right-radius: 58px;
-        }
-        .arch-tile.shape-diagonal-arch {
-            border-top-left-radius: 56px;
-            border-bottom-right-radius: 56px;
-        }
-        .arch-tile.shape-pill-arch {
-            border-top-right-radius: 56px;
-            border-bottom-left-radius: 56px;
-        }
-
-        .arch-tile:hover {
-            border-color: var(--primary-gold);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 45px rgba(197, 160, 89, 0.18);
-        }
-
-        .arch-tile:active {
-            transform: scale(0.978);
-        }
-
-        .arch-tile.tile-hidden {
-            display: none !important;
-        }
-
-        .tile-img {
-            width: 100%;
             height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+            position: relative;
         }
 
-        .arch-tile:hover .tile-img {
-            transform: scale(1.06);
+        .category-block:hover {
+            border-color: var(--primary-gold);
+            background: var(--card-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
         }
 
-        /* Minimal Touch Overlay (Zero Fluff, Only Key Info) */
-        .tile-vignette {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                180deg,
-                rgba(6, 6, 8, 0.15) 0%,
-                rgba(6, 6, 8, 0.4) 60%,
-                rgba(6, 6, 8, 0.95) 100%
-            );
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 18px 20px;
-            pointer-events: none;
+        .category-block:active {
+            transform: scale(0.97);
+            border-color: var(--primary-gold);
         }
 
-        .tile-head-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            pointer-events: auto;
-        }
-
-        .tile-cat-badge {
-            background: rgba(10, 10, 14, 0.78);
-            border: 1px solid var(--border-gold);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            color: var(--primary-gold);
-            font-size: 9.5px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            padding: 4px 12px;
-            border-radius: 20px;
-        }
-
-        .tile-zoom-circle {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background: rgba(10, 10, 14, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(14px);
-            color: #ffffff;
+        .block-icon-wrap {
+            width: 72px;
+            height: 72px;
+            border-radius: 16px;
+            background: #111116;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 11px;
-            transition: all 0.2s ease;
         }
 
-        .arch-tile:hover .tile-zoom-circle {
-            border-color: var(--primary-gold);
-            color: var(--primary-gold);
+        .block-icon-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .tile-foot-bar {
-            pointer-events: auto;
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
-            gap: 12px;
+        .block-meta {
+            flex-grow: 1;
+            text-align: left;
         }
 
-        .tile-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.25rem;
+        .block-meta h3 {
+            font-size: 1.12rem;
+            margin: 0 0 4px;
             color: #ffffff;
-            letter-spacing: 0.5px;
-            line-height: 1.2;
-            margin: 0;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+            font-weight: 700;
         }
 
-        .tile-quote-pill {
-            background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
-            color: #060608;
-            border-radius: 14px;
+        .block-meta p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin: 0 0 6px;
+            line-height: 1.35;
+        }
+
+        .block-badge-pill {
             font-size: 10px;
             font-weight: 700;
-            letter-spacing: 0.6px;
             text-transform: uppercase;
-            padding: 8px 16px;
+            letter-spacing: 0.6px;
+            color: var(--primary-gold);
             display: inline-flex;
             align-items: center;
             gap: 4px;
-            box-shadow: 0 4px 14px var(--gold-glow);
         }
 
-        /* Lightbox Full View */
-        .photo-modal {
+        .block-arrow {
+            font-size: 1.1rem;
+            color: var(--primary-gold);
+            margin-right: 4px;
+        }
+
+        /* Folder Viewer Modal */
+        .folder-modal {
             display: none;
             position: fixed;
             inset: 0;
@@ -337,213 +218,222 @@
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             z-index: 3000;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
-        }
-
-        .photo-modal.active {
-            display: flex;
-        }
-
-        .modal-box {
-            position: relative;
-            max-width: 920px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .modal-box img {
-            width: 100%;
-            max-height: 78vh;
-            object-fit: contain;
-            border-radius: 24px;
-            border: 1px solid var(--border-gold);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.9);
-        }
-
-        .modal-close-btn {
-            position: absolute;
-            top: -46px;
-            right: 4px;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 30px;
-            cursor: pointer;
-        }
-
-        /* Floating Modern Bottom Dock (All-In-One Navigation) */
-        .mobile-bottom-dock {
-            position: fixed;
-            bottom: calc(12px + var(--safe-bottom));
-            left: 12px;
-            right: 12px;
-            height: 64px;
-            background: rgba(16, 16, 22, 0.94);
-            backdrop-filter: blur(28px);
-            -webkit-backdrop-filter: blur(28px);
-            border: 1px solid var(--border-glass);
-            border-radius: 34px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            z-index: 1050;
-            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.9);
-            padding: 0 6px;
-        }
-
-        .dock-btn {
-            display: flex;
             flex-direction: column;
+            justify-content: space-between;
+            padding: calc(16px + var(--safe-top)) 16px calc(24px + var(--safe-bottom));
+        }
+
+        .folder-modal.active {
+            display: flex;
+        }
+
+        .folder-modal-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .folder-title-box h2 {
+            font-size: 1.15rem;
+            margin: 0;
+            color: #fff;
+        }
+
+        .folder-title-box span {
+            font-size: 0.76rem;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .folder-close-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
-            color: var(--text-dim);
-            font-size: 9.5px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            flex: 1;
-            height: 100%;
-            background: none;
-            border: none;
+            font-size: 20px;
             cursor: pointer;
-            transition: color 0.2s ease;
         }
 
-        .dock-btn i {
-            font-size: 1.15rem;
-            margin-bottom: 2px;
+        /* Large Image Preview */
+        .photo-stage-wrap {
+            position: relative;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 0;
+            max-height: 64vh;
         }
 
-        .dock-btn.active, .dock-btn:hover {
-            color: var(--primary-gold);
+        .stage-photo {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 18px;
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.8);
         }
 
-        .dock-center .plus-btn {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
-            color: #060608;
+        .stage-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
+            background: rgba(14, 14, 18, 0.8);
+            border: 1px solid var(--border-gold);
+            color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 16px;
-            box-shadow: 0 4px 18px var(--gold-glow);
-            border: 2px solid #060608;
-        }
-
-        /* Modern Bottom Popover Drawer (Category Selector) */
-        .category-drawer {
-            position: fixed;
-            bottom: calc(84px + var(--safe-bottom));
-            left: 12px;
-            right: 12px;
-            background: rgba(14, 14, 18, 0.97);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
-            border: 1px solid var(--border-gold);
-            border-radius: 26px;
-            padding: 14px 12px;
-            z-index: 1040;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.95);
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            transform: translateY(20px);
-            opacity: 0;
-            pointer-events: none;
-            transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.25s ease;
-        }
-
-        .category-drawer.open {
-            display: flex;
-            transform: translateY(0);
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .drawer-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 2px 6px 8px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        .drawer-header span {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: var(--primary-gold);
-            font-weight: 700;
-        }
-
-        .drawer-chips-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-        }
-
-        .drawer-chip {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid var(--border-glass);
-            color: #d0d0dc;
-            border-radius: 16px;
-            padding: 10px 6px;
-            font-size: 10px;
-            font-weight: 600;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
             cursor: pointer;
+            z-index: 10;
+        }
+
+        .stage-nav-btn.prev { left: 8px; }
+        .stage-nav-btn.next { right: 8px; }
+
+        /* Thumbnails Strip */
+        .thumbnails-scroller {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+            padding: 8px 4px;
+            max-width: 700px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .thumbnails-scroller::-webkit-scrollbar {
+            display: none;
+        }
+
+        .thumb-item {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 2px solid transparent;
+            opacity: 0.5;
+            cursor: pointer;
+            flex-shrink: 0;
             transition: all 0.2s ease;
         }
 
-        .drawer-chip i {
-            font-size: 13px;
-            color: var(--primary-gold);
-        }
-
-        .drawer-chip.active {
-            background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
-            color: #060608;
+        .thumb-item.active {
             border-color: var(--primary-gold);
-            font-weight: 700;
+            opacity: 1;
+            transform: scale(1.05);
         }
 
-        .drawer-chip.active i {
-            color: #060608;
+        .modal-bottom-actions {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 6px;
         }
 
-        /* Mobile Adjustments */
+        .mobile-bottom-nav {
+            display: none;
+        }
+
+        /* --- MOBILE APP UI: NO HEADER, NO FOOTER, EXACT MATCHED DOCK ICONS --- */
         @media (max-width: 991.98px) {
             .desktop-header {
                 display: none !important;
             }
 
-            .stage-intro {
+            body {
+                padding-bottom: calc(96px + var(--safe-bottom));
+            }
+
+            .gallery-hero {
                 padding-top: calc(18px + var(--safe-top));
             }
 
-            .curved-grid {
-                grid-template-columns: 1fr;
-                gap: 14px;
+            .category-block {
+                padding: 14px;
+                border-radius: 20px;
             }
 
-            .grid-span-8, .grid-span-4, .grid-span-6, .grid-span-12 {
-                grid-column: span 1;
+            .block-icon-wrap {
+                width: 64px;
+                height: 64px;
             }
 
-            .arch-tile {
-                height: 310px;
+            /* Bottom App Dock */
+            .mobile-bottom-nav {
+                position: fixed;
+                bottom: calc(10px + var(--safe-bottom));
+                left: 10px;
+                right: 10px;
+                height: 78px;
+                background: rgba(14, 14, 18, 0.96);
+                backdrop-filter: blur(28px);
+                -webkit-backdrop-filter: blur(28px);
+                border: 1.5px solid rgba(197, 160, 89, 0.35);
+                border-radius: 38px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                z-index: 2000;
+                box-shadow: 0 16px 45px rgba(0, 0, 0, 0.95);
+                padding: 0 4px;
             }
 
-            .tile-title {
-                font-size: 1.15rem;
+            .nav-dock-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                color: #a8a8b8;
+                font-size: 11px;
+                font-weight: 600;
+                letter-spacing: 0.4px;
+                flex: 1;
+                height: 100%;
+                transition: color 0.15s ease;
+            }
+
+            .nav-dock-item i {
+                font-size: 1.45rem;
+                margin-bottom: 3px;
+            }
+
+            .nav-dock-item:active {
+                transform: scale(0.92);
+            }
+
+            .nav-dock-item.active, .nav-dock-item:hover {
+                color: var(--primary-gold);
+            }
+
+            .nav-dock-center .plus-btn {
+                width: 56px;
+                height: 56px;
+                background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
+                color: #0a0a0c;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                box-shadow: 0 6px 24px rgba(197, 160, 89, 0.55);
+                margin-top: -14px;
+                border: 3px solid #0a0a0c;
             }
         }
     </style>
@@ -551,245 +441,302 @@
 
 <body>
 
-    <!-- Desktop Header -->
+    <!-- Desktop Navigation Header (Hidden on Mobile) -->
     <header class="desktop-header">
-        <a href="index.html" class="brand-monogram-box">
-            <div class="brand-logo-sq">AU</div>
-            <div class="brand-text-col">
-                <h1>AU CABINET</h1>
-                <span>SHOWROOM</span>
-            </div>
-        </a>
-        <nav class="desktop-nav-links">
-            <a href="index.html" class="desk-link">Home</a>
-            <a href="gallery.html" class="desk-link active">Showroom</a>
-            <a href="javascript:void(0)" onclick="filterCategory('kitchen')" class="desk-link">Kitchens</a>
-            <a href="javascript:void(0)" onclick="filterCategory('robe')" class="desk-link">Wardrobes</a>
-            <a href="javascript:void(0)" onclick="filterCategory('pantry')" class="desk-link">Butler's Pantry</a>
-            <a href="javascript:void(0)" onclick="filterCategory('bath')" class="desk-link">Vanities</a>
-            <a href="javascript:void(0)" onclick="filterCategory('colors')" class="desk-link">Materials & Finishes</a>
-            <a href="index.html#quoteSection" class="btn-gold-desk">
-                <i class="fa fa-paper-plane"></i> Get A Quote
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html" class="d-flex align-items-center">
+                <h2 class="m-0 text-white" style="font-size: 1.35rem; letter-spacing: 2px;">AU <span class="accent">CABINET</span></h2>
             </a>
-        </nav>
+            <div class="d-flex align-items-center">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="gallery.html" class="nav-link active">Showroom</a>
+                <a href="javascript:void(0)" onclick="openFolder('kitchen')" class="nav-link">Kitchens</a>
+                <a href="javascript:void(0)" onclick="openFolder('robe')" class="nav-link">Wardrobes</a>
+                <a href="javascript:void(0)" onclick="openFolder('pantry')" class="nav-link">Pantries</a>
+                <a href="javascript:void(0)" onclick="openFolder('bath')" class="nav-link">Vanities</a>
+                <a href="javascript:void(0)" onclick="openFolder('colors')" class="nav-link">Colors & Materials</a>
+                <a href="mailto:email@aucabinet.au" class="nav-link">Email Us</a>
+                <a href="index.html#quoteSection" class="btn btn-gold ms-3">
+                    <i class="fa fa-paper-plane"></i> Get A Quote
+                </a>
+            </div>
+        </div>
     </header>
 
-    <!-- Visual Tag -->
-    <div class="stage-intro">
-        <span class="brand-sub-badge"><i class="fa fa-gem me-1"></i> AU CABINET SHOWROOM</span>
-    </div>
+    <!-- Showroom Header -->
+    <section class="gallery-hero">
+        <div class="container">
+            <span class="badge-gold">Showroom</span>
+            <h1>Explore Our Work</h1>
+            <p class="text-white-50 small mb-0">Tap any block below to open all photos in that folder.</p>
+        </div>
+    </section>
 
-    <!-- Asymmetric Architectural Tiles (Curved Shape Language) -->
-    <main class="gallery-viewport">
-        <div class="curved-grid" id="galleryGrid">
+    <!-- Big Easy Clickable Blocks -->
+    <main class="py-3">
+        <div class="container" style="max-width: 900px;">
+            <div class="row g-3">
 
-            <!-- 1. Kitchens (Hero Wide Tile - Arch Top-Left) -->
-            <article class="arch-tile grid-span-8 shape-top-left-arch" data-category="kitchen" onclick="openPhoto('./img/showroom_colors.jpg', 'Modern Luxury Kitchens')">
-                <img class="tile-img" src="./img/showroom_colors.jpg" alt="Modern Luxury Kitchens" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80';">
-                <div class="tile-vignette">
-                    <div class="tile-head-bar">
-                        <span class="tile-cat-badge">Kitchens</span>
-                        <div class="tile-zoom-circle"><i class="fa fa-expand"></i></div>
-                    </div>
-                    <div class="tile-foot-bar">
-                        <h2 class="tile-title">Modern Luxury Kitchens</h2>
-                        <a href="index.html#quoteSection" class="tile-quote-pill" onclick="event.stopPropagation()">Quote <i class="fa fa-arrow-right"></i></a>
+                <!-- Block 1: Kitchens -->
+                <div class="col-md-6 col-12">
+                    <div class="category-block" onclick="openFolder('kitchen')">
+                        <div class="block-icon-wrap">
+                            <img src="photos/kitchen/1.jpg" onerror="this.onerror=null; this.src='./img/showroom_colors.jpg';" alt="Kitchens">
+                        </div>
+                        <div class="block-meta">
+                            <h3>Kitchens</h3>
+                            <p>Islands, cabinets, and stone bench tops.</p>
+                            <span class="block-badge-pill">Open Folder <i class="fa fa-folder-open ms-1"></i></span>
+                        </div>
+                        <i class="fa fa-chevron-right block-arrow"></i>
                     </div>
                 </div>
-            </article>
 
-            <!-- 2. Wardrobes (Side Column - Arch Top-Right) -->
-            <article class="arch-tile grid-span-4 shape-top-right-arch" data-category="robe" onclick="openPhoto('./img/showroom_robe.jpg', 'Walk-In Robes & Dressing Suites')">
-                <img class="tile-img" src="./img/showroom_robe.jpg" alt="Walk-In Robes & Dressing Suites" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80';">
-                <div class="tile-vignette">
-                    <div class="tile-head-bar">
-                        <span class="tile-cat-badge">Wardrobes</span>
-                        <div class="tile-zoom-circle"><i class="fa fa-expand"></i></div>
-                    </div>
-                    <div class="tile-foot-bar">
-                        <h2 class="tile-title">Walk-In Robes & Dressing Suites</h2>
-                        <a href="index.html#quoteSection" class="tile-quote-pill" onclick="event.stopPropagation()">Quote <i class="fa fa-arrow-right"></i></a>
+                <!-- Block 2: Wardrobes -->
+                <div class="col-md-6 col-12">
+                    <div class="category-block" onclick="openFolder('robe')">
+                        <div class="block-icon-wrap">
+                            <img src="photos/robe/1.jpg" onerror="this.onerror=null; this.src='./img/showroom_robe.jpg';" alt="Wardrobes">
+                        </div>
+                        <div class="block-meta">
+                            <h3>Wardrobes</h3>
+                            <p>Walk-ins, built-ins, and drawers.</p>
+                            <span class="block-badge-pill">Open Folder <i class="fa fa-folder-open ms-1"></i></span>
+                        </div>
+                        <i class="fa fa-chevron-right block-arrow"></i>
                     </div>
                 </div>
-            </article>
 
-            <!-- 3. Butler's Pantry (Half Width - Diagonal Arch) -->
-            <article class="arch-tile grid-span-6 shape-diagonal-arch" data-category="pantry" onclick="openPhoto('./img/showroom_pantry.jpg', 'Butler\'s Pantry & Sculleries')">
-                <img class="tile-img" src="./img/showroom_pantry.jpg" alt="Butler's Pantry & Sculleries" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=900&q=80';">
-                <div class="tile-vignette">
-                    <div class="tile-head-bar">
-                        <span class="tile-cat-badge">Butler's Pantry</span>
-                        <div class="tile-zoom-circle"><i class="fa fa-expand"></i></div>
-                    </div>
-                    <div class="tile-foot-bar">
-                        <h2 class="tile-title">Butler's Pantry & Sculleries</h2>
-                        <a href="index.html#quoteSection" class="tile-quote-pill" onclick="event.stopPropagation()">Quote <i class="fa fa-arrow-right"></i></a>
+                <!-- Block 3: Pantries -->
+                <div class="col-md-6 col-12">
+                    <div class="category-block" onclick="openFolder('pantry')">
+                        <div class="block-icon-wrap">
+                            <img src="photos/pantry/1.jpg" onerror="this.onerror=null; this.src='./img/showroom_pantry.jpg';" alt="Pantries">
+                        </div>
+                        <div class="block-meta">
+                            <h3>Butler's Pantry</h3>
+                            <p>Extra storage & prep bench spaces.</p>
+                            <span class="block-badge-pill">Open Folder <i class="fa fa-folder-open ms-1"></i></span>
+                        </div>
+                        <i class="fa fa-chevron-right block-arrow"></i>
                     </div>
                 </div>
-            </article>
 
-            <!-- 4. Vanities (Half Width - Pill Arch) -->
-            <article class="arch-tile grid-span-6 shape-pill-arch" data-category="bath" onclick="openPhoto('./img/showroom_bath.jpg', 'Custom Vanities & Ensuites')">
-                <img class="tile-img" src="./img/showroom_bath.jpg" alt="Custom Vanities & Ensuites" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=900&q=80';">
-                <div class="tile-vignette">
-                    <div class="tile-head-bar">
-                        <span class="tile-cat-badge">Vanities</span>
-                        <div class="tile-zoom-circle"><i class="fa fa-expand"></i></div>
-                    </div>
-                    <div class="tile-foot-bar">
-                        <h2 class="tile-title">Custom Vanities & Ensuites</h2>
-                        <a href="index.html#quoteSection" class="tile-quote-pill" onclick="event.stopPropagation()">Quote <i class="fa fa-arrow-right"></i></a>
+                <!-- Block 4: Vanities -->
+                <div class="col-md-6 col-12">
+                    <div class="category-block" onclick="openFolder('bath')">
+                        <div class="block-icon-wrap">
+                            <img src="photos/bath/1.jpg" onerror="this.onerror=null; this.src='./img/showroom_bath.jpg';" alt="Vanities">
+                        </div>
+                        <div class="block-meta">
+                            <h3>Bathroom Vanities</h3>
+                            <p>Water-resistant floating cabinets.</p>
+                            <span class="block-badge-pill">Open Folder <i class="fa fa-folder-open ms-1"></i></span>
+                        </div>
+                        <i class="fa fa-chevron-right block-arrow"></i>
                     </div>
                 </div>
-            </article>
 
-            <!-- 5. Materials & Finishes (Third Column - Scalloped) -->
-            <article class="arch-tile grid-span-4 shape-pill-arch" data-category="colors" onclick="openPhoto('./img/service-2.jpg', 'Materials & Finishes')">
-                <img class="tile-img" src="./img/service-2.jpg" alt="Materials & Finishes" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80';">
-                <div class="tile-vignette">
-                    <div class="tile-head-bar">
-                        <span class="tile-cat-badge">Finishes</span>
-                        <div class="tile-zoom-circle"><i class="fa fa-expand"></i></div>
-                    </div>
-                    <div class="tile-foot-bar">
-                        <h2 class="tile-title">Materials & Finishes</h2>
-                        <a href="index.html#quoteSection" class="tile-quote-pill" onclick="event.stopPropagation()">Quote <i class="fa fa-arrow-right"></i></a>
+                <!-- Block 5: Laundries -->
+                <div class="col-md-6 col-12">
+                    <div class="category-block" onclick="openFolder('laundry')">
+                        <div class="block-icon-wrap">
+                            <img src="photos/laundry/1.jpg" onerror="this.onerror=null; this.src='./img/service-1.jpg';" alt="Laundries">
+                        </div>
+                        <div class="block-meta">
+                            <h3>Laundry Cabinets</h3>
+                            <p>Overheads, sink units & hampers.</p>
+                            <span class="block-badge-pill">Open Folder <i class="fa fa-folder-open ms-1"></i></span>
+                        </div>
+                        <i class="fa fa-chevron-right block-arrow"></i>
                     </div>
                 </div>
-            </article>
 
-            <!-- 6. Kitchen Renovations (Wide Tile - Diagonal Arch) -->
-            <article class="arch-tile grid-span-8 shape-diagonal-arch" data-category="kitchen" onclick="openPhoto('./img/service-3.jpg', 'Kitchen Renovations')">
-                <img class="tile-img" src="./img/service-3.jpg" alt="Kitchen Renovations" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80';">
-                <div class="tile-vignette">
-                    <div class="tile-head-bar">
-                        <span class="tile-cat-badge">Kitchens</span>
-                        <div class="tile-zoom-circle"><i class="fa fa-expand"></i></div>
-                    </div>
-                    <div class="tile-foot-bar">
-                        <h2 class="tile-title">Kitchen Renovations</h2>
-                        <a href="index.html#quoteSection" class="tile-quote-pill" onclick="event.stopPropagation()">Quote <i class="fa fa-arrow-right"></i></a>
+                <!-- Block 6: Colors & Materials -->
+                <div class="col-md-6 col-12">
+                    <div class="category-block" onclick="openFolder('colors')">
+                        <div class="block-icon-wrap">
+                            <img src="photos/colors/1.jpg" onerror="this.onerror=null; this.src='./img/service-2.jpg';" alt="Colors">
+                        </div>
+                        <div class="block-meta">
+                            <h3>Colors & Materials</h3>
+                            <p>Polytec, Laminex, stone & veneers.</p>
+                            <span class="block-badge-pill">Open Folder <i class="fa fa-folder-open ms-1"></i></span>
+                        </div>
+                        <i class="fa fa-chevron-right block-arrow"></i>
                     </div>
                 </div>
-            </article>
 
+            </div>
         </div>
     </main>
 
-    <!-- Sub-Category Drawer (Pops Up from Bottom Filter Button) -->
-    <div class="category-drawer" id="categoryDrawer">
-        <div class="drawer-header">
-            <span>Filter Showroom</span>
-            <i class="fa fa-times text-white-50" onclick="toggleDrawer()" style="cursor: pointer;"></i>
+    <!-- Full Folder Photo Viewer Modal -->
+    <div class="folder-modal" id="folderModal">
+        <div class="folder-modal-top">
+            <div class="folder-title-box">
+                <span id="folderPathText">Folder: photos/kitchen</span>
+                <h2 id="folderTitleText">Kitchens Collection</h2>
+            </div>
+            <div class="folder-close-btn" onclick="closeFolder()">&times;</div>
         </div>
-        <div class="drawer-chips-grid">
-            <div class="drawer-chip active" data-filter="all" onclick="filterCategory('all')">
-                <i class="fa fa-th-large"></i> All
-            </div>
-            <div class="drawer-chip" data-filter="kitchen" onclick="filterCategory('kitchen')">
-                <i class="fa fa-utensils"></i> Kitchen
-            </div>
-            <div class="drawer-chip" data-filter="robe" onclick="filterCategory('robe')">
-                <i class="fa fa-door-closed"></i> Robe
-            </div>
-            <div class="drawer-chip" data-filter="pantry" onclick="filterCategory('pantry')">
-                <i class="fa fa-wine-glass"></i> Pantry
-            </div>
-            <div class="drawer-chip" data-filter="bath" onclick="filterCategory('bath')">
-                <i class="fa fa-bath"></i> Vanity
-            </div>
-            <div class="drawer-chip" data-filter="colors" onclick="filterCategory('colors')">
-                <i class="fa fa-palette"></i> Finishes
+
+        <div class="photo-stage-wrap">
+            <button class="stage-nav-btn prev" onclick="changeFolderPhoto(-1)"><i class="fa fa-chevron-left"></i></button>
+            <img class="stage-photo" id="activeFolderImage" src="" alt="Folder Photo">
+            <button class="stage-nav-btn next" onclick="changeFolderPhoto(1)"><i class="fa fa-chevron-right"></i></button>
+        </div>
+
+        <div>
+            <div class="thumbnails-scroller" id="folderThumbsStrip"></div>
+            <div class="modal-bottom-actions">
+                <a href="index.html#quoteSection" class="btn btn-gold py-2 px-4" style="font-size: 11px;">
+                    <i class="fa fa-paper-plane me-1"></i> Request Quote on this Style
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Floating Native Mobile App Dock -->
-    <nav class="mobile-bottom-dock">
-        <a href="index.html" class="dock-btn">
+    <!-- Mobile Bottom App Dock: Preserving the Standard Gallery Icon -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="nav-dock-item">
             <i class="fa fa-home"></i>
             <span>Home</span>
         </a>
-        <button type="button" class="dock-btn active" onclick="toggleDrawer()">
-            <i class="fa fa-layer-group"></i>
-            <span id="dockFilterLabel">Filter</span>
-        </button>
-        <a href="index.html#quoteSection" class="dock-btn dock-center">
-            <span class="plus-btn"><i class="fa fa-paper-plane"></i></span>
+        <a href="gallery.html" class="nav-dock-item active">
+            <i class="fa fa-images"></i>
+            <span>Showroom</span>
         </a>
-        <a href="tel:+61412270000" class="dock-btn">
-            <i class="fa fa-phone-alt"></i>
+        <a href="index.html#quoteSection" class="nav-dock-item nav-dock-center">
+            <span class="plus-btn"><i class="fa fa-paper-plane text-dark"></i></span>
+        </a>
+        <a href="tel:+61412270000" class="nav-dock-item">
+            <i class="fa fa-phone"></i>
             <span>Call</span>
         </a>
-        <a href="mailto:email@aucabinet.au" class="dock-btn">
+        <a href="mailto:email@aucabinet.au" class="nav-dock-item">
             <i class="fa fa-envelope"></i>
             <span>Email</span>
         </a>
     </nav>
 
-    <!-- Fullscreen Touch Lightbox -->
-    <div class="photo-modal" id="photoModal" onclick="closePhoto()">
-        <div class="modal-box" onclick="event.stopPropagation()">
-            <button class="modal-close-btn" onclick="closePhoto()">&times;</button>
-            <img id="modalImg" src="" alt="Showroom Detail View">
-            <h3 id="modalTitle" style="font-family: 'Cinzel', serif; color: #fff; margin-top: 14px; font-size: 1.25rem;"></h3>
-        </div>
-    </div>
+    <!-- Folder Photos Data & Controller -->
+    
 
-    <script>
-        const tiles = document.querySelectorAll('.arch-tile');
-        const drawerChips = document.querySelectorAll('.drawer-chip');
-        const drawer = document.getElementById('categoryDrawer');
-        const dockFilterLabel = document.getElementById('dockFilterLabel');
+// --- GITHUB LIVE REPO CONFIGURATION ---
+// Replace these two lines with your exact GitHub username and repository name:
+const GITHUB_USERNAME = "YOUR_GITHUB_USERNAME"; 
+const GITHUB_REPO = "YOUR_REPOSITORY_NAME";
 
-        function toggleDrawer() {
-            drawer.classList.toggle('open');
-        }
+const folderDatabase = {
+    kitchen: { title: "Kitchens Collection", path: "photos/kitchen" },
+    robe:    { title: "Wardrobes & Robes", path: "photos/robe" },
+    pantry:  { title: "Butler's Pantry & Sculleries", path: "photos/pantry" },
+    bath:    { title: "Bathroom Vanities", path: "photos/bath" },
+    laundry: { title: "Laundry Cupboards", path: "photos/laundry" },
+    colors:  { title: "Colors & Materials", path: "photos/colors" }
+};
 
-        function filterCategory(category) {
-            drawerChips.forEach(chip => chip.classList.toggle('active', chip.dataset.filter === category));
+let currentFolderPhotos = [];
+let currentPhotoIndex = 0;
 
-            tiles.forEach(tile => {
-                if (category === 'all' || tile.dataset.category === category) {
-                    tile.classList.remove('tile-hidden');
-                } else {
-                    tile.classList.add('tile-hidden');
-                }
-            });
+function openFolder(folderKey) {
+    const folder = folderDatabase[folderKey];
+    if (!folder) return;
 
-            if (category === 'all') {
-                dockFilterLabel.textContent = 'Filter';
-            } else {
-                dockFilterLabel.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+    document.getElementById('folderPathText').textContent = `Folder: ${folder.path}`;
+    document.getElementById('folderTitleText').textContent = folder.title;
+
+    const strip = document.getElementById('folderThumbsStrip');
+    strip.innerHTML = '<span class="text-white-50 small p-2"><i class="fa fa-spinner fa-spin me-1"></i> Loading folder photos...</span>';
+    document.getElementById('folderModal').classList.add('active');
+
+    // Query GitHub's public API to read all files in that folder
+    const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${folder.path}`;
+
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) throw new Error("Folder not found or API rate limited");
+            return response.json();
+        })
+        .then(files => {
+            // Filter only image formats, regardless of file names
+            const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp', '.svg'];
+            currentFolderPhotos = files
+                .filter(file => file.type === "file" && imageExtensions.some(ext => file.name.toLowerCase().endsWith(ext)))
+                .map(file => file.download_url);
+
+            if (currentFolderPhotos.length === 0) {
+                currentFolderPhotos = ['./img/showroom_colors.jpg'];
             }
 
-            drawer.classList.remove('open');
-        }
-
-        // Open ALL by default on start, or respect URL hash if specific section targeted
-        window.addEventListener('DOMContentLoaded', () => {
-            const hash = window.location.hash.replace('#', '');
-            if (hash && ['kitchen', 'robe', 'pantry', 'bath', 'colors'].includes(hash)) {
-                filterCategory(hash);
-            } else {
-                filterCategory('all');
-            }
+            renderGallery();
+        })
+        .catch(err => {
+            // Local fallback if testing offline
+            currentFolderPhotos = ['./img/showroom_colors.jpg'];
+            renderGallery();
         });
+}
 
-        // Fullscreen Modal View
-        function openPhoto(src, title) {
-            document.getElementById('modalImg').src = src;
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('photoModal').classList.add('active');
-        }
+function renderGallery() {
+    currentPhotoIndex = 0;
+    const strip = document.getElementById('folderThumbsStrip');
+    strip.innerHTML = '';
 
-        function closePhoto() {
-            document.getElementById('photoModal').classList.remove('active');
-        }
+    currentFolderPhotos.forEach((src, idx) => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.className = `thumb-item ${idx === 0 ? 'active' : ''}`;
+        img.onclick = () => setFolderPhoto(idx);
+        strip.appendChild(img);
+    });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closePhoto();
-        });
-    </script>
+    updateStagePhoto();
+}
+
+function setFolderPhoto(index) {
+    currentPhotoIndex = index;
+    updateStagePhoto();
+}
+
+function changeFolderPhoto(direction) {
+    currentPhotoIndex += direction;
+    if (currentPhotoIndex < 0) currentPhotoIndex = currentFolderPhotos.length - 1;
+    if (currentPhotoIndex >= currentFolderPhotos.length) currentPhotoIndex = 0;
+    updateStagePhoto();
+}
+
+function updateStagePhoto() {
+    const activeImg = document.getElementById('activeFolderImage');
+    activeImg.src = currentFolderPhotos[currentPhotoIndex];
+
+    const thumbs = document.querySelectorAll('.thumb-item');
+    thumbs.forEach((t, i) => t.classList.toggle('active', i === currentPhotoIndex));
+    if (thumbs[currentPhotoIndex]) {
+        thumbs[currentPhotoIndex].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+}
+
+function closeFolder() {
+    document.getElementById('folderModal').classList.remove('active');
+}
+
+// Deep link opening (e.g., gallery.html#kitchen)
+window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && folderDatabase[hash]) {
+        openFolder(hash);
+    }
+});
+
+// Arrow key / Escape shortcuts
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeFolder();
+    if (e.key === 'ArrowRight') changeFolderPhoto(1);
+    if (e.key === 'ArrowLeft') changeFolderPhoto(-1);
+});
+
+
 </body>
 </html>
