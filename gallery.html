@@ -3,885 +3,726 @@
 
 <head>
     <meta charset="utf-8">
-    <title>SHOWROOM & GALLERY | AU Cabinet</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Showroom & Gallery | AU Cabinet Melbourne</title>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" name="viewport">
+    <meta name="description" content="Explore custom kitchens, walk-in robes, luxury vanities, and premium finishes built by AU Cabinet in Melbourne.">
+    <meta name="theme-color" content="#0a0a0c">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="site.webmanifest">
 
-    <!-- Google Web Fonts -->
+    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet"> 
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Bootstrap & Lightbox Stylesheets with CDN Fallbacks -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet" onerror="this.remove()">
-    <link href="css/style.css" rel="stylesheet" onerror="this.remove()">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet" onerror="this.remove()">
 
     <style>
         :root {
             --primary-gold: #c5a059;
-            --gold-hover: #e2bd78;
-            --dark-bg: #0f0f0f;
-            --card-bg: #1a1a1a;
-            --border-color: #222222;
+            --gold-hover: #dfb96f;
+            --dark-bg: #0a0a0c;
+            --card-bg: #131317;
+            --card-hover: #181820;
+            --border-color: rgba(255, 255, 255, 0.08);
             --border-gold: rgba(197, 160, 89, 0.4);
-            --text-light: #e0e0e0;
-            --text-muted: #a0a0a0;
+            --text-light: #f3f3f6;
+            --text-muted: #9696a2;
+            --safe-bottom: env(safe-area-inset-bottom, 0px);
+            --safe-top: env(safe-area-inset-top, 0px);
         }
 
-        body { 
-            background-color: var(--dark-bg); 
-            color: var(--text-light); 
-            font-family: 'Montserrat', sans-serif; 
-            min-height: 100vh;
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        h1, h2, h3, h4, .navbar-brand { 
-            font-family: 'Playfair Display', serif; 
-            color: #fff; 
+        html, body {
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: #ffffff;
+        }
+        
         .accent { color: var(--primary-gold); }
-        a { text-decoration: none; transition: 0.3s; }
+        a { text-decoration: none; transition: all 0.2s ease; }
 
-        /* Navbar identical to index.html */
-        .navbar-dark { 
-            background: #000 !important; 
-            border-bottom: 1px solid #222; 
-        }
-
-        .nav-link { 
-            text-transform: uppercase; 
-            letter-spacing: 1px; 
-            font-size: 13px; 
-        }
-
-        .nav-link:hover, .nav-link.active { 
-            color: var(--primary-gold) !important; 
-        }
-
-        .btn-gold { 
-            background: var(--primary-gold); 
-            color: #000; 
-            border-radius: 0; 
-            font-weight: 600; 
-            padding: 12px 30px; 
-            border: none; 
-            text-transform: uppercase;
-        }
-
-        .btn-gold:hover { 
-            background: var(--gold-hover); 
-            color: #000; 
-        }
-
-        /* Category Selector Bar */
-        .category-nav-wrapper {
-            background: #000;
-            border-bottom: 1px solid #222;
-            position: sticky;
-            top: 61px;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-        }
-
-        .category-nav {
-            display: flex;
-            align-items: center;
-            overflow-x: auto;
-            scrollbar-width: thin;
-            scrollbar-color: #333 transparent;
+        /* Desktop Header */
+        .desktop-header {
+            background: rgba(10, 10, 12, 0.94);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
             padding: 12px 0;
-            gap: 8px;
-            white-space: nowrap;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .category-nav::-webkit-scrollbar {
-            height: 3px;
-        }
-        .category-nav::-webkit-scrollbar-thumb {
-            background: #333;
+        .desktop-header .nav-link {
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #c4c4cc !important;
+            padding: 6px 14px !important;
         }
 
-        .cat-tab-btn {
-            background: transparent;
-            color: var(--text-muted);
-            border: 1px solid #222;
-            padding: 8px 18px;
-            font-size: 12px;
-            font-weight: 500;
+        .desktop-header .nav-link:hover, .desktop-header .nav-link.active {
+            color: var(--primary-gold) !important;
+        }
+
+        .btn-gold {
+            background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
+            color: #0a0a0c !important;
+            border-radius: 12px;
+            font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.25s ease;
+            font-size: 11px;
+            padding: 10px 20px;
+            border: none;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            white-space: nowrap;
+            justify-content: center;
+            gap: 6px;
         }
 
-        .cat-tab-btn i {
-            font-size: 13px;
+        .badge-gold {
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.12);
             color: var(--primary-gold);
-        }
-
-        .cat-tab-btn:hover {
-            color: #fff;
-            border-color: #444;
-            background: rgba(255,255,255,0.03);
-        }
-
-        .cat-tab-btn.active {
-            color: #000;
-            background: var(--primary-gold);
-            border-color: var(--primary-gold);
+            border: 1px solid var(--border-gold);
+            border-radius: 18px;
+            padding: 4px 12px;
+            font-size: 10px;
             font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
-        .cat-tab-btn.active i {
-            color: #000;
-        }
-
-        /* Showroom Hero Header */
-        .showroom-header {
-            padding: 50px 0 25px;
+        /* Gallery Hero */
+        .gallery-hero {
+            padding: 45px 0 20px;
             text-align: center;
+            background: radial-gradient(circle at 50% 0%, rgba(197, 160, 89, 0.12) 0%, transparent 70%);
         }
 
-        .showroom-title {
-            font-size: 2.2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
+        /* App-Style Horizontal Category Pill Bar */
+        .category-filter-wrap {
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            background: rgba(10, 10, 12, 0.94);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 0;
         }
 
-        .showroom-subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
+        .category-scroll-strip {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+            padding: 2px 14px;
         }
 
-        .divider-gold {
-            width: 50px;
-            height: 2px;
-            background: var(--primary-gold);
-            margin: 0 auto 24px;
+        .category-scroll-strip::-webkit-scrollbar {
+            display: none;
         }
 
-        .search-box-wrap {
-            max-width: 380px;
-            position: relative;
-            margin: 0 auto 35px;
-        }
-
-        .search-input {
-            width: 100%;
+        .filter-pill {
+            flex: 0 0 auto;
             background: var(--card-bg);
-            border: 1px solid #222;
-            color: #fff;
-            padding: 10px 16px 10px 42px;
-            font-size: 13px;
-            letter-spacing: 0.5px;
-            border-radius: 0;
-            outline: none;
-            transition: border-color 0.2s;
+            border: 1px solid var(--border-color);
+            color: #a4a4b2;
+            padding: 7px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.2s ease;
         }
 
-        .search-input:focus {
+        .filter-pill.active, .filter-pill:hover {
+            background: var(--primary-gold);
+            color: #0a0a0c;
             border-color: var(--primary-gold);
+            box-shadow: 0 4px 14px rgba(197, 160, 89, 0.35);
         }
 
-        .search-icon {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #777;
-            font-size: 13px;
-        }
-
-        /* Gallery Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-            gap: 20px;
-            min-height: 200px;
-        }
-
+        /* Compact Gallery Grid */
         .gallery-card {
             background: var(--card-bg);
-            border: 1px solid #222;
-            position: relative;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
             overflow: hidden;
-            display: block;
-            aspect-ratio: 4/3;
-            transition: border-color 0.4s, transform 0.4s ease;
-        }
-
-        .gallery-card img {
-            width: 100%;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.25s ease;
             height: 100%;
-            object-fit: cover;
-            opacity: 0.85;
-            transition: transform 0.6s ease, opacity 0.4s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .gallery-card:hover {
             border-color: var(--primary-gold);
-            transform: translateY(-6px);
+            transform: translateY(-3px);
         }
 
-        .gallery-card:hover img {
-            opacity: 1;
-            transform: scale(1.06);
-        }
-
-        .card-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 16px;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 70%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        .gallery-card:hover .card-overlay {
-            opacity: 1;
-        }
-
-        .card-caption {
-            font-size: 11px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: #fff;
-            margin: 0;
-            font-weight: 500;
-        }
-
-        .card-tag {
-            font-size: 9px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--primary-gold);
-            margin: 0;
-        }
-
-        .zoom-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: var(--primary-gold);
-            color: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
-        }
-
-        /* Specialized Swatches Grid for Materials / Colors */
-        .color-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 14px;
-        }
-
-        .color-card {
-            background: var(--card-bg);
-            border: 1px solid #222;
+        .gallery-img-box {
             position: relative;
+            width: 100%;
+            height: 230px;
+            background: #111;
             overflow: hidden;
-            aspect-ratio: 1/1;
-            display: block;
-            transition: all 0.3s ease;
         }
 
-        .color-card img {
+        .gallery-img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.85;
-            transition: transform 0.5s ease, opacity 0.3s;
+            transition: transform 0.4s ease;
         }
 
-        .color-card:hover {
-            border-color: var(--primary-gold);
-            transform: translateY(-4px);
+        .gallery-card:hover .gallery-img-box img {
+            transform: scale(1.05);
         }
 
-        .color-card:hover img {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        .color-banner {
+        .gallery-tag {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.88);
-            padding: 8px 6px;
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.06);
-            backdrop-filter: blur(4px);
-        }
-
-        .color-name {
-            font-size: 10px;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            color: #fff;
-            margin: 0;
-            font-weight: 500;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        /* Empty State */
-        .empty-state {
-            padding: 60px 20px;
-            text-align: center;
-            border: 1px dashed #333;
-            background: var(--card-bg);
-        }
-
-        .count-badge {
-            display: inline-block;
-            font-size: 11px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--primary-gold);
-            background: rgba(197, 160, 89, 0.1);
+            top: 10px;
+            left: 10px;
+            background: rgba(10, 10, 12, 0.78);
             border: 1px solid var(--border-gold);
-            padding: 5px 14px;
-            margin-bottom: 20px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--primary-gold);
+            padding: 3px 9px;
+            border-radius: 12px;
+            font-size: 9.5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
         }
 
-        /* Footer matching index.html */
-        .footer { 
-            background: #000 !important; 
-            border-top: 1px solid #222; 
-            padding: 80px 0 40px; 
-            margin-top: 80px;
-        }
-        .contact-item { padding: 10px; transition: 0.3s; }
-        .contact-item i { font-size: 1.5rem; margin-bottom: 10px; display: block; }
-        
-        .contact-link-tel { color: #fff; font-size: 1.3rem; font-weight: 400; letter-spacing: 1px; }
-        .contact-link-email { color: #fff; font-size: 0.95rem; font-weight: 400; letter-spacing: 1px; } 
-        
-        .contact-link-tel:hover, .contact-link-email:hover { color: var(--primary-gold); }
-
-        /* Responsive tweaks */
-        @media (max-width: 768px) {
-            .showroom-title { font-size: 1.6rem; }
-            .category-nav-wrapper { top: 57px; }
-            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
-            .color-grid { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px; }
+        .gallery-info {
+            padding: 12px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        @media (max-width: 576px) {
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .color-grid { grid-template-columns: repeat(3, 1fr); gap: 6px; }
-            .photo-card-info { padding: 10px 12px; }
-            .photo-title { font-size: 12px; }
-            .cat-tab-btn { padding: 8px 14px; font-size: 11px; }
-            .showroom-header { padding: 25px 0 15px; }
-            .footer { padding: 50px 0 30px; margin-top: 50px; }
+        .gallery-info h5 {
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        .gallery-info span {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* Bottom Melbourne Contact Action Strip */
+        .action-strip-bottom {
+            background: #0f0f13;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            padding: 14px 0;
+            margin-top: 40px;
+        }
+
+        .action-chip {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 14px;
+            color: #fff;
+        }
+
+        .action-chip:hover {
+            border-color: var(--primary-gold);
+            color: #fff;
+        }
+
+        .action-chip i {
+            color: var(--primary-gold);
+            font-size: 15px;
+        }
+
+        .action-chip span {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            display: block;
+        }
+
+        .action-chip strong {
+            font-size: 13px;
+            display: block;
+        }
+
+        /* Minimal Footer */
+        .footer {
+            background: #050507;
+            border-top: 1px solid var(--border-color);
+            padding: 30px 0 20px;
+        }
+
+        /* Fullscreen Image Preview Modal */
+        .photo-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+
+        .photo-modal.active {
+            display: flex;
+        }
+
+        .modal-content-box {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .modal-content-box img {
+            width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: 16px;
+            border: 1px solid var(--border-gold);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -42px;
+            right: 0;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 26px;
+            cursor: pointer;
+        }
+
+        /* --- MOBILE APP UI MODE --- */
+        .mobile-floating-badge, .mobile-bottom-dock {
+            display: none;
+        }
+
+        @media (max-width: 991.98px) {
+            .desktop-header {
+                display: none !important;
+            }
+
+            /* Floating micro badge on mobile */
+            .mobile-floating-badge {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                position: absolute;
+                top: calc(12px + var(--safe-top));
+                left: 14px;
+                z-index: 50;
+                background: rgba(14, 14, 18, 0.85);
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                padding: 6px 14px;
+                border-radius: 20px;
+            }
+
+            .mobile-floating-badge h2 {
+                font-size: 0.95rem;
+                letter-spacing: 1.5px;
+                margin: 0;
+                font-weight: 700;
+            }
+
+            body {
+                padding-bottom: calc(78px + var(--safe-bottom));
+            }
+
+            .gallery-hero {
+                padding-top: calc(58px + var(--safe-top));
+                padding-bottom: 14px;
+            }
+
+            .gallery-img-box {
+                height: 190px;
+            }
+
+            /* Floating App Bottom Dock */
+            .mobile-bottom-dock {
+                position: fixed;
+                bottom: calc(12px + var(--safe-bottom));
+                left: 12px;
+                right: 12px;
+                height: 64px;
+                background: rgba(18, 18, 22, 0.94);
+                backdrop-filter: blur(24px);
+                -webkit-backdrop-filter: blur(24px);
+                border: 1px solid rgba(255, 255, 255, 0.12);
+                border-radius: 32px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                z-index: 1050;
+                box-shadow: 0 12px 36px rgba(0, 0, 0, 0.9);
+                padding: 0 4px;
+            }
+
+            .dock-btn {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-decoration: none;
+                color: #8c8c9a;
+                font-size: 9.5px;
+                font-weight: 600;
+                letter-spacing: 0.3px;
+                flex: 1;
+                height: 100%;
+            }
+
+            .dock-btn i {
+                font-size: 1.15rem;
+                margin-bottom: 2px;
+            }
+
+            .dock-btn.active, .dock-btn:hover {
+                color: var(--primary-gold);
+            }
+
+            .dock-center .plus-btn {
+                width: 46px;
+                height: 46px;
+                background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
+                color: #0a0a0c;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                box-shadow: 0 4px 14px rgba(197, 160, 89, 0.4);
+                border: 2px solid #0a0a0c;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Navbar matching index.html -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top p-0 px-4 px-lg-5">
-        <a href="index.html" class="navbar-brand">
-            <h2 class="m-0 text-white">AU <span class="accent">CABINET</span></h2>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-4 py-lg-0">
-                <a href="index.html" class="nav-item nav-link">Home</a>
-                <a href="gallery.html" class="nav-item nav-link active">Showroom</a>
-                <a href="mailto:email@aucabinet.au?subject=Quote Request" class="nav-item nav-link d-lg-none accent fw-bold mt-2">
-                    <i class="fa fa-envelope me-1"></i> GET A QUOTE
+
+    <!-- Desktop Header -->
+    <header class="desktop-header">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html" class="d-flex align-items-center">
+                <h2 class="m-0 text-white" style="font-size: 1.35rem; letter-spacing: 2px;">AU <span class="accent">CABINET</span></h2>
+            </a>
+            <div class="d-flex align-items-center">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="gallery.html" class="nav-link active">Showroom & Gallery</a>
+                <a href="gallery.html#kitchen" class="nav-link">Kitchens</a>
+                <a href="gallery.html#robe" class="nav-link">Wardrobes</a>
+                <a href="gallery.html#colors" class="nav-link">Finishes</a>
+                <a href="index.html#quoteSection" class="btn btn-gold ms-3">
+                    <i class="fa fa-paper-plane"></i> GET A QUOTE
                 </a>
             </div>
-            <a href="mailto:email@aucabinet.au?subject=Quote Request" class="btn btn-gold d-none d-lg-block ms-3">GET A QUOTE</a>
         </div>
-    </nav>
+    </header>
 
-    <!-- Sticky Showroom Category Tabs -->
-    <div class="category-nav-wrapper">
-        <div class="container-fluid px-3 px-lg-5">
-            <div class="category-nav" id="categoryTabs">
-                <button type="button" class="cat-tab-btn" data-category="all" onclick="selectCategory('all')">
-                    <i class="fa fa-layer-group"></i> All Collections
-                </button>
-                <button type="button" class="cat-tab-btn active" data-category="kitchen" onclick="selectCategory('kitchen')">
-                    <i class="fa fa-utensils"></i> Kitchen
-                </button>
-                <button type="button" class="cat-tab-btn" data-category="pantry" onclick="selectCategory('pantry')">
-                    <i class="fa fa-wine-glass"></i> Pantry
-                </button>
-                <button type="button" class="cat-tab-btn" data-category="laundry" onclick="selectCategory('laundry')">
-                    <i class="fa fa-tshirt"></i> Laundry
-                </button>
-                <button type="button" class="cat-tab-btn" data-category="tv" onclick="selectCategory('tv')">
-                    <i class="fa fa-tv"></i> TV & Living
-                </button>
-                <button type="button" class="cat-tab-btn" data-category="bath" onclick="selectCategory('bath')">
-                    <i class="fa fa-bath"></i> Bathroom
-                </button>
-                <button type="button" class="cat-tab-btn" data-category="robe" onclick="selectCategory('robe')">
-                    <i class="fa fa-door-closed"></i> Wardrobes
-                </button>
-                <button type="button" class="cat-tab-btn" data-category="shop" onclick="selectCategory('shop')">
-                    <i class="fa fa-laptop"></i> Workspace
-                </button>
-                <button type="button" class="cat-tab-btn" data-category="other" onclick="selectCategory('other')">
-                    <i class="fa fa-gem"></i> Bespoke Other
-                </button>
-                <button type="button" class="cat-tab-btn" data-category="colors" onclick="selectCategory('colors')">
-                    <i class="fa fa-palette"></i> Materials & Colors
-                </button>
+    <!-- Floating Badge for App View (Mobile) -->
+    <div class="mobile-floating-badge">
+        <h2 class="text-white">AU <span class="accent">CABINET</span></h2>
+    </div>
+
+    <!-- Gallery Hero Header -->
+    <section class="gallery-hero">
+        <div class="container">
+            <span class="badge-gold">Bespoke Projects</span>
+            <h1 class="h3 text-white mt-2 mb-1">Showroom & Gallery</h1>
+            <p class="text-white-50 small mb-0">Crafted with precision joinery in Melbourne.</p>
+        </div>
+    </section>
+
+    <!-- Horizontal Swipeable Pill Category Filter Bar -->
+    <div class="category-filter-wrap">
+        <div class="container p-0">
+            <div class="category-scroll-strip" id="filterBar">
+                <button class="filter-pill active" data-filter="all">All Projects</button>
+                <button class="filter-pill" data-filter="kitchen">Kitchens</button>
+                <button class="filter-pill" data-filter="robe">Wardrobes</button>
+                <button class="filter-pill" data-filter="pantry">Pantries</button>
+                <button class="filter-pill" data-filter="bath">Vanities</button>
+                <button class="filter-pill" data-filter="colors">Materials & Finishes</button>
             </div>
         </div>
     </div>
 
-    <!-- Main Content Area -->
-    <main class="container-fluid px-3 px-lg-5">
-        <!-- Hero Header -->
-        <div class="showroom-header">
-            <h1 class="showroom-title" id="categoryTitle">Kitchen Systems</h1>
-            <p class="showroom-subtitle" id="categorySubtitle">Architectural Culinary Spaces & Joinery</p>
-            <div class="divider-gold"></div>
-            <div>
-                <span class="count-badge" id="photoCountBadge">Loading Collection...</span>
-            </div>
-        </div>
-
-        <!-- Search Controls -->
+    <!-- Project Gallery Grid -->
+    <section class="py-4">
         <div class="container">
-            <div class="search-box-wrap">
-                <i class="fa fa-search search-icon"></i>
-                <input type="text" id="gallerySearch" class="search-input" placeholder="Search gallery collection..." oninput="handleSearch(this.value)">
-            </div>
-        </div>
-
-        <!-- Gallery Grid Container -->
-        <div class="container-fluid px-lg-4 pb-5">
-            <div id="galleryContainer">
-                <div class="gallery-grid" id="gallery"></div>
-            </div>
-        </div>
-    </main>
-
-    <!-- REFINED CONTACT FOOTER -->
-    <footer class="footer">
-        <div class="container text-center">
-            <div class="mx-auto mb-5">
-                <h1 class="display-6 text-white">Let's Design Your Project</h1>
-                <div style="width: 40px; height: 1px; background: var(--primary-gold); margin: 20px auto 40px;"></div>
-            </div>
-            
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 contact-item">
-                    <i class="fa fa-phone-alt accent"></i>
-                    <h5 class="text-uppercase text-muted mb-2" style="font-size: 0.65rem; letter-spacing: 2px;">Direct Line</h5>
-                    <a href="tel:+61412270000" class="contact-link-tel">+61 412 270 000</a>
-                </div>
+            <div class="row g-3" id="galleryGrid">
                 
-                <div class="col-lg-4 contact-item">
-                    <i class="fa fa-envelope accent"></i>
-                    <h5 class="text-uppercase text-muted mb-2" style="font-size: 0.65rem; letter-spacing: 2px;">Email Inquiry</h5>
-                    <a href="mailto:email@aucabinet.au" class="contact-link-email">email@aucabinet.au</a>
+                <!-- Kitchen Project 1 -->
+                <div class="col-6 col-lg-4 gallery-item" data-category="kitchen">
+                    <div class="gallery-card" onclick="openPhoto('./img/showroom_colors.jpg', 'Modern Island Kitchen')">
+                        <div class="gallery-img-box">
+                            <span class="gallery-tag">Kitchen</span>
+                            <img src="./img/showroom_colors.jpg" alt="Modern Island Kitchen" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80';">
+                        </div>
+                        <div class="gallery-info">
+                            <div>
+                                <h5>Waterfall Stone</h5>
+                                <span>Brighton Project</span>
+                            </div>
+                            <i class="fa fa-expand accent small"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Robe Project 1 -->
+                <div class="col-6 col-lg-4 gallery-item" data-category="robe">
+                    <div class="gallery-card" onclick="openPhoto('./img/showroom_robe.jpg', 'Master Walk-In Robe')">
+                        <div class="gallery-img-box">
+                            <span class="gallery-tag">Wardrobe</span>
+                            <img src="./img/showroom_robe.jpg" alt="Master Walk-In Robe" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80';">
+                        </div>
+                        <div class="gallery-info">
+                            <div>
+                                <h5>Master Dressing Suite</h5>
+                                <span>LED & Blum Soft-Close</span>
+                            </div>
+                            <i class="fa fa-expand accent small"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pantry Project 1 -->
+                <div class="col-6 col-lg-4 gallery-item" data-category="pantry">
+                    <div class="gallery-card" onclick="openPhoto('./img/showroom_pantry.jpg', 'Butler Pantry Scullery')">
+                        <div class="gallery-img-box">
+                            <span class="gallery-tag">Pantry</span>
+                            <img src="./img/showroom_pantry.jpg" alt="Butler Pantry Scullery" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80';">
+                        </div>
+                        <div class="gallery-info">
+                            <div>
+                                <h5>Butler Scullery</h5>
+                                <span>Integrated Storage</span>
+                            </div>
+                            <i class="fa fa-expand accent small"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bath Project 1 -->
+                <div class="col-6 col-lg-4 gallery-item" data-category="bath">
+                    <div class="gallery-card" onclick="openPhoto('./img/showroom_bath.jpg', 'Floating Vanity Ensuite')">
+                        <div class="gallery-img-box">
+                            <span class="gallery-tag">Vanity</span>
+                            <img src="./img/showroom_bath.jpg" alt="Floating Vanity Ensuite" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80';">
+                        </div>
+                        <div class="gallery-info">
+                            <div>
+                                <h5>Floating Ensuite</h5>
+                                <span>Fluted Timber Finish</span>
+                            </div>
+                            <i class="fa fa-expand accent small"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finishes Project 1 -->
+                <div class="col-6 col-lg-4 gallery-item" data-category="colors">
+                    <div class="gallery-card" onclick="openPhoto('./img/service-2.jpg', 'Material Palette Samples')">
+                        <div class="gallery-img-box">
+                            <span class="gallery-tag">Palette</span>
+                            <img src="./img/service-2.jpg" alt="Material Palette Samples" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80';">
+                        </div>
+                        <div class="gallery-info">
+                            <div>
+                                <h5>Polytec & Stone</h5>
+                                <span>Premium Swatches</span>
+                            </div>
+                            <i class="fa fa-expand accent small"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Kitchen Project 2 -->
+                <div class="col-6 col-lg-4 gallery-item" data-category="kitchen">
+                    <div class="gallery-card" onclick="openPhoto('./img/service-3.jpg', 'Custom Timber Island Kitchen')">
+                        <div class="gallery-img-box">
+                            <span class="gallery-tag">Kitchen</span>
+                            <img src="./img/service-3.jpg" alt="Custom Timber Island Kitchen" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80';">
+                        </div>
+                        <div class="gallery-info">
+                            <div>
+                                <h5>Architectural Island</h5>
+                                <span>2-Pack & Oak Accents</span>
+                            </div>
+                            <i class="fa fa-expand accent small"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Contact Strip (Melbourne Workshop) -->
+    <div class="action-strip-bottom">
+        <div class="container">
+            <div class="row g-2 justify-content-center">
+                <div class="col-md-4 col-sm-6">
+                    <a href="tel:+61412270000" class="action-chip">
+                        <i class="fa fa-phone-alt"></i>
+                        <div>
+                            <span>Direct Line / WhatsApp</span>
+                            <strong>+61 412 270 000</strong>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <a href="mailto:email@aucabinet.au" class="action-chip">
+                        <i class="fa fa-envelope"></i>
+                        <div>
+                            <span>Email Quotations</span>
+                            <strong>email@aucabinet.au</strong>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-4 col-12">
+                    <div class="action-chip">
+                        <i class="fa fa-map-marker-alt"></i>
+                        <div>
+                            <span>Joinery Workshop</span>
+                            <strong>Melbourne, VIC</strong>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="container border-top border-secondary mt-5 pt-4 text-center">
-            <p class="m-0 small text-muted text-uppercase" style="letter-spacing: 1px; font-size: 0.65rem;">
-                &copy; <span id="year"></span> AU Cabinet. All Rights Reserved. <span class="ms-3">ABN 99 894 945 721</span>
+    </div>
+
+    <!-- Minimal Clean Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <p class="small text-white-50 mb-1" style="font-size: 0.76rem; letter-spacing: 0.5px;">
+                &copy; <span id="currentYear"></span> AU Cabinet. Custom Joinery & Modern Kitchens.
+            </p>
+            <p class="small text-white-50 mb-0" style="font-size: 0.7rem;">
+                Melbourne &bull; Victoria &bull; Australia &nbsp;|&nbsp; ABN 99 894 945 721
             </p>
         </div>
     </footer>
 
-    <!-- Lightbox, JQuery, Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <!-- Native App Floating Bottom Dock (Mobile Only) -->
+    <nav class="mobile-bottom-dock">
+        <a href="index.html" class="dock-btn">
+            <i class="fa fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="gallery.html" class="dock-btn active">
+            <i class="fa fa-images"></i>
+            <span>Gallery</span>
+        </a>
+        <a href="index.html#quoteSection" class="dock-btn dock-center">
+            <span class="plus-btn"><i class="fa fa-paper-plane"></i></span>
+        </a>
+        <a href="tel:+61412270000" class="dock-btn">
+            <i class="fa fa-phone-alt"></i>
+            <span>Call</span>
+        </a>
+        <a href="mailto:email@aucabinet.au" class="dock-btn">
+            <i class="fa fa-envelope"></i>
+            <span>Email</span>
+        </a>
+    </nav>
 
-    <!-- Unified Gallery Engine -->
-    <script type="module">
-        document.getElementById('year').textContent = new Date().getFullYear();
+    <!-- Tap to Fullscreen Image Preview -->
+    <div class="photo-modal" id="photoModal" onclick="closePhoto()">
+        <div class="modal-content-box" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closePhoto()">&times;</button>
+            <img id="modalImg" src="" alt="Full View">
+            <h5 id="modalTitle" class="text-white mt-3 mb-0"></h5>
+        </div>
+    </div>
 
-        // Configure Lightbox
-        if (typeof lightbox !== 'undefined') {
-            lightbox.option({
-                'resizeDuration': 200,
-                'wrapAround': true,
-                'fadeDuration': 250,
-                'imageFadeDuration': 250,
-                'albumLabel': "Design %1 of %2"
-            });
-        }
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Category Metadata & Folder Mappings
-        const categoryMeta = {
-            all: {
-                title: "Complete Showroom Portfolio",
-                subtitle: "Curated Architectural Joinery Across All Collections",
-                folder: "all"
-            },
-            kitchen: {
-                title: "Kitchen Systems",
-                subtitle: "Architectural Culinary Spaces & Bespoke Cabinetry",
-                folder: "kitchen"
-            },
-            pantry: {
-                title: "Butler's Pantry Systems",
-                subtitle: "Integrated Storage Solutions & Scullery Joinery",
-                folder: "pantry"
-            },
-            laundry: {
-                title: "Laundry Systems",
-                subtitle: "Utility, Ergonomics & Precision Fitted Joinery",
-                folder: "laundry"
-            },
-            tv: {
-                title: "Entertainment & TV Units",
-                subtitle: "Feature Living Room Joinery & Media Centers",
-                folder: "tv",
-                fallbackFolder: "basic"
-            },
-            bath: {
-                title: "Bathroom Vanities",
-                subtitle: "Luxury Sanctuary Joinery & Custom Shaving Cabinets",
-                folder: "bath"
-            },
-            robe: {
-                title: "Custom Wardrobes",
-                subtitle: "Walk-In Robes, Built-In Storage & Dressing Suites",
-                folder: "robe"
-            },
-            shop: {
-                title: "Workspace & Commercial",
-                subtitle: "Functional Studio Desks & Commercial Shopfront Joinery",
-                folder: "shop",
-                fallbackFolder: "basic"
-            },
-            other: {
-                title: "Bespoke Other Projects",
-                subtitle: "Home Bars, Architectural Shelving & Custom Joinery Details",
-                folder: "other",
-                fallbackFolder: "basic"
-            },
-            colors: {
-                title: "Material & Color Palette",
-                subtitle: "Architectural Textures, Solid Tones, Natural Timber & Stone Finishes",
-                folder: "colors"
-            }
-        };
+        // Category Filter Logic (Hash-aware from home links like gallery.html#kitchen)
+        const filterPills = document.querySelectorAll('.filter-pill');
+        const items = document.querySelectorAll('.gallery-item');
 
-        // Automatically discover and index all photos across all folders dynamically
-        const photoDatabase = {};
-        try {
-            const imageModules = import.meta.glob('/photos/*/*.{jpg,jpeg,png,webp,svg,JPG,JPEG,PNG,WEBP}', {
-                eager: true,
-                query: '?url',
-                import: 'default'
-            });
-
-            for (const path in imageModules) {
-                const match = path.match(/(?:^|\/)photos\/([^/]+)\/([^/]+)$/i);
-                if (match) {
-                    const folder = match[1].toLowerCase();
-                    const filename = match[2];
-                    const url = imageModules[path];
-                    if (!photoDatabase[folder]) {
-                        photoDatabase[folder] = [];
-                    }
-                    photoDatabase[folder].push({
-                        name: filename,
-                        url: url
-                    });
-                }
-            }
-        } catch (err) {
-            console.warn('Dynamic glob loader error:', err);
-        }
-
-        // State
-        let currentCategory = 'kitchen';
-        let searchQuery = '';
-        let fetchedOnlinePhotos = {};
-
-        // Format nice title from filename
-        function formatPhotoName(filename) {
-            return filename
-                .replace(/\.[^/.]+$/, "")
-                .replace(/[-_]/g, ' ')
-                .replace(/\s+/g, ' ')
-                .trim();
-        }
-
-        // Initialize from URL hash or default
-        function initFromHash() {
-            const hash = window.location.hash.replace('#', '').toLowerCase();
-            if (hash && categoryMeta[hash]) {
-                selectCategory(hash, false);
-            } else {
-                selectCategory('kitchen', false);
-            }
-        }
-
-        // Switch Main Category
-        function selectCategory(categoryKey, updateHash = true) {
-            if (!categoryMeta[categoryKey]) categoryKey = 'kitchen';
-            currentCategory = categoryKey;
-            searchQuery = '';
-            
-            const searchInput = document.getElementById('gallerySearch');
-            if (searchInput) searchInput.value = '';
-
-            if (updateHash) {
-                try {
-                    history.replaceState(null, '', '#' + categoryKey);
-                } catch(e) {
-                    window.location.hash = categoryKey;
-                }
-            }
-
-            // Update Tab Active States
-            document.querySelectorAll('.cat-tab-btn').forEach(btn => {
-                const isActive = btn.getAttribute('data-category') === categoryKey;
-                btn.classList.toggle('active', isActive);
-                if (isActive) {
-                    btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        function applyFilter(category) {
+            filterPills.forEach(p => p.classList.toggle('active', p.dataset.filter === category));
+            items.forEach(item => {
+                if (category === 'all' || item.dataset.category === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
                 }
             });
-
-            // Update Category Header
-            const meta = categoryMeta[categoryKey];
-            document.getElementById('categoryTitle').textContent = meta.title;
-            document.getElementById('categorySubtitle').textContent = meta.subtitle;
-
-            // Fetch or load photos
-            loadAndRenderCategory(categoryKey);
         }
 
-        // Handle Search Input
-        function handleSearch(query) {
-            searchQuery = query.toLowerCase().trim();
-            renderCurrentView();
-        }
-
-        // Load Photos for category
-        async function loadAndRenderCategory(categoryKey) {
-            const badge = document.getElementById('photoCountBadge');
-            badge.textContent = 'Loading collection...';
-
-            // Optional background fetch from GitHub API to discover newly uploaded photos in that folder
-            if (!fetchedOnlinePhotos[categoryKey] && categoryKey !== 'all') {
-                const meta = categoryMeta[categoryKey] || {};
-                const folderName = meta.folder || categoryKey;
-                fetch(`https://api.github.com/repos/ibehrouz/ibehrouz.github.io/contents/photos/${folderName}`)
-                    .then(res => res.ok ? res.json() : null)
-                    .then(data => {
-                        if (Array.isArray(data)) {
-                            const newFiles = data
-                                .filter(item => /\.(jpg|jpeg|png|webp|svg)$/i.test(item.name))
-                                .map(item => ({
-                                    name: item.name,
-                                    url: `photos/${folderName}/${item.name}`
-                                }));
-                            if (newFiles.length > 0) {
-                                fetchedOnlinePhotos[categoryKey] = newFiles;
-                                renderCurrentView();
-                            }
-                        }
-                    })
-                    .catch(() => {});
-            }
-
-            renderCurrentView();
-        }
-
-        // Get Photos for Current State
-        function getPhotosForCategory(catKey) {
-            // "All Collections" includes all joinery project categories, EXCLUDING materials & colors
-            if (catKey === 'all') {
-                const combined = [];
-                const joineryCategories = ['kitchen', 'pantry', 'laundry', 'tv', 'bath', 'robe', 'shop', 'other'];
-                joineryCategories.forEach(cat => {
-                    const meta = categoryMeta[cat] || {};
-                    const primaryFolder = meta.folder || cat;
-                    const fallback = meta.fallbackFolder;
-                    
-                    const list = fetchedOnlinePhotos[cat] || 
-                                 photoDatabase[primaryFolder] || 
-                                 (fallback ? photoDatabase[fallback] : []) || [];
-
-                    list.forEach(item => {
-                        const name = typeof item === 'string' ? item : item.name;
-                        const url = (typeof item === 'object' && item.url) ? item.url : `photos/${primaryFolder}/${name}`;
-                        combined.push({
-                            name: name,
-                            category: cat,
-                            url: url,
-                            lightboxGroup: 'all-portfolio'
-                        });
-                    });
-                });
-                return combined;
-            }
-
-            // Category-specific photos loaded directly from its folder
-            const meta = categoryMeta[catKey] || {};
-            const primaryFolder = meta.folder || catKey;
-            const fallback = meta.fallbackFolder;
-
-            const list = fetchedOnlinePhotos[catKey] || 
-                         photoDatabase[primaryFolder] || 
-                         (fallback ? photoDatabase[fallback] : []) || [];
-            
-            return list.map(item => {
-                const name = typeof item === 'string' ? item : item.name;
-                const url = (typeof item === 'object' && item.url) ? item.url : `photos/${primaryFolder}/${name}`;
-                return {
-                    name: name,
-                    category: catKey,
-                    url: url,
-                    lightboxGroup: catKey
-                };
+        filterPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                applyFilter(pill.dataset.filter);
             });
-        }
-
-        // Render Current View
-        function renderCurrentView() {
-            const container = document.getElementById('gallery');
-            const badge = document.getElementById('photoCountBadge');
-            
-            const rawPhotos = getPhotosForCategory(currentCategory);
-            const filteredPhotos = rawPhotos.filter(item => {
-                if (!searchQuery) return true;
-                const nameLower = item.name.toLowerCase();
-                const catLower = (item.category || '').toLowerCase();
-                return nameLower.includes(searchQuery) || catLower.includes(searchQuery);
-            });
-
-            // Update Badge Count
-            const countText = filteredPhotos.length === 1 ? '1 Design / Finish' : `${filteredPhotos.length} Designs & Finishes`;
-            badge.textContent = `${countText} Shown`;
-
-            // Clear Grid
-            container.innerHTML = '';
-
-            if (filteredPhotos.length === 0) {
-                container.className = 'w-100';
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <i class="fa fa-search fa-2x text-muted mb-3"></i>
-                        <h4 class="text-white mb-2">No Matching Designs Found</h4>
-                        <p class="text-muted small mb-3">Try adjusting your search terms.</p>
-                        <button class="btn btn-gold btn-sm" id="btnResetSearch">Clear Search</button>
-                    </div>
-                `;
-                const resetBtn = document.getElementById('btnResetSearch');
-                if (resetBtn) resetBtn.addEventListener('click', clearSearch);
-                return;
-            }
-
-            // If category is materials/colors, use swatch card layout
-            if (currentCategory === 'colors') {
-                container.className = 'color-grid';
-                filteredPhotos.forEach(p => {
-                    const formatted = formatPhotoName(p.name);
-                    const card = document.createElement('a');
-                    card.className = 'color-card';
-                    card.href = p.url;
-                    card.setAttribute('data-lightbox', 'materials');
-                    card.setAttribute('data-title', formatted + ' &bull; AU Cabinet Luxury Finish');
-                    card.innerHTML = `
-                        <img src="${p.url}" alt="${formatted}" loading="lazy" onerror="this.onerror=null; this.src='photos/colors/${p.name}';">
-                        <div class="color-banner">
-                            <div class="color-name" title="${formatted}">${formatted}</div>
-                        </div>
-                    `;
-                    container.appendChild(card);
-                });
-            } else {
-                // Standard Luxury Project Grid
-                container.className = 'gallery-grid';
-                filteredPhotos.forEach(p => {
-                    const formatted = formatPhotoName(p.name);
-                    const categoryDisplayName = (categoryMeta[p.category] || {}).title || currentCategory.toUpperCase();
-                    
-                    const card = document.createElement('a');
-                    card.className = 'gallery-card';
-                    card.href = p.url;
-                    card.setAttribute('data-lightbox', p.lightboxGroup || 'showroom');
-                    card.setAttribute('data-title', `${categoryDisplayName} &bull; AU Cabinet Custom Joinery`);
-                    card.innerHTML = `
-                        <img src="${p.url}" alt="${formatted}" loading="lazy" onerror="this.onerror=null; this.src='photos/basic/image1.jpg';">
-                        <div class="card-overlay">
-                            <div>
-                                <p class="card-tag">${(p.category || currentCategory).toUpperCase()}</p>
-                                <h4 class="card-caption">${formatted}</h4>
-                            </div>
-                            <div class="zoom-icon">
-                                <i class="fa fa-search-plus"></i>
-                            </div>
-                        </div>
-                    `;
-                    container.appendChild(card);
-                });
-            }
-        }
-
-        function clearSearch() {
-            searchQuery = '';
-            const searchInput = document.getElementById('gallerySearch');
-            if (searchInput) searchInput.value = '';
-            renderCurrentView();
-        }
-
-        // Attach Global Handlers
-        window.selectCategory = selectCategory;
-        window.handleSearch = handleSearch;
-        window.clearSearch = clearSearch;
-
-        // Listen for Hash Changes (Browser Back/Forward navigation)
-        window.addEventListener('popstate', () => {
-            initFromHash();
         });
 
-        // Initialize on DOM Ready
-        document.addEventListener('DOMContentLoaded', () => {
-            initFromHash();
+        // Check URL hash on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.replace('#', '');
+            if (hash && ['kitchen', 'robe', 'pantry', 'bath', 'colors'].includes(hash)) {
+                applyFilter(hash);
+            }
         });
+
+        // Fullscreen Modal Preview
+        function openPhoto(src, title) {
+            document.getElementById('modalImg').src = src;
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('photoModal').classList.add('active');
+        }
+
+        function closePhoto() {
+            document.getElementById('photoModal').classList.remove('active');
+        }
     </script>
 </body>
 </html>
