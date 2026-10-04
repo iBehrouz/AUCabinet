@@ -3,19 +3,17 @@
 
 <head>
     <meta charset="utf-8">
-    <title>AU Cabinet | Showroom & Gallery</title>
+    <title>AU Cabinet | Showroom & Project Portfolio</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" name="viewport">
-    <meta name="description" content="AU Cabinet Showroom - Custom kitchens, wardrobes, pantries, vanities, and joinery in Melbourne.">
+    <meta name="description" content="Explore custom kitchens, wardrobes, bathroom vanities, and joinery crafted by AU Cabinet in Melbourne.">
     <meta name="theme-color" content="#0a0a0c">
     
-    <!-- Favicons with direct fallbacks -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/x-icon" href="logo.ico">
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="apple-touch-icon" href="logo.png">
     <link rel="apple-touch-icon" href="img/logo.png">
 
-    <!-- Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"> 
@@ -28,13 +26,12 @@
             --gold-hover: #dfb96f;
             --dark-bg: #0a0a0c;
             --card-bg: #131317;
-            --card-hover: #1c1c24;
+            --card-hover: #1a1a20;
             --border-color: rgba(255, 255, 255, 0.08);
             --border-gold: rgba(197, 160, 89, 0.45);
             --text-light: #f3f3f6;
             --text-muted: #94949e;
             --safe-bottom: env(safe-area-inset-bottom, 0px);
-            --safe-top: env(safe-area-inset-top, 0px);
         }
 
         * {
@@ -57,21 +54,25 @@
             color: #ffffff;
             letter-spacing: 0.5px;
         }
-        
+
         .accent { color: var(--primary-gold); }
         a { text-decoration: none; transition: all 0.2s ease; }
 
-        .badge-gold {
-            display: inline-block;
-            background: rgba(197, 160, 89, 0.12);
-            color: var(--primary-gold);
-            border: 1px solid var(--border-gold);
-            border-radius: 20px;
-            padding: 4px 12px;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
+        .btn-gold {
+            background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
+            color: #0a0a0c !important;
+            border-radius: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
             text-transform: uppercase;
+            font-size: 11.5px;
+            padding: 12px 24px;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25);
         }
 
         /* Desktop Header */
@@ -86,7 +87,7 @@
         }
 
         .brand-logo-img {
-            height: 42px;
+            height: 40px;
             width: auto;
             object-fit: contain;
             filter: drop-shadow(0 2px 8px rgba(197, 160, 89, 0.3));
@@ -105,305 +106,259 @@
             color: var(--primary-gold) !important;
         }
 
-        /* Gallery Hero Area */
-        .gallery-hero {
-            padding: 28px 0 14px;
+        .page-header {
+            padding: 40px 0 24px;
             text-align: center;
+            background: linear-gradient(180deg, #131317 0%, var(--dark-bg) 100%);
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .gallery-hero h1 {
-            font-size: clamp(1.6rem, 3.5vw, 2.3rem);
-            margin: 6px 0 4px;
+        .badge-gold {
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.12);
+            color: var(--primary-gold);
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 4px 14px;
+            font-size: 10.5px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
         }
 
-        /* Category Blocks */
-        .category-block {
+        /* Category Card - Pure Photo Logo / Cover */
+        .category-card {
             background: var(--card-bg);
-            border: 1.5px solid var(--border-color);
+            border: 1px solid var(--border-color);
             border-radius: 22px;
-            padding: 16px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            cursor: pointer;
-            height: 100%;
-            transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-            position: relative;
-        }
-
-        .category-block:hover {
-            border-color: var(--primary-gold);
-            background: var(--card-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
-        }
-
-        .category-block:active {
-            transform: scale(0.97);
-            border-color: var(--primary-gold);
-        }
-
-        .block-icon-wrap {
-            width: 76px;
-            height: 76px;
-            border-radius: 16px;
-            background: #111116;
-            border: 1px solid rgba(255, 255, 255, 0.08);
             overflow: hidden;
-            flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+            height: 100%;
         }
 
-        .block-icon-wrap img {
+        .category-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-4px);
+            box-shadow: 0 14px 32px rgba(197, 160, 89, 0.18);
+        }
+
+        .category-card:active {
+            transform: scale(0.97);
+        }
+
+        .category-photo-wrapper {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            background: #141419;
+            overflow: hidden;
+        }
+
+        .category-photo-img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease, opacity 0.4s ease;
+            opacity: 0;
         }
 
-        .block-meta {
-            flex-grow: 1;
-            text-align: left;
+        .category-photo-img.loaded {
+            opacity: 1;
         }
 
-        .block-meta h3 {
-            font-size: 1.12rem;
-            margin: 0 0 4px;
-            color: #ffffff;
-            font-weight: 700;
+        .category-card:hover .category-photo-img {
+            transform: scale(1.08);
         }
 
-        .block-meta p {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin: 0 0 6px;
-            line-height: 1.35;
-        }
-
-        .block-badge-pill {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            color: var(--primary-gold);
-            display: inline-flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .block-arrow {
-            font-size: 1.1rem;
-            color: var(--primary-gold);
-            margin-right: 4px;
-        }
-
-        /* Viewer Popup Modal */
-        .folder-modal {
-            display: none;
-            position: fixed;
+        /* Shimmer loader placeholder while photo loads */
+        .photo-skeleton {
+            position: absolute;
             inset: 0;
-            background: rgba(3, 3, 5, 0.96);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            z-index: 3000;
+            background: linear-gradient(90deg, #131317 0%, #202028 50%, #131317 100%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .category-details {
+            padding: 16px 14px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: calc(12px + var(--safe-top)) 12px calc(16px + var(--safe-bottom));
         }
 
-        .folder-modal.active {
+        .category-details h3 {
+            font-size: 1.1rem;
+            margin: 0 0 4px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .category-details p {
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .category-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 12px;
+            font-weight: 700;
+        }
+
+        /* Fullscreen Slideshow */
+        .slider-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 12, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 3000;
+            display: none;
+            flex-direction: column;
+        }
+
+        .slider-modal.active {
             display: flex;
         }
 
-        .folder-modal-top {
+        .slider-top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding-bottom: 8px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            margin-bottom: 6px;
-            flex-shrink: 0;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .folder-title-box h2 {
-            font-size: 1.25rem;
+        .slider-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .slider-title h2 {
+            font-size: 1.2rem;
             margin: 0;
             color: #fff;
         }
 
-        .folder-close-btn {
+        .slider-counter {
+            font-size: 0.85rem;
+            color: var(--primary-gold);
+            font-weight: 700;
+        }
+
+        .slider-close-btn {
             width: 40px;
             height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.08);
             border: 1px solid var(--border-color);
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        /* Standard Slider Mode */
-        .photo-stage-wrap {
-            position: relative;
-            flex-grow: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 0;
-            max-height: 74vh;
-        }
-
-        .stage-photo {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            border-radius: 18px;
-            border: 1px solid var(--border-gold);
-            box-shadow: 0 16px 45px rgba(0, 0, 0, 0.8);
-        }
-
-        .stage-nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 46px;
-            height: 46px;
             border-radius: 50%;
-            background: rgba(14, 14, 18, 0.8);
-            border: 1px solid var(--border-gold);
             color: #fff;
+            font-size: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
             cursor: pointer;
-            z-index: 10;
-        }
-
-        .stage-nav-btn.prev { left: 8px; }
-        .stage-nav-btn.next { right: 8px; }
-
-        .thumbnails-scroller {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            scrollbar-width: none;
-            -webkit-overflow-scrolling: touch;
-            padding: 6px 2px;
-            max-width: 700px;
-            margin: 0 auto;
-            width: 100%;
-            flex-shrink: 0;
-        }
-
-        .thumbnails-scroller::-webkit-scrollbar {
-            display: none;
-        }
-
-        .thumb-item {
-            width: 64px;
-            height: 64px;
-            border-radius: 12px;
-            object-fit: cover;
-            border: 2px solid transparent;
-            opacity: 0.5;
-            cursor: pointer;
-            flex-shrink: 0;
             transition: all 0.2s ease;
         }
 
-        .thumb-item.active {
-            border-color: var(--primary-gold);
-            opacity: 1;
-            transform: scale(1.05);
+        .slider-close-btn:hover {
+            background: var(--primary-gold);
+            color: #0a0a0c;
         }
 
-        /* Wall-to-Wall Matrix for Colors */
-        .colors-full-viewport {
-            display: none;
-            flex-grow: 1;
-            overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-            padding: 4px;
-            margin: 4px 0;
-            scrollbar-width: thin;
-        }
-
-        .colors-full-viewport.active {
-            display: block;
-        }
-
-        .colors-matrix-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-            gap: 6px;
-            align-content: start;
-        }
-
-        .swatch-card {
-            aspect-ratio: 1 / 1;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-            background: #111;
-            cursor: pointer;
+        .slider-body {
             position: relative;
-            transition: transform 0.15s ease, border-color 0.15s ease;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            overflow: hidden;
         }
 
-        .swatch-card:hover, .swatch-card:active {
-            border-color: var(--primary-gold);
-            transform: scale(0.96);
-            z-index: 2;
+        .slider-main-img {
+            max-width: 100%;
+            max-height: 82vh;
+            border-radius: 12px;
+            object-fit: contain;
+            user-select: none;
+            transition: opacity 0.2s ease;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.9);
         }
 
-        .swatch-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+        .slider-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(19, 19, 23, 0.85);
+            border: 1px solid var(--border-gold);
+            color: #fff;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s ease;
         }
 
+        .slider-nav-btn:hover {
+            background: var(--primary-gold);
+            color: #0a0a0c;
+        }
+
+        .slider-nav-btn.prev { left: 16px; }
+        .slider-nav-btn.next { right: 16px; }
+
+        .slider-spinner {
+            position: absolute;
+            display: none;
+            color: var(--primary-gold);
+            font-size: 2.5rem;
+            z-index: 5;
+        }
+
+        /* Mobile Bottom Nav */
         .mobile-bottom-nav {
             display: none;
         }
 
-        /* Mobile Screen Overrides */
         @media (max-width: 991.98px) {
-            .desktop-header {
-                display: none !important;
-            }
+            .desktop-header { display: none !important; }
+            body { padding-bottom: calc(96px + var(--safe-bottom)); }
 
-            body {
-                padding-bottom: calc(96px + var(--safe-bottom));
-            }
+            .category-photo-wrapper { height: 140px; }
 
-            .gallery-hero {
-                padding-top: calc(18px + var(--safe-top));
+            .slider-nav-btn {
+                width: 40px;
+                height: 40px;
+                background: rgba(10, 10, 12, 0.7);
             }
-
-            .category-block {
-                padding: 14px;
-                border-radius: 20px;
-            }
-
-            .block-icon-wrap {
-                width: 68px;
-                height: 68px;
-            }
-
-            .colors-matrix-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 5px;
-            }
-
-            .swatch-card {
-                border-radius: 8px;
-            }
+            .slider-nav-btn.prev { left: 8px; }
+            .slider-nav-btn.next { right: 8px; }
 
             .mobile-bottom-nav {
                 position: fixed;
@@ -436,7 +391,6 @@
                 letter-spacing: 0.4px;
                 flex: 1;
                 height: 100%;
-                transition: color 0.15s ease;
             }
 
             .dock-icon-img {
@@ -444,16 +398,11 @@
                 height: 24px;
                 object-fit: contain;
                 margin-bottom: 2px;
-                filter: drop-shadow(0 0 6px rgba(197, 160, 89, 0.35));
             }
 
             .nav-dock-item i {
                 font-size: 1.45rem;
                 margin-bottom: 3px;
-            }
-
-            .nav-dock-item:active {
-                transform: scale(0.92);
             }
 
             .nav-dock-item.active, .nav-dock-item:hover {
@@ -480,163 +429,234 @@
 
 <body>
 
-    <!-- Desktop Navigation Header with Logo -->
     <header class="desktop-header">
         <div class="container d-flex justify-content-between align-items-center">
             <a href="index.html" class="d-flex align-items-center gap-2">
-                <img class="brand-logo-img" src="logo.png" onerror="this.onerror=null; this.src='img/logo.png';" alt="AU Cabinet Logo">
+                <img class="brand-logo-img" src="logo.png" onerror="this.onerror=null; this.src='img/logo.png';" alt="AU Cabinet">
                 <h2 class="m-0 text-white" style="font-size: 1.35rem; letter-spacing: 2px;">AU <span class="accent">CABINET</span></h2>
             </a>
             <div class="d-flex align-items-center">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="gallery.html" class="nav-link active">Showroom</a>
-                <a href="javascript:void(0)" onclick="openFolder('kitchen')" class="nav-link">Kitchens</a>
-                <a href="javascript:void(0)" onclick="openFolder('robe')" class="nav-link">Wardrobes</a>
-                <a href="javascript:void(0)" onclick="openFolder('pantry')" class="nav-link">Pantries</a>
-                <a href="javascript:void(0)" onclick="openFolder('bath')" class="nav-link">Vanities</a>
-                <a href="javascript:void(0)" onclick="openFolder('laundry')" class="nav-link">Laundries</a>
-                <a href="javascript:void(0)" onclick="openFolder('colors')" class="nav-link">Colors & Materials</a>
                 <a href="mailto:email@aucabinet.au" class="nav-link">Email Us</a>
+                <a href="index.html#quoteSection" class="btn btn-gold ms-3">
+                    <i class="fa fa-paper-plane"></i> Get A Quote
+                </a>
             </div>
         </div>
     </header>
 
-    <!-- Showroom Header -->
-    <section class="gallery-hero">
+    <div class="page-header">
         <div class="container">
-            <span class="badge-gold">Showroom</span>
-            <h1>Explore Our Work</h1>
-            <p class="text-white-50 small mb-0">Tap any block below to open photos.</p>
-        </div>
-    </section>
-
-    <!-- Category Blocks -->
-    <main class="py-3">
-        <div class="container" style="max-width: 900px;">
-            <div class="row g-3">
-
-                <!-- 1. Kitchens -->
-                <div class="col-md-6 col-12">
-                    <div class="category-block" onclick="openFolder('kitchen')">
-                        <div class="block-icon-wrap">
-                            <img src="./img/showroom_colors.jpg" alt="Kitchens">
-                        </div>
-                        <div class="block-meta">
-                            <h3>Kitchens</h3>
-                            <p>Islands, cabinets, and stone bench tops.</p>
-                            <span class="block-badge-pill">Open Collection <i class="fa fa-arrow-right ms-1"></i></span>
-                        </div>
-                        <i class="fa fa-chevron-right block-arrow"></i>
-                    </div>
-                </div>
-
-                <!-- 2. Wardrobes -->
-                <div class="col-md-6 col-12">
-                    <div class="category-block" onclick="openFolder('robe')">
-                        <div class="block-icon-wrap">
-                            <img src="./img/showroom_robe.jpg" alt="Wardrobes">
-                        </div>
-                        <div class="block-meta">
-                            <h3>Wardrobes</h3>
-                            <p>Walk-ins, built-ins, and drawers.</p>
-                            <span class="block-badge-pill">Open Collection <i class="fa fa-arrow-right ms-1"></i></span>
-                        </div>
-                        <i class="fa fa-chevron-right block-arrow"></i>
-                    </div>
-                </div>
-
-                <!-- 3. Pantries -->
-                <div class="col-md-6 col-12">
-                    <div class="category-block" onclick="openFolder('pantry')">
-                        <div class="block-icon-wrap">
-                            <img src="./img/showroom_pantry.jpg" alt="Pantries">
-                        </div>
-                        <div class="block-meta">
-                            <h3>Butler's Pantry</h3>
-                            <p>Extra storage & prep bench spaces.</p>
-                            <span class="block-badge-pill">Open Collection <i class="fa fa-arrow-right ms-1"></i></span>
-                        </div>
-                        <i class="fa fa-chevron-right block-arrow"></i>
-                    </div>
-                </div>
-
-                <!-- 4. Vanities -->
-                <div class="col-md-6 col-12">
-                    <div class="category-block" onclick="openFolder('bath')">
-                        <div class="block-icon-wrap">
-                            <img src="./img/showroom_bath.jpg" alt="Vanities">
-                        </div>
-                        <div class="block-meta">
-                            <h3>Bathroom Vanities</h3>
-                            <p>Water-resistant floating cabinets.</p>
-                            <span class="block-badge-pill">Open Collection <i class="fa fa-arrow-right ms-1"></i></span>
-                        </div>
-                        <i class="fa fa-chevron-right block-arrow"></i>
-                    </div>
-                </div>
-
-                <!-- 5. Laundries -->
-                <div class="col-md-6 col-12">
-                    <div class="category-block" onclick="openFolder('laundry')">
-                        <div class="block-icon-wrap">
-                            <img src="./img/service-1.jpg" alt="Laundries">
-                        </div>
-                        <div class="block-meta">
-                            <h3>Laundry Cabinets</h3>
-                            <p>Overheads, sink units & hampers.</p>
-                            <span class="block-badge-pill">Open Collection <i class="fa fa-arrow-right ms-1"></i></span>
-                        </div>
-                        <i class="fa fa-chevron-right block-arrow"></i>
-                    </div>
-                </div>
-
-                <!-- 6. Colors & Materials -->
-                <div class="col-md-6 col-12">
-                    <div class="category-block" onclick="openFolder('colors')">
-                        <div class="block-icon-wrap">
-                            <img src="./img/service-2.jpg" alt="Colors">
-                        </div>
-                        <div class="block-meta">
-                            <h3>Colors & Materials</h3>
-                            <p>Polytec, Laminex, stone & veneers.</p>
-                            <span class="block-badge-pill">View All Swatches <i class="fa fa-th ms-1"></i></span>
-                        </div>
-                        <i class="fa fa-chevron-right block-arrow"></i>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </main>
-
-    <!-- Viewer Modal -->
-    <div class="folder-modal" id="folderModal">
-        <div class="folder-modal-top">
-            <div class="folder-title-box">
-                <h2 id="folderTitleText">Kitchens</h2>
-            </div>
-            <div class="folder-close-btn" onclick="closeFolder()">&times;</div>
-        </div>
-
-        <!-- Standard Slider Stage -->
-        <div class="photo-stage-wrap" id="standardStageWrap">
-            <button class="stage-nav-btn prev" onclick="changeFolderPhoto(-1)"><i class="fa fa-chevron-left"></i></button>
-            <img class="stage-photo" id="activeFolderImage" src="" alt="Photo">
-            <button class="stage-nav-btn next" onclick="changeFolderPhoto(1)"><i class="fa fa-chevron-right"></i></button>
-        </div>
-
-        <!-- Wall-to-Wall Matrix for Colors -->
-        <div class="colors-full-viewport" id="colorsFullViewport">
-            <div class="colors-matrix-grid" id="colorsMatrixGrid"></div>
-        </div>
-
-        <!-- Slider Thumbnails -->
-        <div id="thumbsContainer">
-            <div class="thumbnails-scroller" id="folderThumbsStrip"></div>
+            <span class="badge-gold">Melbourne Built</span>
+            <h1 class="h2 text-white mb-2">Project Showroom</h1>
+            <p class="text-white-50 small mx-auto mb-0" style="max-width: 520px;">
+                Direct from our Keysborough factory. Tap any category to view project photos.
+            </p>
         </div>
     </div>
 
-    <!-- Mobile Bottom App Dock with Emblem Home Button -->
+    <!-- 10 Categories with Real Photo Headers -->
+    <section class="py-4 py-md-5">
+        <div class="container">
+            <div class="row g-3 g-md-4">
+
+                <!-- 1. Kitchen -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card" onclick="openSlideShow('kitchen', 'Custom Kitchens')">
+                        <div class="category-photo-wrapper">
+                            <div class="photo-skeleton" id="skel-kitchen"></div>
+                            <img class="category-photo-img" id="img-kitchen" alt="Kitchen">
+                        </div>
+                        <div class="category-details">
+                            <div>
+                                <h3>Kitchen</h3>
+                                <p>Islands, benchtops & joinery</p>
+                            </div>
+                            <span class="category-pill">Open Gallery <i class="fa fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Robe -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card" onclick="openSlideShow('robe', 'Wardrobes & Robes')">
+                        <div class="category-photo-wrapper">
+                            <div class="photo-skeleton" id="skel-robe"></div>
+                            <img class="category-photo-img" id="img-robe" alt="Robe">
+                        </div>
+                        <div class="category-details">
+                            <div>
+                                <h3>Robe</h3>
+                                <p>Walk-ins, built-ins & drawers</p>
+                            </div>
+                            <span class="category-pill">Open Gallery <i class="fa fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Pantry -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card" onclick="openSlideShow('pantry', 'Pantries & Butler Kitchens')">
+                        <div class="category-photo-wrapper">
+                            <div class="photo-skeleton" id="skel-pantry"></div>
+                            <img class="category-photo-img" id="img-pantry" alt="Pantry">
+                        </div>
+                        <div class="category-details">
+                            <div>
+                                <h3>Pantry</h3>
+                                <p>Butler storage & organizers</p>
+                            </div>
+                            <span class="category-pill">Open Gallery <i class="fa fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Bath -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card" onclick="openSlideShow('bath', 'Bathroom Vanities')">
+                        <div class="category-photo-wrapper">
+                            <div class="photo-skeleton" id="skel-bath"></div>
+                            <img class="category-photo-img" id="img-bath" alt="Bath">
+                        </div>
+                        <div class="category-details">
+                            <div>
+                                <h3>Bath</h3>
+                                <p>Floating vanities & shaving units</p>
+                            </div>
+                            <span class="category-pill">Open Gallery <i class="fa fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Laundry -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card" onclick="openSlideShow('laundry', 'Laundry Cupboards')">
+                        <div class="category-photo-wrapper">
+                            <div class="photo-skeleton" id="skel-laundry"></div>
+                            <img class="category-photo-img" id="img-laundry" alt="Laundry">
+                        </div>
+                        <div class="category-details">
+                            <div>
+                                <h3>Laundry</h3>
+                                <p>Hamper units & overheads</p>
+                            </div>
+                            <span class="category-pill">Open Gallery <i class="fa fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Colors -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card" onclick="openSlideShow('colors', 'Colours, Boards & Stones')">
+                        <div class="category-photo-wrapper">
+                            <div class="photo-skeleton" id="skel-colors"></div>
+                            <img class="category-photo-img" id="img-colors" alt="Colors">
+                        </div>
+                        <div class="category-details">
+                            <div>
+                                <h3>Colors</h3>
+                                <p>Stone, laminate & timber swatches</p>
+                            </div>
+                            <span class="category-pill">Open Gallery <i class="fa fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. TV -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card" onclick="openSlideShow('tv', 'TV Units & Entertainment')">
+                        <div class="category-photo-wrapper">
+                            <div class="photo-skeleton" id="skel-tv"></div>
+                            <img class="category-photo-img" id="img-tv" alt="TV">
+                        </div>
+                        <div class="category-details">
+                            <div>
+                                <h3>TV</h3>
+                                <p>Feature walls & consoles</p>
+                            </div>
+                            <span class="category-pill">Open Gallery <i class="fa fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Shop -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card" onclick="openSlideShow('shop', 'Commercial & Shop Fitting')">
+                        <div class="category-photo-wrapper">
+                            <div class="photo-skeleton" id="skel-shop"></div>
+                            <img class="category-photo-img" id="img-shop" alt="Shop">
+                        </div>
+                        <div class="category-details">
+                            <div>
+                                <h3>Shop</h3>
+                                <p>Counters, retail & fit-outs</p>
+                            </div>
+                            <span class="category-pill">Open Gallery <i class="fa fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Basic -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card" onclick="openSlideShow('basic', 'Basic Units & Carcasses')">
+                        <div class="category-photo-wrapper">
+                            <div class="photo-skeleton" id="skel-basic"></div>
+                            <img class="category-photo-img" id="img-basic" alt="Basic">
+                        </div>
+                        <div class="category-details">
+                            <div>
+                                <h3>Basic</h3>
+                                <p>Standard carcass & flatpack styles</p>
+                            </div>
+                            <span class="category-pill">Open Gallery <i class="fa fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. Other -->
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="category-card" onclick="openSlideShow('other', 'Specialty Projects')">
+                        <div class="category-photo-wrapper">
+                            <div class="photo-skeleton" id="skel-other"></div>
+                            <img class="category-photo-img" id="img-other" alt="Other">
+                        </div>
+                        <div class="category-details">
+                            <div>
+                                <h3>Other</h3>
+                                <p>Desks, bars & custom joinery</p>
+                            </div>
+                            <span class="category-pill">Open Gallery <i class="fa fa-arrow-right"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Fullscreen Slider Modal -->
+    <div class="slider-modal" id="sliderModal">
+        <div class="slider-top-bar">
+            <div class="slider-title">
+                <i class="fa fa-images accent"></i>
+                <h2 id="sliderCategoryTitle">Photos</h2>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+                <span class="slider-counter" id="sliderCounter"></span>
+                <div class="slider-close-btn" onclick="closeSlideShow()">&times;</div>
+            </div>
+        </div>
+
+        <div class="slider-body" id="sliderTouchArea">
+            <i class="fa fa-circle-notch fa-spin slider-spinner" id="sliderSpinner"></i>
+            <button class="slider-nav-btn prev" onclick="prevSlide()"><i class="fa fa-chevron-left"></i></button>
+            <img class="slider-main-img" id="sliderMainImg" alt="Showroom Photo" style="display:none;">
+            <button class="slider-nav-btn next" onclick="nextSlide()"><i class="fa fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <!-- Mobile Nav Dock -->
     <nav class="mobile-bottom-nav">
         <a href="index.html" class="nav-dock-item">
             <img class="dock-icon-img" src="favicon.ico" onerror="this.onerror=null; this.src='logo.ico';" alt="AU">
@@ -659,256 +679,200 @@
         </a>
     </nav>
 
-    <!-- GitHub Trees API Loader (No Pagination Limit) -->
     <script>
-        const GITHUB_USERNAME = "iBehrouz"; 
-        const GITHUB_REPO = "AUCabinet";
-
-        const folderDatabase = {
-            kitchen: { 
-                title: "Kitchens", 
-                path: "photos/kitchen", 
-                fallback: [
-                    "photos/kitchen/1.jpg",
-                    "photos/kitchen/2.jpg",
-                    "photos/kitchen/3.jpg",
-                    "./img/showroom_colors.jpg",
-                    "./img/service-3.jpg"
-                ] 
-            },
-            robe: { 
-                title: "Wardrobes & Robes", 
-                path: "photos/robe", 
-                fallback: [
-                    "photos/robe/1.jpg",
-                    "photos/robe/2.jpg",
-                    "./img/showroom_robe.jpg"
-                ] 
-            },
-            pantry: { 
-                title: "Butler's Pantry", 
-                path: "photos/pantry", 
-                fallback: [
-                    "photos/pantry/1.jpg",
-                    "photos/pantry/2.jpg",
-                    "./img/showroom_pantry.jpg"
-                ] 
-            },
-            bath: { 
-                title: "Bathroom Vanities", 
-                path: "photos/bath", 
-                fallback: [
-                    "photos/bath/1.jpg",
-                    "photos/bath/2.jpg",
-                    "./img/showroom_bath.jpg"
-                ] 
-            },
-            laundry: { 
-                title: "Laundry Cupboards", 
-                path: "photos/laundry", 
-                fallback: [
-                    "photos/laundry/1.jpg",
-                    "photos/laundry/2.jpg",
-                    "./img/service-1.jpg"
-                ] 
-            },
-            colors: { 
-                title: "Colors & Materials Swatches", 
-                path: "photos/colors", 
-                isMaxGrid: true, 
-                fallback: [
-                    "photos/colors/1.jpg",
-                    "photos/colors/2.jpg",
-                    "photos/colors/3.jpg",
-                    "photos/colors/4.jpg",
-                    "photos/colors/5.jpg",
-                    "photos/colors/6.jpg",
-                    "./img/service-2.jpg",
-                    "./img/showroom_colors.jpg"
-                ] 
-            }
+        // Exact 10 Subfolder IDs
+        const driveFolders = {
+            kitchen: "1w5ZixqdTUeqlAqfX5hQCwfmKQweOqMb-",
+            basic:   "1_3ZWPunXhTYbbpbbbC3Cnq0XRZisyJTN",
+            bath:    "1D5jE9CIiSzJt116CuOcvxWHg6cy5OC6K",
+            colors:  "1_ve26NnN9LnW6_UM9XO9U_zN1IRXecT0",
+            laundry: "1Rn8RFCEq2ZkXYcC0f4mw8Rc6S0ti-mOt",
+            other:   "1vCgQc9gRjXzR9zs9eVUTktX9qPuYehvo",
+            pantry:  "1HpaYMWU97oHagivSb00iTWEjjj-Yleuk",
+            robe:    "1g2T0YgoXOql6CiKreFI-2b6Sw-syfV9d",
+            shop:    "1oTOkpd8cWlxf0qCTs0vQ5jGfJM_vD4xQ",
+            tv:      "1Wryp06tO9ilQOuYaMnoXtm54fTS1gHKu"
         };
 
-        let currentFolderPhotos = [];
-        let currentPhotoIndex = 0;
-        let isColorGridMode = false;
+        const folderPhotosCache = {};
 
-        async function openFolder(folderKey) {
-            const folder = folderDatabase[folderKey];
-            if (!folder) return;
+        function driveImgUrl(fileId, width = 1600) {
+            return `https://drive.google.com/thumbnail?id=${fileId}&sz=w${width}`;
+        }
 
-            document.getElementById('folderTitleText').textContent = folder.title;
-            isColorGridMode = !!folder.isMaxGrid;
-
-            const standardWrap = document.getElementById('standardStageWrap');
-            const colorsViewport = document.getElementById('colorsFullViewport');
-            const thumbsCont = document.getElementById('thumbsContainer');
-
-            if (isColorGridMode) {
-                standardWrap.style.display = 'none';
-                thumbsCont.style.display = 'none';
-                colorsViewport.classList.add('active');
-                document.getElementById('colorsMatrixGrid').innerHTML = '<span class="text-white-50 small p-3"><i class="fa fa-spinner fa-spin me-2"></i>Loading all swatches...</span>';
-            } else {
-                standardWrap.style.display = 'flex';
-                thumbsCont.style.display = 'block';
-                colorsViewport.classList.remove('active');
-                document.getElementById('folderThumbsStrip').innerHTML = '<span class="text-white-50 small p-2"><i class="fa fa-spinner fa-spin me-1"></i>Loading...</span>';
-            }
-
-            document.getElementById('folderModal').classList.add('active');
-
-            // Recursive Git Trees API fetches up to 100,000 files in one request
-            const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/git/trees/main?recursive=1`;
+        // Fast & Direct Google Drive Parser (no proxy delays)
+        async function fetchDriveImages(folderId) {
+            if (folderPhotosCache[folderId]) return folderPhotosCache[folderId];
 
             try {
-                const response = await fetch(apiUrl, { cache: "no-store" });
-                if (!response.ok) throw new Error();
+                // Direct Google Drive embedded catalog query
+                const res = await fetch(`https://drive.google.com/embeddedfolderview?id=${folderId}#grid`);
+                const html = await res.text();
 
-                const data = await response.json();
-                const validExts = ['.jpg', '.jpeg', '.png', '.webp', '.svg'];
+                const ids = new Set();
                 
-                const loaded = data.tree
-                    .filter(item => item.type === "blob" && 
-                                    item.path.toLowerCase().startsWith(folder.path.toLowerCase() + '/') &&
-                                    validExts.some(ext => item.path.toLowerCase().endsWith(ext)))
-                    .map(item => `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${GITHUB_REPO}/main/${item.path}`);
+                // Matches all direct item IDs inside that exact folder
+                const regex = /\["([a-zA-Z0-9_-]{28,35})",\["image\//g;
+                let match;
+                while ((match = regex.exec(html)) !== null) {
+                    if (match[1] !== folderId) ids.add(match[1]);
+                }
 
-                currentFolderPhotos = loaded.length > 0 ? loaded : folder.fallback;
-            } catch {
+                // Fallback scanner for standard Drive markup
+                if (ids.size === 0) {
+                    const fallbackRegex = /drive\.google\.com\/(?:file\/d\/|open\?id=)([a-zA-Z0-9_-]{28,35})/g;
+                    while ((match = fallbackRegex.exec(html)) !== null) {
+                        if (match[1] !== folderId) ids.add(match[1]);
+                    }
+                }
+
+                const list = Array.from(ids);
+                folderPhotosCache[folderId] = list;
+                return list;
+            } catch (e) {
+                // If direct fetch is restricted by browser CORS, use lightweight Google API bridge
                 try {
-                    const fallbackApi = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${folder.path}`;
-                    const res = await fetch(fallbackApi);
-                    const files = await res.json();
-                    const validExts = ['.jpg', '.jpeg', '.png', '.webp', '.svg'];
-                    const loaded = files
-                        .filter(f => f.type === "file" && validExts.some(ext => f.name.toLowerCase().endsWith(ext)))
-                        .map(f => f.download_url);
-                    currentFolderPhotos = loaded.length > 0 ? loaded : folder.fallback;
-                } catch {
-                    currentFolderPhotos = folder.fallback;
+                    const apiRes = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(`https://drive.google.com/embeddedfolderview?id=${folderId}#grid`)}`);
+                    const data = await apiRes.json();
+                    const ids = new Set();
+                    const fallbackRegex = /([a-zA-Z0-9_-]{28,35})/g;
+                    let m;
+                    while ((m = fallbackRegex.exec(data.contents)) !== null) {
+                        if (m[1].length >= 28 && m[1] !== folderId) ids.add(m[1]);
+                    }
+                    const list = Array.from(ids).slice(0, 40);
+                    folderPhotosCache[folderId] = list;
+                    return list;
+                } catch (err) {
+                    return [];
                 }
             }
-
-            if (isColorGridMode) {
-                renderAllSwatchesMatrix();
-            } else {
-                renderSliderGallery();
-            }
         }
 
-        function renderAllSwatchesMatrix() {
-            const grid = document.getElementById('colorsMatrixGrid');
-            grid.innerHTML = '';
+        // Sets a photo from that folder as the category card logo
+        async function loadCategoryCovers() {
+            Object.entries(driveFolders).forEach(async ([key, folderId]) => {
+                const images = await fetchDriveImages(folderId);
+                const imgElem = document.getElementById(`img-${key}`);
+                const skelElem = document.getElementById(`skel-${key}`);
 
-            currentFolderPhotos.forEach((src, idx) => {
-                const card = document.createElement('div');
-                card.className = 'swatch-card';
-                card.onclick = () => switchToSinglePhoto(idx);
+                if (images && images.length > 0) {
+                    // Pick a random photo from this specific subfolder
+                    const randomIndex = Math.floor(Math.random() * images.length);
+                    const chosenId = images[randomIndex];
 
-                const img = document.createElement('img');
-                img.src = src;
-                img.loading = 'lazy';
-                img.onerror = function() { this.src = './img/service-2.jpg'; };
-
-                card.appendChild(img);
-                grid.appendChild(card);
+                    imgElem.src = driveImgUrl(chosenId, 600);
+                    imgElem.onload = () => {
+                        imgElem.classList.add('loaded');
+                        if (skelElem) skelElem.style.display = 'none';
+                    };
+                } else {
+                    // If empty folder, show clean fallback without crashing
+                    if (skelElem) {
+                        skelElem.style.background = '#1a1a22';
+                        skelElem.style.animation = 'none';
+                    }
+                }
             });
         }
 
-        function switchToSinglePhoto(index) {
-            isColorGridMode = false;
-            document.getElementById('colorsFullViewport').classList.remove('active');
-            document.getElementById('standardStageWrap').style.display = 'flex';
-            document.getElementById('thumbsContainer').style.display = 'block';
-            renderSliderGallery();
-            setFolderPhoto(index);
-        }
+        // Fullscreen Slideshow Controls
+        let activeImages = [];
+        let currentSlideIndex = 0;
 
-        function renderSliderGallery() {
-            currentPhotoIndex = 0;
-            const strip = document.getElementById('folderThumbsStrip');
-            strip.innerHTML = '';
+        const modal = document.getElementById('sliderModal');
+        const modalTitle = document.getElementById('sliderCategoryTitle');
+        const mainImg = document.getElementById('sliderMainImg');
+        const counter = document.getElementById('sliderCounter');
+        const spinner = document.getElementById('sliderSpinner');
 
-            const prevBtn = document.querySelector('.stage-nav-btn.prev');
-            const nextBtn = document.querySelector('.stage-nav-btn.next');
-            if (currentFolderPhotos.length <= 1) {
-                if (prevBtn) prevBtn.style.display = 'none';
-                if (nextBtn) nextBtn.style.display = 'none';
-            } else {
-                if (prevBtn) prevBtn.style.display = 'flex';
-                if (nextBtn) nextBtn.style.display = 'flex';
+        async function openSlideShow(categoryKey, titleText) {
+            modalTitle.textContent = titleText || categoryKey.toUpperCase();
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+
+            mainImg.style.display = 'none';
+            spinner.style.display = 'block';
+            counter.textContent = 'Loading...';
+
+            const folderId = driveFolders[categoryKey];
+            activeImages = await fetchDriveImages(folderId);
+
+            spinner.style.display = 'none';
+
+            if (!activeImages || activeImages.length === 0) {
+                counter.textContent = '0 / 0';
+                mainImg.src = '';
+                mainImg.style.display = 'none';
+                return;
             }
 
-            currentFolderPhotos.forEach((src, idx) => {
-                const img = document.createElement('img');
-                img.src = src;
-                img.className = `thumb-item ${idx === 0 ? 'active' : ''}`;
-                img.onerror = function() { this.style.display = 'none'; };
-                img.onclick = () => setFolderPhoto(idx);
-                strip.appendChild(img);
-            });
-
-            updateStagePhoto();
+            currentSlideIndex = 0;
+            showSlide(currentSlideIndex);
         }
 
-        function setFolderPhoto(index) {
-            currentPhotoIndex = index;
-            updateStagePhoto();
+        function showSlide(index) {
+            if (activeImages.length === 0) return;
+
+            const fileId = activeImages[index];
+            spinner.style.display = 'block';
+            mainImg.style.opacity = '0.3';
+
+            const fullUrl = driveImgUrl(fileId, 1800);
+            const preload = new Image();
+            preload.src = fullUrl;
+            preload.onload = () => {
+                spinner.style.display = 'none';
+                mainImg.src = fullUrl;
+                mainImg.style.display = 'block';
+                mainImg.style.opacity = '1';
+                counter.textContent = `${index + 1} / ${activeImages.length}`;
+            };
         }
 
-        function changeFolderPhoto(direction) {
-            if (currentFolderPhotos.length <= 1) return;
-            currentPhotoIndex += direction;
-            if (currentPhotoIndex < 0) currentPhotoIndex = currentFolderPhotos.length - 1;
-            if (currentPhotoIndex >= currentFolderPhotos.length) currentPhotoIndex = 0;
-            updateStagePhoto();
+        function nextSlide() {
+            if (activeImages.length <= 1) return;
+            currentSlideIndex = (currentSlideIndex + 1) % activeImages.length;
+            showSlide(currentSlideIndex);
         }
 
-        function updateStagePhoto() {
-            const activeImg = document.getElementById('activeFolderImage');
-            activeImg.src = currentFolderPhotos[currentPhotoIndex];
-            activeImg.onerror = function() { this.src = './img/showroom_colors.jpg'; };
-
-            const thumbs = document.querySelectorAll('.thumb-item');
-            thumbs.forEach((t, i) => t.classList.toggle('active', i === currentPhotoIndex));
-            if (thumbs[currentPhotoIndex]) {
-                thumbs[currentPhotoIndex].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-            }
+        function prevSlide() {
+            if (activeImages.length <= 1) return;
+            currentSlideIndex = (currentSlideIndex - 1 + activeImages.length) % activeImages.length;
+            showSlide(currentSlideIndex);
         }
 
-        function closeFolder() {
-            document.getElementById('folderModal').classList.remove('active');
+        function closeSlideShow() {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            mainImg.src = '';
+            activeImages = [];
         }
 
-        // Touch Swipe Gestures
+        // Swipe Controls for Mobile
         let touchStartX = 0;
         let touchEndX = 0;
-        const stageWrap = document.getElementById('standardStageWrap');
+        const touchArea = document.getElementById('sliderTouchArea');
 
-        if (stageWrap) {
-            stageWrap.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
+        touchArea.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
 
-            stageWrap.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                if (touchEndX < touchStartX - 40) changeFolderPhoto(1);
-                if (touchEndX > touchStartX + 40) changeFolderPhoto(-1);
-            }, { passive: true });
-        }
+        touchArea.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            if (touchEndX < touchStartX - 40) nextSlide();
+            if (touchEndX > touchStartX + 40) prevSlide();
+        }, { passive: true });
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const hash = window.location.hash.replace('#', '');
-            if (hash && folderDatabase[hash]) {
-                openFolder(hash);
-            }
+        window.addEventListener('keydown', (e) => {
+            if (!modal.classList.contains('active')) return;
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+            if (e.key === 'Escape') closeSlideShow();
         });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeFolder();
-            if (e.key === 'ArrowRight' && !isColorGridMode) changeFolderPhoto(1);
-            if (e.key === 'ArrowLeft' && !isColorGridMode) changeFolderPhoto(-1);
+        window.addEventListener('DOMContentLoaded', () => {
+            loadCategoryCovers();
         });
     </script>
 </body>
