@@ -4,20 +4,21 @@
 <head>
     <meta charset="utf-8">
     <title>AU Cabinet | Custom Luxury Joinery & Kitchens</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" name="viewport">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport">
     <meta name="description" content="AU Cabinet - Handcrafted custom kitchens, bespoke wardrobes, vanities, and architectural joinery built with precision in Australia.">
-    <meta name="theme-color" content="#121216">
-
+    <meta name="theme-color" content="#0f0f0f">
+    
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="site.webmanifest">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -25,202 +26,205 @@
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
 
     <style>
         :root {
-            --up-gold: #f4b41a;
-            --up-gold-glow: rgba(244, 180, 26, 0.35);
-            --up-dark: #121216;
-            --up-card-bg: #1a1a20;
-            --up-card-hover: #22222b;
-            --up-border: rgba(255, 255, 255, 0.08);
-            --up-text-light: #f4f4f6;
-            --up-text-muted: #9ba1a6;
-            --app-max-width: 520px;
+            --primary-gold: #c5a059;
+            --gold-hover: #dfb96f;
+            --gold-glow: rgba(197, 160, 89, 0.25);
+            --dark-bg: #0f0f0f;
+            --card-bg: #161616;
+            --card-hover: #1e1e1e;
+            --border-color: #242424;
+            --border-gold: rgba(197, 160, 89, 0.4);
+            --text-light: #f0f0f0;
+            --text-muted: #a0a0a0;
         }
 
         * {
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
 
         html, body {
-            background-color: var(--up-dark);
-            color: var(--up-text-light);
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
             padding: 0;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            overscroll-behavior-y: none;
         }
 
-        h1, h2, h3, h4, h5, .brand-title {
+        h1, h2, h3, h4, h5, .navbar-brand {
             font-family: 'Playfair Display', Georgia, serif;
             color: #ffffff;
-            letter-spacing: -0.5px;
-        }
-
-        .accent { color: var(--up-gold); }
-        a { text-decoration: none; transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1); }
-
-        @media (min-width: 992px) {
-            body {
-                background: #09090c;
-                display: flex;
-                justify-content: center;
-                align-items: flex-start;
-                min-height: 100vh;
-            }
-            .app-shell {
-                width: 100%;
-                max-width: var(--app-max-width);
-                background: var(--up-dark);
-                min-height: 100vh;
-                box-shadow: 0 0 50px rgba(0,0,0,0.8);
-                position: relative;
-                border-left: 1px solid var(--up-border);
-                border-right: 1px solid var(--up-border);
-            }
-        }
-        @media (max-width: 991.98px) {
-            .app-shell {
-                width: 100%;
-                min-height: 100vh;
-                position: relative;
-            }
-        }
-
-        /* Top Bar */
-        .top-micro-bar {
-            background: rgba(18, 18, 22, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--up-border);
-            padding: 10px 18px;
-            font-size: 11px;
-            font-weight: 600;
             letter-spacing: 0.5px;
-            position: sticky;
-            top: 0;
-            z-index: 1010;
+        }
+        
+        .accent { color: var(--primary-gold); }
+        a { text-decoration: none; transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease; }
+
+        /* Top Micro Bar */
+        .top-micro-bar {
+            background: #080808;
+            border-bottom: 1px solid #1a1a1a;
+            padding: 6px 16px;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .top-micro-bar a {
-            color: var(--up-text-muted);
+            color: var(--text-muted);
         }
+
         .top-micro-bar a:hover {
-            color: var(--up-gold);
+            color: var(--primary-gold);
         }
 
-        /* Header / Navbar */
-        .app-navbar {
-            background: rgba(18, 18, 22, 0.92);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid var(--up-border);
-            padding: 12px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 37px;
-            z-index: 1005;
+        /* Navbar */
+        .navbar-dark {
+            background: rgba(8, 8, 8, 0.96) !important;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid #222;
+            padding: 12px 0;
+            transition: all 0.3s ease;
         }
 
-        .app-brand {
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .app-brand .badge-dot {
-            width: 8px;
-            height: 8px;
-            background: var(--up-gold);
-            border-radius: 50%;
-            box-shadow: 0 0 10px var(--up-gold);
-        }
-
-        /* Tactile Cards */
-        .up-card {
-            background: var(--up-card-bg);
-            border-radius: 24px;
-            border: 1px solid var(--up-border);
-            padding: 22px;
-            margin: 16px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
-            transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), background-color 0.2s;
-        }
-        .up-card:active {
-            transform: scale(0.98);
-        }
-
-        /* Buttons with Up Bank tactile feedback */
-        .btn-up-primary {
-            background: var(--up-gold);
-            color: #0c0c0e !important;
-            border-radius: 16px;
+        .navbar-brand h2 {
+            font-size: 1.4rem;
+            letter-spacing: 2px;
             font-weight: 700;
-            font-size: 13px;
-            letter-spacing: 0.5px;
-            padding: 14px 24px;
-            border: none;
+        }
+
+        .nav-link {
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 12px;
+            font-weight: 500;
+            color: #d0d0d0 !important;
+            padding: 8px 16px !important;
+            position: relative;
+            transition: color 0.25s ease;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-gold) !important;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 16px;
+            right: 16px;
+            height: 2px;
+            background: var(--primary-gold);
+        }
+
+        .navbar-toggler {
+            border: 1px solid var(--border-gold);
+            padding: 7px 11px;
+            border-radius: 0;
+            color: var(--primary-gold);
+            outline: none !important;
+            box-shadow: none !important;
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23c5a059' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+
+        /* Gold Buttons with Up-style micro-interactions */
+        .btn-gold {
+            background: var(--primary-gold);
+            color: #000000 !important;
+            border-radius: 12px;
+            font-weight: 700;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            font-size: 12px;
+            padding: 13px 28px;
+            border: 1px solid var(--primary-gold);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            box-shadow: 0 8px 25px rgba(244, 180, 26, 0.3);
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-            width: 100%;
-        }
-        .btn-up-primary:active {
-            transform: scale(0.96);
-            box-shadow: 0 4px 12px rgba(244, 180, 26, 0.2);
+            gap: 8px;
+            transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2);
+            min-height: 44px;
         }
 
-        .btn-up-outline {
-            background: rgba(255, 255, 255, 0.04);
-            color: #fff !important;
-            border-radius: 16px;
+        .btn-gold:hover {
+            background: var(--gold-hover);
+            border-color: var(--gold-hover);
+            color: #000000 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+        }
+
+        .btn-gold:active {
+            transform: scale(0.97);
+        }
+
+        .btn-gold-outline {
+            background: rgba(0, 0, 0, 0.4);
+            color: #ffffff !important;
+            border-radius: 12px;
             font-weight: 600;
-            font-size: 13px;
-            letter-spacing: 0.5px;
-            padding: 14px 24px;
-            border: 1px solid var(--up-border);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            font-size: 12px;
+            padding: 13px 28px;
+            border: 1px solid var(--primary-gold);
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            backdrop-filter: blur(8px);
-            transition: transform 0.15s ease, background 0.15s ease;
-            width: 100%;
-        }
-        .btn-up-outline:active {
-            transform: scale(0.96);
-            background: rgba(255, 255, 255, 0.08);
+            gap: 8px;
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+            min-height: 44px;
         }
 
+        .btn-gold-outline:hover {
+            background: var(--primary-gold);
+            color: #000000 !important;
+            border-color: var(--primary-gold);
+            transform: translateY(-2px);
+        }
+
+        .btn-gold-outline:active {
+            transform: scale(0.97);
+        }
+
+        /* Hero Carousel Slider */
         .hero-slider-section {
             position: relative;
             width: 100%;
-            height: 72vh;
-            min-height: 460px;
-            max-height: 600px;
-            overflow: hidden;
             background: #000;
+            overflow: hidden;
+        }
+
+        .hero-slider-container {
+            position: relative;
+            width: 100%;
+            height: 82vh;
+            min-height: 520px;
+            max-height: 850px;
         }
 
         .hero-slide {
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s ease;
             z-index: 1;
         }
 
@@ -232,12 +236,14 @@
 
         .hero-slide-bg {
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transform: scale(1.03);
-            transition: transform 5s ease;
+            object-position: center;
+            transform: scale(1.04);
+            transition: transform 6s ease;
         }
 
         .hero-slide.active .hero-slide-bg {
@@ -246,623 +252,800 @@
 
         .hero-slide-overlay {
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background: linear-gradient(
                 180deg,
-                rgba(18, 18, 22, 0.3) 0%,
-                rgba(18, 18, 22, 0.75) 50%,
-                rgba(18, 18, 22, 0.98) 100%
+                rgba(0, 0, 0, 0.55) 0%,
+                rgba(0, 0, 0, 0.65) 45%,
+                rgba(15, 15, 15, 0.92) 100%
             );
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 24px;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
-        .carousel-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(244, 180, 26, 0.15);
-            color: var(--up-gold);
-            border: 1px solid rgba(244, 180, 26, 0.3);
-            padding: 6px 14px;
-            border-radius: 50px;
+        .carousel-content-box {
+            background: rgba(22, 22, 22, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            border-bottom: 3px solid var(--primary-gold);
+            padding: clamp(24px, 5vw, 45px) clamp(18px, 4vw, 40px);
+            max-width: 820px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.8s ease 0.2s, opacity 0.8s ease 0.2s;
+        }
+
+        .hero-slide.active .carousel-content-box {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .badge-gold {
+            display: inline-block;
+            background: rgba(197, 160, 89, 0.12);
+            color: var(--primary-gold);
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 6px 16px;
             font-size: 11px;
-            font-weight: 700;
+            font-weight: 600;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-            width: fit-content;
+            margin-bottom: 16px;
         }
 
         .hero-title {
-            font-size: clamp(1.6rem, 5vw, 2.4rem);
+            font-size: clamp(1.75rem, 4.5vw, 3.2rem);
             font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 10px;
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 14px;
         }
 
         .hero-subtitle {
-            font-size: 0.88rem;
-            color: var(--up-text-muted);
-            line-height: 1.5;
-            margin-bottom: 20px;
-            font-weight: 400;
+            font-size: clamp(0.85rem, 2.2vw, 1.05rem);
+            color: #d6d6d6;
+            line-height: 1.6;
+            max-width: 620px;
+            margin: 0 auto 24px;
+            font-weight: 300;
         }
 
+        /* Carousel Arrows */
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid var(--border-gold);
+            border-radius: 50%;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .slider-arrow:hover {
+            background: var(--primary-gold);
+            color: #000;
+        }
+
+        .slider-arrow.prev { left: 18px; }
+        .slider-arrow.next { right: 18px; }
+
         .slider-dots {
+            position: absolute;
+            bottom: 22px;
+            left: 0;
+            right: 0;
             display: flex;
             justify-content: center;
-            gap: 6px;
-            margin-top: 16px;
+            gap: 10px;
+            z-index: 10;
         }
 
         .slider-dot {
-            width: 24px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
+            width: 32px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
         }
 
         .slider-dot.active {
-            background: var(--up-gold);
-            width: 36px;
-            box-shadow: 0 0 10px var(--up-gold);
+            background: var(--primary-gold);
+            width: 48px;
+        }
+
+        /* Trust Bar */
+        .trust-bar {
+            background: #0a0a0a;
+            border-top: 1px solid #1a1a1a;
+            border-bottom: 1px solid #222;
+            padding: 30px 0;
         }
 
         .trust-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            padding: 0 16px;
-            margin-bottom: 24px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
         }
 
         .trust-card {
-            background: var(--up-card-bg);
-            border: 1px solid var(--up-border);
+            background: var(--card-bg);
+            border: 1px solid #222;
             border-radius: 20px;
-            padding: 18px 14px;
+            padding: 20px 16px;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
             display: flex;
-            align-items: center;
-            gap: 14px;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .trust-card:active {
-            transform: scale(0.97);
-            border-color: var(--up-gold);
-        }
-
-        .trust-icon-box {
-            width: 44px;
-            height: 44px;
-            background: rgba(244, 180, 26, 0.1);
-            color: var(--up-gold);
-            border-radius: 14px;
-            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
         }
 
-        .trust-content h6 {
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin: 0 0 2px 0;
-            color: #fff;
-        }
-        .trust-content p {
-            font-size: 0.72rem;
-            color: var(--up-text-muted);
-            margin: 0;
+        .trust-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-4px);
+            background: var(--card-hover);
         }
 
-        .section-header-box {
-            padding: 0 20px;
-            margin-bottom: 16px;
-            margin-top: 28px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-        }
-
-        .section-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .section-subtitle {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--up-gold);
-            font-weight: 700;
-            margin-bottom: 4px;
-            display: block;
-        }
-
-        .service-card-modern {
-            background: var(--up-card-bg);
-            border: 1px solid var(--up-border);
-            border-radius: 24px;
-            overflow: hidden;
-            margin: 0 16px 16px 16px;
-            transition: transform 0.2s, border-color 0.2s;
-        }
-        .service-card-modern:active {
+        .trust-card:active {
             transform: scale(0.98);
-            border-color: var(--up-gold);
         }
 
-        .service-img {
-            width: 100%;
-            height: 190px;
-            object-fit: cover;
+        .trust-icon {
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            margin-bottom: 10px;
         }
 
-        .service-body {
-            padding: 20px;
-        }
-
-        .service-body h4 {
-            font-size: 1.15rem;
+        .trust-card h6 {
+            font-size: 0.9rem;
             font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .trust-card p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Section Headings */
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-eyebrow {
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--primary-gold);
+            font-weight: 600;
+            display: block;
             margin-bottom: 8px;
         }
 
-        .service-body p {
-            color: var(--up-text-muted);
-            font-size: 0.85rem;
-            line-height: 1.5;
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            color: #fff;
             margin-bottom: 16px;
         }
 
-        .service-link-btn {
-            color: var(--up-gold);
-            font-weight: 700;
+        .gold-divider {
+            width: 45px;
+            height: 2px;
+            background: var(--primary-gold);
+            margin: 0 auto;
+        }
+
+        /* Service Cards */
+        .service-card {
+            background: var(--card-bg);
+            border: 1px solid #222;
+            border-radius: 24px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+            background: var(--card-hover);
+        }
+
+        .service-card:active {
+            transform: scale(0.98);
+        }
+
+        .service-img-wrapper {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .service-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            opacity: 0.9;
+        }
+
+        .service-card:hover .service-img-wrapper img {
+            transform: scale(1.08);
+            opacity: 1;
+        }
+
+        .service-content {
+            padding: 24px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .service-content h4 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .service-content p {
+            color: var(--text-muted);
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin-bottom: 18px;
+            flex-grow: 1;
+        }
+
+        .service-link {
+            color: var(--primary-gold);
             font-size: 12px;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            justify-content: center;
+            gap: 6px;
+            margin-top: auto;
         }
 
-        /* Showroom Teasers */
-        .teaser-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-            padding: 0 16px;
-            margin-bottom: 24px;
-        }
-
-        .teaser-item {
-            position: relative;
-            aspect-ratio: 4/3;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid var(--up-border);
-        }
-
-        .teaser-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .teaser-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 70%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 14px;
-        }
-
-        .teaser-title {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: #fff;
-            margin: 0;
+        .service-link:hover {
+            color: var(--gold-hover);
+            gap: 10px;
         }
 
         /* Consultation CTA Banner */
-        .quote-banner-box {
-            background: linear-gradient(135deg, #1d1c16 10%, #141418 90%);
-            border: 1px solid rgba(244, 180, 26, 0.3);
+        .quote-banner {
+            background: linear-gradient(135deg, #181611 0%, #111111 100%);
+            border: 1px solid var(--border-gold);
             border-radius: 28px;
-            padding: 28px 20px;
-            margin: 20px 16px 40px 16px;
+            padding: 50px 30px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
-        .app-bottom-dock {
-            position: fixed;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+        .quote-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: var(--app-max-width);
-            background: rgba(18, 18, 22, 0.88);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-top: 1px solid var(--up-border);
-            padding: 10px 12px 20px 12px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            z-index: 1050;
-        }
-
-        .dock-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-decoration: none;
-            color: var(--up-text-muted);
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            transition: color 0.2s, transform 0.1s;
-            background: transparent;
-            border: none;
-            padding: 4px;
-        }
-
-        .dock-item i {
-            font-size: 1.25rem;
-            margin-bottom: 4px;
-            transition: transform 0.2s;
-        }
-
-        .dock-item.active {
-            color: var(--up-gold);
-        }
-        .dock-item.active i {
-            transform: translateY(-2px);
-        }
-        .dock-item:active {
-            transform: scale(0.90);
-        }
-
-        /* Center Call Action Button in Dock */
-        .dock-call-btn {
-            width: 46px;
-            height: 46px;
-            background: var(--up-gold);
-            color: #121216;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            box-shadow: 0 8px 20px rgba(244, 180, 26, 0.4);
-            margin-top: -12px;
-            transition: transform 0.2s;
-        }
-        .dock-call-btn:active {
-            transform: scale(0.88);
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
         }
 
         /* Footer */
-        .app-footer {
-            background: #0d0d10;
-            padding: 30px 20px 110px 20px;
-            text-align: center;
-            border-top: 1px solid var(--up-border);
-            margin-top: 20px;
+        .footer {
+            background: #060606 !important;
+            border-top: 1px solid #222;
+            padding: 70px 0 35px;
+            margin-top: 60px;
         }
 
-        /* Hidden Gallery sections fallback container */
-        .gallery-sections-preview {
-            display: none;
+        /* --- MOBILE APP BOTTOM DOCK & RESPONSIVE RULES --- */
+        .mobile-bottom-nav {
+            display: none; /* Hidden by default on PC/Desktop */
+        }
+
+        @media (max-width: 991.98px) {
+            /* Enable bottom dock on mobile viewports only */
+            body {
+                padding-bottom: 85px; /* Prevent bottom content cutoff */
+            }
+
+            .mobile-bottom-nav {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 75px;
+                background: rgba(18, 18, 22, 0.92);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                z-index: 1050;
+            }
+
+            .nav-dock-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-decoration: none;
+                color: #8e8e93;
+                font-size: 10.5px;
+                font-weight: 500;
+                transition: color 0.2s ease;
+            }
+
+            .nav-dock-item i {
+                font-size: 1.25rem;
+                margin-bottom: 3px;
+            }
+
+            .nav-dock-item.active, .nav-dock-item:hover {
+                color: var(--primary-gold);
+            }
+
+            /* Center Action Button in Mobile Dock */
+            .nav-dock-center .plus-btn {
+                width: 48px;
+                height: 48px;
+                background: var(--primary-gold);
+                color: #000;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
+                transition: transform 0.2s ease;
+                margin-top: -10px;
+            }
+
+            .nav-dock-center .plus-btn:active {
+                transform: scale(0.90);
+            }
+
+            .navbar-collapse {
+                background: #0e0e0e;
+                border: 1px solid #242424;
+                border-radius: 16px;
+                margin-top: 12px;
+                padding: 18px 20px;
+            }
+            .nav-link {
+                padding: 12px 0 !important;
+                border-bottom: 1px solid #1a1a1a;
+            }
+            .nav-link.active::after {
+                display: none;
+            }
+            .navbar-collapse .btn-mobile-quote {
+                margin-top: 16px;
+                width: 100%;
+                text-align: center;
+                display: block !important;
+            }
+            .hero-slider-container {
+                height: 70vh;
+                min-height: 480px;
+            }
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .slider-arrow {
+                display: none;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-slider-container {
+                height: 75vh;
+                min-height: 460px;
+            }
+            .carousel-content-box {
+                padding: 20px 16px;
+                border-bottom-width: 2px;
+            }
+            .hero-title {
+                font-size: 1.55rem;
+                margin-bottom: 10px;
+            }
+            .hero-subtitle {
+                font-size: 0.82rem;
+                line-height: 1.45;
+                margin-bottom: 18px;
+            }
+            .badge-gold {
+                font-size: 9.5px;
+                padding: 4px 12px;
+                margin-bottom: 10px;
+            }
+            .btn-gold, .btn-gold-outline {
+                width: 100%;
+                padding: 11px 20px;
+                font-size: 11.5px;
+            }
+            .trust-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            .trust-card {
+                padding: 14px 10px;
+            }
+            .trust-icon {
+                font-size: 1.4rem;
+                margin-bottom: 6px;
+            }
+            .service-img-wrapper {
+                height: 200px;
+            }
+            .service-content {
+                padding: 18px 16px;
+            }
+            .quote-banner {
+                padding: 35px 20px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="app-shell">
-
-        <!-- Top Micro Bar -->
-        <div class="top-micro-bar d-flex justify-content-between align-items-center">
-            <div class="d-flex align-items-center gap-1">
-                <i class="fa fa-map-marker-alt accent"></i> 
-                <span>Melbourne, VIC</span>
+    <!-- Top Mobile Quick Contact Header -->
+    <div class="top-micro-bar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <div>
+                <i class="fa fa-map-marker-alt accent me-1"></i> <span class="d-none d-sm-inline"> Melbourne  </span>
             </div>
-            <div class="d-flex align-items-center gap-3">
-                <a href="tel:+61412270000" class="fw-bold text-white d-flex align-items-center gap-1">
-                    <i class="fa fa-phone-alt accent"></i> +61 412 270 000
+            <div>
+                <a href="tel:+61412270000" class="me-3">
+                    <i class="fa fa-phone-alt accent me-1"></i> <span class="fw-bold text-white">+61 412 270 000</span>
+                </a>
+                <a href="mailto:email@aucabinet.au" class="d-none d-md-inline">
+                    <i class="fa fa-envelope accent me-1"></i> Email@AUCabinet.au
                 </a>
             </div>
         </div>
+    </div>
 
-        <!-- App Header Navbar -->
-        <header class="app-navbar">
-            <a href="index.html" class="app-brand text-decoration-none">
-                <div class="badge-dot"></div>
-                AU <span class="accent">CABINET</span>
+    <!-- Main Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top p-0 px-3 px-lg-5">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand py-2">
+                <h2 class="m-0 text-white">AU <span class="accent">CABINET</span></h2>
             </a>
-            <div class="d-flex align-items-center gap-2">
-                <a href="mailto:email@aucabinet.au?subject=Quote Inquiry" class="btn btn-up-primary py-2 px-3 fs-7 m-0" style="width: auto; min-height: 38px;">
-                    <i class="fa fa-paper-plane"></i> Quote
-                </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-3 py-lg-0 align-items-lg-center">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="gallery.html" class="nav-item nav-link">Showroom & Gallery</a>
+                    <a href="gallery.html#kitchen" class="nav-item nav-link d-lg-none">Kitchens</a>
+                    <a href="gallery.html#robe" class="nav-item nav-link d-lg-none">Wardrobes</a>
+                    <a href="gallery.html#bath" class="nav-item nav-link d-lg-none">Vanities</a>
+                    <a href="gallery.html#colors" class="nav-item nav-link d-lg-none">Materials & Finishes</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <a href="mailto:email@aucabinet.au?subject=Quote Request" class="btn btn-gold d-none d-lg-inline-flex ms-3">
+                        <i class="fa fa-paper-plane"></i> GET A QUOTE
+                    </a>
+                    <a href="mailto:email@aucabinet.au?subject=Quote Request" class="btn btn-gold btn-mobile-quote d-lg-none">
+                        <i class="fa fa-paper-plane"></i> REQUEST A FREE QUOTE
+                    </a>
+                </div>
             </div>
-        </header>
+        </div>
+    </nav>
 
-        <section class="hero-slider-section" id="heroSlider">
-            <div class="hero-slider-container" style="position: relative; width: 100%; height: 100%;">
-                
-                <!-- Slide 1: Kitchens -->
-                <div class="hero-slide active" data-index="0">
-                    <img class="hero-slide-bg" src="./img/showroom_colors.jpg" alt="Modern Luxury Kitchens" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80';">
-                    <div class="hero-slide-overlay">
-                        <div class="carousel-pill">
-                            <i class="fa fa-star"></i> Australian Handcrafted Joinery
-                        </div>
+    <!-- Interactive Hero Slider -->
+    <section class="hero-slider-section" id="heroSlider">
+        <div class="hero-slider-container">
+            <!-- Slide 1: Modern Luxury Kitchens -->
+            <div class="hero-slide active" data-index="0">
+                <img class="hero-slide-bg" src="./img/showroom_colors.jpg" alt="Modern Luxury Kitchens" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=80';">
+                <div class="hero-slide-overlay">
+                    <div class="carousel-content-box">
+                        <span class="badge-gold">Australian Handcrafted Joinery</span>
                         <h1 class="hero-title">Modern Luxury Kitchens</h1>
                         <p class="hero-subtitle">
-                            Seamless stone waterfall islands and custom timber cabinetry, engineered with precision for everyday living.
+                            From seamless stone waterfall islands to custom timber cabinetry, engineered with precision for everyday living.
                         </p>
-                        <div class="d-flex gap-2">
-                            <a href="mailto:email@aucabinet.au?subject=Kitchen Quote Inquiry" class="btn btn-up-primary">
-                                <i class="fa fa-paper-plane"></i> Request Quote
+                        <div class="d-flex justify-content-center gap-2 gap-sm-3 flex-wrap">
+                            <a href="gallery.html#kitchen" class="btn btn-gold">
+                                <i class="fa fa-utensils me-1"></i> EXPLORE KITCHENS
+                            </a>
+                            <a href="mailto:email@aucabinet.au?subject=Kitchen Quote Inquiry" class="btn btn-gold-outline">
+                                <i class="fa fa-envelope me-1"></i> REQUEST A QUOTE
                             </a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Slide 2: Robes -->
-                <div class="hero-slide" data-index="1">
-                    <img class="hero-slide-bg" src="./img/showroom_robe.jpg" alt="Bespoke Wardrobes & Dressing Suites" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80';">
-                    <div class="hero-slide-overlay">
-                        <div class="carousel-pill">
-                            <i class="fa fa-gem"></i> Precision Storage Systems
-                        </div>
+            <!-- Slide 2: Robes & Storage -->
+            <div class="hero-slide" data-index="1">
+                <img class="hero-slide-bg" src="./img/showroom_robe.jpg" alt="Bespoke Wardrobes & Dressing Suites" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=80';">
+                <div class="hero-slide-overlay">
+                    <div class="carousel-content-box">
+                        <span class="badge-gold">Precision Storage Systems</span>
                         <h1 class="hero-title">Walk-In Robes & Dressing Suites</h1>
                         <p class="hero-subtitle">
-                            Masterfully designed storage solutions featuring integrated ambient lighting and soft-close European hardware.
+                            Masterfully designed storage solutions featuring integrated ambient lighting and premium soft-close European hardware.
                         </p>
-                        <div class="d-flex gap-2">
-                            <a href="mailto:email@aucabinet.au?subject=Wardrobe Quote Inquiry" class="btn btn-up-primary">
-                                <i class="fa fa-paper-plane"></i> Book Consultation
+                        <div class="d-flex justify-content-center gap-2 gap-sm-3 flex-wrap">
+                            <a href="gallery.html#robe" class="btn btn-gold">
+                                <i class="fa fa-door-closed me-1"></i> VIEW ROBES & STORAGE
+                            </a>
+                            <a href="mailto:email@aucabinet.au?subject=Wardrobe Quote Inquiry" class="btn btn-gold-outline">
+                                <i class="fa fa-calendar-check me-1"></i> BOOK CONSULTATION
                             </a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Slide 3: Pantry -->
-                <div class="hero-slide" data-index="2">
-                    <img class="hero-slide-bg" src="./img/showroom_pantry.jpg" alt="Butler's Pantry & Scullery" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200&q=80';">
-                    <div class="hero-slide-overlay">
-                        <div class="carousel-pill">
-                            <i class="fa fa-utensils"></i> Functional Luxury Spaces
-                        </div>
+            <!-- Slide 3: Butler's Pantry & Sculleries -->
+            <div class="hero-slide" data-index="2">
+                <img class="hero-slide-bg" src="./img/showroom_pantry.jpg" alt="Butler's Pantry & Scullery Joinery" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1600&q=80';">
+                <div class="hero-slide-overlay">
+                    <div class="carousel-content-box">
+                        <span class="badge-gold">Functional Luxury Spaces</span>
                         <h1 class="hero-title">Butler's Pantry & Sculleries</h1>
                         <p class="hero-subtitle">
                             Elevated prep areas and hidden walk-through pantries with durable stone surfaces and custom appliance nooks.
                         </p>
-                        <div class="d-flex gap-2">
-                            <a href="mailto:email@aucabinet.au?subject=Pantry Quote Inquiry" class="btn btn-up-primary">
-                                <i class="fa fa-comments"></i> Talk To A Designer
+                        <div class="d-flex justify-content-center gap-2 gap-sm-3 flex-wrap">
+                            <a href="gallery.html#pantry" class="btn btn-gold">
+                                <i class="fa fa-wine-glass me-1"></i> VIEW PANTRY DESIGNS
+                            </a>
+                            <a href="mailto:email@aucabinet.au?subject=Pantry Quote Inquiry" class="btn btn-gold-outline">
+                                <i class="fa fa-comments me-1"></i> TALK TO A DESIGNER
                             </a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Slide 4: Bathrooms -->
-                <div class="hero-slide" data-index="3">
-                    <img class="hero-slide-bg" src="./img/showroom_bath.jpg" alt="Custom Bathroom Vanities" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80';">
-                    <div class="hero-slide-overlay">
-                        <div class="carousel-pill">
-                            <i class="fa fa-bath"></i> Sanctuary Bathrooms
-                        </div>
+            <!-- Slide 4: Bathrooms & Vanities -->
+            <div class="hero-slide" data-index="3">
+                <img class="hero-slide-bg" src="./img/showroom_bath.jpg" alt="Custom Floating Bathroom Vanities" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=80';">
+                <div class="hero-slide-overlay">
+                    <div class="carousel-content-box">
+                        <span class="badge-gold">Sanctuary Bathrooms</span>
                         <h1 class="hero-title">Custom Vanities & Ensuites</h1>
                         <p class="hero-subtitle">
                             Moisture-resistant bespoke vanities tailored with natural stone tops and architectural fluted timber detailing.
                         </p>
-                        <div class="d-flex gap-2">
-                            <a href="mailto:email@aucabinet.au?subject=Bathroom Quote Inquiry" class="btn btn-up-primary">
-                                <i class="fa fa-envelope"></i> Request Quote
+                        <div class="d-flex justify-content-center gap-2 gap-sm-3 flex-wrap">
+                            <a href="gallery.html#bath" class="btn btn-gold">
+                                <i class="fa fa-bath me-1"></i> VIEW BATHROOM DESIGNS
+                            </a>
+                            <a href="mailto:email@aucabinet.au?subject=Bathroom Quote Inquiry" class="btn btn-gold-outline">
+                                <i class="fa fa-envelope me-1"></i> REQUEST A QUOTE
                             </a>
                         </div>
                     </div>
                 </div>
-
             </div>
 
-            <!-- Dots Indicator -->
-            <div class="slider-dots position-absolute bottom-0 start-0 end-0 pb-3" id="sliderDots" style="z-index: 10;">
+            <!-- Carousel Arrows -->
+            <button class="slider-arrow prev" id="prevSlide" aria-label="Previous Slide">
+                <i class="fa fa-chevron-left"></i>
+            </button>
+            <button class="slider-arrow next" id="nextSlide" aria-label="Next Slide">
+                <i class="fa fa-chevron-right"></i>
+            </button>
+
+            <!-- Carousel Dots -->
+            <div class="slider-dots" id="sliderDots">
                 <div class="slider-dot active" data-index="0"></div>
                 <div class="slider-dot" data-index="1"></div>
                 <div class="slider-dot" data-index="2"></div>
                 <div class="slider-dot" data-index="3"></div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <div class="container px-0 mt-4">
+    <!-- Trust Features Bar -->
+    <section class="trust-bar">
+        <div class="container">
             <div class="trust-grid">
                 <div class="trust-card">
-                    <div class="trust-icon-box"><i class="bi bi-gem"></i></div>
-                    <div class="trust-content">
-                        <h6>Bespoke 3D</h6>
-                        <p>Custom plans</p>
-                    </div>
+                    <i class="bi bi-gem trust-icon"></i>
+                    <h6>Bespoke 3D Design</h6>
+                    <p>Tailored architectural plan</p>
                 </div>
                 <div class="trust-card">
-                    <div class="trust-icon-box"><i class="bi bi-shield-check"></i></div>
-                    <div class="trust-content">
-                        <h6>Blum Hardware</h6>
-                        <p>Soft-close European</p>
-                    </div>
+                    <i class="bi bi-shield-check trust-icon"></i>
+                    <h6>European Hardware</h6>
+                    <p>Soft-close Blum & Hafele</p>
                 </div>
                 <div class="trust-card">
-                    <div class="trust-icon-box"><i class="bi bi-award"></i></div>
-                    <div class="trust-content">
-                        <h6>Made in AUS</h6>
-                        <p>Precision built</p>
-                    </div>
+                    <i class="bi bi-award trust-icon"></i>
+                    <h6>Australian Made</h6>
+                    <p>Built locally with precision</p>
                 </div>
                 <div class="trust-card">
-                    <div class="trust-icon-box"><i class="bi bi-clock-history"></i></div>
-                    <div class="trust-content">
-                        <h6>End-to-End</h6>
-                        <p>Design & install</p>
-                    </div>
+                    <i class="bi bi-clock-history trust-icon"></i>
+                    <h6>End-to-End Service</h6>
+                    <p>Design, build & install</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="section-header-box">
-            <div>
-                <span class="section-subtitle">Visual Preview</span>
-                <h2 class="section-title">Showroom Highlights</h2>
-            </div>
-            <a href="mailto:email@aucabinet.au?subject=Showroom Inquiry" class="text-white small fw-bold accent">View All <i class="fa fa-arrow-right"></i></a>
-        </div>
-
-        <div class="teaser-grid">
-            <a href="mailto:email@aucabinet.au?subject=Kitchen Inquiry" class="teaser-item">
-                <img src="./img/showroom_colors.jpg" alt="Kitchens" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=600&q=80';">
-                <div class="teaser-overlay">
-                    <span class="small accent fw-bold" style="font-size: 9px; letter-spacing: 1px; text-transform: uppercase;">Kitchens</span>
-                    <h5 class="teaser-title">Luxury Islands</h5>
-                </div>
-            </a>
-            <a href="mailto:email@aucabinet.au?subject=Wardrobe Inquiry" class="teaser-item">
-                <img src="./img/showroom_robe.jpg" alt="Wardrobes" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=80';">
-                <div class="teaser-overlay">
-                    <span class="small accent fw-bold" style="font-size: 9px; letter-spacing: 1px; text-transform: uppercase;">Wardrobes</span>
-                    <h5 class="teaser-title">Walk-In Suites</h5>
-                </div>
-            </a>
-            <a href="mailto:email@aucabinet.au?subject=Pantry Inquiry" class="teaser-item">
-                <img src="./img/showroom_pantry.jpg" alt="Pantries" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80';">
-                <div class="teaser-overlay">
-                    <span class="small accent fw-bold" style="font-size: 9px; letter-spacing: 1px; text-transform: uppercase;">Sculleries</span>
-                    <h5 class="teaser-title">Butler Pantries</h5>
-                </div>
-            </a>
-            <a href="mailto:email@aucabinet.au?subject=Vanity Inquiry" class="teaser-item">
-                <img src="./img/showroom_bath.jpg" alt="Vanities" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80';">
-                <div class="teaser-overlay">
-                    <span class="small accent fw-bold" style="font-size: 9px; letter-spacing: 1px; text-transform: uppercase;">Bathrooms</span>
-                    <h5 class="teaser-title">Custom Vanities</h5>
-                </div>
-            </a>
-        </div>
-
-        <div class="section-header-box">
-            <div>
-                <span class="section-subtitle">Our Craftsmanship</span>
+    <!-- Main Expertise / Services Section -->
+    <section class="py-5">
+        <div class="container py-lg-4">
+            <div class="section-header">
+                <span class="section-eyebrow">Our Craftsmanship</span>
                 <h2 class="section-title">Tailored Joinery Services</h2>
+                <div class="gold-divider"></div>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Service 1: Kitchens -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-img-wrapper">
+                            <img src="./img/service-3.jpg" alt="Kitchen Renovations" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80';">
+                        </div>
+                        <div class="service-content">
+                            <h4>Kitchen Renovations</h4>
+                            <p>Complete custom kitchen builds, island benches, and facelifts using premium moisture-resistant substrates and stone.</p>
+                            <a href="gallery.html#kitchen" class="service-link">
+                                Explore Kitchens <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 2: Premium Materials -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-img-wrapper">
+                            <img src="./img/service-2.jpg" alt="Premium Materials" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80';">
+                        </div>
+                        <div class="service-content">
+                            <h4>Premium Finishes</h4>
+                            <p>Hand-selected natural timbers, engineered stone, Polytec & Laminex surfaces with lifetime warranty Blum hardware.</p>
+                            <a href="gallery.html#colors" class="service-link">
+                                View Material Palette <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service 3: 3D Planning -->
+                <div class="col-lg-4 col-md-6 mx-auto">
+                    <div class="service-card">
+                        <div class="service-img-wrapper">
+                            <img src="./img/service-1.jpg" alt="3D Architectural Planning" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80';">
+                        </div>
+                        <div class="service-content">
+                            <h4>3D Architectural Planning</h4>
+                            <p>Precision CAD modeling and photorealistic 3D renders so you see your dream joinery before manufacturing starts.</p>
+                            <a href="mailto:email@aucabinet.au?subject=3D Planning Inquiry" class="service-link">
+                                Request 3D Design <i class="fa fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- Service Card 1 -->
-        <div class="service-card-modern">
-            <img src="./img/service-3.jpg" class="service-img" alt="Kitchen Renovations" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80';">
-            <div class="service-body">
-                <h4>Kitchen Renovations</h4>
-                <p>Complete custom kitchen builds, island benches, and facelifts using premium moisture-resistant substrates and stone.</p>
-                <a href="mailto:email@aucabinet.au?subject=Kitchen Inquiry" class="service-link-btn">
-                    Explore Kitchens <i class="fa fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Service Card 2 -->
-        <div class="service-card-modern">
-            <img src="./img/service-2.jpg" class="service-img" alt="Premium Materials" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80';">
-            <div class="service-body">
-                <h4>Premium Finishes</h4>
-                <p>Hand-selected natural timbers, engineered stone, Polytec & Laminex surfaces with lifetime warranty Blum hardware.</p>
-                <a href="mailto:email@aucabinet.au?subject=Materials Inquiry" class="service-link-btn">
-                    View Material Palette <i class="fa fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Service Card 3 -->
-        <div class="service-card-modern">
-            <img src="./img/service-1.jpg" class="service-img" alt="3D Architectural Planning" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80';">
-            <div class="service-body">
-                <h4>3D Architectural Planning</h4>
-                <p>Precision CAD modeling and photorealistic 3D renders so you see your dream joinery before manufacturing starts.</p>
-                <a href="mailto:email@aucabinet.au?subject=3D Planning Inquiry" class="service-link-btn">
-                    Request 3D Design <i class="fa fa-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-
-        <div class="quote-banner-box">
-            <span class="carousel-pill mx-auto">Complimentary Design Quote</span>
-            <h2 class="text-white mb-2" style="font-size: 1.5rem;">Ready to Bring Your Vision to Life?</h2>
-            <p class="text-muted small mb-4" style="line-height: 1.5;">
+    <!-- Consultation & Quote CTA Banner -->
+    <div class="container my-5 py-2">
+        <div class="quote-banner">
+            <span class="badge-gold mb-3">Complimentary Design Quote</span>
+            <h2 class="text-white mb-3" style="font-size: clamp(1.6rem, 3.5vw, 2.4rem);">Ready to Bring Your Vision to Life?</h2>
+            <p class="text-light mx-auto mb-4" style="max-width: 650px; font-size: 0.95rem; line-height: 1.6; color: #cfcfcf;">
                 Contact our design team today for a free consultation, site measurement, and detailed 3D project estimation.
             </p>
-            <div class="d-flex flex-column gap-2">
-                <a href="tel:+61412270000" class="btn btn-up-primary">
-                    <i class="fa fa-phone-alt"></i> CALL +61 412 270 000
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="tel:+61412270000" class="btn btn-gold">
+                    <i class="fa fa-phone-alt me-1"></i> CALL +61 412 270 000
                 </a>
-                <a href="mailto:email@aucabinet.au?subject=Free Quote Request" class="btn btn-up-outline">
-                    <i class="fa fa-envelope"></i> email@aucabinet.au
+                <a href="mailto:email@aucabinet.au?subject=Free Quote Request" class="btn btn-gold-outline">
+                    <i class="fa fa-envelope me-1"></i> email@aucabinet.au
                 </a>
             </div>
         </div>
-
-        <footer class="app-footer">
-            <h2 class="text-white h5 mb-2">Let's Design Your Project</h2>
-            <p class="small text-uppercase text-muted m-0" style="letter-spacing: 1.5px; font-size: 10px;">
-                Melbourne &bull; Victoria &bull; Australia
-            </p>
-            <div style="width: 30px; height: 2px; background: var(--up-gold); margin: 16px auto;"></div>
-            <p class="m-0 text-muted" style="font-size: 11px;">
-                &copy; <span id="currentYear"></span> AU Cabinet. All Rights Reserved.<br>
-                <span class="mt-1 d-inline-block opacity-75">ABN 99 894 945 721</span>
-            </p>
-        </footer>
-
-        <nav class="app-bottom-dock" id="bottomNavDock">
-            <a href="index.html" class="dock-item active" data-target="home">
-                <i class="fa fa-house"></i>
-                <span>Home</span>
-            </a>
-            <a href="#heroSlider" class="dock-item" data-target="showroom">
-                <i class="fa fa-images"></i>
-                <span>Showroom</span>
-            </a>
-            <a href="mailto:email@aucabinet.au?subject=Quote Request" class="dock-item">
-                <div class="dock-call-btn">
-                    <i class="fa fa-paper-plane" style="font-size: 1rem; margin-left: -2px;"></i>
-                </div>
-                <span class="mt-1">Quote</span>
-            </a>
-            <a href="mailto:email@aucabinet.au?subject=Design Consultation" class="dock-item" data-target="contact">
-                <i class="fa fa-comments"></i>
-                <span>Contact</span>
-            </a>
-            <a href="tel:+61412270000" class="dock-item" data-target="call">
-                <i class="fa fa-phone-volume"></i>
-                <span>Call</span>
-            </a>
-        </nav>
-
     </div>
 
+    <!-- Refined Contact Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="mx-auto mb-5">
+                <h2 class="display-6 text-white mb-2">Let's Design Your Project</h2>
+                <p class="small text-uppercase text-white" style="letter-spacing: 2px; opacity: 0.95;">
+                    Melbourne &bull; Victoria &bull; Australia
+                </p>
+                <div style="width: 40px; height: 2px; background: var(--primary-gold); margin: 20px auto 0;"></div>
+            </div>
+        </div>
+        
+        <div class="container border-top border-secondary mt-5 pt-4 text-center">
+            <p class="m-0 small text-uppercase text-white" style="letter-spacing: 1px; font-size: 0.75rem;">
+                &copy; <span id="currentYear"></span> AU Cabinet. All Rights Reserved. 
+                <span class="ms-3 d-inline-block text-white" style="opacity: 0.9;">ABN 99 894 945 721</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Mobile-Only Up-Style Bottom App Navigation Bar -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="nav-dock-item active">
+            <i class="fa fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="gallery.html" class="nav-dock-item">
+            <i class="fa fa-images"></i>
+            <span>Gallery</span>
+        </a>
+        <a href="tel:+61412270000" class="nav-dock-item nav-dock-center">
+            <span class="plus-btn"><i class="fa fa-phone text-dark" style="font-size: 20px;"></i></span>
+        </a>
+        <a href="mailto:email@aucabinet.au?subject=Quote Inquiry" class="nav-dock-item">
+            <i class="fa fa-envelope"></i>
+            <span>Quote</span>
+        </a>
+        <a href="gallery.html#colors" class="nav-dock-item">
+            <i class="fa fa-palette"></i>
+            <span>Finishes</span>
+        </a>
+    </nav>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Pure Responsive Carousel Engine with Touch Swipe Support -->
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-        // Carousel State Engine
+        // Responsive Carousel State
         const slides = document.querySelectorAll('.hero-slide');
         const dots = document.querySelectorAll('.slider-dot');
+        const prevBtn = document.getElementById('prevSlide');
+        const nextBtn = document.getElementById('nextSlide');
         const sliderContainer = document.getElementById('heroSlider');
         let currentSlide = 0;
         let slideInterval = null;
@@ -887,9 +1070,13 @@
             goToSlide(currentSlide + 1);
         }
 
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
         function startAutoSlide() {
             stopAutoSlide();
-            slideInterval = setInterval(nextSlide, 5500);
+            slideInterval = setInterval(nextSlide, 6000);
         }
 
         function stopAutoSlide() {
@@ -899,6 +1086,9 @@
             }
         }
 
+        if (prevBtn) prevBtn.addEventListener('click', () => { prevSlide(); startAutoSlide(); });
+        if (nextBtn) nextBtn.addEventListener('click', () => { nextSlide(); startAutoSlide(); });
+
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
                 goToSlide(index);
@@ -906,7 +1096,7 @@
             });
         });
 
-        // Touch Swipe Support for Hero
+        // Touch Swipe Gestures for Mobile
         let touchStartX = 0;
         let touchEndX = 0;
 
@@ -917,27 +1107,26 @@
 
         sliderContainer.addEventListener('touchend', (e) => {
             touchEndX = e.changedTouches[0].screenX;
-            if (touchEndX < touchStartX - 40) {
-                nextSlide();
-            } else if (touchEndX > touchStartX + 40) {
-                goToSlide(currentSlide - 1);
-            }
+            handleSwipe();
             startAutoSlide();
         }, { passive: true });
 
-        // Start automatic rotation
-        startAutoSlide();
+        function handleSwipe() {
+            const threshold = 45;
+            if (touchEndX < touchStartX - threshold) {
+                nextSlide();
+            }
+            if (touchEndX > touchStartX + threshold) {
+                prevSlide();
+            }
+        }
 
-        // Bottom Nav Active States & Haptic Feedback simulation
-        const dockItems = document.querySelectorAll('.dock-item');
-        dockItems.forEach(item => {
-            item.addEventListener('click', function(e) {
-                dockItems.forEach(i => i.classList.remove('active'));
-                if(!this.getAttribute('href').includes('tel:') && !this.getAttribute('href').includes('mailto:')) {
-                    this.classList.add('active');
-                }
-            });
-        });
+        // Mouse hover pause on desktop
+        sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+        sliderContainer.addEventListener('mouseleave', startAutoSlide);
+
+        // Start auto rotation
+        startAutoSlide();
     </script>
 </body>
 </html>
