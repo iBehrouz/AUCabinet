@@ -3,22 +3,21 @@
 
 <head>
     <meta charset="utf-8">
-    <title>AU Cabinet | Custom Luxury Joinery & Kitchens</title>
+    <title>AU Cabinet | Custom Kitchens & Cabinets Melbourne</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" name="viewport">
-    <meta name="description" content="AU Cabinet - Handcrafted custom kitchens, bespoke wardrobes, vanities, and architectural joinery built with precision in Australia.">
+    <meta name="description" content="AU Cabinet - Custom kitchens, wardrobes, and cabinets made to measure in Melbourne.">
     <meta name="theme-color" content="#0a0a0c">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="manifest" href="site.webmanifest">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"> 
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
@@ -32,7 +31,6 @@
         :root {
             --primary-gold: #c5a059;
             --gold-hover: #dfb96f;
-            --gold-glow: rgba(197, 160, 89, 0.3);
             --dark-bg: #0a0a0c;
             --card-bg: #131317;
             --card-hover: #1a1a20;
@@ -96,20 +94,6 @@
             transition: all 0.3s ease;
         }
 
-        .navbar-brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .brand-logo-img {
-            width: 36px;
-            height: 36px;
-            object-fit: contain;
-            border-radius: 8px;
-            filter: drop-shadow(0 2px 8px rgba(197, 160, 89, 0.3));
-        }
-
         .navbar-brand h2 {
             font-size: 1.45rem;
             letter-spacing: 2.5px;
@@ -155,7 +139,7 @@
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23c5a059' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
-        /* Modern Gold Buttons */
+        /* Gold Buttons */
         .btn-gold {
             background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
             color: #0a0a0c !important;
@@ -212,10 +196,6 @@
             transform: translateY(-2px);
         }
 
-        .btn-gold-outline:active {
-            transform: scale(0.96);
-        }
-
         /* Hero Carousel Slider */
         .hero-slider-section {
             position: relative;
@@ -227,9 +207,9 @@
         .hero-slider-container {
             position: relative;
             width: 100%;
-            height: 82vh;
-            min-height: 520px;
-            max-height: 850px;
+            height: 76vh;
+            min-height: 480px;
+            max-height: 800px;
         }
 
         .hero-slide {
@@ -274,7 +254,7 @@
             height: 100%;
             background: linear-gradient(
                 180deg,
-                rgba(10, 10, 12, 0.5) 0%,
+                rgba(10, 10, 12, 0.45) 0%,
                 rgba(10, 10, 12, 0.65) 45%,
                 rgba(10, 10, 12, 0.95) 100%
             );
@@ -285,14 +265,14 @@
         }
 
         .carousel-content-box {
-            background: rgba(19, 19, 23, 0.82);
+            background: rgba(19, 19, 23, 0.84);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 28px;
             border-bottom: 3px solid var(--primary-gold);
-            padding: clamp(24px, 5vw, 45px) clamp(18px, 4vw, 40px);
-            max-width: 820px;
+            padding: clamp(24px, 5vw, 40px) clamp(18px, 4vw, 36px);
+            max-width: 760px;
             width: 100%;
             text-align: center;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
@@ -312,29 +292,28 @@
             color: var(--primary-gold);
             border: 1px solid var(--border-gold);
             border-radius: 20px;
-            padding: 6px 16px;
-            font-size: 11px;
+            padding: 5px 14px;
+            font-size: 10.5px;
             font-weight: 600;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            margin-bottom: 16px;
-            box-shadow: 0 0 15px rgba(197, 160, 89, 0.15);
-        }
-
-        .hero-title {
-            font-size: clamp(1.75rem, 4.5vw, 3.2rem);
-            font-weight: 700;
-            line-height: 1.2;
-            color: #ffffff;
             margin-bottom: 14px;
         }
 
+        .hero-title {
+            font-size: clamp(1.65rem, 4.2vw, 2.9rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 12px;
+        }
+
         .hero-subtitle {
-            font-size: clamp(0.85rem, 2.2vw, 1.05rem);
+            font-size: clamp(0.85rem, 2vw, 1rem);
             color: #d0d0dc;
-            line-height: 1.6;
-            max-width: 620px;
-            margin: 0 auto 24px;
+            line-height: 1.55;
+            max-width: 580px;
+            margin: 0 auto 22px;
             font-weight: 300;
         }
 
@@ -344,8 +323,8 @@
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
-            width: 48px;
-            height: 48px;
+            width: 46px;
+            height: 46px;
             background: rgba(10, 10, 12, 0.7);
             border: 1px solid var(--border-gold);
             border-radius: 50%;
@@ -368,7 +347,7 @@
 
         .slider-dots {
             position: absolute;
-            bottom: 22px;
+            bottom: 20px;
             left: 0;
             right: 0;
             display: flex;
@@ -378,7 +357,7 @@
         }
 
         .slider-dot {
-            width: 32px;
+            width: 30px;
             height: 3px;
             background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
@@ -388,7 +367,7 @@
 
         .slider-dot.active {
             background: var(--primary-gold);
-            width: 48px;
+            width: 44px;
             box-shadow: 0 0 10px var(--primary-gold);
         }
 
@@ -397,22 +376,22 @@
             background: #0d0d10;
             border-top: 1px solid rgba(255, 255, 255, 0.04);
             border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding: 32px 0;
+            padding: 28px 0;
         }
 
         .trust-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
+            gap: 14px;
         }
 
         .trust-card {
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 22px;
-            padding: 22px 16px;
+            border-radius: 20px;
+            padding: 18px 14px;
             text-align: center;
-            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -421,28 +400,27 @@
 
         .trust-card:hover {
             border-color: var(--primary-gold);
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             background: var(--card-hover);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         .trust-icon {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: var(--primary-gold);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .trust-card h6 {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.6px;
         }
 
         .trust-card p {
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             color: var(--text-muted);
             margin: 0;
             line-height: 1.4;
@@ -451,27 +429,27 @@
         /* Section Headings */
         .section-header {
             text-align: center;
-            margin-bottom: 45px;
+            margin-bottom: 38px;
         }
 
         .section-eyebrow {
             font-size: 11px;
-            letter-spacing: 2.5px;
+            letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--primary-gold);
             font-weight: 600;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .section-title {
-            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-size: clamp(1.6rem, 3.2vw, 2.3rem);
             color: #fff;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .gold-divider {
-            width: 45px;
+            width: 40px;
             height: 2px;
             background: var(--primary-gold);
             margin: 0 auto;
@@ -482,25 +460,25 @@
         .service-card {
             background: var(--card-bg);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 26px;
+            border-radius: 24px;
             height: 100%;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transition: all 0.3s ease;
         }
 
         .service-card:hover {
             border-color: var(--primary-gold);
-            transform: translateY(-6px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            transform: translateY(-5px);
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6);
             background: var(--card-hover);
         }
 
         .service-img-wrapper {
             position: relative;
             width: 100%;
-            height: 240px;
+            height: 230px;
             overflow: hidden;
             background: #111;
         }
@@ -509,17 +487,17 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-            opacity: 0.9;
+            transition: transform 0.6s ease;
+            opacity: 0.92;
         }
 
         .service-card:hover .service-img-wrapper img {
-            transform: scale(1.08);
+            transform: scale(1.06);
             opacity: 1;
         }
 
         .service-content {
-            padding: 24px 20px;
+            padding: 22px 18px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -527,25 +505,25 @@
         }
 
         .service-content h4 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
             color: #fff;
         }
 
         .service-content p {
             color: var(--text-muted);
-            font-size: 0.88rem;
-            line-height: 1.6;
-            margin-bottom: 18px;
+            font-size: 0.84rem;
+            line-height: 1.55;
+            margin-bottom: 16px;
             flex-grow: 1;
         }
 
         .service-link {
             color: var(--primary-gold);
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -555,12 +533,12 @@
 
         .service-link:hover {
             color: var(--gold-hover);
-            gap: 10px;
+            gap: 9px;
         }
 
-        /* Form Inputs & Inline Alert */
+        /* Form Inputs */
         .form-control, .form-select {
-            background-color: #0d0d10 !important;
+            background-color: #0c0c10 !important;
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
             color: #ffffff !important;
         }
@@ -568,6 +546,10 @@
         .form-control:focus, .form-select:focus {
             border-color: var(--primary-gold) !important;
             box-shadow: 0 0 10px rgba(197, 160, 89, 0.25) !important;
+        }
+
+        .form-control::placeholder {
+            color: #63636f !important;
         }
 
         .form-alert {
@@ -592,18 +574,17 @@
         .footer {
             background: #060608 !important;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 70px 0 35px;
-            margin-top: 60px;
+            padding: 55px 0 30px;
+            margin-top: 50px;
         }
 
-        /* Floating Island Bottom Dock */
+        /* Mobile Bottom Floating Nav */
         .mobile-bottom-nav {
             display: none;
         }
 
-        /* --- MOBILE ENHANCEMENTS ONLY (Preserving exact desktop structure) --- */
+        /* Responsive Mobile Layout Adjustments */
         @media (max-width: 991.98px) {
-            /* Hide the redundant micro contact bar on mobile for clean app view */
             .top-micro-bar {
                 display: none !important;
             }
@@ -617,12 +598,12 @@
                 bottom: calc(12px + var(--safe-bottom));
                 left: 14px;
                 right: 14px;
-                height: 66px;
-                background: rgba(19, 19, 23, 0.92);
+                height: 64px;
+                background: rgba(19, 19, 23, 0.94);
                 backdrop-filter: blur(24px);
                 -webkit-backdrop-filter: blur(24px);
                 border: 1px solid rgba(255, 255, 255, 0.1);
-                border-radius: 34px;
+                border-radius: 32px;
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
@@ -648,14 +629,6 @@
                 margin-bottom: 2px;
             }
 
-            .nav-dock-logo {
-                width: 22px;
-                height: 22px;
-                object-fit: contain;
-                margin-bottom: 2px;
-                border-radius: 4px;
-            }
-
             .nav-dock-item.active, .nav-dock-item:hover {
                 color: var(--primary-gold);
             }
@@ -669,7 +642,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 17px;
+                font-size: 16px;
                 box-shadow: 0 6px 20px rgba(197, 160, 89, 0.45);
                 margin-top: -8px;
                 border: 2px solid #0a0a0c;
@@ -694,13 +667,13 @@
             }
 
             .hero-slider-container {
-                height: 72vh;
-                min-height: 480px;
+                height: 70vh;
+                min-height: 460px;
             }
 
             .trust-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 12px;
+                gap: 10px;
             }
 
             .slider-arrow {
@@ -711,7 +684,7 @@
         @media (max-width: 576px) {
             .carousel-content-box {
                 padding: 22px 16px;
-                border-radius: 22px;
+                border-radius: 20px;
                 border-bottom-width: 2px;
             }
             .hero-title {
@@ -721,36 +694,32 @@
             .hero-subtitle {
                 font-size: 0.82rem;
                 line-height: 1.45;
-                margin-bottom: 18px;
+                margin-bottom: 16px;
             }
             .badge-gold {
-                font-size: 9.5px;
-                padding: 4px 12px;
+                font-size: 9px;
+                padding: 4px 10px;
                 margin-bottom: 10px;
             }
             .btn-gold, .btn-gold-outline {
                 width: 100%;
-                padding: 12px 20px;
-                font-size: 11.5px;
+                padding: 12px 18px;
+                font-size: 11px;
                 border-radius: 12px;
             }
-            .trust-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
             .trust-card {
-                padding: 16px 10px;
-                border-radius: 18px;
+                padding: 14px 10px;
+                border-radius: 16px;
             }
             .trust-icon {
-                font-size: 1.4rem;
-                margin-bottom: 6px;
+                font-size: 1.35rem;
+                margin-bottom: 5px;
             }
             .service-img-wrapper {
-                height: 200px;
+                height: 190px;
             }
             .service-content {
-                padding: 18px 16px;
+                padding: 18px 14px;
             }
         }
     </style>
@@ -761,7 +730,7 @@
     <div class="top-micro-bar">
         <div class="container d-flex justify-content-between align-items-center">
             <div>
-                <i class="fa fa-map-marker-alt accent me-1"></i> <span>Melbourne</span>
+                <i class="fa fa-map-marker-alt accent me-1"></i> <span>Melbourne, VIC</span>
             </div>
             <div>
                 <a href="tel:+61412270000" class="me-3">
@@ -778,7 +747,6 @@
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top p-0 px-3 px-lg-5">
         <div class="container-fluid">
             <a href="index.html" class="navbar-brand py-2">
-                <img class="brand-logo-img" src="img/logo.png" alt="AU Cabinet Logo">
                 <h2 class="m-0 text-white">AU <span class="accent">CABINET</span></h2>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -808,63 +776,63 @@
     <!-- Interactive Hero Slider -->
     <section class="hero-slider-section" id="heroSlider">
         <div class="hero-slider-container">
-            <!-- Slide 1: Modern Luxury Kitchens -->
+            <!-- Slide 1: Kitchens -->
             <div class="hero-slide active" data-index="0">
-                <img class="hero-slide-bg" src="./img/showroom_colors.jpg" alt="Modern Luxury Kitchens" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=80';">
+                <img class="hero-slide-bg" src="./img/showroom_colors.jpg" alt="Custom Kitchens Melbourne" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1600&q=80';">
                 <div class="hero-slide-overlay">
                     <div class="carousel-content-box">
-                        <span class="badge-gold">Australian Handcrafted Joinery</span>
-                        <h1 class="hero-title">Modern Luxury Kitchens</h1>
+                        <span class="badge-gold">Made in Melbourne</span>
+                        <h1 class="hero-title">Custom Kitchens Made Easy</h1>
                         <p class="hero-subtitle">
-                            From seamless stone waterfall islands to custom timber cabinetry, engineered with precision for everyday living.
+                            New kitchens, replacement doors, and stone benchtops made to fit your room perfectly. No stress, direct from the maker.
                         </p>
                         <div class="d-flex justify-content-center gap-2 gap-sm-3 flex-wrap">
                             <a href="gallery.html#kitchen" class="btn btn-gold">
-                                <i class="fa fa-utensils me-1"></i> EXPLORE KITCHENS
+                                <i class="fa fa-utensils me-1"></i> VIEW KITCHENS
                             </a>
                             <a href="#quoteSection" class="btn btn-gold-outline">
-                                <i class="fa fa-envelope me-1"></i> REQUEST A QUOTE
+                                <i class="fa fa-envelope me-1"></i> FREE QUOTE
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 2: Robes & Storage -->
+            <!-- Slide 2: Robes -->
             <div class="hero-slide" data-index="1">
-                <img class="hero-slide-bg" src="./img/showroom_robe.jpg" alt="Bespoke Wardrobes & Dressing Suites" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=80';">
+                <img class="hero-slide-bg" src="./img/showroom_robe.jpg" alt="Custom Wardrobes" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1600&q=80';">
                 <div class="hero-slide-overlay">
                     <div class="carousel-content-box">
-                        <span class="badge-gold">Precision Storage Systems</span>
-                        <h1 class="hero-title">Walk-In Robes & Dressing Suites</h1>
+                        <span class="badge-gold">Custom Storage</span>
+                        <h1 class="hero-title">Built-In & Walk-In Wardrobes</h1>
                         <p class="hero-subtitle">
-                            Masterfully designed storage solutions featuring integrated ambient lighting and premium soft-close European hardware.
+                            Tidy up your bedroom with custom drawers, smooth soft-close runners, and hanging space built exactly for your clothes.
                         </p>
                         <div class="d-flex justify-content-center gap-2 gap-sm-3 flex-wrap">
                             <a href="gallery.html#robe" class="btn btn-gold">
-                                <i class="fa fa-door-closed me-1"></i> VIEW ROBES & STORAGE
+                                <i class="fa fa-door-closed me-1"></i> VIEW WARDROBES
                             </a>
                             <a href="#quoteSection" class="btn btn-gold-outline">
-                                <i class="fa fa-calendar-check me-1"></i> BOOK CONSULTATION
+                                <i class="fa fa-calendar-check me-1"></i> GET A PRICE
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Slide 3: Butler's Pantry & Sculleries -->
+            <!-- Slide 3: Butler's Pantry -->
             <div class="hero-slide" data-index="2">
-                <img class="hero-slide-bg" src="./img/showroom_pantry.jpg" alt="Butler's Pantry & Scullery Joinery" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1600&q=80';">
+                <img class="hero-slide-bg" src="./img/showroom_pantry.jpg" alt="Butler's Pantry" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1600&q=80';">
                 <div class="hero-slide-overlay">
                     <div class="carousel-content-box">
-                        <span class="badge-gold">Functional Luxury Spaces</span>
-                        <h1 class="hero-title">Butler's Pantry & Sculleries</h1>
+                        <span class="badge-gold">Extra Storage</span>
+                        <h1 class="hero-title">Walk-In Pantries & Storage</h1>
                         <p class="hero-subtitle">
-                            Elevated prep areas and hidden walk-through pantries with durable stone surfaces and custom appliance nooks.
+                            Keep your main kitchen clear. Extra shelves, hidden cupboards, and sturdy stone prep spaces for all your appliances.
                         </p>
                         <div class="d-flex justify-content-center gap-2 gap-sm-3 flex-wrap">
                             <a href="gallery.html#pantry" class="btn btn-gold">
-                                <i class="fa fa-wine-glass me-1"></i> VIEW PANTRY DESIGNS
+                                <i class="fa fa-wine-glass me-1"></i> VIEW PANTRIES
                             </a>
                             <a href="#quoteSection" class="btn btn-gold-outline">
                                 <i class="fa fa-comments me-1"></i> TALK TO US
@@ -876,20 +844,20 @@
 
             <!-- Slide 4: Bathrooms & Vanities -->
             <div class="hero-slide" data-index="3">
-                <img class="hero-slide-bg" src="./img/showroom_bath.jpg" alt="Custom Floating Bathroom Vanities" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=80';">
+                <img class="hero-slide-bg" src="./img/showroom_bath.jpg" alt="Bathroom Vanities" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1600&q=80';">
                 <div class="hero-slide-overlay">
                     <div class="carousel-content-box">
-                        <span class="badge-gold">Sanctuary Bathrooms</span>
-                        <h1 class="hero-title">Custom Vanities & Ensuites</h1>
+                        <span class="badge-gold">Bathroom Cabinets</span>
+                        <h1 class="hero-title">Bathroom Vanities & Ensuites</h1>
                         <p class="hero-subtitle">
-                            Moisture-resistant bespoke vanities tailored with natural stone tops and architectural fluted timber detailing.
+                            Water-resistant floating cabinets with stone tops made to match your tiles and plumbing without any swelling.
                         </p>
                         <div class="d-flex justify-content-center gap-2 gap-sm-3 flex-wrap">
                             <a href="gallery.html#bath" class="btn btn-gold">
-                                <i class="fa fa-bath me-1"></i> VIEW BATHROOM DESIGNS
+                                <i class="fa fa-bath me-1"></i> VIEW VANITIES
                             </a>
                             <a href="#quoteSection" class="btn btn-gold-outline">
-                                <i class="fa fa-envelope me-1"></i> REQUEST A QUOTE
+                                <i class="fa fa-envelope me-1"></i> FREE QUOTE
                             </a>
                         </div>
                     </div>
@@ -919,35 +887,35 @@
         <div class="container">
             <div class="trust-grid">
                 <div class="trust-card">
-                    <i class="bi bi-gem trust-icon"></i>
-                    <h6>Bespoke 3D Design</h6>
-                    <p>Tailored architectural plan</p>
+                    <i class="bi bi-eye trust-icon"></i>
+                    <h6>3D Plan First</h6>
+                    <p>See your design before we cut</p>
                 </div>
                 <div class="trust-card">
                     <i class="bi bi-shield-check trust-icon"></i>
-                    <h6>European Hardware</h6>
-                    <p>Soft-close Blum & Hafele</p>
+                    <h6>Soft-Close Always</h6>
+                    <p>Smooth Blum doors and drawers</p>
                 </div>
                 <div class="trust-card">
-                    <i class="bi bi-award trust-icon"></i>
-                    <h6>Australian Made</h6>
-                    <p>Built locally with precision</p>
+                    <i class="bi bi-droplet-slash trust-icon"></i>
+                    <h6>Water-Resistant</h6>
+                    <p>Built with moisture-proof boards</p>
                 </div>
                 <div class="trust-card">
-                    <i class="bi bi-clock-history trust-icon"></i>
-                    <h6>End-to-End Service</h6>
-                    <p>Design, build & install</p>
+                    <i class="bi bi-tools trust-icon"></i>
+                    <h6>Cut & Installed</h6>
+                    <p>Full job handled from start to finish</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Expertise / Services Section -->
+    <!-- Main Services Section -->
     <section class="py-5">
-        <div class="container py-lg-4">
+        <div class="container py-lg-3">
             <div class="section-header">
-                <span class="section-eyebrow">Our Craftsmanship</span>
-                <h2 class="section-title">Tailored Joinery Services</h2>
+                <span class="section-eyebrow">What We Do</span>
+                <h2 class="section-title">Our Cabinet Making Work</h2>
                 <div class="gold-divider"></div>
             </div>
             
@@ -959,26 +927,26 @@
                             <img src="./img/service-3.jpg" alt="Kitchen Renovations" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80';">
                         </div>
                         <div class="service-content">
-                            <h4>Kitchen Renovations</h4>
-                            <p>Complete custom kitchen builds, island benches, and facelifts using premium moisture-resistant substrates and stone.</p>
+                            <h4>Kitchens & Bench Tops</h4>
+                            <p>Brand new kitchens, island benches, or just replacement cabinet doors and new stone tops to refresh your room.</p>
                             <a href="gallery.html#kitchen" class="service-link">
-                                Explore Kitchens <i class="fa fa-arrow-right"></i>
+                                View Kitchen Photos <i class="fa fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Service 2: Premium Materials -->
+                <!-- Service 2: Materials -->
                 <div class="col-lg-4 col-md-6">
                     <div class="service-card">
                         <div class="service-img-wrapper">
-                            <img src="./img/service-2.jpg" alt="Premium Materials" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80';">
+                            <img src="./img/service-2.jpg" alt="Colours and Materials" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80';">
                         </div>
                         <div class="service-content">
-                            <h4>Premium Finishes</h4>
-                            <p>Hand-selected natural timbers, engineered stone, Polytec & Laminex surfaces with lifetime warranty Blum hardware.</p>
+                            <h4>Colours & Door Finishes</h4>
+                            <p>Big range of modern colours, timber looks, stone tops, and matte finishes from trusted brands like Polytec and Laminex.</p>
                             <a href="gallery.html#colors" class="service-link">
-                                View Material Palette <i class="fa fa-arrow-right"></i>
+                                See Colours & Samples <i class="fa fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -988,13 +956,13 @@
                 <div class="col-lg-4 col-md-6 mx-auto">
                     <div class="service-card">
                         <div class="service-img-wrapper">
-                            <img src="./img/service-1.jpg" alt="3D Architectural Planning" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80';">
+                            <img src="./img/service-1.jpg" alt="3D Drawings" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80';">
                         </div>
                         <div class="service-content">
-                            <h4>3D Architectural Planning</h4>
-                            <p>Precision CAD modeling and photorealistic 3D renders so you see your dream joinery before manufacturing starts.</p>
+                            <h4>3D Computer Drawing</h4>
+                            <p>We draw your exact kitchen or wardrobe on the computer first so you see exactly how it looks before anything is made.</p>
                             <a href="#quoteSection" class="service-link">
-                                Request 3D Design <i class="fa fa-arrow-right"></i>
+                                Ask For a 3D Plan <i class="fa fa-arrow-right"></i>
                             </a>
                         </div>
                     </div>
@@ -1003,14 +971,15 @@
         </div>
     </section>
 
-    <!-- Integrated Custom Quote Form Section -->
+    <!-- Custom Quote Form Section -->
     <section class="py-5" id="quoteSection">
         <div class="container py-lg-3" style="max-width: 750px;">
             <div class="service-card p-4 p-md-5" style="border-radius: 28px;">
                 <div class="section-header mb-4">
-                    <span class="section-eyebrow">Instant Estimation</span>
-                    <h2 class="section-title">Request a Custom Quote</h2>
-                    <div class="gold-divider"></div>
+                    <span class="section-eyebrow">Easy Quote</span>
+                    <h2 class="section-title">Get a Free Price Estimate</h2>
+                    <p class="text-muted small mt-2 mb-0">Tell us what you want to make and we will get back to you with sizes and prices.</p>
+                    <div class="gold-divider mt-3"></div>
                 </div>
 
                 <div id="formAlert" class="form-alert text-center"></div>
@@ -1019,33 +988,33 @@
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label text-muted small text-uppercase">Your Name</label>
-                            <input type="text" name="name" class="form-control rounded-3 p-3" placeholder="John Doe" required>
+                            <input type="text" name="name" class="form-control rounded-3 p-3" placeholder="John" required>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-muted small text-uppercase">Phone Number</label>
-                            <input type="tel" name="phone" class="form-control rounded-3 p-3" placeholder="+61 400 000 000" required>
+                            <input type="tel" name="phone" class="form-control rounded-3 p-3" placeholder="0400 000 000" required>
                         </div>
                         <div class="col-12">
                             <label class="form-label text-muted small text-uppercase">Email Address</label>
-                            <input type="email" name="email" class="form-control rounded-3 p-3" placeholder="john@example.com" required>
+                            <input type="email" name="email" class="form-control rounded-3 p-3" placeholder="name@email.com" required>
                         </div>
                         <div class="col-12">
-                            <label class="form-label text-muted small text-uppercase">Project Type</label>
+                            <label class="form-label text-muted small text-uppercase">What are you making?</label>
                             <select name="project_type" class="form-select rounded-3 p-3">
-                                <option value="Kitchen Renovation">Kitchen Renovation</option>
-                                <option value="Walk-In Robe / Wardrobe">Walk-In Robe / Wardrobe</option>
-                                <option value="Butler's Pantry">Butler's Pantry</option>
+                                <option value="Kitchen Renovation">Kitchen (New or renovation)</option>
+                                <option value="Walk-In Robe / Wardrobe">Wardrobe (Built-in or walk-in)</option>
+                                <option value="Butler's Pantry">Walk-in Pantry</option>
                                 <option value="Bathroom Vanity">Bathroom Vanity</option>
-                                <option value="Other Architectural Joinery">Other Architectural Joinery</option>
+                                <option value="Other Architectural Joinery">Other Custom Cabinets</option>
                             </select>
                         </div>
                         <div class="col-12">
-                            <label class="form-label text-muted small text-uppercase">Project Details / Measurements</label>
-                            <textarea name="message" rows="4" class="form-control rounded-3 p-3" placeholder="Tell us about your space, materials preferred, or timeframe..."></textarea>
+                            <label class="form-label text-muted small text-uppercase">Tell us about your room</label>
+                            <textarea name="message" rows="4" class="form-control rounded-3 p-3" placeholder="Approx room sizes, colour ideas, or what you need done..."></textarea>
                         </div>
                         <div class="col-12 text-center mt-4">
                             <button type="submit" class="btn btn-gold w-100 py-3 rounded-3" id="submitBtn">
-                                <i class="fa fa-paper-plane me-2"></i> SUBMIT QUOTE REQUEST
+                                <i class="fa fa-paper-plane me-2"></i> SEND QUOTE REQUEST
                             </button>
                         </div>
                     </div>
@@ -1058,7 +1027,7 @@
     <footer class="footer">
         <div class="container text-center">
             <div class="mx-auto mb-4">
-                <h2 class="display-6 text-white mb-2">Let's Design Your Project</h2>
+                <h2 class="display-6 text-white mb-2">Let's Build Your Project</h2>
                 <p class="small text-uppercase text-white" style="letter-spacing: 2px; opacity: 0.95;">
                     Melbourne &bull; Victoria &bull; Australia
                 </p>
@@ -1074,10 +1043,10 @@
         </div>
     </footer>
 
-    <!-- Modern Floating Island Bottom Dock (Mobile App Bar with Logo) -->
+    <!-- Modern Floating Island Bottom Dock (Mobile App Bar) -->
     <nav class="mobile-bottom-nav">
         <a href="index.html" class="nav-dock-item active">
-            <img class="nav-dock-logo" src="img/logo.png" alt="AU">
+            <i class="fa fa-home"></i>
             <span>Home</span>
         </a>
         <a href="gallery.html" class="nav-dock-item">
@@ -1093,14 +1062,13 @@
         </a>
         <a href="gallery.html#colors" class="nav-dock-item">
             <i class="fa fa-palette"></i>
-            <span>Finishes</span>
+            <span>Colours</span>
         </a>
     </nav>
 
     <!-- Bootstrap 5 JavaScript Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Pure Responsive Carousel Engine & Telegram Quote Handler -->
     <script>
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
@@ -1168,7 +1136,7 @@
         sliderContainer.addEventListener('mouseleave', startAutoSlide);
         startAutoSlide();
 
-        // Telegram Quote Form Submission Handler
+        // Telegram Quote Form Handler
         document.getElementById('quoteForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -1178,7 +1146,7 @@
             const originalText = submitBtn.innerHTML;
 
             submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i> SENDING TO TELEGRAM...';
+            submitBtn.innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i> SENDING...';
 
             const name = form.querySelector('[name="name"]').value;
             const phone = form.querySelector('[name="phone"]').value;
