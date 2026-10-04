@@ -622,25 +622,74 @@
     </nav>
 
     <!-- GitHub Live Repository Auto-Loader Script -->
+<!-- Live GitHub Repository Auto-Loader Script with Swipe & Multi-Fallback -->
     <script>
-        // --- GITHUB REPOSITORY CONFIGURATION ---
-        // Change these two to your exact GitHub account and repository:
-        const GITHUB_USERNAME = "YOUR_GITHUB_USERNAME"; 
-        const GITHUB_REPO = "YOUR_REPOSITORY_NAME";
+        const GITHUB_USERNAME = "iBehrouz"; 
+        const GITHUB_REPO = "AUCabinet";
 
         const folderDatabase = {
-            kitchen: { title: "Kitchens Collection", path: "photos/kitchen", fallback: "./img/showroom_colors.jpg" },
-            robe:    { title: "Wardrobes & Dressing Suites", path: "photos/robe", fallback: "./img/showroom_robe.jpg" },
-            pantry:  { title: "Butler's Pantry & Sculleries", path: "photos/pantry", fallback: "./img/showroom_pantry.jpg" },
-            bath:    { title: "Bathroom Vanities", path: "photos/bath", fallback: "./img/showroom_bath.jpg" },
-            laundry: { title: "Laundry Cupboards", path: "photos/laundry", fallback: "./img/service-1.jpg" },
-            colors:  { title: "Colors & Materials Swatches", path: "photos/colors", fallback: "./img/service-2.jpg" }
+            kitchen: { 
+                title: "Kitchens Collection", 
+                path: "photos/kitchen", 
+                fallback: [
+                    "photos/kitchen/1.jpg",
+                    "photos/kitchen/2.jpg",
+                    "photos/kitchen/3.jpg",
+                    "./img/showroom_colors.jpg",
+                    "./img/service-3.jpg"
+                ]
+            },
+            robe: { 
+                title: "Wardrobes & Dressing Suites", 
+                path: "photos/robe", 
+                fallback: [
+                    "photos/robe/1.jpg",
+                    "photos/robe/2.jpg",
+                    "./img/showroom_robe.jpg"
+                ]
+            },
+            pantry: { 
+                title: "Butler's Pantry & Sculleries", 
+                path: "photos/pantry", 
+                fallback: [
+                    "photos/pantry/1.jpg",
+                    "photos/pantry/2.jpg",
+                    "./img/showroom_pantry.jpg"
+                ]
+            },
+            bath: { 
+                title: "Bathroom Vanities", 
+                path: "photos/bath", 
+                fallback: [
+                    "photos/bath/1.jpg",
+                    "photos/bath/2.jpg",
+                    "./img/showroom_bath.jpg"
+                ]
+            },
+            laundry: { 
+                title: "Laundry Cupboards", 
+                path: "photos/laundry", 
+                fallback: [
+                    "photos/laundry/1.jpg",
+                    "photos/laundry/2.jpg",
+                    "./img/service-1.jpg"
+                ]
+            },
+            colors: { 
+                title: "Colors & Materials Swatches", 
+                path: "photos/colors", 
+                fallback: [
+                    "photos/colors/1.jpg",
+                    "photos/colors/2.jpg",
+                    "./img/service-2.jpg"
+                ]
+            }
         };
 
         let currentFolderPhotos = [];
         let currentPhotoIndex = 0;
 
-        function openFolder(folderKey) {
+        async function openFolder(folderKey) {
             const folder = folderDatabase[folderKey];
             if (!folder) return;
 
@@ -648,45 +697,60 @@
             document.getElementById('folderTitleText').textContent = folder.title;
 
             const strip = document.getElementById('folderThumbsStrip');
-            strip.innerHTML = '<span class="text-white-50 small p-2"><i class="fa fa-spinner fa-spin me-1"></i> Loading folder photos...</span>';
+            strip.innerHTML = '<span class="text-white-50 small p-2"><i class="fa fa-spinner fa-spin me-1"></i> Checking folder photos...</span>';
             document.getElementById('folderModal').classList.add('active');
 
-            // Query GitHub API to list all images in that directory
             const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${folder.path}`;
 
-            fetch(apiUrl)
-                .then(response => {
-                    if (!response.ok) throw new Error("Folder or API unreachable");
-                    return response.json();
-                })
-                .then(files => {
-                    const validExts = ['.jpg', '.jpeg', '.png', '.webp', '.svg'];
-                    currentFolderPhotos = files
-                        .filter(f => f.type === "file" && validExts.some(ext => f.name.toLowerCase().endsWith(ext)))
-                        .map(f => f.download_url);
+            try {
+                const response = await fetch(apiUrl, { cache: "no-store" });
+                if (!response.ok) throw new Error("API rate limit or folder path mismatch");
 
-                    if (currentFolderPhotos.length === 0) {
-                        currentFolderPhotos = [folder.fallback];
-                    }
-                    renderGallery(folder.fallback);
-                })
-                .catch(() => {
-                    // Fallback to stock image if offline / testing locally
-                    currentFolderPhotos = [folder.fallback];
-                    renderGallery(folder.fallback);
-                });
+                const files = await response.json();
+                const validExts = ['.jpg', '.jpeg', '.png', '.webp', '.svg'];
+
+                // Get all matching images from GitHub
+                const loaded = files
+                    .filter(f => f.type === "file" && validExts.some(ext => f.name.toLowerCase().endsWith(ext)))
+                    .map(f => f.download_url);
+
+                if (loaded.length > 0) {
+                    currentFolderPhotos = loaded;
+                } else {
+                    currentFolderPhotos = folder.fallback;
+                }
+            } catch (err) {
+                // If API fails or is rate-limited, load all fallback photos so slider always works
+                currentFolderPhotos = folder.fallback;
+            }
+
+            renderGallery();
         }
 
-        function renderGallery(fallbackImg) {
+        function renderGallery() {
             currentPhotoIndex = 0;
             const strip = document.getElementById('folderThumbsStrip');
             strip.innerHTML = '';
+
+            // Toggle arrow buttons visibility (hide if only 1 image exists)
+            const prevBtn = document.querySelector('.stage-nav-btn.prev');
+            const nextBtn = document.querySelector('.stage-nav-btn.next');
+            if (currentFolderPhotos.length <= 1) {
+                if (prevBtn) prevBtn.style.display = 'none';
+                if (nextBtn) nextBtn.style.display = 'none';
+            } else {
+                if (prevBtn) prevBtn.style.display = 'flex';
+                if (nextBtn) nextBtn.style.display = 'flex';
+            }
 
             currentFolderPhotos.forEach((src, idx) => {
                 const img = document.createElement('img');
                 img.src = src;
                 img.className = `thumb-item ${idx === 0 ? 'active' : ''}`;
-                img.onerror = function() { this.src = fallbackImg; };
+                img.onerror = function() {
+                    // Hide thumbnail if image fails to load
+                    this.style.display = 'none';
+                };
                 img.onclick = () => setFolderPhoto(idx);
                 strip.appendChild(img);
             });
@@ -700,6 +764,7 @@
         }
 
         function changeFolderPhoto(direction) {
+            if (currentFolderPhotos.length <= 1) return;
             currentPhotoIndex += direction;
             if (currentPhotoIndex < 0) currentPhotoIndex = currentFolderPhotos.length - 1;
             if (currentPhotoIndex >= currentFolderPhotos.length) currentPhotoIndex = 0;
@@ -721,7 +786,24 @@
             document.getElementById('folderModal').classList.remove('active');
         }
 
-        // Deep linking via URL hash (e.g., gallery.html#kitchen)
+        // --- MOBILE TOUCH SWIPE SUPPORT FOR MODAL ---
+        let touchModalStartX = 0;
+        let touchModalEndX = 0;
+        const stageWrap = document.querySelector('.photo-stage-wrap');
+
+        if (stageWrap) {
+            stageWrap.addEventListener('touchstart', (e) => {
+                touchModalStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            stageWrap.addEventListener('touchend', (e) => {
+                touchModalEndX = e.changedTouches[0].screenX;
+                if (touchModalEndX < touchModalStartX - 40) changeFolderPhoto(1);  // Swipe left -> Next
+                if (touchModalEndX > touchModalStartX + 40) changeFolderPhoto(-1); // Swipe right -> Prev
+            }, { passive: true });
+        }
+
+        // Direct URL hash handler (e.g., gallery.html#kitchen)
         window.addEventListener('DOMContentLoaded', () => {
             const hash = window.location.hash.replace('#', '');
             if (hash && folderDatabase[hash]) {
@@ -729,12 +811,15 @@
             }
         });
 
-        // Key shortcuts
+        // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') closeFolder();
             if (e.key === 'ArrowRight') changeFolderPhoto(1);
             if (e.key === 'ArrowLeft') changeFolderPhoto(-1);
         });
     </script>
+
+           
+
 </body>
 </html>
