@@ -6,7 +6,7 @@
     <title>AU Cabinet | Custom Luxury Joinery & Kitchens</title>
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport">
     <meta name="description" content="AU Cabinet - Handcrafted custom kitchens, bespoke wardrobes, vanities, and architectural joinery built with precision in Australia.">
-    <meta name="theme-color" content="#0f0f0f">
+    <meta name="theme-color" content="#0a0a0c">
     
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
@@ -32,14 +32,14 @@
         :root {
             --primary-gold: #c5a059;
             --gold-hover: #dfb96f;
-            --gold-glow: rgba(197, 160, 89, 0.25);
-            --dark-bg: #0f0f0f;
-            --card-bg: #161616;
-            --card-hover: #1e1e1e;
-            --border-color: #242424;
-            --border-gold: rgba(197, 160, 89, 0.4);
-            --text-light: #f0f0f0;
-            --text-muted: #a0a0a0;
+            --gold-glow: rgba(197, 160, 89, 0.3);
+            --dark-bg: #0a0a0c;
+            --card-bg: #131317;
+            --card-hover: #1a1a20;
+            --border-color: #24242e;
+            --border-gold: rgba(197, 160, 89, 0.45);
+            --text-light: #f3f3f6;
+            --text-muted: #94949e;
         }
 
         * {
@@ -67,11 +67,11 @@
 
         /* Top Micro Bar */
         .top-micro-bar {
-            background: #080808;
-            border-bottom: 1px solid #1a1a1a;
-            padding: 6px 16px;
+            background: rgba(10, 10, 12, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 8px 16px;
             font-size: 11px;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
             text-transform: uppercase;
         }
 
@@ -85,26 +85,26 @@
 
         /* Navbar */
         .navbar-dark {
-            background: rgba(8, 8, 8, 0.96) !important;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid #222;
-            padding: 12px 0;
+            background: rgba(10, 10, 12, 0.88) !important;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 14px 0;
             transition: all 0.3s ease;
         }
 
         .navbar-brand h2 {
-            font-size: 1.4rem;
-            letter-spacing: 2px;
+            font-size: 1.45rem;
+            letter-spacing: 2.5px;
             font-weight: 700;
         }
 
         .nav-link {
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            font-size: 12px;
+            font-size: 11.5px;
             font-weight: 500;
-            color: #d0d0d0 !important;
+            color: #c4c4cc !important;
             padding: 8px 16px !important;
             position: relative;
             transition: color 0.25s ease;
@@ -122,12 +122,13 @@
             right: 16px;
             height: 2px;
             background: var(--primary-gold);
+            box-shadow: 0 0 10px var(--primary-gold);
         }
 
         .navbar-toggler {
             border: 1px solid var(--border-gold);
             padding: 7px 11px;
-            border-radius: 0;
+            border-radius: 10px;
             color: var(--primary-gold);
             outline: none !important;
             box-shadow: none !important;
@@ -137,67 +138,65 @@
             background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23c5a059' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
         }
 
-        /* Gold Buttons with Up-style micro-interactions */
+        /* Modern Gold Buttons with Soft Glow & Haptic Press */
         .btn-gold {
-            background: var(--primary-gold);
-            color: #000000 !important;
-            border-radius: 12px;
+            background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
+            color: #0a0a0c !important;
+            border-radius: 14px;
             font-weight: 700;
             letter-spacing: 1.2px;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 11.5px;
             padding: 13px 28px;
-            border: 1px solid var(--primary-gold);
+            border: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2);
+            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25);
             min-height: 44px;
         }
 
         .btn-gold:hover {
-            background: var(--gold-hover);
-            border-color: var(--gold-hover);
-            color: #000000 !important;
+            background: linear-gradient(135deg, #eccb86 0%, #dfb96f 100%);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(197, 160, 89, 0.35);
+            box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
         }
 
         .btn-gold:active {
-            transform: scale(0.97);
+            transform: scale(0.96);
         }
 
         .btn-gold-outline {
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(19, 19, 23, 0.6);
             color: #ffffff !important;
-            border-radius: 12px;
+            border-radius: 14px;
             font-weight: 600;
             letter-spacing: 1.2px;
             text-transform: uppercase;
-            font-size: 12px;
+            font-size: 11.5px;
             padding: 13px 28px;
-            border: 1px solid var(--primary-gold);
+            border: 1px solid var(--border-gold);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
             min-height: 44px;
         }
 
         .btn-gold-outline:hover {
             background: var(--primary-gold);
-            color: #000000 !important;
+            color: #0a0a0c !important;
             border-color: var(--primary-gold);
             transform: translateY(-2px);
         }
 
         .btn-gold-outline:active {
-            transform: scale(0.97);
+            transform: scale(0.96);
         }
 
         /* Hero Carousel Slider */
@@ -258,9 +257,9 @@
             height: 100%;
             background: linear-gradient(
                 180deg,
-                rgba(0, 0, 0, 0.55) 0%,
-                rgba(0, 0, 0, 0.65) 45%,
-                rgba(15, 15, 15, 0.92) 100%
+                rgba(10, 10, 12, 0.5) 0%,
+                rgba(10, 10, 12, 0.65) 45%,
+                rgba(10, 10, 12, 0.95) 100%
             );
             display: flex;
             align-items: center;
@@ -269,20 +268,20 @@
         }
 
         .carousel-content-box {
-            background: rgba(22, 22, 22, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(19, 19, 23, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 24px;
+            border-radius: 28px;
             border-bottom: 3px solid var(--primary-gold);
             padding: clamp(24px, 5vw, 45px) clamp(18px, 4vw, 40px);
             max-width: 820px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
             transform: translateY(20px);
             opacity: 0;
-            transition: transform 0.8s ease 0.2s, opacity 0.8s ease 0.2s;
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s, opacity 0.8s ease 0.2s;
         }
 
         .hero-slide.active .carousel-content-box {
@@ -302,6 +301,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 16px;
+            box-shadow: 0 0 15px rgba(197, 160, 89, 0.15);
         }
 
         .hero-title {
@@ -314,7 +314,7 @@
 
         .hero-subtitle {
             font-size: clamp(0.85rem, 2.2vw, 1.05rem);
-            color: #d6d6d6;
+            color: #d0d0dc;
             line-height: 1.6;
             max-width: 620px;
             margin: 0 auto 24px;
@@ -329,7 +329,7 @@
             z-index: 10;
             width: 48px;
             height: 48px;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(10, 10, 12, 0.7);
             border: 1px solid var(--border-gold);
             border-radius: 50%;
             color: #fff;
@@ -337,12 +337,13 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            backdrop-filter: blur(6px);
             transition: all 0.3s ease;
         }
 
         .slider-arrow:hover {
             background: var(--primary-gold);
-            color: #000;
+            color: #0a0a0c;
         }
 
         .slider-arrow.prev { left: 18px; }
@@ -364,20 +365,22 @@
             height: 3px;
             background: rgba(255, 255, 255, 0.3);
             cursor: pointer;
+            border-radius: 2px;
             transition: all 0.3s ease;
         }
 
         .slider-dot.active {
             background: var(--primary-gold);
             width: 48px;
+            box-shadow: 0 0 10px var(--primary-gold);
         }
 
         /* Trust Bar */
         .trust-bar {
-            background: #0a0a0a;
-            border-top: 1px solid #1a1a1a;
-            border-bottom: 1px solid #222;
-            padding: 30px 0;
+            background: #0d0d10;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 32px 0;
         }
 
         .trust-grid {
@@ -388,9 +391,9 @@
 
         .trust-card {
             background: var(--card-bg);
-            border: 1px solid #222;
-            border-radius: 20px;
-            padding: 20px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 22px;
+            padding: 22px 16px;
             text-align: center;
             transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
             display: flex;
@@ -403,10 +406,11 @@
             border-color: var(--primary-gold);
             transform: translateY(-4px);
             background: var(--card-hover);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         .trust-card:active {
-            transform: scale(0.98);
+            transform: scale(0.97);
         }
 
         .trust-icon {
@@ -458,13 +462,14 @@
             height: 2px;
             background: var(--primary-gold);
             margin: 0 auto;
+            box-shadow: 0 0 10px var(--primary-gold);
         }
 
         /* Service Cards */
         .service-card {
             background: var(--card-bg);
-            border: 1px solid #222;
-            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 26px;
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -475,12 +480,12 @@
         .service-card:hover {
             border-color: var(--primary-gold);
             transform: translateY(-6px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
             background: var(--card-hover);
         }
 
         .service-card:active {
-            transform: scale(0.98);
+            transform: scale(0.97);
         }
 
         .service-img-wrapper {
@@ -495,7 +500,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
             opacity: 0.9;
         }
 
@@ -546,14 +551,14 @@
 
         /* Consultation CTA Banner */
         .quote-banner {
-            background: linear-gradient(135deg, #181611 0%, #111111 100%);
+            background: linear-gradient(135deg, #16151b 0%, #0e0e12 100%);
             border: 1px solid var(--border-gold);
-            border-radius: 28px;
+            border-radius: 30px;
             padding: 50px 30px;
             text-align: center;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
         }
 
         .quote-banner::before {
@@ -564,41 +569,44 @@
             width: 100%;
             height: 3px;
             background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+            box-shadow: 0 0 15px var(--primary-gold);
         }
 
         /* Footer */
         .footer {
-            background: #060606 !important;
-            border-top: 1px solid #222;
+            background: #060608 !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding: 70px 0 35px;
             margin-top: 60px;
         }
 
-        /* --- MOBILE APP BOTTOM DOCK & RESPONSIVE RULES --- */
+        /* --- MODERN MOBILE APP BOTTOM DOCK & RESPONSIVE RULES --- */
         .mobile-bottom-nav {
-            display: none; /* Hidden by default on PC/Desktop */
+            display: none; /* Hidden by default on PC */
         }
 
         @media (max-width: 991.98px) {
-            /* Enable bottom dock on mobile viewports only */
             body {
-                padding-bottom: 85px; /* Prevent bottom content cutoff */
+                padding-bottom: 90px; /* Safe space for floating dock */
             }
 
+            /* Floating Island Frosted Dock */
             .mobile-bottom-nav {
                 position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 75px;
-                background: rgba(18, 18, 22, 0.92);
-                backdrop-filter: blur(14px);
-                -webkit-backdrop-filter: blur(14px);
-                border-top: 1px solid rgba(255, 255, 255, 0.08);
+                bottom: 16px;
+                left: 16px;
+                right: 16px;
+                height: 72px;
+                background: rgba(19, 19, 23, 0.82);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 36px;
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
                 z-index: 1050;
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
             }
 
             .nav-dock-item {
@@ -606,14 +614,15 @@
                 flex-direction: column;
                 align-items: center;
                 text-decoration: none;
-                color: #8e8e93;
-                font-size: 10.5px;
+                color: #8e8e9c;
+                font-size: 10px;
                 font-weight: 500;
                 transition: color 0.2s ease;
+                padding: 4px 8px;
             }
 
             .nav-dock-item i {
-                font-size: 1.25rem;
+                font-size: 1.2rem;
                 margin-bottom: 3px;
             }
 
@@ -621,20 +630,20 @@
                 color: var(--primary-gold);
             }
 
-            /* Center Action Button in Mobile Dock */
+            /* Center Floating Gold Action Button */
             .nav-dock-center .plus-btn {
-                width: 48px;
-                height: 48px;
-                background: var(--primary-gold);
-                color: #000;
+                width: 50px;
+                height: 50px;
+                background: linear-gradient(135deg, #dfb96f 0%, #c5a059 100%);
+                color: #0a0a0c;
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 24px;
-                box-shadow: 0 6px 20px rgba(197, 160, 89, 0.4);
-                transition: transform 0.2s ease;
-                margin-top: -10px;
+                font-size: 22px;
+                box-shadow: 0 6px 20px rgba(197, 160, 89, 0.45);
+                transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+                margin-top: -6px;
             }
 
             .nav-dock-center .plus-btn:active {
@@ -642,21 +651,23 @@
             }
 
             .navbar-collapse {
-                background: #0e0e0e;
-                border: 1px solid #242424;
-                border-radius: 16px;
+                background: rgba(15, 15, 19, 0.96);
+                backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                border-radius: 20px;
                 margin-top: 12px;
-                padding: 18px 20px;
+                padding: 20px;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.6);
             }
             .nav-link {
                 padding: 12px 0 !important;
-                border-bottom: 1px solid #1a1a1a;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
             .nav-link.active::after {
                 display: none;
             }
             .navbar-collapse .btn-mobile-quote {
-                margin-top: 16px;
+                margin-top: 18px;
                 width: 100%;
                 text-align: center;
                 display: block !important;
@@ -680,7 +691,8 @@
                 min-height: 460px;
             }
             .carousel-content-box {
-                padding: 20px 16px;
+                padding: 22px 16px;
+                border-radius: 22px;
                 border-bottom-width: 2px;
             }
             .hero-title {
@@ -699,15 +711,17 @@
             }
             .btn-gold, .btn-gold-outline {
                 width: 100%;
-                padding: 11px 20px;
+                padding: 12px 20px;
                 font-size: 11.5px;
+                border-radius: 12px;
             }
             .trust-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
+                gap: 10px;
             }
             .trust-card {
-                padding: 14px 10px;
+                padding: 16px 10px;
+                border-radius: 18px;
             }
             .trust-icon {
                 font-size: 1.4rem;
@@ -721,6 +735,7 @@
             }
             .quote-banner {
                 padding: 35px 20px;
+                border-radius: 22px;
             }
         }
     </style>
@@ -999,7 +1014,7 @@
                 <p class="small text-uppercase text-white" style="letter-spacing: 2px; opacity: 0.95;">
                     Melbourne &bull; Victoria &bull; Australia
                 </p>
-                <div style="width: 40px; height: 2px; background: var(--primary-gold); margin: 20px auto 0;"></div>
+                <div style="width: 40px; height: 2px; background: var(--primary-gold); margin: 20px auto 0; box-shadow: 0 0 10px var(--primary-gold);"></div>
             </div>
         </div>
         
@@ -1011,7 +1026,7 @@
         </div>
     </footer>
 
-    <!-- Mobile-Only Up-Style Bottom App Navigation Bar -->
+    <!-- Modern Floating Island Bottom Dock (Mobile Only) -->
     <nav class="mobile-bottom-nav">
         <a href="index.html" class="nav-dock-item active">
             <i class="fa fa-home"></i>
@@ -1022,7 +1037,7 @@
             <span>Gallery</span>
         </a>
         <a href="tel:+61412270000" class="nav-dock-item nav-dock-center">
-            <span class="plus-btn"><i class="fa fa-phone text-dark" style="font-size: 20px;"></i></span>
+            <span class="plus-btn"><i class="fa fa-phone text-dark" style="font-size: 19px;"></i></span>
         </a>
         <a href="mailto:email@aucabinet.au?subject=Quote Inquiry" class="nav-dock-item">
             <i class="fa fa-envelope"></i>
