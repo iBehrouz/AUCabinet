@@ -1,101 +1,103 @@
 (function ($) {
     "use strict";
 
-    // FIXED: Spinner removed to prevent loading loops
-    
-    // Initiate the wowjs
-    new WOW().init();
+    // 1. Initiate WOW.js safely if present
+    if (typeof WOW !== 'undefined') {
+        new WOW().init();
+    }
 
-    // FIXED: Sticky Navbar logic - ensures it is visible and professional
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 45) {
-            $('.sticky-top').addClass('shadow-sm').css('top', '0px');
-        } else {
-            $('.sticky-top').removeClass('shadow-sm').css('top', '0px');
+    // 2. Sticky Navbar & Header Elevation
+    $(window).on('scroll', function () {
+        if ($(this).scrollTop() > 40) {
+            $('.desktop-header, .sticky-top').addClass('shadow-sm').css('background', 'rgba(10, 10, 12, 0.98)');         } else {$('.desktop-header, .sticky-top').removeClass('shadow-sm').css('background', 'rgba(10, 10, 12, 0.94)');
         }
     });
-    
-    // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) {
-            $('.back-to-top').fadeIn('slow');
+
+    // 3. Back to Top Button
+    $(window).on('scroll', function () {
+        if ($(this).scrollTop() > 300) {$('.back-to-top').fadeIn('fast');
         } else {
-            $('.back-to-top').fadeOut('slow');
+            $('.back-to-top').fadeOut('fast');
         }
     });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
+
+    $('.back-to-top').on('click', function (e) {         e.preventDefault();$('html, body').animate({ scrollTop: 0 }, 600);
         return false;
     });
 
-    // Header carousel
-    if ($(".header-carousel").length) {
-        $(".header-carousel").owlCarousel({
-            autoplay: true,
-            smartSpeed: 1500,
-            items: 1,
-            dots: true,
-            loop: true,
-            nav : true,
-            navText : [
-                '<i class="bi bi-chevron-left"></i>',
-                '<i class="bi bi-chevron-right"></i>'
-            ]
-        });
-    }
+    // 4. Smooth Anchor Link Scrolling
+    $('a[href^="#"]').on('click', function (e) {
+        const targetId = $(this).attr('href');
+        if (targetId && targetId !== '#' && $(targetId).length) {
+            e.preventDefault();
+            $('html, body').animate({
+                scrollTop: $(targetId).offset().top - 70
+            }, 500);
+        }
+    });
 
-    // Portfolio isotope and filter
-    if ($('.portfolio-container').length) {
-        var portfolioIsotope = $('.portfolio-container').isotope({
-            itemSelector: '.portfolio-item',
-            layoutMode: 'fitRows'
-        });
-        $('#portfolio-flters li').on('click', function () {
-            $("#portfolio-flters li").removeClass('active');
-            $(this).addClass('active');
-            portfolioIsotope.isotope({filter: $(this).data('filter')});
-        });
-    }
-
-    // --- NEW: Quote Form Submission Handler for GitHub / Static Hosting ---
-    $('#quoteForm').on('submit', function (e) {
+    // 5. Telegram Quote Form Handler (Synchronized with Bot)
+    $('#quoteForm').off('submit').on('submit', function (e) {
         e.preventDefault();
-        
-        const $form = $(this);
-        const $submitBtn = $form.find('button[type="submit"]');
+
+        const $form =$(this);
+        const $submitBtn =$form.find('button[type="submit"]');
+        const $alertBox =$('#formAlert');
         const originalBtnText = $submitBtn.html();
 
-        // Show loading state
+        // Loading state
         $submitBtn.prop('disabled', true).html('<i class="fa fa-spinner fa-spin me-2"></i> SENDING...');
 
-        // Collect form data
-        const formData = {
-            name: $form.find('[name="name"]').val(),
-            phone: $form.find('[name="phone"]').val(),
-            email: $form.find('[name="email"]').val(),
-            project_type: $form.find('[name="project_type"]').val(),
-            message: $form.find('[name="message"]').val()
-        };
+        const name = $form.find('[name="name"]').val() || '';
+        const phone = $form.find('[name="phone"]').val() || '';
+        const email = $form.find('[name="email"]').val() || '';
+        const project = $form.find('[name="project_type"]').val() || 'General Joinery';
+        const message = $form.find('[name="message"]').val() || 'No additional details';
 
-        // Example using Formspree or your endpoint connected to your Telegram backend
-        // (You can replace the URL below with your webhook or Formspree endpoint ID)
-        $.ajax({
-            url: 'https://formspree.io/f/YOUR_FORMSPREE_ID', // Replace with your endpoint
+        const telegramMessage = `🚨 *New AU Cabinet Quote Request!*\n\n` +
+                                `👤 *Name:* ${name}\n` +
+                                `📞 *Phone:* ${phone}\n` +
+                                `✉️ *Email:* ${email}\n` +
+                                `🏠 *Project:* ${project}\n` +
+                                `💬 *Details:* ${message}`;
+
+        const botToken = "8873455228:AAF8EpOclWq9Zk98Bema62oKJ0RulYMGve8";
+        const chatId = "-1004303472281";
+        const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+        fetch(telegramUrl, {
             method: 'POST',
-            data: formData,
-            dataType: 'json',
-            success: function(response) {
-                alert('Thank you! Your quote request has been sent successfully. Our team will contact you shortly.');
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: chatId,
+                text: telegramMessage,
+                parse_mode: 'Markdown'
+            })
+        })
+        .then(response => {
+            if (response.ok) {
+                if ($alertBox.length) {$alertBox.attr('class', 'form-alert success text-center')
+                             .html('<i class="fa fa-check-circle me-1"></i> Quote request sent! We will get back to you shortly.')
+                             .slideDown();
+                } else {
+                    alert('Quote request sent! AU Cabinet will contact you shortly.');
+                }
                 $form[0].reset();
-                $submitBtn.prop('disabled', false).html(originalBtnText);
-            },
-            error: function(err) {
-                // Fallback success simulation or direct mailto backup
-                alert('Thank you! Your quote request has been received.');
-                $form[0].reset();
-                $submitBtn.prop('disabled', false).html(originalBtnText);
+            } else {
+                throw new Error('Telegram API failure');
             }
+        })
+        .catch(() => {
+            if ($alertBox.length) {$alertBox.attr('class', 'form-alert danger text-center')
+                         .html('<i class="fa fa-exclamation-circle me-1"></i> Unable to send online. Please call <a href="tel:+61412270000" class="text-white fw-bold">+61 412 270 000</a>.')
+                         .slideDown();
+            } else {
+                alert('Could not send online. Please contact +61 412 270 000 directly.');
+            }
+        })
+        .finally(() => {
+            $submitBtn.prop('disabled', false).html(originalBtnText);
         });
     });
-    
+
 })(jQuery);
